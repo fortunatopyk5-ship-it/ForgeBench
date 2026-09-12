@@ -33,11 +33,22 @@ namespace ForgeBench.EditorTools
             "Assets/Scripts/Production/SpecialistDeviceVisuals.cs",
             "Assets/Scripts/Production/EngineeringDiagnosticsPanel.cs",
             "Assets/Scripts/Production/EngineeringTerminalLayer.cs",
+            "Assets/Scripts/Production/WorkshopBusinessPanel.cs",
+            "Assets/Scripts/Production/WorkshopManagementTerminalLayer.cs",
+            "Assets/Scripts/Production/WorkshopBusinessLifecycle.cs",
+            "Assets/Scripts/Production/SupplyChainPanel.cs",
+            "Assets/Scripts/Production/SupplyChainTerminalLayer.cs",
+            "Assets/Scripts/Production/AdvancedJobLifecycle.cs",
             "Assets/Scripts/Simulation/SpecialistRepairServices.cs",
             "Assets/Scripts/Simulation/SpecialistJobService.cs",
             "Assets/Scripts/Simulation/EngineeringSimulationService.cs",
+            "Assets/Scripts/Simulation/WorkshopBusinessService.cs",
+            "Assets/Scripts/Simulation/SupplyChainService.cs",
+            "Assets/Scripts/Simulation/AdvancedJobGeneratorService.cs",
             "Assets/Scripts/Runtime/SpecialistRuntimeExtensions.cs",
             "Assets/Scripts/Runtime/EngineeringRuntimeExtensions.cs",
+            "Assets/Scripts/Runtime/BusinessRuntimeExtensions.cs",
+            "Assets/Scripts/Runtime/SupplyChainRuntimeExtensions.cs",
             "Assets/link.xml"
         };
 
@@ -73,7 +84,7 @@ namespace ForgeBench.EditorTools
                 PlayerSettings.allowedAutorotateToLandscapeRight=true;
             }
 
-            Debug.Log("ForgeBench production gate passed: "+data.parts.Count+" hardware definitions; core, specialist and engineering source present; save schema "+SaveService.CurrentSchema+"; Android settings enforced.");
+            Debug.Log("ForgeBench production gate passed: "+data.parts.Count+" hardware definitions; engineering, specialist, business, supply-chain and procedural-contract source present; save schema "+SaveService.CurrentSchema+"; Android settings enforced.");
         }
     }
 }
