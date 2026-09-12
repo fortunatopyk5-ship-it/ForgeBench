@@ -4,9 +4,9 @@ using UnityEngine;
 namespace ForgeBench
 {
     /// <summary>
-    /// Applies time-based wear to specialist systems after the ordinary day cycle.
-    /// It watches persisted day state rather than using real-time timers, so save/load
-    /// and pause/resume cannot duplicate wear events.
+    /// Applies deterministic time-based wear after the ordinary day cycle. It watches
+    /// persisted day state rather than realtime timers, so save/load and pause/resume
+    /// cannot duplicate aging events.
     /// </summary>
     public sealed class SpecialistLifecycle : MonoBehaviour
     {
@@ -36,24 +36,22 @@ namespace ForgeBench
             int delta=Mathf.Clamp(game.State.day-observedDay,0,365);observedDay=game.State.day;
             if(delta<=0)return;
             bool changed=false;
+            EngineeringSimulationService engineering=new EngineeringSimulationService(game.Inventory,game.PowerThermal,game.Boot,game.State.workshop);
+            LiquidCoolingService liquid=new LiquidCoolingService(game.Inventory,game.State.workshop);
             foreach(MachineState m in game.State.machines)
             {
                 for(int d=0;d<delta;d++)
                 {
-                    if(m.liquidLoop!=null&&m.liquidLoop.coolantLitres>0f)
-                    {
-                        new LiquidCoolingService(game.Inventory,game.State.workshop).AgeOneDay(m);changed=true;
-                    }
+                    engineering.AgeOneDay(m);changed=true;
+                    if(m.liquidLoop!=null&&m.liquidLoop.coolantLitres>0f) liquid.AgeOneDay(m);
                     if(m.portable!=null)
                     {
                         m.portable.batteryHealth=Mathf.Max(.05f,m.portable.batteryHealth-.00025f);
                         if(!m.portable.sealed)m.portable.adhesiveIntegrity=Mathf.Max(0f,m.portable.adhesiveIntegrity-.006f);
-                        changed=true;
                     }
                     if(m.network!=null&&m.network.linkUp)
                     {
                         m.network.throughputMbps=0f;m.network.latencyMs=0;
-                        changed=true;
                     }
                 }
             }
