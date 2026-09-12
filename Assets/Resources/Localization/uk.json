@@ -1,0 +1,120 @@
+{
+  "entries": [
+    {
+      "key": "app.title",
+      "value": "FORGEBENCH"
+    },
+    {
+      "key": "tab.jobs",
+      "value": "ЗАМОВЛЕННЯ"
+    },
+    {
+      "key": "tab.store",
+      "value": "МАГАЗИН"
+    },
+    {
+      "key": "tab.inventory",
+      "value": "СКЛАД"
+    },
+    {
+      "key": "tab.bench",
+      "value": "ВЕРСТАК"
+    },
+    {
+      "key": "tab.bios",
+      "value": "BIOS"
+    },
+    {
+      "key": "tab.os",
+      "value": "ОС"
+    },
+    {
+      "key": "tab.diag",
+      "value": "ДІАГНОСТИКА"
+    },
+    {
+      "key": "tab.progress",
+      "value": "ПРОГРЕС"
+    },
+    {
+      "key": "tab.settings",
+      "value": "НАЛАШТУВАННЯ"
+    },
+    {
+      "key": "hud.tablet",
+      "value": "ПЛАНШЕТ"
+    },
+    {
+      "key": "hud.interact",
+      "value": "ДІЯ"
+    },
+    {
+      "key": "jobs.none",
+      "value": "Немає активного замовлення. Вибери пропозицію нижче."
+    },
+    {
+      "key": "jobs.submit",
+      "value": "ПЕРЕВІРИТИ Й ЗДАТИ"
+    },
+    {
+      "key": "store.receive",
+      "value": "ПРИЙНЯТИ ДОСТАВКИ"
+    },
+    {
+      "key": "store.nextday",
+      "value": "НАСТУПНИЙ ДЕНЬ"
+    },
+    {
+      "key": "bench.connect",
+      "value": "ПІДКЛЮЧИТИ КАБЕЛІ"
+    },
+    {
+      "key": "bench.paste",
+      "value": "НАНЕСТИ ТЕРМОПАСТУ"
+    },
+    {
+      "key": "bench.power",
+      "value": "УВІМКНУТИ / POST"
+    },
+    {
+      "key": "bench.clean",
+      "value": "ОЧИСТИТИ ПРИСТРІЙ"
+    },
+    {
+      "key": "os.install",
+      "value": "ВСТАНОВИТИ FORGEOS"
+    },
+    {
+      "key": "os.drivers",
+      "value": "ВСТАНОВИТИ ДРАЙВЕРИ"
+    },
+    {
+      "key": "os.benchmark",
+      "value": "ЗАПУСТИТИ БЕНЧМАРК"
+    },
+    {
+      "key": "diag.scan",
+      "value": "ЗАПУСТИТИ ДІАГНОСТИКУ"
+    },
+    {
+      "key": "progress.upgrade",
+      "value": "ПОКРАЩИТИ МАЙСТЕРНЮ"
+    },
+    {
+      "key": "settings.save",
+      "value": "ЗБЕРЕГТИ СЛОТ 1"
+    },
+    {
+      "key": "settings.load",
+      "value": "ЗАВАНТАЖИТИ СЛОТ 1"
+    },
+    {
+      "key": "settings.language",
+      "value": "ЗМІНИТИ МОВУ"
+    },
+    {
+      "key": "settings.battery",
+      "value": "ЕКОНОМІЯ БАТАРЕЇ"
+    }
+  ]
+}

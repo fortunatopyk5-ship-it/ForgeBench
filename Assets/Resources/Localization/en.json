@@ -1,0 +1,120 @@
+{
+  "entries": [
+    {
+      "key": "app.title",
+      "value": "FORGEBENCH"
+    },
+    {
+      "key": "tab.jobs",
+      "value": "JOBS"
+    },
+    {
+      "key": "tab.store",
+      "value": "STORE"
+    },
+    {
+      "key": "tab.inventory",
+      "value": "INVENTORY"
+    },
+    {
+      "key": "tab.bench",
+      "value": "BENCH"
+    },
+    {
+      "key": "tab.bios",
+      "value": "BIOS"
+    },
+    {
+      "key": "tab.os",
+      "value": "OS"
+    },
+    {
+      "key": "tab.diag",
+      "value": "DIAG"
+    },
+    {
+      "key": "tab.progress",
+      "value": "PROGRESS"
+    },
+    {
+      "key": "tab.settings",
+      "value": "SETTINGS"
+    },
+    {
+      "key": "hud.tablet",
+      "value": "TABLET"
+    },
+    {
+      "key": "hud.interact",
+      "value": "INTERACT"
+    },
+    {
+      "key": "jobs.none",
+      "value": "No active job. Choose an offer below."
+    },
+    {
+      "key": "jobs.submit",
+      "value": "VALIDATE & SUBMIT"
+    },
+    {
+      "key": "store.receive",
+      "value": "RECEIVE DELIVERIES"
+    },
+    {
+      "key": "store.nextday",
+      "value": "ADVANCE DAY"
+    },
+    {
+      "key": "bench.connect",
+      "value": "CONNECT CABLES"
+    },
+    {
+      "key": "bench.paste",
+      "value": "APPLY THERMAL PASTE"
+    },
+    {
+      "key": "bench.power",
+      "value": "POWER ON / POST"
+    },
+    {
+      "key": "bench.clean",
+      "value": "CLEAN DEVICE"
+    },
+    {
+      "key": "os.install",
+      "value": "INSTALL FORGEOS"
+    },
+    {
+      "key": "os.drivers",
+      "value": "INSTALL DRIVERS"
+    },
+    {
+      "key": "os.benchmark",
+      "value": "RUN BENCHMARK"
+    },
+    {
+      "key": "diag.scan",
+      "value": "RUN DIAGNOSTICS"
+    },
+    {
+      "key": "progress.upgrade",
+      "value": "UPGRADE WORKSHOP"
+    },
+    {
+      "key": "settings.save",
+      "value": "SAVE SLOT 1"
+    },
+    {
+      "key": "settings.load",
+      "value": "LOAD SLOT 1"
+    },
+    {
+      "key": "settings.language",
+      "value": "SWITCH LANGUAGE"
+    },
+    {
+      "key": "settings.battery",
+      "value": "BATTERY SAVER"
+    }
+  ]
+}
