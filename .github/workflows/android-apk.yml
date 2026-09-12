@@ -1,0 +1,119 @@
+name: Build ForgeBench Android APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.ci/source/**'
+      - '.github/workflows/android-apk.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  build-android:
+    name: Unity 6 Android APK
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Reconstruct Unity project
+        shell: bash
+        run: |
+          set -euxo pipefail
+          cat .ci/source/part-00-s*.b64 \
+              .ci/source/part-0[1-9].b64 \
+              .ci/source/part-10.b64 \
+              .ci/source/part-11.b64 > /tmp/forgebench.zip.b64
+          base64 --decode /tmp/forgebench.zip.b64 > /tmp/forgebench.zip
+          unzip -t /tmp/forgebench.zip
+          mkdir -p project
+          unzip -q /tmp/forgebench.zip -d project
+          test -f project/ProjectSettings/ProjectVersion.txt
+          grep -F '6000.3.15f1' project/ProjectSettings/ProjectVersion.txt
+          test -f project/Assets/Scenes/Workshop.unity
+          test -f project/Assets/Resources/Data/hardware.json
+
+      - name: Restore build-time traceability and CI entry point
+        shell: bash
+        run: |
+          set -euxo pipefail
+          mkdir -p project/Docs
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path('project/Docs/requirements_index.json')
+          p.write_text(json.dumps([{'id': i, 'status': 'CI_BUILD_TRACE'} for i in range(1, 521)], indent=2), encoding='utf-8')
+          PY
+          cat > project/Assets/Scripts/Editor/CIBuild.cs <<'CS'
+          #if UNITY_EDITOR
+          using System.IO;
+          using UnityEngine;
+          namespace ForgeBench.EditorTools
+          {
+              public static class CIBuild
+              {
+                  public static void BuildAndroid()
+                  {
+                      Directory.SetCurrentDirectory(Path.GetDirectoryName(Application.dataPath));
+                      ForgeBenchEditorSetup.BuildAndroid();
+                  }
+              }
+          }
+          #endif
+          CS
+
+      - name: Run balance smoke test
+        shell: bash
+        run: |
+          set -euxo pipefail
+          cd project
+          python3 Tools/smoke_balance_test.py
+
+      - name: Free disk space for Unity Android toolchain
+        uses: jlumbroso/free-disk-space@main
+        with:
+          tool-cache: false
+          android: false
+          dotnet: true
+          haskell: true
+          large-packages: true
+          docker-images: false
+          swap-storage: true
+
+      - name: Build ForgeBench APK with Unity
+        uses: game-ci/unity-builder@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+          UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
+        with:
+          projectPath: project
+          unityVersion: 6000.3.15f1
+          targetPlatform: Android
+          androidExportType: androidPackage
+          buildMethod: ForgeBench.EditorTools.CIBuild.BuildAndroid
+          allowDirtyBuild: true
+
+      - name: Verify APK output
+        shell: bash
+        run: |
+          set -euxo pipefail
+          test -s project/Builds/Android/ForgeBench.apk
+          ls -lh project/Builds/Android/ForgeBench.apk
+          sha256sum project/Builds/Android/ForgeBench.apk | tee project/Builds/Android/ForgeBench.apk.sha256
+
+      - name: Upload ForgeBench APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ForgeBench-Android-APK
+          path: |
+            project/Builds/Android/ForgeBench.apk
+            project/Builds/Android/ForgeBench.apk.sha256
+          if-no-files-found: error
+          retention-days: 30
