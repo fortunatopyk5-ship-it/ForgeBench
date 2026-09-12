@@ -151,7 +151,7 @@ namespace ForgeBench
             HardwareDefinition d = Inventory.Def(item);
             if (d == null) { Notify("Part definition missing.", false); return; }
 
-            if (d.category == PartCategory.RAM) m.ramItemIds.Add(item.instanceId);
+            if (d.category == PartCategory.RAM) InstallRamInRecommendedSlot(m, item.instanceId);
             else if (d.category == PartCategory.Storage) m.storageItemIds.Add(item.instanceId);
             else if (d.category == PartCategory.Fan) m.fanItemIds.Add(item.instanceId);
             else
@@ -197,7 +197,16 @@ namespace ForgeBench
             if (m == null || item == null) return;
             HardwareDefinition removing = Inventory.Def(item);
             if (removing != null && removing.category != PartCategory.Case && !Assembly.InternalsAccessible(m)) { Notify("Remove the side panel before removing internal components.", false); return; }
-            if (m.ramItemIds.Remove(instanceId) || m.storageItemIds.Remove(instanceId) || m.fanItemIds.Remove(instanceId) || ClearSingleIfMatches(m, instanceId))
+            bool removed = false;
+            int ramIndex = m.ramItemIds.IndexOf(instanceId);
+            if (ramIndex >= 0)
+            {
+                m.ramItemIds.RemoveAt(ramIndex);
+                if (m.ramSlotIndices != null && ramIndex < m.ramSlotIndices.Count) m.ramSlotIndices.RemoveAt(ramIndex);
+                removed = true;
+            }
+            else if (m.storageItemIds.Remove(instanceId) || m.fanItemIds.Remove(instanceId) || ClearSingleIfMatches(m, instanceId)) removed = true;
+            if (removed)
             {
                 item.reserved = false; item.note = string.Empty; m.bootState = BootState.Off; m.benchmarkScore = 0; m.stressStable = false;
                 if (removing != null && removing.category == PartCategory.Case) { m.sidePanelInstalled = false; m.sidePanel = new PanelState { installed = false }; }
@@ -219,18 +228,41 @@ namespace ForgeBench
         {
             MachineState m = ActiveMachine;
             if (m == null) { Notify("No device on bench.", false); return; }
-            m.cables.atx24 = !string.IsNullOrEmpty(m.motherboardItemId) && !string.IsNullOrEmpty(m.psuItemId);
-            m.cables.cpuEps = !string.IsNullOrEmpty(m.cpuItemId) && !string.IsNullOrEmpty(m.psuItemId);
-            m.cables.frontPanel = !string.IsNullOrEmpty(m.caseItemId) && !string.IsNullOrEmpty(m.motherboardItemId);
-            m.cables.cpuFan = !string.IsNullOrEmpty(m.coolerItemId);
-            m.cables.pump = Inventory.Def(Inventory.Get(m.coolerItemId))?.tags.Contains("aio") ?? false;
+            HardwareDefinition board = Inventory.Def(Inventory.Get(m.motherboardItemId));
+            HardwareDefinition psu = Inventory.Def(Inventory.Get(m.psuItemId));
             HardwareDefinition gpu = Inventory.Def(Inventory.Get(m.gpuItemId));
-            m.cables.gpuPower = gpu == null || gpu.powerWatts < 180 || !string.IsNullOrEmpty(m.psuItemId);
-            m.cables.sataPower = m.storageItemIds.Any(id => Inventory.Def(Inventory.Get(id))?.storageInterface != "NVMe");
-            m.cables.sataData = m.cables.sataPower;
-            m.cables.rgb = m.fanItemIds.Count > 0;
-            m.cableManagementScore = Mathf.Clamp01(0.58f + State.workshop.benchLevel * 0.07f);
-            m.history.Add("Cables routed and connected"); MarkInProgress(); Autosave(); Refresh(); Notify("Required power, data and front-panel cables connected.");
+            HardwareDefinition cooler = Inventory.Def(Inventory.Get(m.coolerItemId));
+            HardwareDefinition pcCase = Inventory.Def(Inventory.Get(m.caseItemId));
+            List<string> unresolved = new List<string>();
+
+            m.cables.atx24 = board != null && psu != null && board.connectors.Contains("ATX24") && psu.connectors.Contains("ATX24");
+            m.cables.cpuEps = board != null && psu != null && !string.IsNullOrEmpty(m.cpuItemId) && board.connectors.Contains("EPS8") && psu.connectors.Contains("EPS8");
+            m.cables.frontPanel = pcCase != null && board != null && board.connectors.Contains("FRONT_PANEL");
+            m.cables.cpuFan = cooler != null && board != null && board.connectors.Contains("CPU_FAN");
+            m.cables.pump = cooler != null && cooler.tags.Contains("aio") ? (board != null && board.fanHeaders >= 2) : false;
+
+            List<string> gpuPower = gpu == null ? new List<string>() : gpu.connectors.Where(c => c == "PCIE8" || c == "12V2x6").ToList();
+            m.cables.gpuPower = gpu == null || gpuPower.Count == 0 || (psu != null && gpuPower.All(c => psu.connectors.Contains(c)));
+
+            bool hasSata = m.storageItemIds.Any(id => Inventory.Def(Inventory.Get(id))?.storageInterface == "SATA");
+            m.cables.sataPower = !hasSata || (psu != null && psu.connectors.Contains("SATA_POWER"));
+            m.cables.sataData = !hasSata || (board != null && board.connectors.Contains("SATA") && board.sataPorts > 0);
+            m.cables.rgb = m.fanItemIds.Any(id => Inventory.Def(Inventory.Get(id))?.tags.Contains("rgb") == true) || (pcCase?.tags.Contains("rgb") ?? false);
+
+            if (!m.cables.atx24) unresolved.Add("ATX24");
+            if (!m.cables.cpuEps) unresolved.Add("CPU EPS");
+            if (!m.cables.frontPanel) unresolved.Add("front panel");
+            if (!m.cables.cpuFan) unresolved.Add("CPU fan");
+            if (cooler != null && cooler.tags.Contains("aio") && !m.cables.pump) unresolved.Add("pump header");
+            if (!m.cables.gpuPower) unresolved.Add("GPU power");
+            if (!m.cables.sataPower) unresolved.Add("SATA power");
+            if (!m.cables.sataData) unresolved.Add("SATA data");
+
+            m.cableManagementScore = unresolved.Count == 0 ? Mathf.Clamp01(.62f + State.workshop.benchLevel * .07f) : Mathf.Clamp01(.35f + State.workshop.benchLevel * .04f);
+            m.history.Add("Cable routing pass: " + (unresolved.Count == 0 ? "all required paths connected" : "unresolved " + string.Join(", ", unresolved)));
+            MarkInProgress(); Autosave(); Refresh();
+            if (unresolved.Count == 0) Notify("Required power, data, fan and front-panel cables connected.");
+            else Notify("Cable routing incomplete: " + string.Join(", ", unresolved) + ".", false);
         }
 
         public void ApplyThermalPaste()
@@ -375,6 +407,22 @@ namespace ForgeBench
         private void Autosave() { if (State != null) Saves.Save(State, 1); }
         private void Refresh() { Events?.Publish("state.changed"); UI?.Refresh(); World?.RefreshMachine(); }
         public void Notify(string text, bool success = true) { UI?.ShowToast(text, success); Feedback?.Play(success); Debug.Log((success ? "[ForgeBench] " : "[ForgeBench ERROR] ") + text); }
+
+        private void InstallRamInRecommendedSlot(MachineState m, string instanceId)
+        {
+            if (m.ramSlotIndices == null) m.ramSlotIndices = new List<int>();
+            HardwareDefinition board = Inventory.Def(Inventory.Get(m.motherboardItemId));
+            int slots = Mathf.Clamp(board?.dimmSlots ?? 4, 1, 8);
+            int[] preferred = slots >= 4 ? new[] { 1, 3, 0, 2, 4, 5, 6, 7 } : new[] { 0, 1, 2, 3, 4, 5, 6, 7 };
+            int chosen = 0;
+            foreach (int candidate in preferred)
+            {
+                if (candidate >= slots) continue;
+                if (!m.ramSlotIndices.Contains(candidate)) { chosen = candidate; break; }
+            }
+            m.ramItemIds.Add(instanceId);
+            m.ramSlotIndices.Add(chosen);
+        }
 
         private static string GetSingleSlot(MachineState m, PartCategory category)
         {
