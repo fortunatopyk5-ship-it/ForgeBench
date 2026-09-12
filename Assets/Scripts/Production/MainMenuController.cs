@@ -13,7 +13,6 @@ namespace ForgeBench
         private Text subtitle;
         private Font font;
         private bool built;
-        private bool pausedByMenu;
 
         private void Start()
         {
@@ -34,8 +33,13 @@ namespace ForgeBench
             if (!built) Build();
             if (panel == null) return;
             panel.SetActive(visible);
-            pausedByMenu = visible;
-            if (visible) Cursor.lockState = CursorLockMode.None;
+            FirstPersonController fp=FindAnyObjectByType<FirstPersonController>();
+            if(fp!=null)fp.enabled=!visible;
+            MobileInputState.Move=Vector2.zero;
+            MobileInputState.Look=Vector2.zero;
+            MobileInputState.InteractHeld=false;
+            MobileInputState.InteractPressed=false;
+            Cursor.lockState=visible?CursorLockMode.None:CursorLockMode.Locked;
             RefreshSubtitle();
         }
 
