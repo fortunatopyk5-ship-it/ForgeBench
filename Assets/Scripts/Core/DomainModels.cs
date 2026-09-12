@@ -10,6 +10,8 @@ namespace ForgeBench
     public enum ShipmentStatus { Ordered, InTransit, Delivered, Received, Returned }
     public enum BootState { Off, Posting, PostFailed, Bios, Bootloader, OperatingSystem }
     public enum FaultType { None, DeadPart, Overheating, UnstableMemory, BadStorage, MissingCable, Dust, FanFailure, ConnectorDamage, BatteryWear, DisplayFault, Firmware }
+    public enum DamageType { None, BentPins, StrippedFastener, BurnedConnector, LiquidContamination, CrackedSolder, Corrosion, ImpactDamage }
+    public enum BenchmarkStatus { NotRun, Passed, Warning, Failed }
 
     [Serializable]
     public class HardwareCatalogData { public List<HardwareDefinition> parts = new List<HardwareDefinition>(); }
@@ -83,6 +85,11 @@ namespace ForgeBench
         public bool customerOwned;
         public string ownerJobId;
         public FaultType fault;
+        public DamageType damage;
+        public int powerCycles;
+        public float readGB;
+        public float writtenGB;
+        public float lastTempC = 24f;
         public string note;
     }
 
@@ -98,6 +105,14 @@ namespace ForgeBench
         public int memorySpeedOverride;
         public int cpuMultiplierOffset;
         public float voltageOffset;
+        public float cpuVoltage = 1.10f;
+        public float socVoltage = 1.00f;
+        public float memoryVoltage = 1.20f;
+        public bool resizableBar = true;
+        public bool above4G = true;
+        public bool csm;
+        public bool lastTrainingPassed = true;
+        public string lastTrainingMessage = "Not trained yet";
     }
 
     [Serializable]
@@ -217,6 +232,86 @@ namespace ForgeBench
     }
 
     [Serializable]
+    public class OsRuntimeState
+    {
+        public string filesystem = "ForgeFS";
+        public int partitionCount;
+        public int freeStorageGB;
+        public bool systemFilesHealthy = true;
+        public int driverRevision;
+        public int pendingUpdates = 3;
+        public bool firewallEnabled = true;
+        public bool networkStackReady;
+        public int crashCount;
+        public string lastCrashCode;
+        public List<string> history = new List<string>();
+    }
+
+    [Serializable]
+    public class BenchmarkRunState
+    {
+        public float cpuScore;
+        public float gpuScore;
+        public float memoryScore;
+        public float storageScore;
+        public float totalScore;
+        public int stressMinutes;
+        public int memoryErrors;
+        public float peakCpuC;
+        public float peakGpuC;
+        public float peakPowerW;
+        public float minimum12V = 12f;
+        public float maxRippleMv;
+        public BenchmarkStatus status;
+        public string lastResult;
+        public List<string> history = new List<string>();
+    }
+
+    [Serializable]
+    public class ThermalRuntimeState
+    {
+        public float ambientC = 23f;
+        public float caseAirC = 26f;
+        public float vrmC = 35f;
+        public float storageC = 32f;
+        public float coolantC = 25f;
+        public float airflowCfm;
+        public float pressureBalance;
+        public bool cpuThrottling;
+        public bool gpuThrottling;
+        public int intakeFans;
+        public int exhaustFans;
+        public List<string> history = new List<string>();
+    }
+
+    [Serializable]
+    public class PowerRuntimeState
+    {
+        public float rail12V = 12f;
+        public float rail5V = 5f;
+        public float rail33V = 3.3f;
+        public float rippleMv;
+        public float efficiency = .86f;
+        public float headroomW;
+        public float transientPeakW;
+        public bool ocpTriggered;
+        public bool stable = true;
+        public List<string> history = new List<string>();
+    }
+
+    [Serializable]
+    public class MaintenanceState
+    {
+        public float filterDust;
+        public int thermalPasteAgeDays;
+        public int serviceAgeDays;
+        public float corrosion;
+        public bool esdIncident;
+        public int cleaningCycles;
+        public List<string> history = new List<string>();
+    }
+
+    [Serializable]
     public class MachineState
     {
         public string machineId;
@@ -248,6 +343,11 @@ namespace ForgeBench
         public BoardRepairState boardRepair = new BoardRepairState();
         public PortableDeviceState portable = new PortableDeviceState();
         public NetworkLabState network = new NetworkLabState();
+        public OsRuntimeState osState = new OsRuntimeState();
+        public BenchmarkRunState benchmarkState = new BenchmarkRunState();
+        public ThermalRuntimeState thermalState = new ThermalRuntimeState();
+        public PowerRuntimeState powerState = new PowerRuntimeState();
+        public MaintenanceState maintenance = new MaintenanceState();
         public bool thermalPasteApplied;
         public float thermalPasteQuality;
         public float dust;
@@ -354,7 +454,7 @@ namespace ForgeBench
     [Serializable]
     public class GameState
     {
-        public int schemaVersion = 6;
+        public int schemaVersion = 7;
         public string saveId;
         public int day = 1;
         public float money = 1800f;
