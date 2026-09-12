@@ -6,7 +6,7 @@ namespace ForgeBench
 {
     public sealed class SaveService
     {
-        public const int CurrentSchema = 6;
+        public const int CurrentSchema = 7;
         private readonly string root;
         public SaveService()
         {
@@ -95,6 +95,16 @@ namespace ForgeBench
                 if (m.portable.history == null) m.portable.history = new System.Collections.Generic.List<string>();
                 if (m.network == null) m.network = new NetworkLabState();
                 if (m.network.history == null) m.network.history = new System.Collections.Generic.List<string>();
+                if (m.osState == null) m.osState = new OsRuntimeState();
+                if (m.osState.history == null) m.osState.history = new System.Collections.Generic.List<string>();
+                if (m.benchmarkState == null) m.benchmarkState = new BenchmarkRunState();
+                if (m.benchmarkState.history == null) m.benchmarkState.history = new System.Collections.Generic.List<string>();
+                if (m.thermalState == null) m.thermalState = new ThermalRuntimeState();
+                if (m.thermalState.history == null) m.thermalState.history = new System.Collections.Generic.List<string>();
+                if (m.powerState == null) m.powerState = new PowerRuntimeState();
+                if (m.powerState.history == null) m.powerState.history = new System.Collections.Generic.List<string>();
+                if (m.maintenance == null) m.maintenance = new MaintenanceState();
+                if (m.maintenance.history == null) m.maintenance.history = new System.Collections.Generic.List<string>();
                 if (m.history == null) m.history = new System.Collections.Generic.List<string>();
             }
             foreach (JobState j in s.jobs)
