@@ -39,6 +39,34 @@ namespace ForgeBench
         public int pcieGeneration;
         public int vramGB;
         public int quality;
+        public int coreCount;
+        public int threadCount;
+        public int baseClockMHz;
+        public int boostClockMHz;
+        public float idlePowerWatts;
+        public int dimmSlots;
+        public int maxMemoryGB;
+        public int memoryChannels;
+        public int m2Slots;
+        public int sataPorts;
+        public int pcieX16Slots;
+        public int fanHeaders;
+        public int driveBays25;
+        public int driveBays35;
+        public int radiatorSupportMm;
+        public float gpuSlotWidth;
+        public int fanSizeMm;
+        public int maxRpm;
+        public float airflowCfm;
+        public float staticPressure;
+        public int readMBs;
+        public int writeMBs;
+        public int enduranceTBW;
+        public bool modularPsu;
+        public int efficiencyClass;
+        public int batteryMah;
+        public int displayHz;
+        public string firmwareTier;
         public List<string> connectors = new List<string>();
         public List<string> tags = new List<string>();
     }
@@ -86,7 +114,6 @@ namespace ForgeBench
         public bool rgb;
     }
 
-
     [Serializable]
     public class FastenerState
     {
@@ -112,7 +139,7 @@ namespace ForgeBench
         public float themeR = 0.08f;
         public float themeG = 0.65f;
         public float themeB = 1f;
-        public int rgbEffect; // 0 static, 1 breathing, 2 cycle
+        public int rgbEffect;
         public int cableColorIndex;
         public int caseFinishIndex;
         public bool rgbSync = true;
@@ -129,6 +156,7 @@ namespace ForgeBench
         public string motherboardItemId;
         public string cpuItemId;
         public List<string> ramItemIds = new List<string>();
+        public List<int> ramSlotIndices = new List<int>();
         public string gpuItemId;
         public List<string> storageItemIds = new List<string>();
         public string psuItemId;
@@ -251,7 +279,7 @@ namespace ForgeBench
     [Serializable]
     public class GameState
     {
-        public int schemaVersion = 4;
+        public int schemaVersion = 5;
         public string saveId;
         public int day = 1;
         public float money = 1800f;
