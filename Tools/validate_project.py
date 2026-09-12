@@ -13,38 +13,49 @@ def loadj(rel):
     try: return json.loads((ROOT/rel).read_text(encoding='utf-8'))
     except Exception as e: fail('JSON '+rel, str(e)); return None
 
-# Required deliverable paths
 required=[
  'Assets/Scenes/Workshop.unity','Assets/Scripts/Core/DomainModels.cs','Assets/Scripts/Simulation/GameSimulation.cs',
+ 'Assets/Scripts/Simulation/EngineeringSimulationService.cs','Assets/Scripts/Simulation/SpecialistRepairServices.cs',
+ 'Assets/Scripts/Simulation/SpecialistJobService.cs','Assets/Scripts/Simulation/WorkshopBusinessService.cs',
+ 'Assets/Scripts/Simulation/SupplyChainService.cs','Assets/Scripts/Simulation/AdvancedJobGeneratorService.cs',
  'Assets/Scripts/Runtime/GameRuntime.cs','Assets/Scripts/Runtime/SaveService.cs','Assets/Scripts/World/WorkshopWorld.cs',
- 'Assets/Scripts/UI/GameUI.cs','Assets/Scripts/Editor/ForgeBenchEditorSetup.cs','Assets/Resources/Data/hardware.json',
- 'Assets/Resources/Localization/en.json','Assets/Resources/Localization/uk.json','Assets/Tests/EditMode/SimulationTests.cs',
+ 'Assets/Scripts/UI/GameUI.cs','Assets/Scripts/Editor/ForgeBenchEditorSetup.cs','Assets/Scripts/Editor/ProductionBuildGate.cs',
+ 'Assets/Scripts/Production/ProductionBootstrap.cs','Assets/Scripts/Production/PhysicalAssemblyController.cs',
+ 'Assets/Scripts/Production/ObjectHandlingController.cs','Assets/Scripts/Production/EngineeringDiagnosticsPanel.cs',
+ 'Assets/Scripts/Production/SpecialistRepairPanel.cs','Assets/Scripts/Production/SpecialistDeviceVisuals.cs',
+ 'Assets/Scripts/Production/WorkshopBusinessPanel.cs','Assets/Scripts/Production/SupplyChainPanel.cs',
+ 'Assets/Resources/Data/hardware.json','Assets/Resources/Localization/en.json','Assets/Resources/Localization/uk.json',
+ 'Assets/Tests/EditMode/SpecialistSimulationTests.cs','Assets/Tests/EditMode/EngineeringSimulationTests.cs',
+ 'Assets/Tests/EditMode/WorkshopBusinessTests.cs','Assets/Tests/EditMode/SupplyChainJobTests.cs',
  'Packages/manifest.json','ProjectSettings/ProjectVersion.txt','ProjectSettings/EditorBuildSettings.asset','ProjectSettings/InputManager.asset',
- 'Docs/PROMPT_ANALYSIS.md','Docs/requirements_index.json','README.md'
+ 'Docs/PROMPT_ANALYSIS.md','Docs/requirements_index.json','README.md','Assets/link.xml'
 ]
 missing=[x for x in required if not (ROOT/x).exists()]
 if missing: fail('deliverable paths','missing: '+', '.join(missing))
 else: ok('deliverable paths',f'{len(required)} critical files present')
 
-# Requirements traceability
 idx=loadj('Docs/requirements_index.json')
-if isinstance(idx,list): rows=idx
-elif isinstance(idx,dict): rows=idx.get('requirements') or idx.get('items') or []
-else: rows=[]
-nums=[]
-for r in rows:
-    n=r.get('number',r.get('id'))
-    if isinstance(n,str) and n.isdigit(): n=int(n)
-    if isinstance(n,int): nums.append(n)
-if len(rows)!=520: fail('520 requirement rows',f'found {len(rows)}')
-elif nums != list(range(1,521)): fail('requirement numbering','not exactly contiguous 1..520')
-else: ok('520 requirement rows','contiguous 1..520')
-if rows:
-    statuses={}
-    for r in rows: statuses[r.get('status','MISSING')]=statuses.get(r.get('status','MISSING'),0)+1
-    ok('traceability statuses',', '.join(f'{k}:{v}' for k,v in sorted(statuses.items())))
+nums=[]; statuses={}
+if isinstance(idx,dict) and isinstance(idx.get('numbers'),list):
+    nums=idx['numbers']; statuses[idx.get('default_status','UNVERIFIED')]=len(nums)
+elif isinstance(idx,list):
+    rows=idx
+    for r in rows:
+        n=r.get('number',r.get('id'))
+        if isinstance(n,str) and n.isdigit(): n=int(n)
+        if isinstance(n,int): nums.append(n)
+        st=r.get('status','UNVERIFIED');statuses[st]=statuses.get(st,0)+1
+elif isinstance(idx,dict):
+    rows=idx.get('requirements') or idx.get('items') or []
+    for r in rows:
+        n=r.get('number',r.get('id'))
+        if isinstance(n,str) and n.isdigit(): n=int(n)
+        if isinstance(n,int): nums.append(n)
+        st=r.get('status','UNVERIFIED');statuses[st]=statuses.get(st,0)+1
+if nums != list(range(1,521)): fail('520 requirement index',f'expected contiguous 1..520, got {len(nums)} entries')
+else: ok('520 requirement index','contiguous 1..520; completion is not inferred from index presence')
+if statuses: ok('traceability status',', '.join(f'{k}:{v}' for k,v in sorted(statuses.items())))
 
-# Hardware data
 h=loadj('Assets/Resources/Data/hardware.json') or {}
 parts=h.get('parts',[]) if isinstance(h,dict) else []
 ids=[x.get('id') for x in parts]
@@ -58,7 +69,7 @@ for p in parts:
     for key in ['id','brand','model','category','price','performance','powerWatts','quality','connectors','tags']:
         if key not in p: fail('hardware schema',f"{p.get('id','?')} missing {key}")
 
-# Localization parse + basic parity
+# Localization parse + parity.
 en=loadj('Assets/Resources/Localization/en.json') or {}
 uk=loadj('Assets/Resources/Localization/uk.json') or {}
 def flatten(x,p=''):
@@ -75,24 +86,24 @@ fen,fuk=flatten(en),flatten(uk)
 if set(fen)!=set(fuk): warn('localization parity',f'EN-only={sorted(set(fen)-set(fuk))[:10]}, UK-only={sorted(set(fuk)-set(fen))[:10]}')
 else: ok('localization parity',f'{len(fen)} keys in both languages')
 
-# Version / Android configuration source
 pv=(ROOT/'ProjectSettings/ProjectVersion.txt').read_text(encoding='utf-8')
 if '6000.3.15f1' not in pv: fail('Unity version','expected 6000.3.15f1')
 else: ok('Unity version','6000.3.15f1')
 editor=(ROOT/'Assets/Scripts/Editor/ForgeBenchEditorSetup.cs').read_text(encoding='utf-8')
+gate=(ROOT/'Assets/Scripts/Editor/ProductionBuildGate.cs').read_text(encoding='utf-8')
 need=['NamedBuildTarget.Android','AndroidArchitecture.ARM64','ScriptingImplementation.IL2CPP','UIOrientation.LandscapeLeft','BuildTarget.Android']
-miss=[s for s in need if s not in editor]
+miss=[s for s in need if s not in editor+gate]
 if miss: fail('Android build configuration','missing tokens: '+', '.join(miss))
-else: ok('Android build configuration','ARM64 + IL2CPP + landscape + APK build target source present')
+else: ok('Android build configuration','ARM64 + IL2CPP + landscape + Android build source present')
 
-# Save contract
 save=(ROOT/'Assets/Scripts/Runtime/SaveService.cs').read_text(encoding='utf-8')
 domain=(ROOT/'Assets/Scripts/Core/DomainModels.cs').read_text(encoding='utf-8')
-if 'schemaVersion = 4' not in domain or '.bak' not in save or '.tmp' not in save:
-    fail('save safety','versioned schema / temp / backup token missing')
-else: ok('save safety','schema version + temp atomic write + backup recovery source found')
+m=re.search(r'CurrentSchema\s*=\s*(\d+)',save);schema=int(m.group(1)) if m else 0
+if schema<7 or '.bak' not in save or '.tmp' not in save or 'schemaVersion = 7' not in domain:
+    fail('save safety',f'schema={schema}; expected schema 7+, temp writes and backup recovery')
+else: ok('save safety',f'schema {schema} + temp atomic write + backup recovery')
 
-# Static C# sanity: no stubs and balanced delimiters after stripping strings/comments.
+# Static C# sanity: no explicit stubs and balanced delimiters after stripping strings/comments.
 def scrub(s):
     s=re.sub(r'/\*.*?\*/','',s,flags=re.S)
     s=re.sub(r'//.*','',s)
@@ -115,15 +126,16 @@ for p in cs:
         if depth!=0: fail('C# '+name,f'{p.relative_to(ROOT)} balance {depth}')
 if not [e for e in errors if e[0].startswith('C#')]: ok('C# delimiter sanity',f'{len(cs)} scripts scanned')
 
-# Required gameplay terms, a lightweight coverage guard not a compile proof.
 combined='\n'.join(p.read_text(encoding='utf-8') for p in cs)
-terms=['PowerOn','POST','memoryProfileEnabled','InstallOS','InstallDrivers','RunBenchmark','ValidateAndSubmit','UpgradeWorkshop','Autosave','ShipmentState','CompatibilityService','CharacterController','TouchJoystick','Gamepad']
-# Gamepad is described by right-stick axes rather than a literal class name.
-if 'Gamepad' not in combined and 'LookHorizontal' in (ROOT/'ProjectSettings/InputManager.asset').read_text(encoding='utf-8'):
-    terms.remove('Gamepad')
+terms=['PowerOn','POST','TrainMemory','AnalyzePower','ThermalSoak','StorageSmart','BenchmarkSuite','InstallOS','InstallDrivers','ValidateAndSubmit','UpgradeWorkshop','ShipmentState','SupplyChainService','SpecialistJobService','BoardRepairService','PortableRepairService','NetworkLabService','WorkshopBusinessService','AdvancedJobGeneratorService','CompatibilityService','CharacterController','TouchJoystick']
 missing_terms=[t for t in terms if t not in combined]
-if missing_terms: fail('core loop source coverage','missing tokens: '+', '.join(missing_terms))
-else: ok('core loop source coverage','ordering/POST/BIOS/OS/drivers/benchmark/submission/upgrades/save + 3D/touch source found')
+if missing_terms: fail('production source coverage','missing tokens: '+', '.join(missing_terms))
+else: ok('production source coverage','core + engineering + specialist + supply-chain + business + touch systems found')
+
+# Test source presence is not equivalent to having executed Unity Test Runner.
+tests=list(ROOT.glob('Assets/Tests/**/*.cs'))
+if len(tests)<4: fail('automated test source',f'only {len(tests)} test files')
+else: ok('automated test source',f'{len(tests)} C# test files present; execution still required in Unity')
 
 print('ForgeBench static validation')
 for n,d in checks: print(f'[PASS] {n}: {d}')
