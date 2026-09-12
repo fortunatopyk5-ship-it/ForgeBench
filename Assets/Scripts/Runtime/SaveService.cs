@@ -6,7 +6,7 @@ namespace ForgeBench
 {
     public sealed class SaveService
     {
-        public const int CurrentSchema = 5;
+        public const int CurrentSchema = 6;
         private readonly string root;
         public SaveService()
         {
@@ -87,6 +87,14 @@ namespace ForgeBench
                 if (m.sidePanel == null) m.sidePanel = new PanelState { installed = m.sidePanelInstalled };
                 if (m.sidePanel.fasteners == null) m.sidePanel.fasteners = new System.Collections.Generic.List<FastenerState>();
                 if (m.customization == null) m.customization = new CustomizationState();
+                if (m.liquidLoop == null) m.liquidLoop = new LiquidLoopState();
+                if (m.liquidLoop.history == null) m.liquidLoop.history = new System.Collections.Generic.List<string>();
+                if (m.boardRepair == null) m.boardRepair = new BoardRepairState();
+                if (m.boardRepair.history == null) m.boardRepair.history = new System.Collections.Generic.List<string>();
+                if (m.portable == null) m.portable = new PortableDeviceState();
+                if (m.portable.history == null) m.portable.history = new System.Collections.Generic.List<string>();
+                if (m.network == null) m.network = new NetworkLabState();
+                if (m.network.history == null) m.network.history = new System.Collections.Generic.List<string>();
                 if (m.history == null) m.history = new System.Collections.Generic.List<string>();
             }
             foreach (JobState j in s.jobs)
