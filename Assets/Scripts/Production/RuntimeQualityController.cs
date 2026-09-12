@@ -2,7 +2,10 @@ using UnityEngine;
 
 namespace ForgeBench
 {
-    /// <summary>Android-first runtime quality governor without pipeline-specific dependencies.</summary>
+    /// <summary>
+    /// Desktop/non-mobile runtime quality governor. Mobile quality ownership belongs to
+    /// MobilePlatformController so two independent governors cannot oscillate settings.
+    /// </summary>
     public sealed class RuntimeQualityController : MonoBehaviour
     {
         private float sampleTime;
@@ -13,6 +16,11 @@ namespace ForgeBench
 
         private void Start()
         {
+            if(Application.isMobilePlatform)
+            {
+                enabled=false;
+                return;
+            }
             int memory=SystemInfo.systemMemorySize;
             int cores=SystemInfo.processorCount;
             tier=(memory>=8000&&cores>=8)?2:(memory>=4000&&cores>=6?1:0);
