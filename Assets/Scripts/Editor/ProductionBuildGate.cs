@@ -10,81 +10,35 @@ using UnityEngine;
 
 namespace ForgeBench.EditorTools
 {
-    /// <summary>Fails a release build instead of silently producing an incomplete player.</summary>
+    /// <summary>Fails a player build instead of silently producing an incomplete ForgeBench APK.</summary>
     public sealed class ProductionBuildGate : IPreprocessBuildWithReport
     {
         public int callbackOrder => -9000;
         private static readonly string[] CriticalFiles =
         {
-            "Assets/Scenes/Workshop.unity",
-            "Assets/Resources/Data/hardware.json",
-            "Assets/Resources/Localization/en.json",
-            "Assets/Resources/Localization/uk.json",
-            "Assets/Scripts/Production/ProductionBootstrap.cs",
-            "Assets/Scripts/Production/MainMenuController.cs",
-            "Assets/Scripts/Production/WorkshopProductionLayer.cs",
-            "Assets/Scripts/Production/PhysicalAssemblyController.cs",
-            "Assets/Scripts/Production/ObjectHandlingController.cs",
-            "Assets/Scripts/Production/SpecialistRepairPanel.cs",
-            "Assets/Scripts/Production/SpecialistStationsLayer.cs",
-            "Assets/Scripts/Production/SpecialistContractBoard.cs",
-            "Assets/Scripts/Production/SpecialistContractTerminalLayer.cs",
-            "Assets/Scripts/Production/SpecialistLifecycle.cs",
-            "Assets/Scripts/Production/SpecialistDeviceVisuals.cs",
-            "Assets/Scripts/Production/EngineeringDiagnosticsPanel.cs",
-            "Assets/Scripts/Production/EngineeringTerminalLayer.cs",
-            "Assets/Scripts/Production/WorkshopBusinessPanel.cs",
-            "Assets/Scripts/Production/WorkshopManagementTerminalLayer.cs",
-            "Assets/Scripts/Production/WorkshopBusinessLifecycle.cs",
-            "Assets/Scripts/Production/SupplyChainPanel.cs",
-            "Assets/Scripts/Production/SupplyChainTerminalLayer.cs",
-            "Assets/Scripts/Production/AdvancedJobLifecycle.cs",
-            "Assets/Scripts/Simulation/SpecialistRepairServices.cs",
-            "Assets/Scripts/Simulation/SpecialistJobService.cs",
-            "Assets/Scripts/Simulation/EngineeringSimulationService.cs",
-            "Assets/Scripts/Simulation/WorkshopBusinessService.cs",
-            "Assets/Scripts/Simulation/SupplyChainService.cs",
-            "Assets/Scripts/Simulation/AdvancedJobGeneratorService.cs",
-            "Assets/Scripts/Runtime/SpecialistRuntimeExtensions.cs",
-            "Assets/Scripts/Runtime/EngineeringRuntimeExtensions.cs",
-            "Assets/Scripts/Runtime/BusinessRuntimeExtensions.cs",
-            "Assets/Scripts/Runtime/SupplyChainRuntimeExtensions.cs",
-            "Assets/link.xml"
+            "Assets/Scenes/Workshop.unity","Assets/Resources/Data/hardware.json","Assets/Resources/Localization/en.json","Assets/Resources/Localization/uk.json","Assets/link.xml",
+            "Assets/Scripts/Production/ProductionBootstrap.cs","Assets/Scripts/Production/MainMenuController.cs","Assets/Scripts/Production/WorkshopProductionLayer.cs","Assets/Scripts/Production/PhysicalAssemblyController.cs","Assets/Scripts/Production/ObjectHandlingController.cs",
+            "Assets/Scripts/Production/SpecialistRepairPanel.cs","Assets/Scripts/Production/SpecialistStationsLayer.cs","Assets/Scripts/Production/SpecialistContractBoard.cs","Assets/Scripts/Production/SpecialistContractTerminalLayer.cs","Assets/Scripts/Production/SpecialistLifecycle.cs","Assets/Scripts/Production/SpecialistDeviceVisuals.cs",
+            "Assets/Scripts/Production/EngineeringDiagnosticsPanel.cs","Assets/Scripts/Production/EngineeringTerminalLayer.cs","Assets/Scripts/Production/WorkshopBusinessPanel.cs","Assets/Scripts/Production/WorkshopManagementTerminalLayer.cs","Assets/Scripts/Production/WorkshopBusinessLifecycle.cs","Assets/Scripts/Production/SupplyChainPanel.cs","Assets/Scripts/Production/SupplyChainTerminalLayer.cs","Assets/Scripts/Production/AdvancedJobLifecycle.cs",
+            "Assets/Scripts/Production/CustomerRelationsDirector.cs","Assets/Scripts/Production/CustomerRelationsPanel.cs","Assets/Scripts/Production/CustomerRelationsTerminalLayer.cs","Assets/Scripts/Production/ProgressionDirector.cs","Assets/Scripts/Production/ProgressionPanel.cs","Assets/Scripts/Production/ProgressionTerminalLayer.cs","Assets/Scripts/Production/WorkshopExpansionLayer.cs",
+            "Assets/Scripts/Production/SensoryFeedbackDirector.cs","Assets/Scripts/Production/MobilePlatformController.cs","Assets/Scripts/Production/RuntimeLocalizationDirector.cs","Assets/Scripts/Production/AccessibilityRuntimeDirector.cs","Assets/Scripts/Production/WorkshopAtmosphereDirector.cs","Assets/Scripts/Production/DistanceDetailCuller.cs",
+            "Assets/Scripts/Production/VirtualizedInventoryPanel.cs","Assets/Scripts/Production/InventoryTerminalLayer.cs","Assets/Scripts/Production/ReliabilityLifecycle.cs","Assets/Scripts/Production/MaintenancePanel.cs","Assets/Scripts/Production/MaintenanceTerminalLayer.cs","Assets/Scripts/Production/PreflightInspectionPanel.cs","Assets/Scripts/Production/PreflightInspectionTerminalLayer.cs",
+            "Assets/Scripts/Production/StaffRosterDirector.cs","Assets/Scripts/Production/StaffRosterPanel.cs","Assets/Scripts/Production/StaffRosterTerminalLayer.cs",
+            "Assets/Scripts/Simulation/SpecialistRepairServices.cs","Assets/Scripts/Simulation/SpecialistJobService.cs","Assets/Scripts/Simulation/EngineeringSimulationService.cs","Assets/Scripts/Simulation/WorkshopBusinessService.cs","Assets/Scripts/Simulation/SupplyChainService.cs","Assets/Scripts/Simulation/AdvancedJobGeneratorService.cs","Assets/Scripts/Simulation/CustomerRelationsService.cs","Assets/Scripts/Simulation/ProgressionService.cs","Assets/Scripts/Simulation/ReliabilitySimulationService.cs","Assets/Scripts/Simulation/PreflightInspectionService.cs","Assets/Scripts/Simulation/StaffRosterService.cs",
+            "Assets/Scripts/Runtime/SpecialistRuntimeExtensions.cs","Assets/Scripts/Runtime/EngineeringRuntimeExtensions.cs","Assets/Scripts/Runtime/BusinessRuntimeExtensions.cs","Assets/Scripts/Runtime/SupplyChainRuntimeExtensions.cs","Assets/Scripts/Runtime/MaintenanceRuntimeExtensions.cs"
         };
 
         public void OnPreprocessBuild(BuildReport report)
         {
-            foreach(string path in CriticalFiles)
-                if(!File.Exists(path))throw new BuildFailedException("ForgeBench production build is missing: "+path);
-
-            TextAsset hardware=AssetDatabase.LoadAssetAtPath<TextAsset>("Assets/Resources/Data/hardware.json");
-            if(hardware==null)throw new BuildFailedException("Hardware database could not be imported.");
-            HardwareCatalogData data=JsonUtility.FromJson<HardwareCatalogData>(hardware.text);
-            if(data?.parts==null||data.parts.Count<70)throw new BuildFailedException("Hardware catalog is too small for the production build ("+(data?.parts?.Count??0)+").");
-            if(data.parts.Any(p=>string.IsNullOrWhiteSpace(p.id)||string.IsNullOrWhiteSpace(p.model)))throw new BuildFailedException("Hardware catalog contains an unnamed definition.");
-            if(data.parts.Select(p=>p.id).Distinct().Count()!=data.parts.Count)throw new BuildFailedException("Hardware catalog contains duplicate IDs.");
-            if(!data.parts.Any(p=>p.category==PartCategory.Battery))throw new BuildFailedException("Portable repair requires at least one Battery definition.");
-            if(!data.parts.Any(p=>p.category==PartCategory.Display))throw new BuildFailedException("Portable repair requires at least one Display definition.");
-            if(!data.parts.Any(p=>p.category==PartCategory.Storage))throw new BuildFailedException("NAS/server repair requires Storage definitions.");
-            if(!data.parts.Any(p=>p.category==PartCategory.PSU))throw new BuildFailedException("Power simulation requires PSU definitions.");
-            if(!data.parts.Any(p=>p.category==PartCategory.Fan))throw new BuildFailedException("Airflow simulation requires fan definitions.");
-
-            if(SaveService.CurrentSchema<7)throw new BuildFailedException("Save schema must include engineering simulation state (schema 7+).");
-
-            if(report.summary.platform==BuildTarget.Android)
-            {
-                PlayerSettings.SetApplicationIdentifier(NamedBuildTarget.Android,"com.originalforge.forgebench");
-                PlayerSettings.Android.minSdkVersion=AndroidSdkVersions.AndroidApiLevel26;
-                PlayerSettings.SetScriptingBackend(NamedBuildTarget.Android,ScriptingImplementation.IL2CPP);
-                PlayerSettings.Android.targetArchitectures=AndroidArchitecture.ARM64;
-                PlayerSettings.defaultInterfaceOrientation=UIOrientation.LandscapeLeft;
-                PlayerSettings.allowedAutorotateToPortrait=false;
-                PlayerSettings.allowedAutorotateToPortraitUpsideDown=false;
-                PlayerSettings.allowedAutorotateToLandscapeLeft=true;
-                PlayerSettings.allowedAutorotateToLandscapeRight=true;
-            }
-
-            Debug.Log("ForgeBench production gate passed: "+data.parts.Count+" hardware definitions; engineering, specialist, business, supply-chain and procedural-contract source present; save schema "+SaveService.CurrentSchema+"; Android settings enforced.");
+            foreach(string path in CriticalFiles)if(!File.Exists(path))throw new BuildFailedException("ForgeBench production build is missing: "+path);
+            TextAsset hardware=AssetDatabase.LoadAssetAtPath<TextAsset>("Assets/Resources/Data/hardware.json");if(hardware==null)throw new BuildFailedException("Hardware database could not be imported.");HardwareCatalogData data=JsonUtility.FromJson<HardwareCatalogData>(hardware.text);
+            if(data?.parts==null||data.parts.Count<70)throw new BuildFailedException("Hardware catalog is too small for the production build ("+(data?.parts?.Count??0)+").");if(data.parts.Any(p=>string.IsNullOrWhiteSpace(p.id)||string.IsNullOrWhiteSpace(p.model)))throw new BuildFailedException("Hardware catalog contains an unnamed definition.");if(data.parts.Select(p=>p.id).Distinct().Count()!=data.parts.Count)throw new BuildFailedException("Hardware catalog contains duplicate IDs.");
+            PartCategory[] coverage={PartCategory.Case,PartCategory.Motherboard,PartCategory.CPU,PartCategory.RAM,PartCategory.GPU,PartCategory.Storage,PartCategory.PSU,PartCategory.Cooler,PartCategory.Fan,PartCategory.Network,PartCategory.Battery,PartCategory.Display,PartCategory.Controller,PartCategory.Consumable,PartCategory.Tool};foreach(PartCategory c in coverage)if(!data.parts.Any(p=>p.category==c))throw new BuildFailedException("Hardware catalog has no "+c+" definition.");
+            if(SaveService.CurrentSchema<7)throw new BuildFailedException("Save schema must include engineering persistent state (schema 7+).");
+            TextAsset en=AssetDatabase.LoadAssetAtPath<TextAsset>("Assets/Resources/Localization/en.json"),uk=AssetDatabase.LoadAssetAtPath<TextAsset>("Assets/Resources/Localization/uk.json");if(en==null||uk==null||en.text.Length<1000||uk.text.Length<1000)throw new BuildFailedException("Production localization catalogs are missing or unexpectedly small.");
+            if(!File.Exists("Assets/Tests/EditMode/EngineeringSimulationTests.cs")||!File.Exists("Assets/Tests/EditMode/ProgressionTests.cs")||!File.Exists("Assets/Tests/EditMode/ReliabilitySimulationTests.cs"))throw new BuildFailedException("Critical acceptance test source is missing.");
+            if(report.summary.platform==BuildTarget.Android){PlayerSettings.SetApplicationIdentifier(NamedBuildTarget.Android,"com.originalforge.forgebench");PlayerSettings.Android.minSdkVersion=AndroidSdkVersions.AndroidApiLevel26;PlayerSettings.SetScriptingBackend(NamedBuildTarget.Android,ScriptingImplementation.IL2CPP);PlayerSettings.Android.targetArchitectures=AndroidArchitecture.ARM64;PlayerSettings.defaultInterfaceOrientation=UIOrientation.LandscapeLeft;PlayerSettings.allowedAutorotateToPortrait=false;PlayerSettings.allowedAutorotateToPortraitUpsideDown=false;PlayerSettings.allowedAutorotateToLandscapeLeft=true;PlayerSettings.allowedAutorotateToLandscapeRight=true;}
+            Debug.Log("ForgeBench production gate passed: "+data.parts.Count+" hardware definitions; deep simulation/CRM/progression/reliability/accessibility/mobile/preflight source present; schema "+SaveService.CurrentSchema+"; Android settings enforced.");
         }
     }
 }
