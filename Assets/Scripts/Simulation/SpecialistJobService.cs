@@ -49,7 +49,7 @@ namespace ForgeBench
                 reward=320+tier*170,
                 targetBenchmark=0,
                 maxNoiseDb=55,
-                requireOs=true, // Deliberately blocks the desktop submit path; specialist validation owns completion.
+                requireOs=true,
                 requireDrivers=false,
                 requireClean=false,
                 requireStable=false,
@@ -123,7 +123,8 @@ namespace ForgeBench
 
         private void SeedLiquidDesktop(JobState j,MachineState m)
         {
-            string caseId=First(PartCategory.Case,p=>p.radiatorSupportMm>=360)||First(PartCategory.Case,p=>true);
+            string caseId=First(PartCategory.Case,p=>p.radiatorSupportMm>=360);
+            if(string.IsNullOrEmpty(caseId))caseId=First(PartCategory.Case,p=>true);
             string boardId=First(PartCategory.Motherboard,p=>true);
             string cpuId=First(PartCategory.CPU,p=>true);
             if(!string.IsNullOrEmpty(caseId))m.caseItemId=CustomerPart(j,m,caseId);
