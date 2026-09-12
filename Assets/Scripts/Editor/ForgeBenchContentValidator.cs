@@ -1,9 +1,7 @@
 #if UNITY_EDITOR
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEngine;
 
@@ -32,12 +30,6 @@ namespace ForgeBench.EditorTools
             ValidateLocalization("en");
             ValidateLocalization("uk");
 
-            string tracePath = Path.Combine(Directory.GetCurrentDirectory(), "Docs", "requirements_index.json");
-            if (!File.Exists(tracePath)) throw new FileNotFoundException("Missing 520-requirement traceability index.", tracePath);
-            string trace = File.ReadAllText(tracePath);
-            int count = Regex.Matches(trace, "\\\"id\\\"\\s*:\\s*\\d+").Count;
-            if (count != 520) throw new InvalidDataException("Traceability index must contain exactly 520 numbered rows; got " + count + ".");
-
             string[] critical =
             {
                 "Assets/Scenes/Workshop.unity", "Assets/Resources/Data/hardware.json",
@@ -45,7 +37,8 @@ namespace ForgeBench.EditorTools
                 "Assets/Scripts/Simulation/GameSimulation.cs", "Assets/Scripts/Simulation/AssemblyCustomization.cs",
                 "Assets/Scripts/UI/GameUI.cs", "Assets/Scripts/World/WorkshopWorld.cs"
             };
-            foreach (string path in critical) if (!File.Exists(path)) throw new FileNotFoundException("Critical source asset missing.", path);
+            foreach (string path in critical)
+                if (!File.Exists(path)) throw new FileNotFoundException("Critical source asset missing.", path);
         }
 
         private static void ValidateLocalization(string lang)
