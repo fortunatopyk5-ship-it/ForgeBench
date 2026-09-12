@@ -45,19 +45,17 @@ jobs:
           rm -rf /tmp/forgebench-expanded
           mkdir -p /tmp/forgebench-expanded
           unzip -q /tmp/forgebench.zip -d /tmp/forgebench-expanded
-          SOURCE_DIR="$(find /tmp/forgebench-expanded -mindepth 1 -maxdepth 1 -type d | head -n 1)"
-          test -n "$SOURCE_DIR"
-          cp -a "$SOURCE_DIR"/. .
+          cp -a /tmp/forgebench-expanded/. .
 
           test -f ProjectSettings/ProjectVersion.txt
           test -f Assets/Scenes/Workshop.unity
           test -f Assets/Resources/Data/hardware.json
           grep -F '6000.3.15f1' ProjectSettings/ProjectVersion.txt
 
-          # Persist normal source files so future runs never reconstruct/base64-decode anything.
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add Assets Packages ProjectSettings Tools Docs README.md .gitignore
+          git add Assets Packages ProjectSettings Tools README.md .gitignore
+          if [ -d Docs ]; then git add Docs; fi
           if ! git diff --cached --quiet; then
             git commit -m "Expand ForgeBench Unity source into repository [skip ci]"
             git push origin HEAD:main || echo "::warning::Could not push expanded source; this run can still build from the expanded working tree."
