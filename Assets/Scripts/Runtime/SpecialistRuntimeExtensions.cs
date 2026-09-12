@@ -1,11 +1,12 @@
+using System.Linq;
 using UnityEngine;
 
 namespace ForgeBench
 {
     /// <summary>
-    /// Runtime action surface for the specialist simulations. Keeping this as
-    /// extensions avoids coupling GameRuntime's core loop to every repair discipline.
-    /// Every successful action is persisted immediately and refreshes UI/world state.
+    /// Runtime action surface for specialist simulations. Every successful action is
+    /// persisted immediately, marks a specialist contract in progress and refreshes
+    /// the visible world/workstation state.
     /// </summary>
     public static class SpecialistRuntimeExtensions
     {
@@ -14,14 +15,31 @@ namespace ForgeBench
         private static BoardRepairService Board(GameRuntime g) => new BoardRepairService(g.State.workshop);
         private static PortableRepairService Portable(GameRuntime g) => new PortableRepairService(g.Inventory, g.State.workshop);
         private static NetworkLabService Network(GameRuntime g) => new NetworkLabService(g.Inventory, g.State.workshop);
+        private static SpecialistJobService Jobs(GameRuntime g) => new SpecialistJobService(g.State, g.Catalog, g.Inventory, g.Economy);
 
         private static void Apply(GameRuntime g, ActionResult result)
         {
             if (g == null) return;
-            if (result.ok && g.State != null && g.Saves != null) g.Saves.Save(g.State, 1);
+            if (result.ok)
+            {
+                JobState j=g.ActiveJob;
+                if(j!=null&&SpecialistJobService.IsSpecialist(j)&&j.stage==JobStage.Accepted)j.stage=JobStage.InProgress;
+                if(g.State!=null&&g.Saves!=null)g.Saves.Save(g.State,1);
+            }
             g.UI?.Refresh();
             g.World?.RefreshMachine();
             g.Notify(result.message, result.ok);
+        }
+
+        public static void AcceptSpecialistContract(this GameRuntime g, SpecialistContractKind kind) => Apply(g, Jobs(g).Accept(kind));
+        public static void SubmitSpecialistContract(this GameRuntime g) => Apply(g, Jobs(g).ValidateAndComplete(g.ActiveJob, g.ActiveMachine));
+
+        public static void OrderSpecialistPart(this GameRuntime g, PartCategory category)
+        {
+            if(g==null)return;
+            HardwareDefinition part=g.Catalog.ByCategory(category).OrderBy(p=>p.price).ThenByDescending(p=>p.quality).FirstOrDefault();
+            if(part==null){g.Notify("No "+category+" service part exists in the catalog.",false);return;}
+            g.Buy(part.id,1);
         }
 
         public static void LiquidInstallPump(this GameRuntime g) => Apply(g, Liquid(g).InstallPump(M(g)));
