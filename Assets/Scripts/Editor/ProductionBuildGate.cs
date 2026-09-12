@@ -17,7 +17,7 @@ namespace ForgeBench.EditorTools
         private static readonly string[] CriticalFiles =
         {
             "Assets/Scenes/Workshop.unity","Assets/Resources/Data/hardware.json","Assets/Resources/Localization/en.json","Assets/Resources/Localization/uk.json","Assets/link.xml",
-            "Assets/Scripts/Production/ProductionBootstrap.cs","Assets/Scripts/Production/MainMenuController.cs","Assets/Scripts/Production/WorkshopProductionLayer.cs","Assets/Scripts/Production/PhysicalAssemblyController.cs","Assets/Scripts/Production/ObjectHandlingController.cs",
+            "Assets/Scripts/Production/ProductionBootstrap.cs","Assets/Scripts/Production/MainMenuController.cs","Assets/Scripts/Production/WorkshopProductionLayer.cs","Assets/Scripts/Production/PhysicalAssemblyController.cs","Assets/Scripts/Production/ObjectHandlingController.cs","Assets/Scripts/Production/MobileInteractionBridge.cs","Assets/Scripts/Production/RuntimeQualityController.cs",
             "Assets/Scripts/Production/SpecialistRepairPanel.cs","Assets/Scripts/Production/SpecialistStationsLayer.cs","Assets/Scripts/Production/SpecialistContractBoard.cs","Assets/Scripts/Production/SpecialistContractTerminalLayer.cs","Assets/Scripts/Production/SpecialistLifecycle.cs","Assets/Scripts/Production/SpecialistDeviceVisuals.cs",
             "Assets/Scripts/Production/EngineeringDiagnosticsPanel.cs","Assets/Scripts/Production/EngineeringTerminalLayer.cs","Assets/Scripts/Production/WorkshopBusinessPanel.cs","Assets/Scripts/Production/WorkshopManagementTerminalLayer.cs","Assets/Scripts/Production/WorkshopBusinessLifecycle.cs","Assets/Scripts/Production/SupplyChainPanel.cs","Assets/Scripts/Production/SupplyChainTerminalLayer.cs","Assets/Scripts/Production/AdvancedJobLifecycle.cs",
             "Assets/Scripts/Production/CustomerRelationsDirector.cs","Assets/Scripts/Production/CustomerRelationsPanel.cs","Assets/Scripts/Production/CustomerRelationsTerminalLayer.cs","Assets/Scripts/Production/ProgressionDirector.cs","Assets/Scripts/Production/ProgressionPanel.cs","Assets/Scripts/Production/ProgressionTerminalLayer.cs","Assets/Scripts/Production/WorkshopExpansionLayer.cs",
@@ -25,6 +25,7 @@ namespace ForgeBench.EditorTools
             "Assets/Scripts/Production/VirtualizedInventoryPanel.cs","Assets/Scripts/Production/InventoryTerminalLayer.cs","Assets/Scripts/Production/ReliabilityLifecycle.cs","Assets/Scripts/Production/MaintenancePanel.cs","Assets/Scripts/Production/MaintenanceTerminalLayer.cs","Assets/Scripts/Production/PreflightInspectionPanel.cs","Assets/Scripts/Production/PreflightInspectionTerminalLayer.cs",
             "Assets/Scripts/Production/StaffRosterDirector.cs","Assets/Scripts/Production/StaffRosterPanel.cs","Assets/Scripts/Production/StaffRosterTerminalLayer.cs",
             "Assets/Scripts/Production/WarrantyDirector.cs","Assets/Scripts/Production/WarrantyPanel.cs","Assets/Scripts/Production/WarrantyTerminalLayer.cs","Assets/Scripts/Production/WarrantySpecialistBridge.cs","Assets/Scripts/Production/OperationsDashboardPanel.cs","Assets/Scripts/Production/OperationsTerminalLayer.cs",
+            "Assets/Scripts/Production/CrashTelemetryLogger.cs","Assets/Scripts/Production/TutorialDirector.cs","Assets/Scripts/Production/InGameManualPanel.cs","Assets/Scripts/Production/ManualTerminalLayer.cs","Assets/Scripts/Production/SaveManagerPanel.cs",
             "Assets/Scripts/Simulation/SpecialistRepairServices.cs","Assets/Scripts/Simulation/SpecialistJobService.cs","Assets/Scripts/Simulation/EngineeringSimulationService.cs","Assets/Scripts/Simulation/WorkshopBusinessService.cs","Assets/Scripts/Simulation/SupplyChainService.cs","Assets/Scripts/Simulation/AdvancedJobGeneratorService.cs","Assets/Scripts/Simulation/CustomerRelationsService.cs","Assets/Scripts/Simulation/ProgressionService.cs","Assets/Scripts/Simulation/ReliabilitySimulationService.cs","Assets/Scripts/Simulation/PreflightInspectionService.cs","Assets/Scripts/Simulation/StaffRosterService.cs","Assets/Scripts/Simulation/WarrantyService.cs",
             "Assets/Scripts/Runtime/SpecialistRuntimeExtensions.cs","Assets/Scripts/Runtime/EngineeringRuntimeExtensions.cs","Assets/Scripts/Runtime/BusinessRuntimeExtensions.cs","Assets/Scripts/Runtime/SupplyChainRuntimeExtensions.cs","Assets/Scripts/Runtime/MaintenanceRuntimeExtensions.cs"
         };
@@ -34,7 +35,8 @@ namespace ForgeBench.EditorTools
             "Assets/Tests/EditMode/EngineeringSimulationTests.cs",
             "Assets/Tests/EditMode/ProgressionTests.cs",
             "Assets/Tests/EditMode/ReliabilitySimulationTests.cs",
-            "Assets/Tests/EditMode/WarrantyServiceTests.cs"
+            "Assets/Tests/EditMode/WarrantyServiceTests.cs",
+            "Assets/Tests/EditMode/CrashTelemetryTests.cs"
         };
 
         public void OnPreprocessBuild(BuildReport report)
@@ -60,7 +62,7 @@ namespace ForgeBench.EditorTools
                 PlayerSettings.allowedAutorotateToLandscapeLeft=true;
                 PlayerSettings.allowedAutorotateToLandscapeRight=true;
             }
-            Debug.Log("ForgeBench production gate passed: "+data.parts.Count+" hardware definitions; deep simulation/CRM/progression/reliability/warranty/operations/accessibility/mobile/preflight source present; "+CriticalTests.Length+" critical test sources present; schema "+SaveService.CurrentSchema+"; Android settings enforced.");
+            Debug.Log("ForgeBench production gate passed: "+data.parts.Count+" hardware definitions; deep simulation/CRM/progression/reliability/warranty/operations/manual/save-recovery/crash-diagnostics/accessibility/mobile/preflight source present; "+CriticalTests.Length+" critical test sources present; schema "+SaveService.CurrentSchema+"; Android settings enforced.");
         }
     }
 }
