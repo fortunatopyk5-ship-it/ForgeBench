@@ -1,120 +1,20 @@
 {
   "entries": [
-    {
-      "key": "app.title",
-      "value": "FORGEBENCH"
-    },
-    {
-      "key": "tab.jobs",
-      "value": "ЗАМОВЛЕННЯ"
-    },
-    {
-      "key": "tab.store",
-      "value": "МАГАЗИН"
-    },
-    {
-      "key": "tab.inventory",
-      "value": "СКЛАД"
-    },
-    {
-      "key": "tab.bench",
-      "value": "ВЕРСТАК"
-    },
-    {
-      "key": "tab.bios",
-      "value": "BIOS"
-    },
-    {
-      "key": "tab.os",
-      "value": "ОС"
-    },
-    {
-      "key": "tab.diag",
-      "value": "ДІАГНОСТИКА"
-    },
-    {
-      "key": "tab.progress",
-      "value": "ПРОГРЕС"
-    },
-    {
-      "key": "tab.settings",
-      "value": "НАЛАШТУВАННЯ"
-    },
-    {
-      "key": "hud.tablet",
-      "value": "ПЛАНШЕТ"
-    },
-    {
-      "key": "hud.interact",
-      "value": "ДІЯ"
-    },
-    {
-      "key": "jobs.none",
-      "value": "Немає активного замовлення. Вибери пропозицію нижче."
-    },
-    {
-      "key": "jobs.submit",
-      "value": "ПЕРЕВІРИТИ Й ЗДАТИ"
-    },
-    {
-      "key": "store.receive",
-      "value": "ПРИЙНЯТИ ДОСТАВКИ"
-    },
-    {
-      "key": "store.nextday",
-      "value": "НАСТУПНИЙ ДЕНЬ"
-    },
-    {
-      "key": "bench.connect",
-      "value": "ПІДКЛЮЧИТИ КАБЕЛІ"
-    },
-    {
-      "key": "bench.paste",
-      "value": "НАНЕСТИ ТЕРМОПАСТУ"
-    },
-    {
-      "key": "bench.power",
-      "value": "УВІМКНУТИ / POST"
-    },
-    {
-      "key": "bench.clean",
-      "value": "ОЧИСТИТИ ПРИСТРІЙ"
-    },
-    {
-      "key": "os.install",
-      "value": "ВСТАНОВИТИ FORGEOS"
-    },
-    {
-      "key": "os.drivers",
-      "value": "ВСТАНОВИТИ ДРАЙВЕРИ"
-    },
-    {
-      "key": "os.benchmark",
-      "value": "ЗАПУСТИТИ БЕНЧМАРК"
-    },
-    {
-      "key": "diag.scan",
-      "value": "ЗАПУСТИТИ ДІАГНОСТИКУ"
-    },
-    {
-      "key": "progress.upgrade",
-      "value": "ПОКРАЩИТИ МАЙСТЕРНЮ"
-    },
-    {
-      "key": "settings.save",
-      "value": "ЗБЕРЕГТИ СЛОТ 1"
-    },
-    {
-      "key": "settings.load",
-      "value": "ЗАВАНТАЖИТИ СЛОТ 1"
-    },
-    {
-      "key": "settings.language",
-      "value": "ЗМІНИТИ МОВУ"
-    },
-    {
-      "key": "settings.battery",
-      "value": "ЕКОНОМІЯ БАТАРЕЇ"
-    }
+    {"key":"app.title","value":"FORGEBENCH"},
+    {"key":"tab.jobs","value":"ЗАМОВЛЕННЯ"},{"key":"tab.store","value":"МАГАЗИН"},{"key":"tab.inventory","value":"СКЛАД"},{"key":"tab.bench","value":"ВЕРСТАК"},{"key":"tab.bios","value":"BIOS"},{"key":"tab.os","value":"ОС"},{"key":"tab.diag","value":"ДІАГНОСТИКА"},{"key":"tab.progress","value":"ПРОГРЕС"},{"key":"tab.settings","value":"НАЛАШТУВАННЯ"},
+    {"key":"hud.tablet","value":"ПЛАНШЕТ"},{"key":"hud.interact","value":"ДІЯ"},
+    {"key":"jobs.none","value":"Немає активного замовлення. Вибери пропозицію нижче."},{"key":"jobs.submit","value":"ПЕРЕВІРИТИ Й ЗДАТИ"},
+    {"key":"store.receive","value":"ПРИЙНЯТИ ДОСТАВКИ"},{"key":"store.nextday","value":"НАСТУПНИЙ ДЕНЬ"},
+    {"key":"bench.connect","value":"ПІДКЛЮЧИТИ КАБЕЛІ"},{"key":"bench.paste","value":"НАНЕСТИ ТЕРМОПАСТУ"},{"key":"bench.power","value":"УВІМКНУТИ / POST"},{"key":"bench.clean","value":"ОЧИСТИТИ ПРИСТРІЙ"},
+    {"key":"os.install","value":"ВСТАНОВИТИ FORGEOS"},{"key":"os.drivers","value":"ВСТАНОВИТИ ДРАЙВЕРИ"},{"key":"os.benchmark","value":"ЗАПУСТИТИ БЕНЧМАРК"},{"key":"diag.scan","value":"ЗАПУСТИТИ ДІАГНОСТИКУ"},{"key":"progress.upgrade","value":"ПОКРАЩИТИ МАЙСТЕРНЮ"},
+    {"key":"settings.save","value":"ЗБЕРЕГТИ СЛОТ 1"},{"key":"settings.load","value":"ЗАВАНТАЖИТИ СЛОТ 1"},{"key":"settings.language","value":"ЗМІНИТИ МОВУ"},{"key":"settings.battery","value":"ЕКОНОМІЯ БАТАРЕЇ"},
+    {"key":"menu.continue","value":"ПРОДОВЖИТИ"},{"key":"menu.jobs","value":"ПРОДОВЖИТИ · ВІДКРИТИ ЗАМОВЛЕННЯ"},{"key":"menu.new","value":"НОВА МАЙСТЕРНЯ"},{"key":"menu.settings","value":"НАЛАШТУВАННЯ / ЗБЕРЕЖЕННЯ"},{"key":"menu.quit","value":"ВИЙТИ"},
+    {"key":"crm.title","value":"КЛІЄНТИ / CRM"},{"key":"crm.overview","value":"ОГЛЯД"},{"key":"crm.customers","value":"КЛІЄНТИ"},{"key":"crm.reviews","value":"ВІДГУКИ"},{"key":"crm.invite","value":"ЗАПРОСИТИ ЗНОВУ"},{"key":"crm.resolve","value":"ВИРІШИТИ"},
+    {"key":"career.title","value":"КАР'ЄРА / СЕРТИФІКАЦІЇ"},{"key":"career.career","value":"КАР'ЄРА"},{"key":"career.skills","value":"НАВИЧКИ"},{"key":"career.achievements","value":"ДОСЯГНЕННЯ"},{"key":"career.unlock","value":"ВІДКРИТИ"},{"key":"career.locked","value":"ЗАБЛОКОВАНО"},
+    {"key":"inventory.title","value":"СКЛАДСЬКИЙ ОБЛІК"},{"key":"inventory.search","value":"Пошук моделі / бренду / ID"},{"key":"inventory.previous","value":"◀ НАЗАД"},{"key":"inventory.next","value":"ДАЛІ ▶"},{"key":"inventory.refresh","value":"ОНОВИТИ"},{"key":"inventory.install","value":"ВСТАНОВИТИ"},{"key":"inventory.remove","value":"ЗНЯТИ"},
+    {"key":"specialist.liquid","value":"РІДИННЕ ОХОЛОДЖЕННЯ"},{"key":"specialist.board","value":"РЕМОНТ ПЛАТ"},{"key":"specialist.portable","value":"ПОРТАТИВНА ТЕХНІКА"},{"key":"specialist.network","value":"МЕРЕЖА / NAS"},
+    {"key":"business.title","value":"КЕРУВАННЯ МАЙСТЕРНЕЮ"},{"key":"business.business","value":"БІЗНЕС"},{"key":"business.staff","value":"ПЕРСОНАЛ"},{"key":"business.warehouse","value":"СКЛАД"},
+    {"key":"engineering.post","value":"POST / BIOS"},{"key":"engineering.thermal","value":"ТЕМПЕРАТУРИ / ЖИВЛЕННЯ"},{"key":"engineering.storage","value":"ОС / НАКОПИЧУВАЧІ"},{"key":"engineering.benchmark","value":"БЕНЧМАРК"},
+    {"key":"common.close","value":"✕"},{"key":"common.yes","value":"ТАК"},{"key":"common.no","value":"НІ"},{"key":"common.on","value":"УВІМК."},{"key":"common.off","value":"ВИМК."}
   ]
 }
