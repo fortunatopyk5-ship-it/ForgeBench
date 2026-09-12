@@ -5,9 +5,9 @@ from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
 errors=[];warnings=[];checks=[]
-def ok(n,d=''): checks.append((n,d))
-def fail(n,d): errors.append((n,d))
-def warn(n,d): warnings.append((n,d))
+def ok(n,d=''):checks.append((n,d))
+def fail(n,d):errors.append((n,d))
+def warn(n,d):warnings.append((n,d))
 def loadj(rel):
     try:return json.loads((ROOT/rel).read_text(encoding='utf-8'))
     except Exception as e:fail('JSON '+rel,str(e));return None
@@ -22,7 +22,8 @@ required=[
 'Assets/Scripts/Production/WorkshopBusinessPanel.cs','Assets/Scripts/Production/WorkshopManagementTerminalLayer.cs','Assets/Scripts/Production/WorkshopBusinessLifecycle.cs','Assets/Scripts/Production/SupplyChainPanel.cs','Assets/Scripts/Production/SupplyChainTerminalLayer.cs','Assets/Scripts/Production/AdvancedJobLifecycle.cs',
 'Assets/Scripts/Production/CustomerRelationsDirector.cs','Assets/Scripts/Production/CustomerRelationsPanel.cs','Assets/Scripts/Production/CustomerRelationsTerminalLayer.cs','Assets/Scripts/Production/ProgressionDirector.cs','Assets/Scripts/Production/ProgressionPanel.cs','Assets/Scripts/Production/ProgressionTerminalLayer.cs','Assets/Scripts/Production/WorkshopExpansionLayer.cs','Assets/Scripts/Production/SensoryFeedbackDirector.cs','Assets/Scripts/Production/MobilePlatformController.cs','Assets/Scripts/Production/RuntimeLocalizationDirector.cs','Assets/Scripts/Production/AccessibilityRuntimeDirector.cs','Assets/Scripts/Production/WorkshopAtmosphereDirector.cs','Assets/Scripts/Production/DistanceDetailCuller.cs','Assets/Scripts/Production/VirtualizedInventoryPanel.cs','Assets/Scripts/Production/InventoryTerminalLayer.cs','Assets/Scripts/Production/ReliabilityLifecycle.cs','Assets/Scripts/Production/MaintenancePanel.cs','Assets/Scripts/Production/MaintenanceTerminalLayer.cs','Assets/Scripts/Production/PreflightInspectionPanel.cs','Assets/Scripts/Production/PreflightInspectionTerminalLayer.cs','Assets/Scripts/Production/StaffRosterDirector.cs','Assets/Scripts/Production/StaffRosterPanel.cs','Assets/Scripts/Production/StaffRosterTerminalLayer.cs',
 'Assets/Scripts/Production/WarrantyDirector.cs','Assets/Scripts/Production/WarrantyPanel.cs','Assets/Scripts/Production/WarrantyTerminalLayer.cs','Assets/Scripts/Production/WarrantySpecialistBridge.cs','Assets/Scripts/Production/OperationsDashboardPanel.cs','Assets/Scripts/Production/OperationsTerminalLayer.cs',
-'Assets/Scripts/Editor/ForgeBenchEditorSetup.cs','Assets/Scripts/Editor/ProductionBuildGate.cs','Assets/Tests/EditMode/EngineeringSimulationTests.cs','Assets/Tests/EditMode/SpecialistSimulationTests.cs','Assets/Tests/EditMode/WorkshopBusinessTests.cs','Assets/Tests/EditMode/SupplyChainJobTests.cs','Assets/Tests/EditMode/ProgressionTests.cs','Assets/Tests/EditMode/ReliabilitySimulationTests.cs','Assets/Tests/EditMode/WarrantyServiceTests.cs',
+'Assets/Scripts/Production/CrashTelemetryLogger.cs','Assets/Scripts/Production/InGameManualPanel.cs','Assets/Scripts/Production/ManualTerminalLayer.cs','Assets/Scripts/Production/SaveManagerPanel.cs',
+'Assets/Scripts/Editor/ForgeBenchEditorSetup.cs','Assets/Scripts/Editor/ProductionBuildGate.cs','Assets/Tests/EditMode/EngineeringSimulationTests.cs','Assets/Tests/EditMode/SpecialistSimulationTests.cs','Assets/Tests/EditMode/WorkshopBusinessTests.cs','Assets/Tests/EditMode/SupplyChainJobTests.cs','Assets/Tests/EditMode/ProgressionTests.cs','Assets/Tests/EditMode/ReliabilitySimulationTests.cs','Assets/Tests/EditMode/WarrantyServiceTests.cs','Assets/Tests/EditMode/CrashTelemetryTests.cs',
 'Packages/manifest.json','ProjectSettings/ProjectVersion.txt','ProjectSettings/EditorBuildSettings.asset','ProjectSettings/InputManager.asset','Docs/PROMPT_ANALYSIS.md','Docs/requirements_index.json','README.md']
 missing=[x for x in required if not (ROOT/x).exists()]
 if missing:fail('deliverable paths','missing: '+', '.join(missing))
@@ -66,7 +67,7 @@ fen,fuk=keymap(en),keymap(uk);ken=[e.get('key') for e in entries(en) if e.get('k
 if len(ken)!=len(set(ken)):fail('EN localization keys','duplicate key found')
 if len(kuk)!=len(set(kuk)):fail('UK localization keys','duplicate key found')
 if set(fen)!=set(fuk):fail('localization parity',f'EN-only={sorted(set(fen)-set(fuk))[:12]}, UK-only={sorted(set(fuk)-set(fen))[:12]}')
-elif len(fen)<70:fail('localization depth',f'only {len(fen)} paired keys')
+elif len(fen)<80:fail('localization depth',f'only {len(fen)} paired keys')
 else:ok('localization parity',f'{len(fen)} matching keys in both languages')
 for key in ['menu.continue','crm.title','career.title','inventory.title','specialist.liquid','business.title','engineering.post','operations.title','operations.preflight','warranty.title','warranty.action']:
     if key not in fen:fail('production localization',f'missing {key}')
@@ -83,6 +84,8 @@ else:ok('Android build configuration','package id + ARM64 + IL2CPP + landscape +
 save=(ROOT/'Assets/Scripts/Runtime/SaveService.cs').read_text(encoding='utf-8');domain=(ROOT/'Assets/Scripts/Core/DomainModels.cs').read_text(encoding='utf-8');m=re.search(r'CurrentSchema\s*=\s*(\d+)',save);schema=int(m.group(1)) if m else 0
 if schema<7 or '.bak' not in save or '.tmp' not in save or not re.search(r'schemaVersion\s*=\s*[7-9]\d*',domain):fail('save safety',f'schema={schema}; expected schema 7+, temp writes and backup recovery')
 else:ok('save safety',f'schema {schema} + temp atomic write + backup recovery')
+if 'Mathf.Clamp(slot, 1, 3)' not in save:fail('save slots','SaveService must expose three bounded slots')
+else:ok('save slots','three persistent save slots are supported by SaveService')
 for token in ['LiquidLoopState','BoardRepairState','PortableDeviceState','NetworkLabState','OsRuntimeState','BenchmarkRunState','ThermalRuntimeState','PowerRuntimeState','MaintenanceState']:
     if token not in domain:fail('persistent simulation state','missing '+token)
 
@@ -94,7 +97,6 @@ for p in cs:
     txt=p.read_text(encoding='utf-8');rel=str(p.relative_to(ROOT))
     if 'NotImplementedException' in txt:fail('no NotImplementedException',rel)
     if re.search(r'\bTODO\b',txt,re.I):warn('TODO token',rel)
-    # Catches an easy-to-miss malformed bool ternary such as mobile?.38f:.55f while not flagging obj?.Property.
     if re.search(r'\b[A-Za-z_]\w*\?\.\d',txt):fail('suspicious C# ternary',rel)
     z=scrub(txt)
     for a,b,name in [('(',')','parentheses'),('[',']','brackets'),('{','}','braces')]:
@@ -114,15 +116,24 @@ if dup_display:fail('runtime localization dictionary','duplicate display keys: '
 else:ok('runtime localization dictionary',f'{len(loc_pairs)} unique exact-label mappings')
 
 combined='\n'.join(p.read_text(encoding='utf-8') for p in cs)
-terms=['PowerOn','TrainMemory','AnalyzePower','ThermalSoak','StorageSmart','BenchmarkSuite','InstallOS','InstallDrivers','ValidateAndSubmit','UpgradeWorkshop','ShipmentState','SupplyChainService','SpecialistJobService','BoardRepairService','PortableRepairService','NetworkLabService','WorkshopBusinessService','AdvancedJobGeneratorService','CustomerRelationsService','ProgressionService','ReliabilitySimulationService','PreflightInspectionService','StaffRosterService','WarrantyService','WarrantyDirector','WarrantySpecialistBridge','OperationsDashboardPanel','MobilePlatformController','VirtualizedInventoryPanel','RuntimeLocalizationDirector','AccessibilityRuntimeDirector','CharacterController','TouchJoystick']
+terms=['PowerOn','TrainMemory','AnalyzePower','ThermalSoak','StorageSmart','BenchmarkSuite','InstallOS','InstallDrivers','ValidateAndSubmit','UpgradeWorkshop','ShipmentState','SupplyChainService','SpecialistJobService','BoardRepairService','PortableRepairService','NetworkLabService','WorkshopBusinessService','AdvancedJobGeneratorService','CustomerRelationsService','ProgressionService','ReliabilitySimulationService','PreflightInspectionService','StaffRosterService','WarrantyService','WarrantyDirector','WarrantySpecialistBridge','OperationsDashboardPanel','MobilePlatformController','RuntimeQualityController','VirtualizedInventoryPanel','RuntimeLocalizationDirector','AccessibilityRuntimeDirector','CrashTelemetryLogger','InGameManualPanel','SaveManagerPanel','CharacterController','TouchJoystick']
 missing_terms=[t for t in terms if t not in combined]
 if missing_terms:fail('production source coverage','missing tokens: '+', '.join(missing_terms))
-else:ok('production source coverage','core/engineering/specialist/business/CRM/progression/reliability/warranty/operations/preflight/mobile/accessibility/touch source found')
+else:ok('production source coverage','core/engineering/specialist/business/CRM/progression/reliability/warranty/operations/manual/save-recovery/crash/mobile/accessibility/touch source found')
+
+manual=(ROOT/'Assets/Scripts/Production/InGameManualPanel.cs').read_text(encoding='utf-8')
+article_count=len(re.findall(r'articles\.Add\(A\(',manual))
+if article_count<15:fail('in-game manual depth',f'only {article_count} authored help articles')
+else:ok('in-game manual depth',f'{article_count} authored searchable/contextual help articles')
+crash=(ROOT/'Assets/Scripts/Production/CrashTelemetryLogger.cs').read_text(encoding='utf-8')
+for token in ['Application.logMessageReceived','MaxBytes','Sanitize','persistentDataPath']:
+    if token not in crash:fail('crash diagnostics source','missing '+token)
+if not any(e[0]=='crash diagnostics source' for e in errors):ok('crash diagnostics source','bounded local exception log + sanitizer hooks present')
 
 tests=list(ROOT.glob('Assets/Tests/**/*.cs'))
-if len(tests)<7:fail('automated test source',f'only {len(tests)} test files')
+if len(tests)<8:fail('automated test source',f'only {len(tests)} test files')
 else:ok('automated test source',f'{len(tests)} C# test files present; Unity Test Runner execution still required')
-for t in ['EngineeringSimulationTests.cs','ProgressionTests.cs','ReliabilitySimulationTests.cs','WarrantyServiceTests.cs']:
+for t in ['EngineeringSimulationTests.cs','ProgressionTests.cs','ReliabilitySimulationTests.cs','WarrantyServiceTests.cs','CrashTelemetryTests.cs']:
     if not any(p.name==t for p in tests):fail('critical test source','missing '+t)
 
 print('ForgeBench static validation')
