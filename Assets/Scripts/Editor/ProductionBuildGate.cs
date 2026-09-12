@@ -25,6 +25,13 @@ namespace ForgeBench.EditorTools
             "Assets/Scripts/Production/WorkshopProductionLayer.cs",
             "Assets/Scripts/Production/PhysicalAssemblyController.cs",
             "Assets/Scripts/Production/ObjectHandlingController.cs",
+            "Assets/Scripts/Production/SpecialistRepairPanel.cs",
+            "Assets/Scripts/Production/SpecialistStationsLayer.cs",
+            "Assets/Scripts/Production/SpecialistContractBoard.cs",
+            "Assets/Scripts/Production/SpecialistContractTerminalLayer.cs",
+            "Assets/Scripts/Simulation/SpecialistRepairServices.cs",
+            "Assets/Scripts/Simulation/SpecialistJobService.cs",
+            "Assets/Scripts/Runtime/SpecialistRuntimeExtensions.cs",
             "Assets/link.xml"
         };
 
@@ -39,6 +46,11 @@ namespace ForgeBench.EditorTools
             if(data?.parts==null||data.parts.Count<70)throw new BuildFailedException("Hardware catalog is too small for the production build ("+(data?.parts?.Count??0)+").");
             if(data.parts.Any(p=>string.IsNullOrWhiteSpace(p.id)||string.IsNullOrWhiteSpace(p.model)))throw new BuildFailedException("Hardware catalog contains an unnamed definition.");
             if(data.parts.Select(p=>p.id).Distinct().Count()!=data.parts.Count)throw new BuildFailedException("Hardware catalog contains duplicate IDs.");
+            if(!data.parts.Any(p=>p.category==PartCategory.Battery))throw new BuildFailedException("Portable repair requires at least one Battery definition.");
+            if(!data.parts.Any(p=>p.category==PartCategory.Display))throw new BuildFailedException("Portable repair requires at least one Display definition.");
+            if(!data.parts.Any(p=>p.category==PartCategory.Storage))throw new BuildFailedException("NAS/server repair requires Storage definitions.");
+
+            if(SaveService.CurrentSchema<6)throw new BuildFailedException("Save schema must include specialist persistent state (schema 6+).");
 
             if(report.summary.platform==BuildTarget.Android)
             {
@@ -53,7 +65,7 @@ namespace ForgeBench.EditorTools
                 PlayerSettings.allowedAutorotateToLandscapeRight=true;
             }
 
-            Debug.Log("ForgeBench production gate passed: "+data.parts.Count+" hardware definitions, critical source/content present, Android settings enforced.");
+            Debug.Log("ForgeBench production gate passed: "+data.parts.Count+" hardware definitions; core and specialist source/content present; save schema "+SaveService.CurrentSchema+"; Android settings enforced.");
         }
     }
 }
