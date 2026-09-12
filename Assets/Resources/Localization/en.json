@@ -15,6 +15,8 @@
     {"key":"specialist.liquid","value":"LIQUID LOOP"},{"key":"specialist.board","value":"BOARD REPAIR"},{"key":"specialist.portable","value":"PORTABLE"},{"key":"specialist.network","value":"NETWORK / NAS"},
     {"key":"business.title","value":"WORKSHOP MANAGEMENT"},{"key":"business.business","value":"BUSINESS"},{"key":"business.staff","value":"STAFF"},{"key":"business.warehouse","value":"WAREHOUSE"},
     {"key":"engineering.post","value":"POST / BIOS"},{"key":"engineering.thermal","value":"THERMAL / POWER"},{"key":"engineering.storage","value":"OS / STORAGE"},{"key":"engineering.benchmark","value":"BENCHMARK"},
+    {"key":"operations.title","value":"WORKSHOP OPERATIONS / QA COMMAND"},{"key":"operations.live","value":"LIVE OPERATIONS"},{"key":"operations.active","value":"ACTIVE CONTRACT / FINAL QUALITY"},{"key":"operations.customer","value":"CUSTOMER / WARRANTY RISK"},{"key":"operations.staff","value":"STAFF CAPACITY"},{"key":"operations.health","value":"WORKSHOP HEALTH"},{"key":"operations.controls","value":"CONTROL SURFACES"},{"key":"operations.preflight","value":"FINAL PREFLIGHT"},{"key":"operations.receive","value":"RECEIVE READY"},{"key":"operations.jobs","value":"JOB BOARD"},
+    {"key":"warranty.title","value":"WARRANTY / COMEBACK DESK"},{"key":"warranty.action","value":"CREATE NO-CHARGE CALLBACK"},{"key":"warranty.none","value":"NO WARRANTY CASES"},{"key":"warranty.initializing","value":"INITIALIZING"},{"key":"warranty.button","value":"WARRANTY"},{"key":"maintenance.button","value":"MAINTENANCE"},
     {"key":"common.close","value":"✕"},{"key":"common.yes","value":"YES"},{"key":"common.no","value":"NO"},{"key":"common.on","value":"ON"},{"key":"common.off","value":"OFF"}
   ]
 }
