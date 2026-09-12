@@ -1,120 +1,20 @@
 {
   "entries": [
-    {
-      "key": "app.title",
-      "value": "FORGEBENCH"
-    },
-    {
-      "key": "tab.jobs",
-      "value": "JOBS"
-    },
-    {
-      "key": "tab.store",
-      "value": "STORE"
-    },
-    {
-      "key": "tab.inventory",
-      "value": "INVENTORY"
-    },
-    {
-      "key": "tab.bench",
-      "value": "BENCH"
-    },
-    {
-      "key": "tab.bios",
-      "value": "BIOS"
-    },
-    {
-      "key": "tab.os",
-      "value": "OS"
-    },
-    {
-      "key": "tab.diag",
-      "value": "DIAG"
-    },
-    {
-      "key": "tab.progress",
-      "value": "PROGRESS"
-    },
-    {
-      "key": "tab.settings",
-      "value": "SETTINGS"
-    },
-    {
-      "key": "hud.tablet",
-      "value": "TABLET"
-    },
-    {
-      "key": "hud.interact",
-      "value": "INTERACT"
-    },
-    {
-      "key": "jobs.none",
-      "value": "No active job. Choose an offer below."
-    },
-    {
-      "key": "jobs.submit",
-      "value": "VALIDATE & SUBMIT"
-    },
-    {
-      "key": "store.receive",
-      "value": "RECEIVE DELIVERIES"
-    },
-    {
-      "key": "store.nextday",
-      "value": "ADVANCE DAY"
-    },
-    {
-      "key": "bench.connect",
-      "value": "CONNECT CABLES"
-    },
-    {
-      "key": "bench.paste",
-      "value": "APPLY THERMAL PASTE"
-    },
-    {
-      "key": "bench.power",
-      "value": "POWER ON / POST"
-    },
-    {
-      "key": "bench.clean",
-      "value": "CLEAN DEVICE"
-    },
-    {
-      "key": "os.install",
-      "value": "INSTALL FORGEOS"
-    },
-    {
-      "key": "os.drivers",
-      "value": "INSTALL DRIVERS"
-    },
-    {
-      "key": "os.benchmark",
-      "value": "RUN BENCHMARK"
-    },
-    {
-      "key": "diag.scan",
-      "value": "RUN DIAGNOSTICS"
-    },
-    {
-      "key": "progress.upgrade",
-      "value": "UPGRADE WORKSHOP"
-    },
-    {
-      "key": "settings.save",
-      "value": "SAVE SLOT 1"
-    },
-    {
-      "key": "settings.load",
-      "value": "LOAD SLOT 1"
-    },
-    {
-      "key": "settings.language",
-      "value": "SWITCH LANGUAGE"
-    },
-    {
-      "key": "settings.battery",
-      "value": "BATTERY SAVER"
-    }
+    {"key":"app.title","value":"FORGEBENCH"},
+    {"key":"tab.jobs","value":"JOBS"},{"key":"tab.store","value":"STORE"},{"key":"tab.inventory","value":"INVENTORY"},{"key":"tab.bench","value":"BENCH"},{"key":"tab.bios","value":"BIOS"},{"key":"tab.os","value":"OS"},{"key":"tab.diag","value":"DIAG"},{"key":"tab.progress","value":"PROGRESS"},{"key":"tab.settings","value":"SETTINGS"},
+    {"key":"hud.tablet","value":"TABLET"},{"key":"hud.interact","value":"INTERACT"},
+    {"key":"jobs.none","value":"No active job. Choose an offer below."},{"key":"jobs.submit","value":"VALIDATE & SUBMIT"},
+    {"key":"store.receive","value":"RECEIVE DELIVERIES"},{"key":"store.nextday","value":"ADVANCE DAY"},
+    {"key":"bench.connect","value":"CONNECT CABLES"},{"key":"bench.paste","value":"APPLY THERMAL PASTE"},{"key":"bench.power","value":"POWER ON / POST"},{"key":"bench.clean","value":"CLEAN DEVICE"},
+    {"key":"os.install","value":"INSTALL FORGEOS"},{"key":"os.drivers","value":"INSTALL DRIVERS"},{"key":"os.benchmark","value":"RUN BENCHMARK"},{"key":"diag.scan","value":"RUN DIAGNOSTICS"},{"key":"progress.upgrade","value":"UPGRADE WORKSHOP"},
+    {"key":"settings.save","value":"SAVE SLOT 1"},{"key":"settings.load","value":"LOAD SLOT 1"},{"key":"settings.language","value":"SWITCH LANGUAGE"},{"key":"settings.battery","value":"BATTERY SAVER"},
+    {"key":"menu.continue","value":"CONTINUE"},{"key":"menu.jobs","value":"CONTINUE · OPEN JOB BOARD"},{"key":"menu.new","value":"NEW WORKSHOP"},{"key":"menu.settings","value":"SETTINGS / SAVE"},{"key":"menu.quit","value":"QUIT"},
+    {"key":"crm.title","value":"CUSTOMERS / CRM"},{"key":"crm.overview","value":"OVERVIEW"},{"key":"crm.customers","value":"CUSTOMERS"},{"key":"crm.reviews","value":"REVIEWS"},{"key":"crm.invite","value":"INVITE BACK"},{"key":"crm.resolve","value":"RESOLVE"},
+    {"key":"career.title","value":"CAREER / CERTIFICATIONS"},{"key":"career.career","value":"CAREER"},{"key":"career.skills","value":"SKILLS"},{"key":"career.achievements","value":"ACHIEVEMENTS"},{"key":"career.unlock","value":"UNLOCK"},{"key":"career.locked","value":"LOCKED"},
+    {"key":"inventory.title","value":"WAREHOUSE INVENTORY"},{"key":"inventory.search","value":"Search model / brand / ID"},{"key":"inventory.previous","value":"◀ PREVIOUS"},{"key":"inventory.next","value":"NEXT ▶"},{"key":"inventory.refresh","value":"REFRESH"},{"key":"inventory.install","value":"INSTALL"},{"key":"inventory.remove","value":"REMOVE"},
+    {"key":"specialist.liquid","value":"LIQUID LOOP"},{"key":"specialist.board","value":"BOARD REPAIR"},{"key":"specialist.portable","value":"PORTABLE"},{"key":"specialist.network","value":"NETWORK / NAS"},
+    {"key":"business.title","value":"WORKSHOP MANAGEMENT"},{"key":"business.business","value":"BUSINESS"},{"key":"business.staff","value":"STAFF"},{"key":"business.warehouse","value":"WAREHOUSE"},
+    {"key":"engineering.post","value":"POST / BIOS"},{"key":"engineering.thermal","value":"THERMAL / POWER"},{"key":"engineering.storage","value":"OS / STORAGE"},{"key":"engineering.benchmark","value":"BENCHMARK"},
+    {"key":"common.close","value":"✕"},{"key":"common.yes","value":"YES"},{"key":"common.no","value":"NO"},{"key":"common.on","value":"ON"},{"key":"common.off","value":"OFF"}
   ]
 }
