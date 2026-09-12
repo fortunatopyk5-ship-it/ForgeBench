@@ -146,6 +146,77 @@ namespace ForgeBench
     }
 
     [Serializable]
+    public class LiquidLoopState
+    {
+        public bool pumpInstalled;
+        public bool reservoirInstalled;
+        public int radiatorMm;
+        public int fittingCount;
+        public int tightFittings;
+        public float coolantLitres;
+        public float airFraction = 1f;
+        public float flowLpm;
+        public float pressureKpa;
+        public bool leakDetected;
+        public bool leakTestPassed;
+        public int coolantAgeDays;
+        public List<string> history = new List<string>();
+    }
+
+    [Serializable]
+    public class BoardRepairState
+    {
+        public bool esdGrounded;
+        public bool microscopeInspected;
+        public bool powerRailMeasured;
+        public float measuredRailV;
+        public bool shortLocated;
+        public bool fluxApplied;
+        public float solderQuality;
+        public int reworkCycles;
+        public bool padsIntact = true;
+        public bool repaired;
+        public string lastMeasurement;
+        public List<string> history = new List<string>();
+    }
+
+    [Serializable]
+    public class PortableDeviceState
+    {
+        public int screwsRemaining = 8;
+        public bool backCoverRemoved;
+        public bool batteryDisconnected;
+        public float batteryHealth = .82f;
+        public float chargingPortHealth = .80f;
+        public float displayHealth = .90f;
+        public float adhesiveIntegrity = 1f;
+        public float waterDamage;
+        public bool displaySeparated;
+        public bool sealed = true;
+        public float sealQuality = 1f;
+        public float controllerDrift;
+        public List<string> history = new List<string>();
+    }
+
+    [Serializable]
+    public class NetworkLabState
+    {
+        public bool linkUp;
+        public bool dhcp = true;
+        public string ipAddress = "192.168.1.10";
+        public string subnetMask = "255.255.255.0";
+        public float throughputMbps;
+        public float packetLoss;
+        public int latencyMs;
+        public int raidLevel = 1;
+        public int disksTotal = 2;
+        public int disksHealthy = 2;
+        public bool arrayDegraded;
+        public bool scrubComplete;
+        public List<string> history = new List<string>();
+    }
+
+    [Serializable]
     public class MachineState
     {
         public string machineId;
@@ -173,6 +244,10 @@ namespace ForgeBench
         public bool sidePanelInstalled;
         public PanelState sidePanel = new PanelState();
         public CustomizationState customization = new CustomizationState();
+        public LiquidLoopState liquidLoop = new LiquidLoopState();
+        public BoardRepairState boardRepair = new BoardRepairState();
+        public PortableDeviceState portable = new PortableDeviceState();
+        public NetworkLabState network = new NetworkLabState();
         public bool thermalPasteApplied;
         public float thermalPasteQuality;
         public float dust;
@@ -279,7 +354,7 @@ namespace ForgeBench
     [Serializable]
     public class GameState
     {
-        public int schemaVersion = 5;
+        public int schemaVersion = 6;
         public string saveId;
         public int day = 1;
         public float money = 1800f;
