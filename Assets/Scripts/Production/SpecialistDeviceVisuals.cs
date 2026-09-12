@@ -63,7 +63,14 @@ namespace ForgeBench
         {
             Vector3 basePos=new Vector3(-5.55f,.78f,-2.0f);PortableDeviceState s=m.portable??new PortableDeviceState();
             Material body=Mat(new Color(.075f,.085f,.095f),.55f,.75f),metal=Mat(new Color(.22f,.24f,.26f),.62f,.82f),pcb=Mat(new Color(.045f,.25f,.14f),.38f,.25f),battery=Mat(new Color(.11f,.12f,.13f),.42f,.35f),screen=Mat(s.displayHealth<.5f?new Color(.22f,.035f,.04f):new Color(.025f,.12f,.17f),.82f,.10f),accent=Mat(new Color(.09f,.54f,.83f),.55f,.18f);
-            bool phone=m.category==DeviceCategory.Phone||m.category==DeviceCategory.Tablet;float w=phone?(m.category==DeviceCategory.Tablet?1.05f:.62f):1.65f;float d=phone?(m.category==DeviceCategory.Tablet?.72f:.34f):1.08f;
+            bool phone=m.category==DeviceCategory.Phone||m.category==DeviceCategory.Tablet;
+            float w=1.65f;
+            float d=1.08f;
+            if(phone)
+            {
+                if(m.category==DeviceCategory.Tablet){w=1.05f;d=.72f;}
+                else {w=.62f;d=.34f;}
+            }
             GameObject chassis=Box("PortableChassis",basePos,new Vector3(w,.09f,d),body);
             AddInteractable(chassis,"Inspect "+m.category,8,()=>SpecialistRepairPanel.Open(SpecialistPanelMode.Portable));
             if(!s.backCoverRemoved)
