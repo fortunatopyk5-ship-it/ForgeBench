@@ -85,7 +85,8 @@ namespace ForgeBench
                 GameObject port=Box("ChargePort",basePos+new Vector3(0,.115f,-d*.48f),new Vector3(.18f,.045f,.08f),metal);AddInteractable(port,"Service charging port",24,()=>{game.PortableServicePort();Rebuild();});
                 if(phone)
                 {
-                    GameObject display=Box("DisplayAssembly",basePos+new Vector3(0,s.displaySeparated?.36f:.18f,0),new Vector3(w*.96f,.035f,d*.96f),screen);if(s.displaySeparated)display.transform.rotation=Quaternion.Euler(0,0,12);AddInteractable(display,s.displaySeparated?"Replace display":"Separate display",26,()=>{if(!s.displaySeparated)game.PortableSeparateDisplay();else game.PortableReplaceDisplay();Rebuild();});
+                    float displayHeight=s.displaySeparated ? 0.36f : 0.18f;
+                    GameObject display=Box("DisplayAssembly",basePos+new Vector3(0,displayHeight,0),new Vector3(w*.96f,.035f,d*.96f),screen);if(s.displaySeparated)display.transform.rotation=Quaternion.Euler(0,0,12);AddInteractable(display,s.displaySeparated?"Replace display":"Separate display",26,()=>{if(!s.displaySeparated)game.PortableSeparateDisplay();else game.PortableReplaceDisplay();Rebuild();});
                 }
                 if(m.category==DeviceCategory.Controller||m.category==DeviceCategory.Handheld||m.category==DeviceCategory.Console)
                 {
