@@ -29,9 +29,15 @@ namespace ForgeBench.EditorTools
             "Assets/Scripts/Production/SpecialistStationsLayer.cs",
             "Assets/Scripts/Production/SpecialistContractBoard.cs",
             "Assets/Scripts/Production/SpecialistContractTerminalLayer.cs",
+            "Assets/Scripts/Production/SpecialistLifecycle.cs",
+            "Assets/Scripts/Production/SpecialistDeviceVisuals.cs",
+            "Assets/Scripts/Production/EngineeringDiagnosticsPanel.cs",
+            "Assets/Scripts/Production/EngineeringTerminalLayer.cs",
             "Assets/Scripts/Simulation/SpecialistRepairServices.cs",
             "Assets/Scripts/Simulation/SpecialistJobService.cs",
+            "Assets/Scripts/Simulation/EngineeringSimulationService.cs",
             "Assets/Scripts/Runtime/SpecialistRuntimeExtensions.cs",
+            "Assets/Scripts/Runtime/EngineeringRuntimeExtensions.cs",
             "Assets/link.xml"
         };
 
@@ -49,8 +55,10 @@ namespace ForgeBench.EditorTools
             if(!data.parts.Any(p=>p.category==PartCategory.Battery))throw new BuildFailedException("Portable repair requires at least one Battery definition.");
             if(!data.parts.Any(p=>p.category==PartCategory.Display))throw new BuildFailedException("Portable repair requires at least one Display definition.");
             if(!data.parts.Any(p=>p.category==PartCategory.Storage))throw new BuildFailedException("NAS/server repair requires Storage definitions.");
+            if(!data.parts.Any(p=>p.category==PartCategory.PSU))throw new BuildFailedException("Power simulation requires PSU definitions.");
+            if(!data.parts.Any(p=>p.category==PartCategory.Fan))throw new BuildFailedException("Airflow simulation requires fan definitions.");
 
-            if(SaveService.CurrentSchema<6)throw new BuildFailedException("Save schema must include specialist persistent state (schema 6+).");
+            if(SaveService.CurrentSchema<7)throw new BuildFailedException("Save schema must include engineering simulation state (schema 7+).");
 
             if(report.summary.platform==BuildTarget.Android)
             {
@@ -65,7 +73,7 @@ namespace ForgeBench.EditorTools
                 PlayerSettings.allowedAutorotateToLandscapeRight=true;
             }
 
-            Debug.Log("ForgeBench production gate passed: "+data.parts.Count+" hardware definitions; core and specialist source/content present; save schema "+SaveService.CurrentSchema+"; Android settings enforced.");
+            Debug.Log("ForgeBench production gate passed: "+data.parts.Count+" hardware definitions; core, specialist and engineering source present; save schema "+SaveService.CurrentSchema+"; Android settings enforced.");
         }
     }
 }
