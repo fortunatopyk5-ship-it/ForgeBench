@@ -10,6 +10,7 @@ namespace ForgeBench
         public static Vector2 Look;
         public static bool Precision;
         public static bool InteractPressed;
+        public static bool InteractHeld;
     }
 
     public sealed class WorldInteractable : MonoBehaviour
@@ -17,8 +18,42 @@ namespace ForgeBench
         public string label;
         public int priority;
         public float maxDistance = 3.2f;
+        public float holdSeconds;
+        public string requiredToolId;
         public Action action;
-        public void Invoke() { action?.Invoke(); }
+        public Func<ActionResult> validator;
+        private Vector3 baseScale;
+        private bool scaleCaptured;
+
+        private void Awake(){CaptureScale();}
+        private void CaptureScale(){if(scaleCaptured)return;baseScale=transform.localScale;scaleCaptured=true;}
+        public void SetFocused(bool value)
+        {
+            CaptureScale();
+            if(GameRuntime.Instance?.State?.settings?.reducedMotion==true){transform.localScale=baseScale;return;}
+            transform.localScale=value?baseScale*1.018f:baseScale;
+        }
+        public bool CanInvoke(out string reason)
+        {
+            reason=string.Empty;
+            if(!string.IsNullOrEmpty(requiredToolId))
+            {
+                GameRuntime g=GameRuntime.Instance;
+                bool has=g!=null&&g.State!=null&&g.State.inventory.Exists(i=>!i.reserved&&i.definitionId==requiredToolId);
+                if(!has){reason="Required tool is not available: "+requiredToolId;return false;}
+            }
+            if(validator!=null)
+            {
+                ActionResult result=validator();
+                if(!result.ok){reason=result.message;return false;}
+            }
+            return true;
+        }
+        public void Invoke()
+        {
+            if(!CanInvoke(out string reason)){GameRuntime.Instance?.Notify(reason,false);return;}
+            action?.Invoke();
+        }
     }
 
     public sealed class FirstPersonController : MonoBehaviour
@@ -29,6 +64,8 @@ namespace ForgeBench
         private float pitch;
         private float rayTimer;
         private WorldInteractable focused;
+        private float holdProgress;
+        private WorldInteractable holdTarget;
 
         public void Initialize(Camera cam)
         {
@@ -68,11 +105,25 @@ namespace ForgeBench
             if (Input.GetKeyDown(KeyCode.Escape)) Cursor.lockState = CursorLockMode.None;
 
             rayTimer -= dt;
-            if (rayTimer <= 0f) { rayTimer = .1f; ScanFocus(); }
-            if (Input.GetKeyDown(KeyCode.E) || MobileInputState.InteractPressed)
+            if (rayTimer <= 0f) { rayTimer = .08f; ScanFocus(); }
+            bool pressed=Input.GetKeyDown(KeyCode.E)||MobileInputState.InteractPressed;
+            bool held=Input.GetKey(KeyCode.E)||MobileInputState.InteractHeld;
+            MobileInputState.InteractPressed=false;
+            if(focused==null){holdProgress=0f;holdTarget=null;}
+            else if(focused.holdSeconds<=.01f)
             {
-                MobileInputState.InteractPressed = false;
-                if (focused != null) focused.Invoke();
+                holdProgress=0f;holdTarget=null;if(pressed)focused.Invoke();
+            }
+            else if(held)
+            {
+                if(holdTarget!=focused){holdTarget=focused;holdProgress=0f;}
+                holdProgress+=dt;float p=Mathf.Clamp01(holdProgress/Mathf.Max(.01f,focused.holdSeconds));
+                FocusChanged?.Invoke(focused.label+"  "+Mathf.RoundToInt(p*100f)+"%");
+                if(holdProgress>=focused.holdSeconds){WorldInteractable target=focused;holdProgress=0f;holdTarget=null;target.Invoke();}
+            }
+            else if(holdTarget!=null)
+            {
+                holdProgress=0f;holdTarget=null;FocusChanged?.Invoke(focused.label+"  [HOLD]");
             }
         }
 
@@ -90,12 +141,15 @@ namespace ForgeBench
             }
             if (next != focused)
             {
+                focused?.SetFocused(false);
                 focused = next;
-                FocusChanged?.Invoke(focused == null ? string.Empty : focused.label);
+                focused?.SetFocused(true);
+                holdProgress=0f;holdTarget=null;
+                FocusChanged?.Invoke(focused == null ? string.Empty : focused.label+(focused.holdSeconds>.01f?"  [HOLD]":""));
             }
         }
 
-        public void InteractFocused() { focused?.Invoke(); }
+        public void InteractFocused() { if(focused!=null&&focused.holdSeconds<=.01f)focused.Invoke(); }
     }
 
     public sealed class MachineRgbVisual : MonoBehaviour
@@ -209,7 +263,6 @@ namespace ForgeBench
             Material caseMat=Mat(Color.Lerp(new Color(.08f,.09f,.105f),theme,.10f),.28f,.75f), boardMat=Mat(new Color(.06f,.25f,.15f),.5f,.3f), gpuMat=Mat(new Color(.16f,.17f,.20f),.4f,.65f), ramMat=Mat(new Color(.12f,.42f,.62f),.38f,.4f), copper=Mat(new Color(.63f,.30f,.12f),.38f,.6f), psu=Mat(new Color(.11f,.11f,.12f),.45f,.75f);
             if (!string.IsNullOrEmpty(m.caseItemId))
             {
-                // Open-frame case geometry keeps internal components visible.
                 Cube("CaseBase", root.transform.position + new Vector3(0,-.33f,0), new Vector3(.75f,.05f,.46f), caseMat, root.transform);
                 Cube("CaseTop", root.transform.position + new Vector3(0,.34f,0), new Vector3(.75f,.05f,.46f), caseMat, root.transform);
                 foreach(float x in new[]{-.36f,.36f}) foreach(float z in new[]{-.21f,.21f}) Cube("CasePost",root.transform.position+new Vector3(x,0,z),new Vector3(.04f,.68f,.04f),caseMat,root.transform);
