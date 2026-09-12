@@ -6,7 +6,7 @@ namespace ForgeBench
 {
     public sealed class SaveService
     {
-        public const int CurrentSchema = 4;
+        public const int CurrentSchema = 5;
         private readonly string root;
         public SaveService()
         {
@@ -77,6 +77,9 @@ namespace ForgeBench
             foreach (MachineState m in s.machines)
             {
                 if (m.ramItemIds == null) m.ramItemIds = new System.Collections.Generic.List<string>();
+                if (m.ramSlotIndices == null) m.ramSlotIndices = new System.Collections.Generic.List<int>();
+                while (m.ramSlotIndices.Count < m.ramItemIds.Count) m.ramSlotIndices.Add(DefaultRamSlot(m.ramSlotIndices.Count, m.ramItemIds.Count));
+                while (m.ramSlotIndices.Count > m.ramItemIds.Count) m.ramSlotIndices.RemoveAt(m.ramSlotIndices.Count - 1);
                 if (m.storageItemIds == null) m.storageItemIds = new System.Collections.Generic.List<string>();
                 if (m.fanItemIds == null) m.fanItemIds = new System.Collections.Generic.List<string>();
                 if (m.cables == null) m.cables = new CableState();
@@ -93,6 +96,13 @@ namespace ForgeBench
             }
             s.schemaVersion = CurrentSchema;
             return s;
+        }
+
+        private static int DefaultRamSlot(int index, int total)
+        {
+            if (total <= 1) return 1;
+            if (total == 2) return index == 0 ? 1 : 3;
+            return Mathf.Clamp(index, 0, 3);
         }
 
         public bool HasSave(int slot) => File.Exists(PathFor(slot)) || File.Exists(BackupFor(slot));
