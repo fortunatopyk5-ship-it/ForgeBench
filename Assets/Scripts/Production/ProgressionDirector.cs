@@ -8,7 +8,7 @@ namespace ForgeBench
         public static ProgressionDirector Instance { get; private set; }
         public ProgressionService Service { get; private set; }
         private GameRuntime game;
-        private int lastExperience=-1,lastReputation=-1,lastWorkshop=-1;
+        private int lastExperience=-1,lastReputation=-1,lastWorkshop=-1,lastLevel=-1;
         private float nextPoll;
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
@@ -28,7 +28,7 @@ namespace ForgeBench
         private void Bind()
         {
             game=GameRuntime.Instance;Service=new ProgressionService(game.State,game.Catalog);Service.ApplyPermanentEffects();
-            lastExperience=game.State.experience;lastReputation=game.State.reputation;lastWorkshop=game.State.workshop.level;
+            lastExperience=game.State.experience;lastReputation=game.State.reputation;lastWorkshop=game.State.workshop.level;lastLevel=Service.Level;
         }
 
         private void Update()
@@ -38,9 +38,10 @@ namespace ForgeBench
             if(game!=GameRuntime.Instance||Service==null){Bind();return;}
             if(lastExperience!=game.State.experience||lastReputation!=game.State.reputation||lastWorkshop!=game.State.workshop.level)
             {
-                int before=Service.Level;lastExperience=game.State.experience;lastReputation=game.State.reputation;lastWorkshop=game.State.workshop.level;
-                Service.ApplyPermanentEffects();game.Saves?.Save(game.State,1);ProgressionPanel.RefreshIfOpen();
-                if(Service.Level>before)game.Notify("Technician level increased to "+Service.Level+".");
+                lastExperience=game.State.experience;lastReputation=game.State.reputation;lastWorkshop=game.State.workshop.level;
+                Service.ApplyPermanentEffects();int currentLevel=Service.Level;game.Saves?.Save(game.State,1);ProgressionPanel.RefreshIfOpen();
+                if(lastLevel>=0&&currentLevel>lastLevel)game.Notify("Technician level increased to "+currentLevel+".");
+                lastLevel=currentLevel;
             }
         }
 
