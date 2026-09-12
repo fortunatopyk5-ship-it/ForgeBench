@@ -5,11 +5,14 @@ on:
   push:
     branches: [main]
     paths:
-      - '.ci/source/**'
+      - 'Assets/**'
+      - 'Packages/**'
+      - 'ProjectSettings/**'
       - '.github/workflows/android-apk.yml'
+      - '.ci/source/**'
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build-android:
@@ -20,78 +23,57 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Reconstruct Unity project
+      - name: One-time expand archived source into normal Unity files
         shell: bash
         run: |
           set -euxo pipefail
+          if [ -f ProjectSettings/ProjectVersion.txt ]; then
+            echo "Plain Unity source already exists; no migration needed."
+            exit 0
+          fi
+
+          echo "Expanding the already-uploaded archive once on GitHub runner..."
           cat .ci/source/part-00-s*.b64 \
               .ci/source/part-0[1-9].b64 \
               .ci/source/part-10.b64 \
               .ci/source/part-11.b64 > /tmp/forgebench.zip.b64
           base64 --decode /tmp/forgebench.zip.b64 > /tmp/forgebench.zip
           unzip -t /tmp/forgebench.zip
-          mkdir -p project
-          unzip -q /tmp/forgebench.zip -d project
-          test -f project/ProjectSettings/ProjectVersion.txt
-          grep -F '6000.3.15f1' project/ProjectSettings/ProjectVersion.txt
-          test -f project/Assets/Scenes/Workshop.unity
-          test -f project/Assets/Resources/Data/hardware.json
+          rm -rf /tmp/forgebench-expanded
+          mkdir -p /tmp/forgebench-expanded
+          unzip -q /tmp/forgebench.zip -d /tmp/forgebench-expanded
+          SOURCE_DIR="$(find /tmp/forgebench-expanded -mindepth 1 -maxdepth 1 -type d | head -n 1)"
+          test -n "$SOURCE_DIR"
+          cp -a "$SOURCE_DIR"/. .
 
-      - name: Restore build-time traceability and CI entry point
-        shell: bash
-        run: |
-          set -euxo pipefail
-          mkdir -p project/Docs
-          python3 - <<'PY'
-          import json
-          from pathlib import Path
-          p = Path('project/Docs/requirements_index.json')
-          p.write_text(json.dumps([{'id': i, 'status': 'CI_BUILD_TRACE'} for i in range(1, 521)], indent=2), encoding='utf-8')
-          PY
-          cat > project/Assets/Scripts/Editor/CIBuild.cs <<'CS'
-          #if UNITY_EDITOR
-          using System.IO;
-          using UnityEngine;
-          namespace ForgeBench.EditorTools
-          {
-              public static class CIBuild
-              {
-                  public static void BuildAndroid()
-                  {
-                      Directory.SetCurrentDirectory(Path.GetDirectoryName(Application.dataPath));
-                      ForgeBenchEditorSetup.BuildAndroid();
-                  }
-              }
-          }
-          #endif
-          CS
+          test -f ProjectSettings/ProjectVersion.txt
+          test -f Assets/Scenes/Workshop.unity
+          test -f Assets/Resources/Data/hardware.json
+          grep -F '6000.3.15f1' ProjectSettings/ProjectVersion.txt
 
-      - name: Run balance smoke test
-        shell: bash
-        run: |
-          set -euxo pipefail
-          cd project
-          python3 Tools/smoke_balance_test.py
-
-      - name: Verify Unity CI credentials are configured
-        shell: bash
-        env:
-          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
-          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
-          UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
-        run: |
-          set -euo pipefail
-          missing=0
-          if [ -z "${UNITY_EMAIL:-}" ]; then echo "::error::Missing repository secret UNITY_EMAIL"; missing=1; fi
-          if [ -z "${UNITY_PASSWORD:-}" ]; then echo "::error::Missing repository secret UNITY_PASSWORD"; missing=1; fi
-          if [ -z "${UNITY_LICENSE:-}" ] && [ -z "${UNITY_SERIAL:-}" ]; then
-            echo "::error::Missing Unity activation. Add UNITY_LICENSE for Personal, or UNITY_SERIAL for Pro."
-            missing=1
+          # Persist normal source files so future runs never reconstruct/base64-decode anything.
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Assets Packages ProjectSettings Tools Docs README.md .gitignore
+          if ! git diff --cached --quiet; then
+            git commit -m "Expand ForgeBench Unity source into repository [skip ci]"
+            git push origin HEAD:main || echo "::warning::Could not push expanded source; this run can still build from the expanded working tree."
           fi
-          if [ "$missing" -ne 0 ]; then exit 1; fi
-          echo "Unity CI credentials are present (values remain secret)."
+
+      - name: Validate source tree
+        shell: bash
+        run: |
+          set -euxo pipefail
+          test -f ProjectSettings/ProjectVersion.txt
+          test -f Assets/Scenes/Workshop.unity
+          test -f Assets/Resources/Data/hardware.json
+          test -f Assets/Scripts/Editor/ForgeBenchEditorSetup.cs
+          grep -F '6000.3.15f1' ProjectSettings/ProjectVersion.txt
+          python3 Tools/validate_project.py
+          python3 Tools/smoke_balance_test.py
 
       - name: Free disk space for Unity Android toolchain
         uses: jlumbroso/free-disk-space@main
@@ -112,27 +94,27 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
           UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
         with:
-          projectPath: project
+          projectPath: .
           unityVersion: 6000.3.15f1
           targetPlatform: Android
           androidExportType: androidPackage
-          buildMethod: ForgeBench.EditorTools.CIBuild.BuildAndroid
+          buildMethod: ForgeBench.EditorTools.ForgeBenchEditorSetup.BuildAndroid
           allowDirtyBuild: true
 
       - name: Verify APK output
         shell: bash
         run: |
           set -euxo pipefail
-          test -s project/Builds/Android/ForgeBench.apk
-          ls -lh project/Builds/Android/ForgeBench.apk
-          sha256sum project/Builds/Android/ForgeBench.apk | tee project/Builds/Android/ForgeBench.apk.sha256
+          test -s Builds/Android/ForgeBench.apk
+          ls -lh Builds/Android/ForgeBench.apk
+          sha256sum Builds/Android/ForgeBench.apk | tee Builds/Android/ForgeBench.apk.sha256
 
       - name: Upload ForgeBench APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: ForgeBench-Android-APK
           path: |
-            project/Builds/Android/ForgeBench.apk
-            project/Builds/Android/ForgeBench.apk.sha256
+            Builds/Android/ForgeBench.apk
+            Builds/Android/ForgeBench.apk.sha256
           if-no-files-found: error
           retention-days: 30
