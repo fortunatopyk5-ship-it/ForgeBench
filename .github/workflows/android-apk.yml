@@ -34,16 +34,21 @@ jobs:
           grep -F '6000.3.15f1' ProjectSettings/ProjectVersion.txt
           python3 Tools/smoke_balance_test.py
 
-      - name: Free disk space for Unity Android toolchain
-        uses: jlumbroso/free-disk-space@main
-        with:
-          tool-cache: false
-          android: false
-          dotnet: true
-          haskell: true
-          large-packages: true
-          docker-images: false
-          swap-storage: true
+      - name: Check Unity activation secrets
+        shell: bash
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+          UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
+        run: |
+          set -euo pipefail
+          test -n "${UNITY_EMAIL:-}" || { echo '::error::Missing UNITY_EMAIL'; exit 1; }
+          test -n "${UNITY_PASSWORD:-}" || { echo '::error::Missing UNITY_PASSWORD'; exit 1; }
+          if [ -z "${UNITY_LICENSE:-}" ] && [ -z "${UNITY_SERIAL:-}" ]; then
+            echo '::error::Missing UNITY_LICENSE (Personal) or UNITY_SERIAL (Pro).'
+            exit 1
+          fi
 
       - name: Build ForgeBench APK with Unity
         uses: game-ci/unity-builder@v4
