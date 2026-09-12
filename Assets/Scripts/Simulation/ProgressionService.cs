@@ -96,9 +96,9 @@ namespace ForgeBench
             }
         }
 
-        public float ProcurementMultiplier => IsUnlocked("procurement")?.94f:1f;
-        public float CustomerTrustBonus => IsUnlocked("premium")?5f:0f;
-        public float SpecialistQualityBonus => IsUnlocked("microsolder")?.08f:0f;
+        public float ProcurementMultiplier => IsUnlocked("procurement") ? .94f : 1f;
+        public float CustomerTrustBonus => IsUnlocked("premium") ? 5f : 0f;
+        public float SpecialistQualityBonus => IsUnlocked("microsolder") ? .08f : 0f;
         public bool AdvancedNetworkUnlocked => IsUnlocked("network")||state.reputation>=420;
         public bool AdvancedLiquidUnlocked => IsUnlocked("liquid")||state.reputation>=420;
         public bool EnterpriseUnlocked => IsUnlocked("enterprise")&&state.reputation>=650;
