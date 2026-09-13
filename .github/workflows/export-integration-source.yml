@@ -19,11 +19,11 @@ jobs:
           ref: integration/physical-assembly-review
       - name: Pack source
         run: |
-          tar --exclude=.git -czf ForgeBench-integration-source.tar.gz .
+          tar --exclude=.git -czf "$RUNNER_TEMP/ForgeBench-integration-source.tar.gz" .
       - name: Upload source artifact
         uses: actions/upload-artifact@v4
         with:
           name: ForgeBench-integration-source
-          path: ForgeBench-integration-source.tar.gz
+          path: ${{ runner.temp }}/ForgeBench-integration-source.tar.gz
           if-no-files-found: error
           retention-days: 1
