@@ -20,10 +20,6 @@ namespace ForgeBench
         public bool Passed => severity == DiagnosticSeverity.Pass || severity == DiagnosticSeverity.Advisory;
     }
 
-    /// <summary>
-    /// Evidence-driven workshop diagnostics. Tests read the same persistent machine/item state
-    /// used by POST, power/thermal simulation, repair and preflight instead of returning canned results.
-    /// </summary>
     public sealed class AdvancedDiagnosticWorkflowService
     {
         private readonly InventoryService inventory;
@@ -84,7 +80,7 @@ namespace ForgeBench
                 confidence = Mathf.Clamp01(.55f + list.Count * .055f)
             };
             foreach (string cause in list.SelectMany(x => x.likelyCauses).Where(x => !string.IsNullOrEmpty(x)).Distinct().Take(8)) e.likelyCauses.Add(cause);
-            foreach (DiagnosticEvidence r in list.Where(x => x.severity >= DiagnosticSeverity.Warning)) e.findings.Add(r.probe + ": " + r.summary);
+            foreach (DiagnosticEvidence r in list.Where(x => x.severity == DiagnosticSeverity.Warning || x.severity == DiagnosticSeverity.Critical)) e.findings.Add(r.probe + ": " + r.summary);
             return e;
         }
 
@@ -248,7 +244,7 @@ namespace ForgeBench
         private static DiagnosticEvidence Critical(DiagnosticProbeKind p, string h, string s, string cause) { DiagnosticEvidence e = new DiagnosticEvidence { probe = p, severity = DiagnosticSeverity.Critical, headline = h, summary = s, confidence = .80f }; if (!string.IsNullOrEmpty(cause)) e.likelyCauses.Add(cause); return e; }
         private static void Add(DiagnosticEvidence e, DiagnosticSeverity severity, string finding, string cause)
         {
-            if (severity > e.severity) e.severity = severity; e.findings.Add(finding); if (!string.IsNullOrEmpty(cause) && !e.likelyCauses.Contains(cause)) e.likelyCauses.Add(cause);
+            if ((int)severity > (int)e.severity) e.severity = severity; e.findings.Add(finding); if (!string.IsNullOrEmpty(cause) && !e.likelyCauses.Contains(cause)) e.likelyCauses.Add(cause);
         }
         private static void Normalize(DiagnosticEvidence e)
         {
