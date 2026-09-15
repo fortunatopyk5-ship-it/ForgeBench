@@ -10,6 +10,8 @@ namespace ForgeBench
     public sealed class CoolingVisualUpgradeDirector : MonoBehaviour
     {
         private static bool installing;
+        public static int VisualRevision { get; private set; }
+
         private GameObject observedMachineRoot;
         private GameObject generatedRoot;
         private string lastSignature = string.Empty;
@@ -85,6 +87,7 @@ namespace ForgeBench
             UpgradeCpuCooler(game, machineRoot.transform, graphite, darkMetal, aluminium, copper, rubber, accent);
             UpgradeCaseFans(game, machineRoot.transform, graphite, darkMetal, aluminium, accent);
             UpgradeGpuFans(game, machineRoot.transform, graphite, darkMetal, aluminium, accent);
+            VisualRevision++;
         }
 
         private void UpgradeCpuCooler(GameRuntime game, Transform machineRoot, Material graphite, Material darkMetal,
@@ -185,10 +188,30 @@ namespace ForgeBench
 
         private void ClearGenerated()
         {
-            if (generatedRoot != null) Destroy(generatedRoot);
+            if (generatedRoot != null)
+            {
+                DestroyRuntimeMeshes(generatedRoot);
+                Destroy(generatedRoot);
+            }
             generatedRoot = null;
             foreach (Material m in ownedMaterials) if (m != null) Destroy(m);
             ownedMaterials.Clear();
+        }
+
+        private static void DestroyRuntimeMeshes(GameObject root)
+        {
+            if (root == null) return;
+            MeshFilter[] filters = root.GetComponentsInChildren<MeshFilter>(true);
+            HashSet<Mesh> owned = new HashSet<Mesh>();
+            foreach (MeshFilter filter in filters)
+            {
+                Mesh mesh = filter != null ? filter.sharedMesh : null;
+                if (mesh == null) continue;
+                string n = mesh.name ?? string.Empty;
+                if (n == "ForgeBench_RadiatorFins" || n == "ForgeBench_TowerFins" || n == "ForgeBench_AioTube")
+                    owned.Add(mesh);
+            }
+            foreach (Mesh mesh in owned) if (mesh != null) Destroy(mesh);
         }
 
         private static void HideRendererOnly(GameObject go)
