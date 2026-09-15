@@ -1,0 +1,2240 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Authoring plan only; no runtime binding. Art intent never overrides gameplay specifications.",
+  "sourceCommit": "5e5e1be1b08a7825dc3c228676a3c8f611093590",
+  "catalogPath": "Assets/Resources/Data/hardware.json",
+  "catalogSha256": "f7c98ad8f6e8bc6087820405181c6bdaa83680bfdc0f31e1a181d65440f98c6f",
+  "families": {
+    "case_matx": {
+      "category": "Case",
+      "lodTriangleCeilings": [
+        35000,
+        16000,
+        6000
+      ],
+      "maxTextureSize": 2048
+    },
+    "case_atx": {
+      "category": "Case",
+      "lodTriangleCeilings": [
+        35000,
+        16000,
+        6000
+      ],
+      "maxTextureSize": 2048
+    },
+    "case_eatx": {
+      "category": "Case",
+      "lodTriangleCeilings": [
+        35000,
+        16000,
+        6000
+      ],
+      "maxTextureSize": 2048
+    },
+    "case_itx": {
+      "category": "Case",
+      "lodTriangleCeilings": [
+        35000,
+        16000,
+        6000
+      ],
+      "maxTextureSize": 2048
+    },
+    "board_atx": {
+      "category": "Motherboard",
+      "lodTriangleCeilings": [
+        40000,
+        16000,
+        5000
+      ],
+      "maxTextureSize": 2048
+    },
+    "board_matx": {
+      "category": "Motherboard",
+      "lodTriangleCeilings": [
+        40000,
+        16000,
+        5000
+      ],
+      "maxTextureSize": 2048
+    },
+    "cpu_pga_square": {
+      "category": "CPU",
+      "lodTriangleCeilings": [
+        1600,
+        600,
+        120
+      ],
+      "maxTextureSize": 1024
+    },
+    "cpu_lga_square": {
+      "category": "CPU",
+      "lodTriangleCeilings": [
+        1600,
+        600,
+        120
+      ],
+      "maxTextureSize": 1024
+    },
+    "cpu_lga_rect": {
+      "category": "CPU",
+      "lodTriangleCeilings": [
+        1600,
+        600,
+        120
+      ],
+      "maxTextureSize": 1024
+    },
+    "ram_ddr4": {
+      "category": "RAM",
+      "lodTriangleCeilings": [
+        3000,
+        1200,
+        350
+      ],
+      "maxTextureSize": 1024
+    },
+    "ram_ddr5": {
+      "category": "RAM",
+      "lodTriangleCeilings": [
+        3000,
+        1200,
+        350
+      ],
+      "maxTextureSize": 1024
+    },
+    "gpu_compact": {
+      "category": "GPU",
+      "lodTriangleCeilings": [
+        30000,
+        14000,
+        5000
+      ],
+      "maxTextureSize": 2048
+    },
+    "gpu_dual_small": {
+      "category": "GPU",
+      "lodTriangleCeilings": [
+        30000,
+        14000,
+        5000
+      ],
+      "maxTextureSize": 2048
+    },
+    "gpu_dual_large": {
+      "category": "GPU",
+      "lodTriangleCeilings": [
+        30000,
+        14000,
+        5000
+      ],
+      "maxTextureSize": 2048
+    },
+    "gpu_triple": {
+      "category": "GPU",
+      "lodTriangleCeilings": [
+        30000,
+        14000,
+        5000
+      ],
+      "maxTextureSize": 2048
+    },
+    "gpu_premium": {
+      "category": "GPU",
+      "lodTriangleCeilings": [
+        30000,
+        14000,
+        5000
+      ],
+      "maxTextureSize": 2048
+    },
+    "ssd_sata25": {
+      "category": "Storage",
+      "lodTriangleCeilings": [
+        3000,
+        1200,
+        300
+      ],
+      "maxTextureSize": 1024
+    },
+    "hdd35": {
+      "category": "Storage",
+      "lodTriangleCeilings": [
+        3000,
+        1200,
+        300
+      ],
+      "maxTextureSize": 1024
+    },
+    "nvme2280": {
+      "category": "Storage",
+      "lodTriangleCeilings": [
+        3000,
+        1200,
+        300
+      ],
+      "maxTextureSize": 1024
+    },
+    "psu_fixed": {
+      "category": "PSU",
+      "lodTriangleCeilings": [
+        10000,
+        4000,
+        1200
+      ],
+      "maxTextureSize": 1024
+    },
+    "psu_modular": {
+      "category": "PSU",
+      "lodTriangleCeilings": [
+        10000,
+        4000,
+        1200
+      ],
+      "maxTextureSize": 1024
+    },
+    "cooler_single": {
+      "category": "Cooler",
+      "lodTriangleCeilings": [
+        20000,
+        8000,
+        2000
+      ],
+      "maxTextureSize": 2048
+    },
+    "cooler_dual": {
+      "category": "Cooler",
+      "lodTriangleCeilings": [
+        20000,
+        8000,
+        2000
+      ],
+      "maxTextureSize": 2048
+    },
+    "aio240": {
+      "category": "Cooler",
+      "lodTriangleCeilings": [
+        20000,
+        8000,
+        2000
+      ],
+      "maxTextureSize": 2048
+    },
+    "aio280": {
+      "category": "Cooler",
+      "lodTriangleCeilings": [
+        20000,
+        8000,
+        2000
+      ],
+      "maxTextureSize": 2048
+    },
+    "aio360": {
+      "category": "Cooler",
+      "lodTriangleCeilings": [
+        20000,
+        8000,
+        2000
+      ],
+      "maxTextureSize": 2048
+    },
+    "fan120": {
+      "category": "Fan",
+      "lodTriangleCeilings": [
+        2000,
+        800,
+        200
+      ],
+      "maxTextureSize": 512
+    },
+    "fan140": {
+      "category": "Fan",
+      "lodTriangleCeilings": [
+        2000,
+        800,
+        200
+      ],
+      "maxTextureSize": 512
+    },
+    "network_pcie": {
+      "category": "Network",
+      "lodTriangleCeilings": [
+        3000,
+        1000,
+        300
+      ],
+      "maxTextureSize": 1024
+    },
+    "battery_pouch": {
+      "category": "Battery",
+      "lodTriangleCeilings": [
+        3000,
+        1000,
+        300
+      ],
+      "maxTextureSize": 1024
+    },
+    "display_module": {
+      "category": "Display",
+      "lodTriangleCeilings": [
+        3000,
+        1000,
+        300
+      ],
+      "maxTextureSize": 1024
+    },
+    "stick_module": {
+      "category": "Controller",
+      "lodTriangleCeilings": [
+        3000,
+        1000,
+        300
+      ],
+      "maxTextureSize": 1024
+    },
+    "paste_syringe": {
+      "category": "Consumable",
+      "lodTriangleCeilings": [
+        2000,
+        700,
+        200
+      ],
+      "maxTextureSize": 512
+    },
+    "air_can": {
+      "category": "Consumable",
+      "lodTriangleCeilings": [
+        2000,
+        700,
+        200
+      ],
+      "maxTextureSize": 512
+    },
+    "pad_packet": {
+      "category": "Consumable",
+      "lodTriangleCeilings": [
+        2000,
+        700,
+        200
+      ],
+      "maxTextureSize": 512
+    },
+    "solder_spool": {
+      "category": "Consumable",
+      "lodTriangleCeilings": [
+        2000,
+        700,
+        200
+      ],
+      "maxTextureSize": 512
+    },
+    "flux_dispenser": {
+      "category": "Consumable",
+      "lodTriangleCeilings": [
+        2000,
+        700,
+        200
+      ],
+      "maxTextureSize": 512
+    },
+    "precision_driver": {
+      "category": "Tool",
+      "lodTriangleCeilings": [
+        6000,
+        2000,
+        600
+      ],
+      "maxTextureSize": 1024
+    },
+    "digital_meter": {
+      "category": "Tool",
+      "lodTriangleCeilings": [
+        6000,
+        2000,
+        600
+      ],
+      "maxTextureSize": 1024
+    },
+    "psu_tester": {
+      "category": "Tool",
+      "lodTriangleCeilings": [
+        6000,
+        2000,
+        600
+      ],
+      "maxTextureSize": 1024
+    },
+    "solder_station": {
+      "category": "Tool",
+      "lodTriangleCeilings": [
+        6000,
+        2000,
+        600
+      ],
+      "maxTextureSize": 1024
+    },
+    "air_blower": {
+      "category": "Tool",
+      "lodTriangleCeilings": [
+        6000,
+        2000,
+        600
+      ],
+      "maxTextureSize": 1024
+    }
+  },
+  "profiles": [
+    {
+      "definitionId": "case_1",
+      "profileId": "fb.hw.case_1.v1",
+      "category": "Case",
+      "familyId": "case_matx",
+      "variantId": "budget_solid",
+      "brand": "Aster",
+      "label": "Frame A",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "formFactor": "mATX",
+        "glass": false,
+        "rgb": false
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "Grip_L_Support",
+        "PanelRest",
+        "Socket_Board",
+        "Socket_PSU"
+      ],
+      "reviewBlockers": [
+        "Exterior dimensions require measurement; lengthMm/heightMm are clearance fields."
+      ]
+    },
+    {
+      "definitionId": "case_2",
+      "profileId": "fb.hw.case_2.v1",
+      "category": "Case",
+      "familyId": "case_atx",
+      "variantId": "mesh_front",
+      "brand": "Aster",
+      "label": "Frame B",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "formFactor": "ATX",
+        "glass": false,
+        "rgb": false
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "Grip_L_Support",
+        "PanelRest",
+        "Socket_Board",
+        "Socket_PSU"
+      ],
+      "reviewBlockers": [
+        "Exterior dimensions require measurement; lengthMm/heightMm are clearance fields."
+      ]
+    },
+    {
+      "definitionId": "case_3",
+      "profileId": "fb.hw.case_3.v1",
+      "category": "Case",
+      "familyId": "case_atx",
+      "variantId": "glass_rgb",
+      "brand": "Aster",
+      "label": "Frame C",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "formFactor": "ATX",
+        "glass": true,
+        "rgb": true
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "Grip_L_Support",
+        "PanelRest",
+        "Socket_Board",
+        "Socket_PSU"
+      ],
+      "reviewBlockers": [
+        "Exterior dimensions require measurement; lengthMm/heightMm are clearance fields."
+      ]
+    },
+    {
+      "definitionId": "case_4",
+      "profileId": "fb.hw.case_4.v1",
+      "category": "Case",
+      "familyId": "case_eatx",
+      "variantId": "premium_glass_rgb",
+      "brand": "Aster",
+      "label": "Frame D",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "formFactor": "EATX",
+        "glass": true,
+        "rgb": true
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "Grip_L_Support",
+        "PanelRest",
+        "Socket_Board",
+        "Socket_PSU"
+      ],
+      "reviewBlockers": [
+        "Exterior dimensions require measurement; lengthMm/heightMm are clearance fields."
+      ]
+    },
+    {
+      "definitionId": "case_5",
+      "profileId": "fb.hw.case_5.v1",
+      "category": "Case",
+      "familyId": "case_itx",
+      "variantId": "compact_glass",
+      "brand": "Aster",
+      "label": "Frame E",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "formFactor": "MiniITX",
+        "glass": true,
+        "rgb": false
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "Grip_L_Support",
+        "PanelRest",
+        "Socket_Board",
+        "Socket_PSU"
+      ],
+      "reviewBlockers": [
+        "Exterior dimensions require measurement; lengthMm/heightMm are clearance fields."
+      ]
+    },
+    {
+      "definitionId": "board_1",
+      "profileId": "fb.hw.board_1.v1",
+      "category": "Motherboard",
+      "familyId": "board_atx",
+      "variantId": "am5_ddr5",
+      "brand": "Novera",
+      "label": "CoreBoard 1",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "socket": "AM5",
+        "memoryType": "DDR5",
+        "formFactor": "ATX"
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "Grip_L_Support",
+        "Socket_CPU",
+        "Socket_ATX24",
+        "Socket_EPS8"
+      ],
+      "reviewBlockers": [
+        "Export normalized slot/header counts from HardwareCatalog before marker authoring."
+      ]
+    },
+    {
+      "definitionId": "board_2",
+      "profileId": "fb.hw.board_2.v1",
+      "category": "Motherboard",
+      "familyId": "board_matx",
+      "variantId": "am5_ddr5",
+      "brand": "Novera",
+      "label": "CoreBoard 2",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "socket": "AM5",
+        "memoryType": "DDR5",
+        "formFactor": "mATX"
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "Grip_L_Support",
+        "Socket_CPU",
+        "Socket_ATX24",
+        "Socket_EPS8"
+      ],
+      "reviewBlockers": [
+        "Export normalized slot/header counts from HardwareCatalog before marker authoring."
+      ]
+    },
+    {
+      "definitionId": "board_3",
+      "profileId": "fb.hw.board_3.v1",
+      "category": "Motherboard",
+      "familyId": "board_atx",
+      "variantId": "lga1851_ddr5",
+      "brand": "Novera",
+      "label": "CoreBoard 3",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "socket": "LGA1851",
+        "memoryType": "DDR5",
+        "formFactor": "ATX"
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "Grip_L_Support",
+        "Socket_CPU",
+        "Socket_ATX24",
+        "Socket_EPS8"
+      ],
+      "reviewBlockers": [
+        "Export normalized slot/header counts from HardwareCatalog before marker authoring."
+      ]
+    },
+    {
+      "definitionId": "board_4",
+      "profileId": "fb.hw.board_4.v1",
+      "category": "Motherboard",
+      "familyId": "board_matx",
+      "variantId": "lga1851_ddr5",
+      "brand": "Novera",
+      "label": "CoreBoard 4",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "socket": "LGA1851",
+        "memoryType": "DDR5",
+        "formFactor": "mATX"
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "Grip_L_Support",
+        "Socket_CPU",
+        "Socket_ATX24",
+        "Socket_EPS8"
+      ],
+      "reviewBlockers": [
+        "Export normalized slot/header counts from HardwareCatalog before marker authoring."
+      ]
+    },
+    {
+      "definitionId": "board_5",
+      "profileId": "fb.hw.board_5.v1",
+      "category": "Motherboard",
+      "familyId": "board_matx",
+      "variantId": "am4_ddr4",
+      "brand": "Novera",
+      "label": "CoreBoard 5",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "socket": "AM4",
+        "memoryType": "DDR4",
+        "formFactor": "mATX"
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "Grip_L_Support",
+        "Socket_CPU",
+        "Socket_ATX24",
+        "Socket_EPS8"
+      ],
+      "reviewBlockers": [
+        "Export normalized slot/header counts from HardwareCatalog before marker authoring."
+      ]
+    },
+    {
+      "definitionId": "board_6",
+      "profileId": "fb.hw.board_6.v1",
+      "category": "Motherboard",
+      "familyId": "board_atx",
+      "variantId": "lga1700_ddr4",
+      "brand": "Novera",
+      "label": "CoreBoard 6",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "socket": "LGA1700",
+        "memoryType": "DDR4",
+        "formFactor": "ATX"
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "Grip_L_Support",
+        "Socket_CPU",
+        "Socket_ATX24",
+        "Socket_EPS8"
+      ],
+      "reviewBlockers": [
+        "Export normalized slot/header counts from HardwareCatalog before marker authoring."
+      ]
+    },
+    {
+      "definitionId": "cpu_1",
+      "profileId": "fb.hw.cpu_1.v1",
+      "category": "CPU",
+      "familyId": "cpu_lga_square",
+      "variantId": "am5",
+      "brand": "Vanta",
+      "label": "Pulse 400",
+      "materialPreset": "nickel_pcb",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "socket": "AM5",
+        "underside": "contact_pads"
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "OrientationCorner"
+      ],
+      "reviewBlockers": []
+    },
+    {
+      "definitionId": "cpu_2",
+      "profileId": "fb.hw.cpu_2.v1",
+      "category": "CPU",
+      "familyId": "cpu_lga_square",
+      "variantId": "am5",
+      "brand": "Vanta",
+      "label": "Pulse 520",
+      "materialPreset": "nickel_pcb",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "socket": "AM5",
+        "underside": "contact_pads"
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "OrientationCorner"
+      ],
+      "reviewBlockers": []
+    },
+    {
+      "definitionId": "cpu_3",
+      "profileId": "fb.hw.cpu_3.v1",
+      "category": "CPU",
+      "familyId": "cpu_lga_square",
+      "variantId": "am5",
+      "brand": "Vanta",
+      "label": "Pulse 640",
+      "materialPreset": "nickel_pcb",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "socket": "AM5",
+        "underside": "contact_pads"
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "OrientationCorner"
+      ],
+      "reviewBlockers": []
+    },
+    {
+      "definitionId": "cpu_4",
+      "profileId": "fb.hw.cpu_4.v1",
+      "category": "CPU",
+      "familyId": "cpu_lga_rect",
+      "variantId": "lga1851",
+      "brand": "Vanta",
+      "label": "Pulse 760",
+      "materialPreset": "nickel_pcb",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "socket": "LGA1851",
+        "underside": "contact_pads"
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "OrientationCorner"
+      ],
+      "reviewBlockers": []
+    },
+    {
+      "definitionId": "cpu_5",
+      "profileId": "fb.hw.cpu_5.v1",
+      "category": "CPU",
+      "familyId": "cpu_lga_rect",
+      "variantId": "lga1851",
+      "brand": "Vanta",
+      "label": "Pulse 880",
+      "materialPreset": "nickel_pcb",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "socket": "LGA1851",
+        "underside": "contact_pads"
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "OrientationCorner"
+      ],
+      "reviewBlockers": []
+    },
+    {
+      "definitionId": "cpu_6",
+      "profileId": "fb.hw.cpu_6.v1",
+      "category": "CPU",
+      "familyId": "cpu_lga_rect",
+      "variantId": "lga1851",
+      "brand": "Vanta",
+      "label": "Pulse 1000",
+      "materialPreset": "nickel_pcb",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "socket": "LGA1851",
+        "underside": "contact_pads"
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "OrientationCorner"
+      ],
+      "reviewBlockers": []
+    },
+    {
+      "definitionId": "cpu_7",
+      "profileId": "fb.hw.cpu_7.v1",
+      "category": "CPU",
+      "familyId": "cpu_pga_square",
+      "variantId": "am4",
+      "brand": "Vanta",
+      "label": "Pulse 1120",
+      "materialPreset": "nickel_pcb",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "socket": "AM4",
+        "underside": "pins"
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "OrientationCorner"
+      ],
+      "reviewBlockers": []
+    },
+    {
+      "definitionId": "cpu_8",
+      "profileId": "fb.hw.cpu_8.v1",
+      "category": "CPU",
+      "familyId": "cpu_lga_rect",
+      "variantId": "lga1700",
+      "brand": "Vanta",
+      "label": "Pulse 1240",
+      "materialPreset": "nickel_pcb",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "socket": "LGA1700",
+        "underside": "contact_pads"
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "OrientationCorner"
+      ],
+      "reviewBlockers": []
+    },
+    {
+      "definitionId": "ram_1",
+      "profileId": "fb.hw.ram_1.v1",
+      "category": "RAM",
+      "familyId": "ram_ddr4",
+      "variantId": "bare",
+      "brand": "Quanta",
+      "label": "Memory 8G-3200",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "memoryType": "DDR4",
+        "capacityGB": 8,
+        "rgb": false
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "ContactPlane"
+      ],
+      "reviewBlockers": []
+    },
+    {
+      "definitionId": "ram_2",
+      "profileId": "fb.hw.ram_2.v1",
+      "category": "RAM",
+      "familyId": "ram_ddr4",
+      "variantId": "heatspreader",
+      "brand": "Quanta",
+      "label": "Memory 16G-3600",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "memoryType": "DDR4",
+        "capacityGB": 16,
+        "rgb": false
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "ContactPlane"
+      ],
+      "reviewBlockers": []
+    },
+    {
+      "definitionId": "ram_3",
+      "profileId": "fb.hw.ram_3.v1",
+      "category": "RAM",
+      "familyId": "ram_ddr5",
+      "variantId": "bare",
+      "brand": "Quanta",
+      "label": "Memory 16G-5600",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "memoryType": "DDR5",
+        "capacityGB": 16,
+        "rgb": false
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "ContactPlane"
+      ],
+      "reviewBlockers": []
+    },
+    {
+      "definitionId": "ram_4",
+      "profileId": "fb.hw.ram_4.v1",
+      "category": "RAM",
+      "familyId": "ram_ddr5",
+      "variantId": "heatspreader",
+      "brand": "Quanta",
+      "label": "Memory 32G-6000",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "memoryType": "DDR5",
+        "capacityGB": 32,
+        "rgb": false
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "ContactPlane"
+      ],
+      "reviewBlockers": []
+    },
+    {
+      "definitionId": "ram_5",
+      "profileId": "fb.hw.ram_5.v1",
+      "category": "RAM",
+      "familyId": "ram_ddr5",
+      "variantId": "premium_heatspreader",
+      "brand": "Quanta",
+      "label": "Memory 32G-7200",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "memoryType": "DDR5",
+        "capacityGB": 32,
+        "rgb": false
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "ContactPlane"
+      ],
+      "reviewBlockers": []
+    },
+    {
+      "definitionId": "ram_6",
+      "profileId": "fb.hw.ram_6.v1",
+      "category": "RAM",
+      "familyId": "ram_ddr5",
+      "variantId": "premium_heatspreader",
+      "brand": "Quanta",
+      "label": "Memory 64G-6400",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "memoryType": "DDR5",
+        "capacityGB": 64,
+        "rgb": false
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "ContactPlane"
+      ],
+      "reviewBlockers": []
+    },
+    {
+      "definitionId": "gpu_1",
+      "profileId": "fb.hw.gpu_1.v1",
+      "category": "GPU",
+      "familyId": "gpu_dual_small",
+      "variantId": "vector_50",
+      "brand": "Helix",
+      "label": "Vector 50",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "lengthMm": 245,
+        "fanCount": 2,
+        "rgb": false,
+        "powerConnectors": [
+          "PCIE8"
+        ]
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "Grip_L_Support",
+        "Socket_Power",
+        "ContactPlane",
+        "BracketMount"
+      ],
+      "reviewBlockers": [
+        "Confirm normalized gpuSlotWidth before collision/clearance authoring."
+      ]
+    },
+    {
+      "definitionId": "gpu_2",
+      "profileId": "fb.hw.gpu_2.v1",
+      "category": "GPU",
+      "familyId": "gpu_dual_small",
+      "variantId": "vector_60",
+      "brand": "Helix",
+      "label": "Vector 60",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "lengthMm": 270,
+        "fanCount": 2,
+        "rgb": false,
+        "powerConnectors": [
+          "PCIE8"
+        ]
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "Grip_L_Support",
+        "Socket_Power",
+        "ContactPlane",
+        "BracketMount"
+      ],
+      "reviewBlockers": [
+        "Confirm normalized gpuSlotWidth before collision/clearance authoring."
+      ]
+    },
+    {
+      "definitionId": "gpu_3",
+      "profileId": "fb.hw.gpu_3.v1",
+      "category": "GPU",
+      "familyId": "gpu_dual_large",
+      "variantId": "vector_70",
+      "brand": "Helix",
+      "label": "Vector 70",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "lengthMm": 300,
+        "fanCount": 2,
+        "rgb": false,
+        "powerConnectors": [
+          "12V2x6"
+        ]
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "Grip_L_Support",
+        "Socket_Power",
+        "ContactPlane",
+        "BracketMount"
+      ],
+      "reviewBlockers": [
+        "Confirm normalized gpuSlotWidth before collision/clearance authoring."
+      ]
+    },
+    {
+      "definitionId": "gpu_4",
+      "profileId": "fb.hw.gpu_4.v1",
+      "category": "GPU",
+      "familyId": "gpu_triple",
+      "variantId": "vector_80",
+      "brand": "Helix",
+      "label": "Vector 80",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "lengthMm": 335,
+        "fanCount": 3,
+        "rgb": true,
+        "powerConnectors": [
+          "12V2x6"
+        ]
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "Grip_L_Support",
+        "Socket_Power",
+        "ContactPlane",
+        "BracketMount"
+      ],
+      "reviewBlockers": [
+        "Confirm normalized gpuSlotWidth before collision/clearance authoring."
+      ]
+    },
+    {
+      "definitionId": "gpu_5",
+      "profileId": "fb.hw.gpu_5.v1",
+      "category": "GPU",
+      "familyId": "gpu_premium",
+      "variantId": "vector_90",
+      "brand": "Helix",
+      "label": "Vector 90",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "lengthMm": 360,
+        "fanCount": 3,
+        "rgb": true,
+        "powerConnectors": [
+          "12V2x6"
+        ]
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "Grip_L_Support",
+        "Socket_Power",
+        "ContactPlane",
+        "BracketMount"
+      ],
+      "reviewBlockers": [
+        "Confirm normalized gpuSlotWidth before collision/clearance authoring."
+      ]
+    },
+    {
+      "definitionId": "gpu_6",
+      "profileId": "fb.hw.gpu_6.v1",
+      "category": "GPU",
+      "familyId": "gpu_compact",
+      "variantId": "vector_100",
+      "brand": "Helix",
+      "label": "Vector 100",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "lengthMm": 220,
+        "fanCount": 1,
+        "rgb": false,
+        "powerConnectors": [
+          "PCIE8"
+        ]
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "Grip_L_Support",
+        "Socket_Power",
+        "ContactPlane",
+        "BracketMount"
+      ],
+      "reviewBlockers": [
+        "Confirm normalized gpuSlotWidth before collision/clearance authoring."
+      ]
+    },
+    {
+      "definitionId": "storage_1",
+      "profileId": "fb.hw.storage_1.v1",
+      "category": "Storage",
+      "familyId": "ssd_sata25",
+      "variantId": "standard",
+      "brand": "ArcDisk",
+      "label": "SATA 500G",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "interface": "SATA",
+        "storageGB": 500
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "ContactPlane"
+      ],
+      "reviewBlockers": []
+    },
+    {
+      "definitionId": "storage_2",
+      "profileId": "fb.hw.storage_2.v1",
+      "category": "Storage",
+      "familyId": "ssd_sata25",
+      "variantId": "standard",
+      "brand": "ArcDisk",
+      "label": "SATA 1000G",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "interface": "SATA",
+        "storageGB": 1000
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "ContactPlane"
+      ],
+      "reviewBlockers": []
+    },
+    {
+      "definitionId": "storage_3",
+      "profileId": "fb.hw.storage_3.v1",
+      "category": "Storage",
+      "familyId": "nvme2280",
+      "variantId": "standard",
+      "brand": "ArcDisk",
+      "label": "NVMe 500G",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "interface": "NVMe",
+        "storageGB": 500
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "ContactPlane"
+      ],
+      "reviewBlockers": []
+    },
+    {
+      "definitionId": "storage_4",
+      "profileId": "fb.hw.storage_4.v1",
+      "category": "Storage",
+      "familyId": "nvme2280",
+      "variantId": "standard",
+      "brand": "ArcDisk",
+      "label": "NVMe 1000G",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "interface": "NVMe",
+        "storageGB": 1000
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "ContactPlane"
+      ],
+      "reviewBlockers": []
+    },
+    {
+      "definitionId": "storage_5",
+      "profileId": "fb.hw.storage_5.v1",
+      "category": "Storage",
+      "familyId": "nvme2280",
+      "variantId": "heatsink",
+      "brand": "ArcDisk",
+      "label": "NVMe 2000G",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "interface": "NVMe",
+        "storageGB": 2000
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "ContactPlane"
+      ],
+      "reviewBlockers": []
+    },
+    {
+      "definitionId": "storage_6",
+      "profileId": "fb.hw.storage_6.v1",
+      "category": "Storage",
+      "familyId": "hdd35",
+      "variantId": "standard",
+      "brand": "ArcDisk",
+      "label": "HDD 2000G",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "interface": "HDD",
+        "storageGB": 2000
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "ContactPlane"
+      ],
+      "reviewBlockers": []
+    },
+    {
+      "definitionId": "storage_7",
+      "profileId": "fb.hw.storage_7.v1",
+      "category": "Storage",
+      "familyId": "hdd35",
+      "variantId": "standard",
+      "brand": "ArcDisk",
+      "label": "HDD 4000G",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "interface": "HDD",
+        "storageGB": 4000
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "ContactPlane"
+      ],
+      "reviewBlockers": []
+    },
+    {
+      "definitionId": "psu_1",
+      "profileId": "fb.hw.psu_1.v1",
+      "category": "PSU",
+      "familyId": "psu_fixed",
+      "variantId": "450w",
+      "brand": "VoltEdge",
+      "label": "Grid 450W",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "modularIntent": false,
+        "wattage": 450
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "Grip_L_Support",
+        "RotorAxis"
+      ],
+      "reviewBlockers": [
+        "Export normalized connector inventory; author keyed PSU-side ports."
+      ]
+    },
+    {
+      "definitionId": "psu_2",
+      "profileId": "fb.hw.psu_2.v1",
+      "category": "PSU",
+      "familyId": "psu_fixed",
+      "variantId": "550w",
+      "brand": "VoltEdge",
+      "label": "Grid 550W",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "modularIntent": false,
+        "wattage": 550
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "Grip_L_Support",
+        "RotorAxis"
+      ],
+      "reviewBlockers": [
+        "Export normalized connector inventory; author keyed PSU-side ports."
+      ]
+    },
+    {
+      "definitionId": "psu_3",
+      "profileId": "fb.hw.psu_3.v1",
+      "category": "PSU",
+      "familyId": "psu_modular",
+      "variantId": "650w",
+      "brand": "VoltEdge",
+      "label": "Grid 650W",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "modularIntent": true,
+        "wattage": 650
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "Grip_L_Support",
+        "RotorAxis"
+      ],
+      "reviewBlockers": [
+        "Export normalized connector inventory; author keyed PSU-side ports."
+      ]
+    },
+    {
+      "definitionId": "psu_4",
+      "profileId": "fb.hw.psu_4.v1",
+      "category": "PSU",
+      "familyId": "psu_modular",
+      "variantId": "750w",
+      "brand": "VoltEdge",
+      "label": "Grid 750W",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "modularIntent": true,
+        "wattage": 750
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "Grip_L_Support",
+        "RotorAxis"
+      ],
+      "reviewBlockers": [
+        "Export normalized connector inventory; author keyed PSU-side ports."
+      ]
+    },
+    {
+      "definitionId": "psu_5",
+      "profileId": "fb.hw.psu_5.v1",
+      "category": "PSU",
+      "familyId": "psu_modular",
+      "variantId": "850w",
+      "brand": "VoltEdge",
+      "label": "Grid 850W",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "modularIntent": true,
+        "wattage": 850
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "Grip_L_Support",
+        "RotorAxis"
+      ],
+      "reviewBlockers": [
+        "Export normalized connector inventory; author keyed PSU-side ports."
+      ]
+    },
+    {
+      "definitionId": "psu_6",
+      "profileId": "fb.hw.psu_6.v1",
+      "category": "PSU",
+      "familyId": "psu_modular",
+      "variantId": "1000w",
+      "brand": "VoltEdge",
+      "label": "Grid 1000W",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "modularIntent": true,
+        "wattage": 1000
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "Grip_L_Support",
+        "RotorAxis"
+      ],
+      "reviewBlockers": [
+        "Export normalized connector inventory; author keyed PSU-side ports."
+      ]
+    },
+    {
+      "definitionId": "cooler_1",
+      "profileId": "fb.hw.cooler_1.v1",
+      "category": "Cooler",
+      "familyId": "cooler_single",
+      "variantId": "tower_1",
+      "brand": "Frostline",
+      "label": "Tower 1",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "towerCount": 1,
+        "rgb": false
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "ContactPlane",
+        "RotorAxis"
+      ],
+      "reviewBlockers": []
+    },
+    {
+      "definitionId": "cooler_2",
+      "profileId": "fb.hw.cooler_2.v1",
+      "category": "Cooler",
+      "familyId": "cooler_single",
+      "variantId": "tower_2",
+      "brand": "Frostline",
+      "label": "Tower 2",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "towerCount": 1,
+        "rgb": false
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "ContactPlane",
+        "RotorAxis"
+      ],
+      "reviewBlockers": []
+    },
+    {
+      "definitionId": "cooler_3",
+      "profileId": "fb.hw.cooler_3.v1",
+      "category": "Cooler",
+      "familyId": "cooler_single",
+      "variantId": "tower_3",
+      "brand": "Frostline",
+      "label": "Tower 3",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "towerCount": 1,
+        "rgb": false
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "ContactPlane",
+        "RotorAxis"
+      ],
+      "reviewBlockers": []
+    },
+    {
+      "definitionId": "cooler_4",
+      "profileId": "fb.hw.cooler_4.v1",
+      "category": "Cooler",
+      "familyId": "cooler_dual",
+      "variantId": "tower_4",
+      "brand": "Frostline",
+      "label": "Tower 4",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "towerCount": 2,
+        "rgb": false
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "ContactPlane",
+        "RotorAxis"
+      ],
+      "reviewBlockers": []
+    },
+    {
+      "definitionId": "cooler_5",
+      "profileId": "fb.hw.cooler_5.v1",
+      "category": "Cooler",
+      "familyId": "cooler_dual",
+      "variantId": "tower_5",
+      "brand": "Frostline",
+      "label": "Tower 5",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "towerCount": 2,
+        "rgb": false
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "ContactPlane",
+        "RotorAxis"
+      ],
+      "reviewBlockers": []
+    },
+    {
+      "definitionId": "aio_1",
+      "profileId": "fb.hw.aio_1.v1",
+      "category": "Cooler",
+      "familyId": "aio240",
+      "variantId": "loop_240",
+      "brand": "Frostline",
+      "label": "Loop 240",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "radiatorMm": 240,
+        "fanSizeMm": 120,
+        "fanCount": 2,
+        "rgb": false
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "ContactPlane",
+        "RotorAxis"
+      ],
+      "reviewBlockers": [
+        "Catalog normalization currently yields 360mm; resolve against named radiator size before binding."
+      ]
+    },
+    {
+      "definitionId": "aio_2",
+      "profileId": "fb.hw.aio_2.v1",
+      "category": "Cooler",
+      "familyId": "aio280",
+      "variantId": "loop_280",
+      "brand": "Frostline",
+      "label": "Loop 280",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "radiatorMm": 280,
+        "fanSizeMm": 140,
+        "fanCount": 2,
+        "rgb": true
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "ContactPlane",
+        "RotorAxis"
+      ],
+      "reviewBlockers": [
+        "Catalog normalization currently yields 360mm; resolve against named radiator size before binding.",
+        "Catalog fanSizeMm normalizes to120; 280mm art intent uses140mm fans."
+      ]
+    },
+    {
+      "definitionId": "aio_3",
+      "profileId": "fb.hw.aio_3.v1",
+      "category": "Cooler",
+      "familyId": "aio360",
+      "variantId": "loop_360",
+      "brand": "Frostline",
+      "label": "Loop 360",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "radiatorMm": 360,
+        "fanSizeMm": 120,
+        "fanCount": 3,
+        "rgb": true
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "ContactPlane",
+        "RotorAxis"
+      ],
+      "reviewBlockers": []
+    },
+    {
+      "definitionId": "fan_1",
+      "profileId": "fb.hw.fan_1.v1",
+      "category": "Fan",
+      "familyId": "fan120",
+      "variantId": "plain",
+      "brand": "Aeroform",
+      "label": "Flow 120-1",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "fanSizeMm": 120,
+        "rgb": false
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "RotorAxis",
+        "CableExit_Power"
+      ],
+      "reviewBlockers": []
+    },
+    {
+      "definitionId": "fan_2",
+      "profileId": "fb.hw.fan_2.v1",
+      "category": "Fan",
+      "familyId": "fan120",
+      "variantId": "plain",
+      "brand": "Aeroform",
+      "label": "Flow 120-2",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "fanSizeMm": 120,
+        "rgb": false
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "RotorAxis",
+        "CableExit_Power"
+      ],
+      "reviewBlockers": []
+    },
+    {
+      "definitionId": "fan_3",
+      "profileId": "fb.hw.fan_3.v1",
+      "category": "Fan",
+      "familyId": "fan140",
+      "variantId": "plain",
+      "brand": "Aeroform",
+      "label": "Flow 140-3",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "fanSizeMm": 140,
+        "rgb": false
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "RotorAxis",
+        "CableExit_Power"
+      ],
+      "reviewBlockers": [
+        "Catalog fanSizeMm normalizes to120 despite140mm tag; resolve before binding."
+      ]
+    },
+    {
+      "definitionId": "fan_4",
+      "profileId": "fb.hw.fan_4.v1",
+      "category": "Fan",
+      "familyId": "fan120",
+      "variantId": "rgb",
+      "brand": "Aeroform",
+      "label": "Flow 120-4",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "fanSizeMm": 120,
+        "rgb": true
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "RotorAxis",
+        "CableExit_Power"
+      ],
+      "reviewBlockers": []
+    },
+    {
+      "definitionId": "fan_5",
+      "profileId": "fb.hw.fan_5.v1",
+      "category": "Fan",
+      "familyId": "fan140",
+      "variantId": "rgb",
+      "brand": "Aeroform",
+      "label": "Flow 140-5",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {
+        "fanSizeMm": 140,
+        "rgb": true
+      },
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "RotorAxis",
+        "CableExit_Power"
+      ],
+      "reviewBlockers": [
+        "Catalog fanSizeMm normalizes to120 despite140mm tag; resolve before binding."
+      ]
+    },
+    {
+      "definitionId": "net_1",
+      "profileId": "fb.hw.net_1.v1",
+      "category": "Network",
+      "familyId": "network_pcie",
+      "variantId": "net_1",
+      "brand": "Linkforge",
+      "label": "NIC 1",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {},
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary"
+      ],
+      "reviewBlockers": [
+        "Replacement part dimensions/connector pose must match the separate device profile."
+      ]
+    },
+    {
+      "definitionId": "net_2",
+      "profileId": "fb.hw.net_2.v1",
+      "category": "Network",
+      "familyId": "network_pcie",
+      "variantId": "net_2",
+      "brand": "Linkforge",
+      "label": "NIC 2",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {},
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary"
+      ],
+      "reviewBlockers": [
+        "Replacement part dimensions/connector pose must match the separate device profile."
+      ]
+    },
+    {
+      "definitionId": "net_3",
+      "profileId": "fb.hw.net_3.v1",
+      "category": "Network",
+      "familyId": "network_pcie",
+      "variantId": "net_3",
+      "brand": "Linkforge",
+      "label": "NIC 3",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {},
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary"
+      ],
+      "reviewBlockers": [
+        "Replacement part dimensions/connector pose must match the separate device profile."
+      ]
+    },
+    {
+      "definitionId": "battery_1",
+      "profileId": "fb.hw.battery_1.v1",
+      "category": "Battery",
+      "familyId": "battery_pouch",
+      "variantId": "battery_1",
+      "brand": "Cellera",
+      "label": "Pack 4500",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {},
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary"
+      ],
+      "reviewBlockers": [
+        "Replacement part dimensions/connector pose must match the separate device profile."
+      ]
+    },
+    {
+      "definitionId": "battery_2",
+      "profileId": "fb.hw.battery_2.v1",
+      "category": "Battery",
+      "familyId": "battery_pouch",
+      "variantId": "battery_2",
+      "brand": "Cellera",
+      "label": "Pack 6000",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {},
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary"
+      ],
+      "reviewBlockers": [
+        "Replacement part dimensions/connector pose must match the separate device profile."
+      ]
+    },
+    {
+      "definitionId": "battery_3",
+      "profileId": "fb.hw.battery_3.v1",
+      "category": "Battery",
+      "familyId": "battery_pouch",
+      "variantId": "battery_3",
+      "brand": "Cellera",
+      "label": "Pack 8000",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {},
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary"
+      ],
+      "reviewBlockers": [
+        "Replacement part dimensions/connector pose must match the separate device profile."
+      ]
+    },
+    {
+      "definitionId": "display_1",
+      "profileId": "fb.hw.display_1.v1",
+      "category": "Display",
+      "familyId": "display_module",
+      "variantId": "display_1",
+      "brand": "Luma",
+      "label": "Panel 1",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {},
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary"
+      ],
+      "reviewBlockers": [
+        "Replacement part dimensions/connector pose must match the separate device profile."
+      ]
+    },
+    {
+      "definitionId": "display_2",
+      "profileId": "fb.hw.display_2.v1",
+      "category": "Display",
+      "familyId": "display_module",
+      "variantId": "display_2",
+      "brand": "Luma",
+      "label": "Panel 2",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {},
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary"
+      ],
+      "reviewBlockers": [
+        "Replacement part dimensions/connector pose must match the separate device profile."
+      ]
+    },
+    {
+      "definitionId": "display_3",
+      "profileId": "fb.hw.display_3.v1",
+      "category": "Display",
+      "familyId": "display_module",
+      "variantId": "display_3",
+      "brand": "Luma",
+      "label": "Panel 3",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {},
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary"
+      ],
+      "reviewBlockers": [
+        "Replacement part dimensions/connector pose must match the separate device profile."
+      ]
+    },
+    {
+      "definitionId": "controller_1",
+      "profileId": "fb.hw.controller_1.v1",
+      "category": "Controller",
+      "familyId": "stick_module",
+      "variantId": "controller_1",
+      "brand": "AxisWorks",
+      "label": "Stick Module 1",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {},
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary"
+      ],
+      "reviewBlockers": [
+        "Replacement part dimensions/connector pose must match the separate device profile."
+      ]
+    },
+    {
+      "definitionId": "controller_2",
+      "profileId": "fb.hw.controller_2.v1",
+      "category": "Controller",
+      "familyId": "stick_module",
+      "variantId": "controller_2",
+      "brand": "AxisWorks",
+      "label": "Stick Module 2",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {},
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary"
+      ],
+      "reviewBlockers": [
+        "Replacement part dimensions/connector pose must match the separate device profile."
+      ]
+    },
+    {
+      "definitionId": "controller_3",
+      "profileId": "fb.hw.controller_3.v1",
+      "category": "Controller",
+      "familyId": "stick_module",
+      "variantId": "controller_3",
+      "brand": "AxisWorks",
+      "label": "Stick Module 3",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {},
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary"
+      ],
+      "reviewBlockers": [
+        "Replacement part dimensions/connector pose must match the separate device profile."
+      ]
+    },
+    {
+      "definitionId": "cons_paste",
+      "profileId": "fb.hw.cons_paste.v1",
+      "category": "Consumable",
+      "familyId": "paste_syringe",
+      "variantId": "benchpro",
+      "brand": "BenchPro",
+      "label": "Thermal Compound",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {},
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "ToolTip"
+      ],
+      "reviewBlockers": []
+    },
+    {
+      "definitionId": "cons_air",
+      "profileId": "fb.hw.cons_air.v1",
+      "category": "Consumable",
+      "familyId": "air_can",
+      "variantId": "benchpro",
+      "brand": "BenchPro",
+      "label": "Compressed Air",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {},
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "ToolTip"
+      ],
+      "reviewBlockers": []
+    },
+    {
+      "definitionId": "cons_pads",
+      "profileId": "fb.hw.cons_pads.v1",
+      "category": "Consumable",
+      "familyId": "pad_packet",
+      "variantId": "benchpro",
+      "brand": "BenchPro",
+      "label": "Thermal Pads",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {},
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary"
+      ],
+      "reviewBlockers": []
+    },
+    {
+      "definitionId": "cons_solder",
+      "profileId": "fb.hw.cons_solder.v1",
+      "category": "Consumable",
+      "familyId": "solder_spool",
+      "variantId": "benchpro",
+      "brand": "BenchPro",
+      "label": "Solder Wire",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {},
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary"
+      ],
+      "reviewBlockers": []
+    },
+    {
+      "definitionId": "cons_flux",
+      "profileId": "fb.hw.cons_flux.v1",
+      "category": "Consumable",
+      "familyId": "flux_dispenser",
+      "variantId": "benchpro",
+      "brand": "BenchPro",
+      "label": "Flux",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {},
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "ToolTip"
+      ],
+      "reviewBlockers": []
+    },
+    {
+      "definitionId": "tool_driver",
+      "profileId": "fb.hw.tool_driver.v1",
+      "category": "Tool",
+      "familyId": "precision_driver",
+      "variantId": "benchpro",
+      "brand": "BenchPro",
+      "label": "Precision Driver",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {},
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "ToolTip"
+      ],
+      "reviewBlockers": []
+    },
+    {
+      "definitionId": "tool_meter",
+      "profileId": "fb.hw.tool_meter.v1",
+      "category": "Tool",
+      "familyId": "digital_meter",
+      "variantId": "benchpro",
+      "brand": "BenchPro",
+      "label": "Diagnostic Meter",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {},
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary"
+      ],
+      "reviewBlockers": []
+    },
+    {
+      "definitionId": "tool_psu",
+      "profileId": "fb.hw.tool_psu.v1",
+      "category": "Tool",
+      "familyId": "psu_tester",
+      "variantId": "benchpro",
+      "brand": "BenchPro",
+      "label": "PSU Tester",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {},
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary"
+      ],
+      "reviewBlockers": []
+    },
+    {
+      "definitionId": "tool_solder",
+      "profileId": "fb.hw.tool_solder.v1",
+      "category": "Tool",
+      "familyId": "solder_station",
+      "variantId": "benchpro",
+      "brand": "BenchPro",
+      "label": "Soldering Station",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {},
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary"
+      ],
+      "reviewBlockers": []
+    },
+    {
+      "definitionId": "tool_air",
+      "profileId": "fb.hw.tool_air.v1",
+      "category": "Tool",
+      "familyId": "air_blower",
+      "variantId": "benchpro",
+      "brand": "BenchPro",
+      "label": "Air Blower",
+      "materialPreset": "graphite",
+      "assetStatus": "requires_asset",
+      "prefabPath": null,
+      "artIntent": {},
+      "requiredMarkers": [
+        "InstallPose",
+        "Grip_R_Primary",
+        "ToolTip"
+      ],
+      "reviewBlockers": []
+    }
+  ]
+}
