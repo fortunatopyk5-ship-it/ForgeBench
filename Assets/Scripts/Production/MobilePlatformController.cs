@@ -34,7 +34,9 @@ namespace ForgeBench
             Application.lowMemory += OnLowMemory;
             while (GameRuntime.Instance == null || GameRuntime.Instance.State == null) yield return null;
             game = GameRuntime.Instance;
+            adaptiveTier=game.State.settings.batterySaver?0:2;
             ApplyPlatformDefaults();
+            ApplyTier();
         }
 
         private void OnDestroy() { Application.lowMemory -= OnLowMemory; }
@@ -58,10 +60,7 @@ namespace ForgeBench
             Application.targetFrameRate = game.State.settings.batterySaver ? 30 : Mathf.Clamp(game.State.settings.fpsLimit, 30, 120);
             QualitySettings.vSyncCount = 0;
             if (Application.isMobilePlatform)
-            {
-                QualitySettings.shadowDistance = Mathf.Min(QualitySettings.shadowDistance, 32f);
-                QualitySettings.lodBias = Mathf.Clamp(QualitySettings.lodBias, .65f, 1.3f);
-            }
+                QualitySettings.shadowResolution=adaptiveTier>=2?ShadowResolution.Medium:ShadowResolution.Low;
         }
 
         private void Adapt(float fps)
@@ -80,26 +79,25 @@ namespace ForgeBench
 
         private void ApplyTier()
         {
+            RuntimeRenderBudget.SetTier(adaptiveTier);
+            QualitySettings.shadowResolution=adaptiveTier>=3?ShadowResolution.High:adaptiveTier>=2?ShadowResolution.Medium:ShadowResolution.Low;
+            QualitySettings.pixelLightCount=RuntimeRenderBudget.RealtimeLightBudget;
             switch (adaptiveTier)
             {
                 case 0:
-                    QualitySettings.shadowDistance = 10f; QualitySettings.lodBias = .55f; QualitySettings.globalTextureMipmapLimit = 1;
                     if (game != null) Application.targetFrameRate = 30;
                     break;
                 case 1:
-                    QualitySettings.shadowDistance = 18f; QualitySettings.lodBias = .72f; QualitySettings.globalTextureMipmapLimit = 1;
                     if (game != null) Application.targetFrameRate = game.State.settings.batterySaver ? 30 : Mathf.Min(45, game.State.settings.fpsLimit);
                     break;
                 case 2:
-                    QualitySettings.shadowDistance = 28f; QualitySettings.lodBias = .95f; QualitySettings.globalTextureMipmapLimit = 0;
                     if (game != null) Application.targetFrameRate = game.State.settings.batterySaver ? 30 : Mathf.Min(60, game.State.settings.fpsLimit);
                     break;
                 default:
-                    QualitySettings.shadowDistance = 38f; QualitySettings.lodBias = 1.18f; QualitySettings.globalTextureMipmapLimit = 0;
                     if (game != null) Application.targetFrameRate = game.State.settings.batterySaver ? 30 : Mathf.Clamp(game.State.settings.fpsLimit, 30, 120);
                     break;
             }
-            Debug.Log("[ForgeBench] Adaptive mobile tier " + adaptiveTier + " · target " + Application.targetFrameRate + " FPS");
+            Debug.Log("[ForgeBench] Adaptive mobile tier " + adaptiveTier + " · target " + Application.targetFrameRate + " FPS · lights " + RuntimeRenderBudget.RealtimeLightBudget + " · probe " + RuntimeRenderBudget.ReflectionProbeResolution);
         }
 
         private void OnLowMemory()
@@ -122,13 +120,13 @@ namespace ForgeBench
         private void OnApplicationPause(bool paused)
         {
             if (paused && game?.State != null) game.Saves?.Save(game.State, 1);
-            if (!paused) { ApplyPlatformDefaults(); StartCoroutine(ResumeStabilization()); }
+            if (!paused) { ApplyPlatformDefaults(); ApplyTier(); StartCoroutine(ResumeStabilization()); }
         }
 
         private void OnApplicationFocus(bool focused)
         {
             if (!focused && game?.State != null) game.Saves?.Save(game.State, 1);
-            if (focused) ApplyPlatformDefaults();
+            if (focused) { ApplyPlatformDefaults(); ApplyTier(); }
         }
 
         private IEnumerator ResumeStabilization()
