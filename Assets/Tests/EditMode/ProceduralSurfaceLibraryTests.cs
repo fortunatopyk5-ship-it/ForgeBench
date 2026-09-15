@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using UnityEngine;
 
 namespace ForgeBench.Tests
 {
@@ -38,6 +39,28 @@ namespace ForgeBench.Tests
         {
             Assert.AreEqual(ProceduralSurfaceProfile.None, ProceduralSurfaceLibrary.Classify("PowerButton"));
             Assert.AreEqual(ProceduralSurfaceProfile.None, ProceduralSurfaceLibrary.Classify("RAMGhost_Slot1"));
+        }
+
+        [Test]
+        public void WorldScaleTiling_PreventsLargeWallTextureStretching()
+        {
+            Vector2 wall = VisualMaterialUpgradeDirector.ComputeTiling(
+                ProceduralSurfaceProfile.WarmWhitePaint, new Vector3(14f, 5f, .2f));
+            Assert.Greater(wall.x, 10f);
+            Assert.Greater(wall.y, 4f);
+        }
+
+        [Test]
+        public void WorldScaleTiling_IsBoundedForTinyAndHugeGeometry()
+        {
+            Vector2 tiny = VisualMaterialUpgradeDirector.ComputeTiling(
+                ProceduralSurfaceProfile.Copper, new Vector3(.001f, .001f, .001f));
+            Vector2 huge = VisualMaterialUpgradeDirector.ComputeTiling(
+                ProceduralSurfaceProfile.Concrete, new Vector3(1000f, 700f, 20f));
+            Assert.That(tiny.x, Is.InRange(.5f, 32f));
+            Assert.That(tiny.y, Is.InRange(.5f, 32f));
+            Assert.That(huge.x, Is.EqualTo(32f));
+            Assert.That(huge.y, Is.EqualTo(32f));
         }
     }
 }
