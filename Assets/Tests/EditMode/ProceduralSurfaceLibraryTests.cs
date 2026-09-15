@@ -79,5 +79,26 @@ namespace ForgeBench.Tests
                 Object.DestroyImmediate(sharedShroud);
             }
         }
+
+        [Test]
+        public void WorkshopSurfaceMapping_UsesDistinctPhysicalMaterials()
+        {
+            WorkshopSurfaceProfile floor = WorkshopSurfaceUpgradeDirector.ResolveProfile("Floor", string.Empty);
+            WorkshopSurfaceProfile wall = WorkshopSurfaceUpgradeDirector.ResolveProfile("BackWall", string.Empty);
+            WorkshopSurfaceProfile esd = WorkshopSurfaceUpgradeDirector.ResolveProfile("Top", "Main Assembly Bench");
+            WorkshopSurfaceProfile frame = WorkshopSurfaceUpgradeDirector.ResolveProfile("Leg", "Diagnostic Bench");
+            WorkshopSurfaceProfile unrelated = WorkshopSurfaceUpgradeDirector.ResolveProfile("GPU", "ProductionMachine3D");
+
+            Assert.IsTrue(floor.valid);
+            Assert.AreEqual(ProceduralSurfaceKind.DarkMetal, floor.kind);
+            Assert.IsTrue(wall.valid);
+            Assert.AreEqual(ProceduralSurfaceKind.Polymer, wall.kind);
+            Assert.IsTrue(esd.valid);
+            Assert.AreEqual(ProceduralSurfaceKind.Rubber, esd.kind);
+            Assert.Greater(esd.targetTint.g, esd.targetTint.r);
+            Assert.IsTrue(frame.valid);
+            Assert.Greater(frame.metallic, .5f);
+            Assert.IsFalse(unrelated.valid);
+        }
     }
 }
