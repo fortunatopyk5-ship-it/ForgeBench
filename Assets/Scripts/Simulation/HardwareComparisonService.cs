@@ -6,6 +6,7 @@ using UnityEngine;
 namespace ForgeBench
 {
     public enum HardwareComparisonVerdict { Blocked, Downgrade, Sidegrade, Upgrade, Expansion, NewCapability }
+    public enum HardwareMetricKind { Technical, Capacity, Efficiency, Value, Condition }
 
     public sealed class HardwareComparisonMetric
     {
@@ -16,6 +17,7 @@ namespace ForgeBench
         public float contribution;
         public float weight;
         public bool higherIsBetter;
+        public HardwareMetricKind kind;
     }
 
     public sealed class HardwareComparisonReport
@@ -25,8 +27,11 @@ namespace ForgeBench
         public PartCategory category;
         public HardwareComparisonVerdict verdict;
         public float suitabilityScore;
-        public float relativeScore;
+        public float technicalDelta;
+        public float efficiencyDelta;
+        public float valueDelta;
         public bool additive;
+        public bool jobRelevant;
         public FitmentReport fitment;
         public readonly List<HardwareComparisonMetric> metrics = new List<HardwareComparisonMetric>();
         public string Summary
@@ -36,15 +41,16 @@ namespace ForgeBench
                 if (verdict == HardwareComparisonVerdict.Blocked) return "BLOCKED · " + (fitment?.blockers ?? 0) + " fitment issue(s)";
                 if (verdict == HardwareComparisonVerdict.Expansion) return "EXPANSION · suitability " + suitabilityScore.ToString("0") + "/100";
                 if (verdict == HardwareComparisonVerdict.NewCapability) return "NEW CAPABILITY · suitability " + suitabilityScore.ToString("0") + "/100";
-                string sign = relativeScore > .05f ? "+" : string.Empty;
-                return verdict.ToString().ToUpperInvariant() + " · " + sign + relativeScore.ToString("0") + " engineering delta";
+                string sign = technicalDelta > .05f ? "+" : string.Empty;
+                return verdict.ToString().ToUpperInvariant() + " · " + sign + technicalDelta.ToString("0") + " technical delta";
             }
         }
     }
 
     /// <summary>
-    /// Non-destructive A/B hardware comparison. It consumes the canonical inventory and fitment
-    /// services so the comparison cannot silently disagree with install-time compatibility rules.
+    /// Non-destructive A/B hardware comparison. Canonical fitment/compatibility remains authoritative.
+    /// Technical, efficiency and value deltas are separated so a cheap but slower part is never mislabeled
+    /// as an engineering upgrade merely because of its price.
     /// </summary>
     public sealed class HardwareComparisonService
     {
@@ -57,7 +63,7 @@ namespace ForgeBench
             fitment = planner;
         }
 
-        public HardwareComparisonReport Compare(MachineState machine, ItemInstance candidate)
+        public HardwareComparisonReport Compare(MachineState machine, ItemInstance candidate, JobState job = null)
         {
             HardwareComparisonReport r = new HardwareComparisonReport();
             HardwareDefinition c = inventory.Def(candidate);
@@ -72,25 +78,45 @@ namespace ForgeBench
 
             r.category = c.category;
             r.additive = IsAdditive(c.category);
+            r.jobRelevant = IsJobRelevant(job, c.category);
             r.fitment = fitment.EvaluateCandidate(machine, candidate);
             ItemInstance baseline = FindInstalled(machine, c.category);
             HardwareDefinition b = inventory.Def(baseline);
             r.baselineName = b == null ? "No installed reference" : Display(b);
 
             BuildMetrics(r, b, baseline, c, candidate);
-            r.relativeScore = ScoreRelative(r.metrics);
+            r.technicalDelta = ScoreKinds(r.metrics, HardwareMetricKind.Technical, HardwareMetricKind.Capacity, HardwareMetricKind.Condition);
+            r.efficiencyDelta = ScoreKinds(r.metrics, HardwareMetricKind.Efficiency);
+            r.valueDelta = ScoreKinds(r.metrics, HardwareMetricKind.Value);
+
             float quality = Mathf.Clamp(c.quality, 0, 100);
             float condition = Mathf.Clamp01(candidate.condition) * 100f;
             float reliabilityPenalty = candidate.fault == FaultType.None && candidate.damage == DamageType.None ? 0f : 35f;
-            r.suitabilityScore = Mathf.Clamp((r.fitment?.score ?? 0f) * .70f + quality * .20f + condition * .10f - reliabilityPenalty, 0f, 100f);
+            float relevanceBonus = r.jobRelevant ? 4f : 0f;
+            r.suitabilityScore = Mathf.Clamp((r.fitment?.score ?? 0f) * .66f + quality * .19f + condition * .10f + Mathf.Clamp(r.technicalDelta, -20f, 20f) * .08f + relevanceBonus - reliabilityPenalty, 0f, 100f);
 
             if (r.fitment == null || !r.fitment.pass) r.verdict = HardwareComparisonVerdict.Blocked;
             else if (r.additive) r.verdict = HardwareComparisonVerdict.Expansion;
             else if (b == null) r.verdict = HardwareComparisonVerdict.NewCapability;
-            else if (r.relativeScore >= 7f) r.verdict = HardwareComparisonVerdict.Upgrade;
-            else if (r.relativeScore <= -7f) r.verdict = HardwareComparisonVerdict.Downgrade;
+            else if (r.technicalDelta >= 7f) r.verdict = HardwareComparisonVerdict.Upgrade;
+            else if (r.technicalDelta <= -7f) r.verdict = HardwareComparisonVerdict.Downgrade;
             else r.verdict = HardwareComparisonVerdict.Sidegrade;
             return r;
+        }
+
+        public static bool IsJobRelevant(JobState job, PartCategory category)
+        {
+            if (job == null) return false;
+            if (job.requiredPartCategories != null && job.requiredPartCategories.Any(x => string.Equals(x, category.ToString(), StringComparison.OrdinalIgnoreCase))) return true;
+            string haystack = ((job.title ?? string.Empty) + " " + (job.description ?? string.Empty) + " " + string.Join(" ", job.optionalObjectives ?? new List<string>())).ToLowerInvariant();
+            string token = category.ToString().ToLowerInvariant();
+            if (haystack.Contains(token)) return true;
+            if (category == PartCategory.GPU && (haystack.Contains("graphics") || haystack.Contains("gaming"))) return true;
+            if (category == PartCategory.RAM && (haystack.Contains("memory") || haystack.Contains("dimm"))) return true;
+            if (category == PartCategory.Storage && (haystack.Contains("storage") || haystack.Contains("ssd") || haystack.Contains("nvme"))) return true;
+            if (category == PartCategory.Cooler && (haystack.Contains("cool") || haystack.Contains("thermal") || haystack.Contains("temperature"))) return true;
+            if (category == PartCategory.PSU && (haystack.Contains("power") || haystack.Contains("psu"))) return true;
+            return false;
         }
 
         private ItemInstance FindInstalled(MachineState m, PartCategory c)
@@ -114,10 +140,7 @@ namespace ForgeBench
         private ItemInstance Best(IEnumerable<string> ids)
         {
             if (ids == null) return null;
-            return ids.Select(inventory.Get).Where(x => x != null)
-                .OrderByDescending(x => inventory.Def(x)?.performance ?? 0)
-                .ThenByDescending(x => inventory.Def(x)?.quality ?? 0)
-                .FirstOrDefault();
+            return ids.Select(inventory.Get).Where(x => x != null).OrderByDescending(x => inventory.Def(x)?.performance ?? 0).ThenByDescending(x => inventory.Def(x)?.quality ?? 0).FirstOrDefault();
         }
 
         private static bool IsAdditive(PartCategory c)
@@ -128,56 +151,56 @@ namespace ForgeBench
         private void BuildMetrics(HardwareComparisonReport r, HardwareDefinition b, ItemInstance bi, HardwareDefinition c, ItemInstance ci)
         {
             HashSet<string> used = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
-            Action<string, float, float, string, bool, float> add = (label, before, after, suffix, high, weight) => Add(r, used, label, before, after, suffix, high, weight);
+            Action<string, float, float, string, bool, float, HardwareMetricKind> add = (label, before, after, suffix, high, weight, kind) => Add(r, used, label, before, after, suffix, high, weight, kind);
             switch (c.category)
             {
                 case PartCategory.CPU:
-                    add("Performance", b?.performance ?? 0, c.performance, " pts", true, 2.6f); add("Cores", b?.coreCount ?? 0, c.coreCount, string.Empty, true, 1.5f); add("Boost clock", b?.boostClockMHz ?? 0, c.boostClockMHz, " MHz", true, 1.1f); break;
+                    add("Performance", b?.performance ?? 0, c.performance, " pts", true, 2.8f, HardwareMetricKind.Technical); add("Cores", b?.coreCount ?? 0, c.coreCount, string.Empty, true, 1.5f, HardwareMetricKind.Capacity); add("Boost clock", b?.boostClockMHz ?? 0, c.boostClockMHz, " MHz", true, 1.1f, HardwareMetricKind.Technical); break;
                 case PartCategory.GPU:
-                    add("Performance", b?.performance ?? 0, c.performance, " pts", true, 2.7f); add("VRAM", b?.vramGB ?? 0, c.vramGB, " GB", true, 1.5f); add("Boost clock", b?.boostClockMHz ?? 0, c.boostClockMHz, " MHz", true, .8f); break;
+                    add("Performance", b?.performance ?? 0, c.performance, " pts", true, 2.9f, HardwareMetricKind.Technical); add("VRAM", b?.vramGB ?? 0, c.vramGB, " GB", true, 1.6f, HardwareMetricKind.Capacity); add("Boost clock", b?.boostClockMHz ?? 0, c.boostClockMHz, " MHz", true, .8f, HardwareMetricKind.Technical); break;
                 case PartCategory.RAM:
-                    add("Capacity", b?.capacityGB ?? 0, c.capacityGB, " GB", true, 1.8f); add("Memory speed", b?.speed ?? 0, c.speed, " MT/s", true, 1.7f); break;
+                    add("Capacity", b?.capacityGB ?? 0, c.capacityGB, " GB", true, 1.9f, HardwareMetricKind.Capacity); add("Memory speed", b?.speed ?? 0, c.speed, " MT/s", true, 1.8f, HardwareMetricKind.Technical); break;
                 case PartCategory.Storage:
-                    add("Capacity", b?.storageGB ?? 0, c.storageGB, " GB", true, 1.6f); add("Read", b?.readMBs ?? 0, c.readMBs, " MB/s", true, 1.5f); add("Write", b?.writeMBs ?? 0, c.writeMBs, " MB/s", true, 1.3f); add("Endurance", b?.enduranceTBW ?? 0, c.enduranceTBW, " TBW", true, 1.0f); break;
+                    add("Capacity", b?.storageGB ?? 0, c.storageGB, " GB", true, 1.7f, HardwareMetricKind.Capacity); add("Read", b?.readMBs ?? 0, c.readMBs, " MB/s", true, 1.6f, HardwareMetricKind.Technical); add("Write", b?.writeMBs ?? 0, c.writeMBs, " MB/s", true, 1.4f, HardwareMetricKind.Technical); add("Endurance", b?.enduranceTBW ?? 0, c.enduranceTBW, " TBW", true, 1.0f, HardwareMetricKind.Condition); break;
                 case PartCategory.PSU:
-                    add("Capacity", b?.psuWattage ?? 0, c.psuWattage, " W", true, 2.0f); add("Efficiency", b?.efficiencyClass ?? 0, c.efficiencyClass, "%", true, 1.5f); break;
+                    add("Capacity", b?.psuWattage ?? 0, c.psuWattage, " W", true, 2.1f, HardwareMetricKind.Capacity); add("Efficiency", b?.efficiencyClass ?? 0, c.efficiencyClass, "%", true, 1.7f, HardwareMetricKind.Efficiency); break;
                 case PartCategory.Cooler:
-                    add("Cooling performance", b?.performance ?? 0, c.performance, " pts", true, 2.2f); add("Airflow", b?.airflowCfm ?? 0, c.airflowCfm, " CFM", true, 1.2f); add("Radiator support", b?.radiatorSupportMm ?? 0, c.radiatorSupportMm, " mm", true, .7f); break;
+                    add("Cooling performance", b?.performance ?? 0, c.performance, " pts", true, 2.3f, HardwareMetricKind.Technical); add("Airflow", b?.airflowCfm ?? 0, c.airflowCfm, " CFM", true, 1.3f, HardwareMetricKind.Technical); add("Radiator support", b?.radiatorSupportMm ?? 0, c.radiatorSupportMm, " mm", true, .8f, HardwareMetricKind.Capacity); break;
                 case PartCategory.Fan:
-                    add("Airflow", b?.airflowCfm ?? 0, c.airflowCfm, " CFM", true, 2.0f); add("Static pressure", b?.staticPressure ?? 0, c.staticPressure, " mmH2O", true, 1.5f); break;
+                    add("Airflow", b?.airflowCfm ?? 0, c.airflowCfm, " CFM", true, 2.0f, HardwareMetricKind.Technical); add("Static pressure", b?.staticPressure ?? 0, c.staticPressure, " mmH2O", true, 1.5f, HardwareMetricKind.Technical); break;
                 case PartCategory.Motherboard:
-                    add("DIMM slots", b?.dimmSlots ?? 0, c.dimmSlots, string.Empty, true, 1.0f); add("Max memory", b?.maxMemoryGB ?? 0, c.maxMemoryGB, " GB", true, 1.2f); add("M.2 slots", b?.m2Slots ?? 0, c.m2Slots, string.Empty, true, 1.1f); add("SATA ports", b?.sataPorts ?? 0, c.sataPorts, string.Empty, true, .7f); add("Fan headers", b?.fanHeaders ?? 0, c.fanHeaders, string.Empty, true, .8f); add("PCIe generation", b?.pcieGeneration ?? 0, c.pcieGeneration, string.Empty, true, 1.0f); break;
+                    add("DIMM slots", b?.dimmSlots ?? 0, c.dimmSlots, string.Empty, true, 1.0f, HardwareMetricKind.Capacity); add("Max memory", b?.maxMemoryGB ?? 0, c.maxMemoryGB, " GB", true, 1.2f, HardwareMetricKind.Capacity); add("M.2 slots", b?.m2Slots ?? 0, c.m2Slots, string.Empty, true, 1.1f, HardwareMetricKind.Capacity); add("SATA ports", b?.sataPorts ?? 0, c.sataPorts, string.Empty, true, .7f, HardwareMetricKind.Capacity); add("Fan headers", b?.fanHeaders ?? 0, c.fanHeaders, string.Empty, true, .8f, HardwareMetricKind.Capacity); add("PCIe generation", b?.pcieGeneration ?? 0, c.pcieGeneration, string.Empty, true, 1.2f, HardwareMetricKind.Technical); break;
                 case PartCategory.Case:
-                    add("GPU clearance", b?.lengthMm ?? 0, c.lengthMm, " mm", true, 1.4f); add("Cooler clearance", b?.heightMm ?? 0, c.heightMm, " mm", true, 1.0f); add("Radiator support", b?.radiatorSupportMm ?? 0, c.radiatorSupportMm, " mm", true, 1.2f); add("2.5-inch bays", b?.driveBays25 ?? 0, c.driveBays25, string.Empty, true, .6f); add("3.5-inch bays", b?.driveBays35 ?? 0, c.driveBays35, string.Empty, true, .6f); break;
+                    add("GPU clearance", b?.lengthMm ?? 0, c.lengthMm, " mm", true, 1.4f, HardwareMetricKind.Capacity); add("Cooler clearance", b?.heightMm ?? 0, c.heightMm, " mm", true, 1.0f, HardwareMetricKind.Capacity); add("Radiator support", b?.radiatorSupportMm ?? 0, c.radiatorSupportMm, " mm", true, 1.2f, HardwareMetricKind.Capacity); add("2.5-inch bays", b?.driveBays25 ?? 0, c.driveBays25, string.Empty, true, .6f, HardwareMetricKind.Capacity); add("3.5-inch bays", b?.driveBays35 ?? 0, c.driveBays35, string.Empty, true, .6f, HardwareMetricKind.Capacity); break;
                 case PartCategory.Battery:
-                    add("Capacity", b?.batteryMah ?? 0, c.batteryMah, " mAh", true, 2.1f); break;
+                    add("Capacity", b?.batteryMah ?? 0, c.batteryMah, " mAh", true, 2.1f, HardwareMetricKind.Capacity); break;
                 case PartCategory.Display:
-                    add("Refresh rate", b?.displayHz ?? 0, c.displayHz, " Hz", true, 1.8f); break;
+                    add("Refresh rate", b?.displayHz ?? 0, c.displayHz, " Hz", true, 1.8f, HardwareMetricKind.Technical); break;
                 default:
-                    add("Performance", b?.performance ?? 0, c.performance, " pts", true, 1.8f); add("Speed", b?.speed ?? 0, c.speed, string.Empty, true, 1.0f); break;
+                    add("Performance", b?.performance ?? 0, c.performance, " pts", true, 1.8f, HardwareMetricKind.Technical); add("Speed", b?.speed ?? 0, c.speed, string.Empty, true, 1.0f, HardwareMetricKind.Technical); break;
             }
-            add("Quality", b?.quality ?? 0, c.quality, "/100", true, 1.2f);
-            add("Power draw", b?.powerWatts ?? 0, c.powerWatts, " W", false, .55f);
-            add("Noise", b?.noiseDb ?? 0, c.noiseDb, " dB", false, .55f);
-            add("Price", b?.price ?? 0, c.price, "$", false, .55f);
-            if (bi != null) add("Condition", bi.condition * 100f, ci.condition * 100f, "%", true, 1.0f);
+            add("Quality", b?.quality ?? 0, c.quality, "/100", true, 1.2f, HardwareMetricKind.Condition);
+            add("Power draw", b?.powerWatts ?? 0, c.powerWatts, " W", false, .8f, HardwareMetricKind.Efficiency);
+            add("Noise", b?.noiseDb ?? 0, c.noiseDb, " dB", false, .8f, HardwareMetricKind.Efficiency);
+            add("Price", b?.price ?? 0, c.price, "$", false, 1.0f, HardwareMetricKind.Value);
+            if (bi != null) add("Condition", bi.condition * 100f, ci.condition * 100f, "%", true, 1.0f, HardwareMetricKind.Condition);
         }
 
-        private static void Add(HardwareComparisonReport r, HashSet<string> used, string label, float before, float after, string suffix, bool higherIsBetter, float weight)
+        private static void Add(HardwareComparisonReport r, HashSet<string> used, string label, float before, float after, string suffix, bool higherIsBetter, float weight, HardwareMetricKind kind)
         {
             if (!used.Add(label)) return;
             if (Mathf.Abs(before) < .0001f && Mathf.Abs(after) < .0001f) return;
             float delta = Mathf.Abs(before) < .0001f ? 0f : Mathf.Clamp((after - before) / Mathf.Max(1f, Mathf.Abs(before)) * 100f, -200f, 200f);
             float favorable = higherIsBetter ? delta : -delta;
             float w = Mathf.Max(.01f, weight);
-            r.metrics.Add(new HardwareComparisonMetric { label = label, baselineText = Format(before, suffix), candidateText = Format(after, suffix), changePercent = delta, contribution = Mathf.Clamp(favorable, -100f, 100f) * w, weight = w, higherIsBetter = higherIsBetter });
+            r.metrics.Add(new HardwareComparisonMetric { label = label, baselineText = Format(before, suffix), candidateText = Format(after, suffix), changePercent = delta, contribution = Mathf.Clamp(favorable, -100f, 100f) * w, weight = w, higherIsBetter = higherIsBetter, kind = kind });
         }
 
-        private static float ScoreRelative(List<HardwareComparisonMetric> metrics)
+        private static float ScoreKinds(List<HardwareComparisonMetric> metrics, params HardwareMetricKind[] kinds)
         {
-            if (metrics == null || metrics.Count == 0) return 0f;
-            float total = 0f, weight = 0f;
-            foreach (HardwareComparisonMetric m in metrics) { total += m.contribution; weight += Mathf.Max(.01f, m.weight); }
+            if (metrics == null || metrics.Count == 0 || kinds == null || kinds.Length == 0) return 0f;
+            HashSet<HardwareMetricKind> allow = new HashSet<HardwareMetricKind>(kinds); float total = 0f, weight = 0f;
+            foreach (HardwareComparisonMetric m in metrics.Where(x => allow.Contains(x.kind))) { total += m.contribution; weight += Mathf.Max(.01f, m.weight); }
             return weight <= .001f ? 0f : Mathf.Clamp(total / weight, -100f, 100f);
         }
 
