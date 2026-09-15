@@ -1,0 +1,41 @@
+name: Refine hardware visual source
+
+on:
+  push:
+    branches: [polish/hardware-visual-fidelity-20260915]
+    paths: [.github/workflows/refine-hardware-visual.yml]
+
+permissions:
+  contents: write
+
+jobs:
+  refine:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: polish/hardware-visual-fidelity-20260915
+      - name: Correct presentation anchor and validate
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('Assets/Scripts/Production/PhysicalAssemblyController.cs')
+          text=p.read_text()
+          old='Box("DIMMSlot_" + i, RamSlotPosition(i, dimmSlots) + new Vector3(0, 0, -.173f), new Vector3(.025f, .35f, .026f), chip);'
+          new='Vector3 rp = RamSlotPosition(i, dimmSlots);\n            Box("DIMMSlot_" + i, new Vector3(rp.x, rp.y, p.z - .028f), new Vector3(.025f, .35f, .026f), chip);'
+          if old not in text:
+              raise SystemExit('expected DIMM presentation anchor not found')
+          p.write_text(text.replace(old,new,1))
+          PY
+          python Tools/validate_project.py
+          python Tools/validate_art_profiles.py
+          git diff --check
+      - name: Commit corrected source
+        shell: bash
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add Assets/Scripts/Production/PhysicalAssemblyController.cs
+          git commit -m "Correct DIMM presentation depth" || exit 0
+          git push origin HEAD:polish/hardware-visual-fidelity-20260915
