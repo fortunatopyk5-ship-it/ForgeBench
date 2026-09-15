@@ -25,3 +25,5 @@ jobs:
         run: python Tools/validate_project.py
       - name: Validate visual authoring manifest
         run: python Tools/validate_art_profiles.py
+      - name: Validate runtime visual integration contract
+        run: python Tools/validate_visual_runtime.py
