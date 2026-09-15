@@ -34,6 +34,8 @@ namespace ForgeBench
         private SnapPreviewResult previewResult;
         private string previewReason = "";
         private SnapPreviewState lastPreviewState = SnapPreviewState.None;
+        private AssemblySnapPoint[] cachedSnapPoints = Array.Empty<AssemblySnapPoint>();
+        private bool snapPointsDirty = true;
 
         private static readonly Color PanelNeutral = new Color(.035f, .045f, .058f, .94f);
         private static readonly Color PanelValid = new Color(.035f, .115f, .105f, .96f);
@@ -60,7 +62,7 @@ namespace ForgeBench
             if (ui != null) Destroy(ui.gameObject);
         }
 
-        private void OnStateChanged(object payload) { dirty = true; }
+        private void OnStateChanged(object payload) { dirty = true; snapPointsDirty = true; }
 
         private void Update()
         {
@@ -110,6 +112,7 @@ namespace ForgeBench
             controls.SetActive(true);
             RefreshHeldLabel();
             ClearPreview();
+            RefreshSnapPoints();
             UpdateSnapStatus(SnapPreviewState.None, "Move the component near a compatible installation point.");
         }
 
@@ -217,7 +220,8 @@ namespace ForgeBench
             if (item == null || machine == null || def == null) return none;
 
             ActionResult compatible = PhysicalCompatibility(machine, item, def);
-            AssemblySnapPoint[] points = FindObjectsByType<AssemblySnapPoint>(FindObjectsSortMode.None);
+            if (snapPointsDirty) RefreshSnapPoints();
+            AssemblySnapPoint[] points = cachedSnapPoints;
             AssemblySnapPoint best = null;
             SnapPreviewResult bestResult = none.result;
             float selectionScore = float.MaxValue;
@@ -242,6 +246,12 @@ namespace ForgeBench
             }
 
             return new SocketCandidate { point = best, result = bestResult, reason = compatible.ok ? "" : compatible.message };
+        }
+
+        private void RefreshSnapPoints()
+        {
+            cachedSnapPoints = FindObjectsByType<AssemblySnapPoint>(FindObjectsSortMode.None);
+            snapPointsDirty = false;
         }
 
         private ActionResult PhysicalCompatibility(MachineState machine, ItemInstance item, HardwareDefinition def)
@@ -608,10 +618,6 @@ namespace ForgeBench
                 this.reason = reason;
             }
 
-            public static implicit operator SocketCandidate((AssemblySnapPoint point, SnapPreviewResult result, string reason) value)
-            {
-                return new SocketCandidate(value.point, value.result, value.reason);
-            }
         }
     }
 
