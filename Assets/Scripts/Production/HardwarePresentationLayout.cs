@@ -27,13 +27,14 @@ namespace ForgeBench
         public static int RamItemIndexAtSlot(MachineState machine, int slot, int visibleSlots)
         {
             if (machine == null || machine.ramItemIds == null || slot < 0 || slot >= visibleSlots) return -1;
-            if (machine.ramSlotIndices != null)
+            if (machine.ramSlotIndices != null && machine.ramSlotIndices.Count > 0)
             {
                 int count = Mathf.Min(machine.ramItemIds.Count, machine.ramSlotIndices.Count);
                 for (int i = 0; i < count; i++)
                     if (machine.ramSlotIndices[i] == slot) return i;
+                return -1;
             }
-            // Old saves may not have slot metadata. Deterministic sequential fallback avoids hiding RAM.
+            // Pre-slot-metadata state only: deterministic sequential fallback avoids hiding RAM.
             return slot < machine.ramItemIds.Count ? slot : -1;
         }
 
