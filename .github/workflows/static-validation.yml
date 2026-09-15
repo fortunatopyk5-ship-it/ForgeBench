@@ -27,3 +27,5 @@ jobs:
         run: python Tools/validate_hardware_comparison.py
       - name: Validate visual authoring manifest
         run: python Tools/validate_art_profiles.py
+      - name: Validate visual runtime integration
+        run: python Tools/validate_visual_runtime.py

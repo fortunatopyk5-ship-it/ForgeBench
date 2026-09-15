@@ -68,16 +68,39 @@ namespace ForgeBench
 
         public static bool IsAio(HardwareDefinition cooler)
         {
-            return cooler != null && cooler.tags != null && cooler.tags.Contains("aio");
+            if (cooler == null) return false;
+            if (cooler.tags != null)
+            {
+                foreach (string tag in cooler.tags)
+                    if (string.Equals(tag, "aio", StringComparison.OrdinalIgnoreCase) || string.Equals(tag, "liquid", StringComparison.OrdinalIgnoreCase))
+                        return true;
+            }
+            string text = IdentityText(cooler);
+            return text.Contains("aio") || text.Contains("liquid");
+        }
+
+        /// <summary>
+        /// Resolves the intended authored radiator family before falling back to normalized catalog
+        /// values. Several catalog entries intentionally share normalized clearance values, so an
+        /// explicit 240/280/360 identity must win for presentation geometry and hidden colliders.
+        /// </summary>
+        public static int ResolveRadiatorMm(HardwareDefinition cooler)
+        {
+            if (cooler == null) return 240;
+            string text = IdentityText(cooler);
+            if (text.Contains("360")) return 360;
+            if (text.Contains("280")) return 280;
+            if (text.Contains("240")) return 240;
+            int radiator = cooler.radiatorSupportMm;
+            if (radiator >= 320) return 360;
+            if (radiator >= 260) return 280;
+            return 240;
         }
 
         public static int AioFanCount(HardwareDefinition cooler)
         {
             if (!IsAio(cooler)) return 0;
-            int radiator = cooler.radiatorSupportMm;
-            if (radiator >= 360) return 3;
-            if (radiator >= 240) return 2;
-            return 1;
+            return ResolveRadiatorMm(cooler) >= 360 ? 3 : 2;
         }
 
         public static bool IsNvme(HardwareDefinition storage)
@@ -91,10 +114,27 @@ namespace ForgeBench
             return Mathf.Clamp(Mathf.Max(3, installed), 3, 6);
         }
 
+        public static int ResolveFanMm(HardwareDefinition fan)
+        {
+            if (fan == null) return 120;
+            string text = IdentityText(fan);
+            if (text.Contains("140")) return 140;
+            if (text.Contains("120")) return 120;
+            return fan.fanSizeMm >= 135 ? 140 : 120;
+        }
+
         public static float FanVisualDiameter(HardwareDefinition fan)
         {
-            int mm = fan != null && fan.fanSizeMm > 0 ? fan.fanSizeMm : 120;
+            int mm = ResolveFanMm(fan);
             return Mathf.Clamp(.22f * mm / 120f, .18f, .27f);
+        }
+
+        private static string IdentityText(HardwareDefinition d)
+        {
+            string text = (d.id ?? string.Empty) + " " + (d.model ?? string.Empty);
+            if (d.tags != null)
+                foreach (string tag in d.tags) text += " " + (tag ?? string.Empty);
+            return text.ToLowerInvariant();
         }
     }
 }
