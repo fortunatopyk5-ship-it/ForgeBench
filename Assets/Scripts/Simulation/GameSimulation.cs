@@ -80,7 +80,8 @@ namespace ForgeBench
                     break;
                 case PartCategory.RAM:
                     if (board != null && board.memoryType != p.memoryType) return ActionResult.Fail("RAM " + p.memoryType + " does not match board " + board.memoryType + ".");
-                    if (m.ramItemIds.Count >= 4) return ActionResult.Fail("All DIMM slots are occupied.");
+                    int dimmCapacity = board != null && board.dimmSlots > 0 ? board.dimmSlots : 4;
+                    if (m.ramItemIds.Count >= dimmCapacity) return ActionResult.Fail("All " + dimmCapacity + " DIMM slots are occupied.");
                     break;
                 case PartCategory.GPU:
                     if (pcCase != null && p.lengthMm > pcCase.lengthMm) return ActionResult.Fail("GPU is too long for this case.");
