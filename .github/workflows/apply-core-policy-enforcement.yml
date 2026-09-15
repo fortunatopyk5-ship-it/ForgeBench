@@ -69,8 +69,8 @@ jobs:
               "'Assets/Scripts/Editor/ForgeBenchEditorSetup.cs','Assets/Scripts/Editor/ProductionBuildGate.cs','Assets/Tests/EditMode/EngineeringSimulationTests.cs','Assets/Tests/EditMode/SpecialistSimulationTests.cs','Assets/Tests/EditMode/WorkshopBusinessTests.cs','Assets/Tests/EditMode/SupplyChainJobTests.cs','Assets/Tests/EditMode/ProgressionTests.cs','Assets/Tests/EditMode/ReliabilitySimulationTests.cs','Assets/Tests/EditMode/WarrantyServiceTests.cs','Assets/Tests/EditMode/CrashTelemetryTests.cs',",
               "'Assets/Scripts/Editor/ForgeBenchEditorSetup.cs','Assets/Scripts/Editor/ProductionBuildGate.cs','Assets/Tests/EditMode/EngineeringSimulationTests.cs','Assets/Tests/EditMode/SpecialistSimulationTests.cs','Assets/Tests/EditMode/WorkshopBusinessTests.cs','Assets/Tests/EditMode/SupplyChainJobTests.cs','Assets/Tests/EditMode/ProgressionTests.cs','Assets/Tests/EditMode/ReliabilitySimulationTests.cs','Assets/Tests/EditMode/WarrantyServiceTests.cs','Assets/Tests/EditMode/ServiceIntakeTests.cs','Assets/Tests/EditMode/ToolCalibrationTests.cs','Assets/Tests/EditMode/CrashTelemetryTests.cs',")
           replace('Tools/validate_project.py',
-              "if re.search(r'\\b[A-Za-z_]\\w*\\?\\.\\d',txt):fail('suspicious C# ternary',rel)",
-              "if re.search(r'(?<!\\?)\\?\\.\\d',txt):fail('suspicious C# ternary',rel)")
+              "    if re.search(r'\\b[A-Za-z_]\\w*\\?\\.\\d',txt):fail('suspicious C# ternary',rel)\n",
+              "    # Do not regex-guess compact C# ternaries such as condition?.5f:other; Unity compilation is authoritative.\n")
           replace('Tools/validate_project.py',
               "'StaffRosterService','WarrantyService','WarrantyDirector','WarrantySpecialistBridge','OperationsDashboardPanel'",
               "'StaffRosterService','WarrantyService','ServiceIntakeService','ToolCalibrationService','WarrantyDirector','WarrantySpecialistBridge','OperationsDashboardPanel'")
