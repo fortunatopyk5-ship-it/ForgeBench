@@ -105,7 +105,7 @@ namespace ForgeBench
                 r.mode=UnityEngine.Rendering.ReflectionProbeMode.Realtime;
                 r.refreshMode=UnityEngine.Rendering.ReflectionProbeRefreshMode.ViaScripting;
                 r.size=mobile?new Vector3(8f,4f,8f):new Vector3(5.5f,4f,5.5f);
-                r.intensity=mobile?.38f:.55f;
+                r.intensity=mobile ? .38f : .55f;
                 r.cullingMask=~0;
                 r.enabled=false;
                 reflectionProbes.Add(r);
