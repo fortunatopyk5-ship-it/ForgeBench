@@ -22,8 +22,14 @@ def validate(root, manifest, require_ready=False):
     parts = json.loads(raw)["parts"]
     if manifest.get("catalogPath") != "Assets/Resources/Data/hardware.json":
         errors.append("catalogPath must reference the real hardware catalog")
-    if hashlib.sha256(raw).hexdigest() != manifest.get("catalogSha256"):
-        errors.append("Catalog fingerprint changed: review visual intent before updating the fingerprint")
+    actual_catalog_sha = hashlib.sha256(raw).hexdigest()
+    expected_catalog_sha = manifest.get("catalogSha256")
+    if actual_catalog_sha != expected_catalog_sha:
+        errors.append(
+            "Catalog fingerprint changed: expected " + str(expected_catalog_sha)
+            + ", actual " + actual_catalog_sha
+            + ". Review visual intent before updating the fingerprint"
+        )
 
     domain = (root / "Assets/Scripts/Core/DomainModels.cs").read_text(encoding="utf-8")
     match = re.search(r"enum\s+PartCategory\s*\{([^}]+)\}", domain)
