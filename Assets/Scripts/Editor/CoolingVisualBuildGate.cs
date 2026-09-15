@@ -22,6 +22,7 @@ namespace ForgeBench.EditorTools
                 "Assets/Scripts/Production/HardwarePresentationLayout.cs",
                 "Assets/Scripts/Production/ProceduralSurfaceLibrary.cs",
                 "Assets/Scripts/Production/HardwareSurfaceUpgradeDirector.cs",
+                "Assets/Scripts/Production/WorkshopSurfaceUpgradeDirector.cs",
                 "Assets/Tests/EditMode/ProceduralCoolingVisualTests.cs",
                 "Assets/Tests/EditMode/ProceduralSurfaceLibraryTests.cs",
                 "Docs/PROCEDURAL_COOLING_MODELS.md",
@@ -73,7 +74,12 @@ namespace ForgeBench.EditorTools
                 HardwareSurfaceUpgradeDirector.ResolveKindForName("Trace_0") != ProceduralSurfaceKind.Copper)
                 throw new BuildFailedException("Procedural surface material mapping regressed.");
 
-            Debug.Log("ForgeBench visual gate passed: cooling geometry, surface fallback, mesh lifetime guard, layout identity, tests and art manifest are present.");
+            WorkshopSurfaceProfile wall = WorkshopSurfaceUpgradeDirector.ResolveProfile("BackWall", string.Empty);
+            WorkshopSurfaceProfile esd = WorkshopSurfaceUpgradeDirector.ResolveProfile("Top", "Main Assembly Bench");
+            if (!wall.valid || wall.kind != ProceduralSurfaceKind.Polymer || !esd.valid || esd.kind != ProceduralSurfaceKind.Rubber)
+                throw new BuildFailedException("Workshop premium surface profile mapping regressed.");
+
+            Debug.Log("ForgeBench visual gate passed: cooling geometry, hardware/workshop surface fallback, mesh lifetime guard, layout identity, tests and art manifest are present.");
         }
     }
 }
