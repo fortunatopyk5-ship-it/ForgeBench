@@ -23,3 +23,5 @@ jobs:
           python-version: '3.12'
       - name: Validate source, data and traceability
         run: python Tools/validate_project.py
+      - name: Validate visual authoring manifest
+        run: python Tools/validate_art_profiles.py
