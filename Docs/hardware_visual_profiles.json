@@ -3,7 +3,7 @@
   "purpose": "Authoring plan only; no runtime binding. Art intent never overrides gameplay specifications.",
   "sourceCommit": "5e5e1be1b08a7825dc3c228676a3c8f611093590",
   "catalogPath": "Assets/Resources/Data/hardware.json",
-  "catalogSha256": "60fff382c8657d83b2eb4c9673fc515415700e1b86ad57c2a457efc8403cdc55",
+  "catalogSha256": "f7c98ad8f6e8bc6087820405181c6bdaa83680bfdc0f31e1a181d65440f98c6f",
   "families": {
     "case_matx": {
       "category": "Case",
