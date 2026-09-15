@@ -33,41 +33,32 @@ jobs:
               text=text.replace(old,new,count)
               p.write_text(text,encoding='utf-8')
 
-          # Specialist contracts must never pass through the normal desktop submission validator.
           replace('Assets/Scripts/Simulation/GameSimulation.cs',
               '            if (j == null || m == null) return ActionResult.Fail("Job or device state missing.");\n            List<string> miss = new List<string>();',
               '            if (j == null || m == null) return ActionResult.Fail("Job or device state missing.");\n            if (SpecialistJobService.IsSpecialist(j)) return ActionResult.Fail("Specialist contracts must be delivered through the specialist workstation.");\n            List<string> miss = new List<string>();')
 
-          # Add one authoritative custody guard in GameRuntime rather than scattering direct file-state checks.
           replace('Assets/Scripts/Runtime/GameRuntime.cs',
               '        public void Install(string instanceId)\n        {',
               '''        private ActionResult BenchCustodyGuard()\n        {\n            JobState job = ActiveJob;\n            if (job == null) return ActionResult.Success("No active customer custody record.");\n            ServiceIntakeService service = ServiceIntakeDirector.Instance?.Service;\n            return service == null ? ActionResult.Success("Intake service unavailable; legacy bench path allowed.") : service.CanBeginWork(job.jobId);\n        }\n\n        private ActionResult ReleaseCustodyGuard()\n        {\n            JobState job = ActiveJob;\n            if (job == null) return ActionResult.Success("No active customer custody record.");\n            ServiceIntakeService service = ServiceIntakeDirector.Instance?.Service;\n            return service == null ? ActionResult.Success("Intake service unavailable; legacy release path allowed.") : service.CanRelease(job.jobId);\n        }\n\n        public void Install(string instanceId)\n        {''')
-
           replace('Assets/Scripts/Runtime/GameRuntime.cs',
               '            if (m == null) { Notify("Accept a job first.", false); return; }\n            if (item == null || item.reserved) { Notify("Part is unavailable.", false); return; }',
               '            if (m == null) { Notify("Accept a job first.", false); return; }\n            ActionResult custody = BenchCustodyGuard(); if (!custody.ok) { Notify(custody.message, false); return; }\n            if (item == null || item.reserved) { Notify("Part is unavailable.", false); return; }')
-
           replace('Assets/Scripts/Runtime/GameRuntime.cs',
               '            if (m == null || item == null) return;\n            HardwareDefinition removing = Inventory.Def(item);',
               '            if (m == null || item == null) return;\n            ActionResult custody = BenchCustodyGuard(); if (!custody.ok) { Notify(custody.message, false); return; }\n            HardwareDefinition removing = Inventory.Def(item);')
-
           replace('Assets/Scripts/Runtime/GameRuntime.cs',
               '            if (m == null) { Notify("No device on bench.", false); return; }\n            HardwareDefinition board = Inventory.Def(Inventory.Get(m.motherboardItemId));',
               '            if (m == null) { Notify("No device on bench.", false); return; }\n            ActionResult custody = BenchCustodyGuard(); if (!custody.ok) { Notify(custody.message, false); return; }\n            HardwareDefinition board = Inventory.Def(Inventory.Get(m.motherboardItemId));')
-
           replace('Assets/Scripts/Runtime/GameRuntime.cs',
               '            if (m == null || string.IsNullOrEmpty(m.cpuItemId)) { Notify("Install a CPU first.", false); return; }\n            ItemInstance paste = Inventory.Available(PartCategory.Consumable)',
               '            if (m == null || string.IsNullOrEmpty(m.cpuItemId)) { Notify("Install a CPU first.", false); return; }\n            ActionResult custody = BenchCustodyGuard(); if (!custody.ok) { Notify(custody.message, false); return; }\n            ItemInstance paste = Inventory.Available(PartCategory.Consumable)')
-
           replace('Assets/Scripts/Runtime/GameRuntime.cs',
               '            if (m == null) { Notify("No device on bench.", false); return; }\n            ItemInstance air = Inventory.Available(PartCategory.Consumable)',
               '            if (m == null) { Notify("No device on bench.", false); return; }\n            ActionResult custody = BenchCustodyGuard(); if (!custody.ok) { Notify(custody.message, false); return; }\n            ItemInstance air = Inventory.Available(PartCategory.Consumable)')
-
           replace('Assets/Scripts/Runtime/GameRuntime.cs',
               '            ActionResult validation = Jobs.Validate(j, m);',
               '            ActionResult release = ReleaseCustodyGuard(); if (!release.ok) { Notify(release.message, false); Refresh(); return; }\n            ActionResult validation = Jobs.Validate(j, m);')
 
-          # Harden static validation and make the new systems part of source coverage.
           replace('Tools/validate_project.py',
               "'Assets/Scripts/Production/WarrantyDirector.cs','Assets/Scripts/Production/WarrantyPanel.cs','Assets/Scripts/Production/WarrantyTerminalLayer.cs','Assets/Scripts/Production/WarrantySpecialistBridge.cs','Assets/Scripts/Production/OperationsDashboardPanel.cs','Assets/Scripts/Production/OperationsTerminalLayer.cs',",
               "'Assets/Scripts/Production/WarrantyDirector.cs','Assets/Scripts/Production/WarrantyPanel.cs','Assets/Scripts/Production/WarrantyTerminalLayer.cs','Assets/Scripts/Production/WarrantySpecialistBridge.cs','Assets/Scripts/Production/OperationsDashboardPanel.cs','Assets/Scripts/Production/OperationsTerminalLayer.cs',\n'Assets/Scripts/Production/ServiceIntakeDirector.cs','Assets/Scripts/Production/ServiceIntakePanel.cs','Assets/Scripts/Production/ServiceIntakeTerminalLayer.cs','Assets/Scripts/Production/ToolCalibrationDirector.cs','Assets/Scripts/Production/ToolCalibrationPanel.cs','Assets/Scripts/Production/ToolCalibrationTerminalLayer.cs',")
@@ -79,7 +70,7 @@ jobs:
               "'Assets/Scripts/Editor/ForgeBenchEditorSetup.cs','Assets/Scripts/Editor/ProductionBuildGate.cs','Assets/Tests/EditMode/EngineeringSimulationTests.cs','Assets/Tests/EditMode/SpecialistSimulationTests.cs','Assets/Tests/EditMode/WorkshopBusinessTests.cs','Assets/Tests/EditMode/SupplyChainJobTests.cs','Assets/Tests/EditMode/ProgressionTests.cs','Assets/Tests/EditMode/ReliabilitySimulationTests.cs','Assets/Tests/EditMode/WarrantyServiceTests.cs','Assets/Tests/EditMode/ServiceIntakeTests.cs','Assets/Tests/EditMode/ToolCalibrationTests.cs','Assets/Tests/EditMode/CrashTelemetryTests.cs',")
           replace('Tools/validate_project.py',
               "if re.search(r'\\b[A-Za-z_]\\w*\\?\\.\\d',txt):fail('suspicious C# ternary',rel)",
-              "if re.search(r'\\?\\.\\d',txt):fail('suspicious C# ternary',rel)")
+              "if re.search(r'(?<!\\?)\\?\\.\\d',txt):fail('suspicious C# ternary',rel)")
           replace('Tools/validate_project.py',
               "'StaffRosterService','WarrantyService','WarrantyDirector','WarrantySpecialistBridge','OperationsDashboardPanel'",
               "'StaffRosterService','WarrantyService','ServiceIntakeService','ToolCalibrationService','WarrantyDirector','WarrantySpecialistBridge','OperationsDashboardPanel'")
