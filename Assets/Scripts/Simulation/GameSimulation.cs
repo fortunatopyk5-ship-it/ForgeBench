@@ -366,6 +366,7 @@ namespace ForgeBench
         public ActionResult Validate(JobState j, MachineState m)
         {
             if (j == null || m == null) return ActionResult.Fail("Job or device state missing.");
+            if (SpecialistJobService.IsSpecialist(j)) return ActionResult.Fail("Specialist contracts must be delivered through the specialist workstation.");
             List<string> miss = new List<string>();
             if (j.requireOs && !m.osInstalled) miss.Add("OS not installed");
             if (j.requireDrivers && !m.driversInstalled) miss.Add("drivers missing");

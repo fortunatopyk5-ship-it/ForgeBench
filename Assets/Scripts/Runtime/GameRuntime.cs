@@ -137,11 +137,28 @@ namespace ForgeBench
             Autosave(); Refresh(); Notify(ready.Count + " shipment(s) received.");
         }
 
+        private ActionResult BenchCustodyGuard()
+        {
+            JobState job = ActiveJob;
+            if (job == null) return ActionResult.Success("No active customer custody record.");
+            ServiceIntakeService service = ServiceIntakeDirector.Instance?.Service;
+            return service == null ? ActionResult.Success("Intake service unavailable; legacy bench path allowed.") : service.CanBeginWork(job.jobId);
+        }
+
+        private ActionResult ReleaseCustodyGuard()
+        {
+            JobState job = ActiveJob;
+            if (job == null) return ActionResult.Success("No active customer custody record.");
+            ServiceIntakeService service = ServiceIntakeDirector.Instance?.Service;
+            return service == null ? ActionResult.Success("Intake service unavailable; legacy release path allowed.") : service.CanRelease(job.jobId);
+        }
+
         public void Install(string instanceId)
         {
             MachineState m = ActiveMachine;
             ItemInstance item = Inventory.Get(instanceId);
             if (m == null) { Notify("Accept a job first.", false); return; }
+            ActionResult custody = BenchCustodyGuard(); if (!custody.ok) { Notify(custody.message, false); return; }
             if (item == null || item.reserved) { Notify("Part is unavailable.", false); return; }
             HardwareDefinition requested = Inventory.Def(item);
             if (requested != null && requested.category != PartCategory.Case && !Assembly.InternalsAccessible(m)) { Notify("Remove the side panel before accessing internal components.", false); return; }
@@ -195,6 +212,7 @@ namespace ForgeBench
             MachineState m = ActiveMachine;
             ItemInstance item = Inventory.Get(instanceId);
             if (m == null || item == null) return;
+            ActionResult custody = BenchCustodyGuard(); if (!custody.ok) { Notify(custody.message, false); return; }
             HardwareDefinition removing = Inventory.Def(item);
             if (removing != null && removing.category != PartCategory.Case && !Assembly.InternalsAccessible(m)) { Notify("Remove the side panel before removing internal components.", false); return; }
             bool removed = false;
@@ -228,6 +246,7 @@ namespace ForgeBench
         {
             MachineState m = ActiveMachine;
             if (m == null) { Notify("No device on bench.", false); return; }
+            ActionResult custody = BenchCustodyGuard(); if (!custody.ok) { Notify(custody.message, false); return; }
             HardwareDefinition board = Inventory.Def(Inventory.Get(m.motherboardItemId));
             HardwareDefinition psu = Inventory.Def(Inventory.Get(m.psuItemId));
             HardwareDefinition gpu = Inventory.Def(Inventory.Get(m.gpuItemId));
@@ -269,6 +288,7 @@ namespace ForgeBench
         {
             MachineState m = ActiveMachine;
             if (m == null || string.IsNullOrEmpty(m.cpuItemId)) { Notify("Install a CPU first.", false); return; }
+            ActionResult custody = BenchCustodyGuard(); if (!custody.ok) { Notify(custody.message, false); return; }
             ItemInstance paste = Inventory.Available(PartCategory.Consumable).FirstOrDefault(i => Inventory.Def(i)?.tags.Contains("paste") == true);
             if (paste == null) { Notify("Thermal compound is not in inventory.", false); return; }
             Inventory.Consume(paste.instanceId);
@@ -280,6 +300,7 @@ namespace ForgeBench
         {
             MachineState m = ActiveMachine;
             if (m == null) { Notify("No device on bench.", false); return; }
+            ActionResult custody = BenchCustodyGuard(); if (!custody.ok) { Notify(custody.message, false); return; }
             ItemInstance air = Inventory.Available(PartCategory.Consumable).FirstOrDefault(i => Inventory.Def(i)?.tags.Contains("cleaning") == true);
             if (air == null) { Notify("You need cleaning consumable or an upgraded air blower.", false); return; }
             m.dust = Mathf.Max(0f, m.dust - 0.9f); m.history.Add("Dust cleaned");
@@ -333,6 +354,7 @@ namespace ForgeBench
                 if (!m.sidePanelInstalled) { Notify("Install the side panel before returning the PC to the customer.", false); return; }
                 if (Assembly.TighteningQuality(m) < .95f) { Notify("Tighten all side-panel fasteners before delivery.", false); return; }
             }
+            ActionResult release = ReleaseCustodyGuard(); if (!release.ok) { Notify(release.message, false); Refresh(); return; }
             ActionResult validation = Jobs.Validate(j, m);
             if (!validation.ok) { Notify(validation.message, false); Refresh(); return; }
             float bonus = 0f;
