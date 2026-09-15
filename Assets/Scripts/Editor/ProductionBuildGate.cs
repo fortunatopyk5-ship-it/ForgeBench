@@ -26,8 +26,9 @@ namespace ForgeBench.EditorTools
             "Assets/Scripts/Production/StaffRosterDirector.cs","Assets/Scripts/Production/StaffRosterPanel.cs","Assets/Scripts/Production/StaffRosterTerminalLayer.cs",
             "Assets/Scripts/Production/WarrantyDirector.cs","Assets/Scripts/Production/WarrantyPanel.cs","Assets/Scripts/Production/WarrantyTerminalLayer.cs","Assets/Scripts/Production/WarrantySpecialistBridge.cs","Assets/Scripts/Production/OperationsDashboardPanel.cs","Assets/Scripts/Production/OperationsTerminalLayer.cs",
             "Assets/Scripts/Production/ServiceIntakeDirector.cs","Assets/Scripts/Production/ServiceIntakePanel.cs","Assets/Scripts/Production/ServiceIntakeTerminalLayer.cs",
+            "Assets/Scripts/Production/ToolCalibrationDirector.cs","Assets/Scripts/Production/ToolCalibrationPanel.cs","Assets/Scripts/Production/ToolCalibrationTerminalLayer.cs",
             "Assets/Scripts/Production/CrashTelemetryLogger.cs","Assets/Scripts/Production/TutorialDirector.cs","Assets/Scripts/Production/InGameManualPanel.cs","Assets/Scripts/Production/ManualTerminalLayer.cs","Assets/Scripts/Production/SaveManagerPanel.cs",
-            "Assets/Scripts/Simulation/SpecialistRepairServices.cs","Assets/Scripts/Simulation/SpecialistJobService.cs","Assets/Scripts/Simulation/EngineeringSimulationService.cs","Assets/Scripts/Simulation/AdvancedDiagnosticWorkflowService.cs","Assets/Scripts/Simulation/FitmentPlanningService.cs","Assets/Scripts/Simulation/JobDispatchService.cs","Assets/Scripts/Simulation/WorkshopBusinessService.cs","Assets/Scripts/Simulation/SupplyChainService.cs","Assets/Scripts/Simulation/AdvancedJobGeneratorService.cs","Assets/Scripts/Simulation/CustomerRelationsService.cs","Assets/Scripts/Simulation/ProgressionService.cs","Assets/Scripts/Simulation/ReliabilitySimulationService.cs","Assets/Scripts/Simulation/PreflightInspectionService.cs","Assets/Scripts/Simulation/StaffRosterService.cs","Assets/Scripts/Simulation/WarrantyService.cs","Assets/Scripts/Simulation/ServiceIntakeService.cs",
+            "Assets/Scripts/Simulation/SpecialistRepairServices.cs","Assets/Scripts/Simulation/SpecialistJobService.cs","Assets/Scripts/Simulation/EngineeringSimulationService.cs","Assets/Scripts/Simulation/AdvancedDiagnosticWorkflowService.cs","Assets/Scripts/Simulation/FitmentPlanningService.cs","Assets/Scripts/Simulation/JobDispatchService.cs","Assets/Scripts/Simulation/WorkshopBusinessService.cs","Assets/Scripts/Simulation/SupplyChainService.cs","Assets/Scripts/Simulation/AdvancedJobGeneratorService.cs","Assets/Scripts/Simulation/CustomerRelationsService.cs","Assets/Scripts/Simulation/ProgressionService.cs","Assets/Scripts/Simulation/ReliabilitySimulationService.cs","Assets/Scripts/Simulation/PreflightInspectionService.cs","Assets/Scripts/Simulation/StaffRosterService.cs","Assets/Scripts/Simulation/WarrantyService.cs","Assets/Scripts/Simulation/ServiceIntakeService.cs","Assets/Scripts/Simulation/ToolCalibrationService.cs",
             "Assets/Scripts/Runtime/SpecialistRuntimeExtensions.cs","Assets/Scripts/Runtime/EngineeringRuntimeExtensions.cs","Assets/Scripts/Runtime/BusinessRuntimeExtensions.cs","Assets/Scripts/Runtime/SupplyChainRuntimeExtensions.cs","Assets/Scripts/Runtime/MaintenanceRuntimeExtensions.cs"
         };
 
@@ -42,6 +43,7 @@ namespace ForgeBench.EditorTools
             "Assets/Tests/EditMode/ReliabilitySimulationTests.cs",
             "Assets/Tests/EditMode/WarrantyServiceTests.cs",
             "Assets/Tests/EditMode/ServiceIntakeTests.cs",
+            "Assets/Tests/EditMode/ToolCalibrationTests.cs",
             "Assets/Tests/EditMode/CrashTelemetryTests.cs"
         };
 
@@ -68,7 +70,7 @@ namespace ForgeBench.EditorTools
                 PlayerSettings.allowedAutorotateToLandscapeLeft=true;
                 PlayerSettings.allowedAutorotateToLandscapeRight=true;
             }
-            Debug.Log("ForgeBench production gate passed: "+data.parts.Count+" hardware definitions; deep simulation/diagnostic-evidence/fitment/multi-job-dispatch/CRM/progression/reliability/warranty/service-intake/operations/manual/save-recovery/crash-diagnostics/accessibility/mobile/preflight source present; "+CriticalTests.Length+" critical test sources present; schema "+SaveService.CurrentSchema+"; Android settings enforced.");
+            Debug.Log("ForgeBench production gate passed: "+data.parts.Count+" hardware definitions; deep simulation/diagnostic-evidence/fitment/multi-job-dispatch/CRM/progression/reliability/warranty/service-intake/tool-calibration/operations/manual/save-recovery/crash-diagnostics/accessibility/mobile/preflight source present; "+CriticalTests.Length+" critical test sources present; schema "+SaveService.CurrentSchema+"; Android settings enforced.");
         }
     }
 }
