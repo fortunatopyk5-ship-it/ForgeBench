@@ -12,6 +12,7 @@ namespace ForgeBench
         private static bool installing;
         private ProceduralSurfaceLibrary library;
         private GameObject observedMachineRoot;
+        private int observedCoolingRevision = -1;
         private int observedScene = int.MinValue;
         private float nextPoll;
 
@@ -49,12 +50,15 @@ namespace ForgeBench
                 observedScene = scene;
                 ApplyWorkshopSurfaces();
                 observedMachineRoot = null;
+                observedCoolingRevision = -1;
             }
 
             GameObject machineRoot = GameObject.Find("ProductionMachine3D");
-            if (machineRoot != null && machineRoot != observedMachineRoot)
+            int coolingRevision = CoolingVisualUpgradeDirector.VisualRevision;
+            if (machineRoot != null && (machineRoot != observedMachineRoot || coolingRevision != observedCoolingRevision))
             {
                 observedMachineRoot = machineRoot;
+                observedCoolingRevision = coolingRevision;
                 ApplyMachineSurfaces(machineRoot.transform);
             }
         }
@@ -65,7 +69,7 @@ namespace ForgeBench
             foreach (Renderer renderer in renderers)
             {
                 if (renderer == null || renderer.transform == null) continue;
-                if (renderer.GetComponentInParent<PhysicalAssemblyController>() != null) continue;
+                if (IsInsideNamedRoot(renderer.transform, "ProductionMachine3D")) continue;
                 string semantic = SemanticName(renderer.transform);
                 ProceduralSurfaceProfile profile = ProceduralSurfaceLibrary.Classify(semantic);
                 if (profile == ProceduralSurfaceProfile.None) continue;
@@ -98,7 +102,18 @@ namespace ForgeBench
         {
             string n = (name ?? string.Empty).ToLowerInvariant();
             return n.Contains("ghost") || n.Contains("powerbutton") || n.Contains("thermalpaste") ||
-                   n.Contains("rgbring") || n.Contains("accent") || n.Contains("sidepanel");
+                   n.Contains("rgbring") || n.Contains("accent") || n.Contains("pumpcap") || n.Contains("sidepanel");
+        }
+
+        private static bool IsInsideNamedRoot(Transform t, string rootName)
+        {
+            Transform cursor = t;
+            while (cursor != null)
+            {
+                if (cursor.name == rootName) return true;
+                cursor = cursor.parent;
+            }
+            return false;
         }
 
         private static string SemanticName(Transform t)
@@ -107,7 +122,7 @@ namespace ForgeBench
             string value = t.name;
             Transform p = t.parent;
             int depth = 0;
-            while (p != null && depth < 3)
+            while (p != null && depth < 4)
             {
                 value = p.name + "/" + value;
                 p = p.parent;
