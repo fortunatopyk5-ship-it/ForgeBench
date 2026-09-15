@@ -5,6 +5,8 @@ namespace ForgeBench
     /// <summary>
     /// Desktop/non-mobile runtime quality governor. Mobile quality ownership belongs to
     /// MobilePlatformController so two independent governors cannot oscillate settings.
+    /// Shared presentation systems consume RuntimeRenderBudget rather than inventing
+    /// independent light/LOD/probe rules.
     /// </summary>
     public sealed class RuntimeQualityController : MonoBehaviour
     {
@@ -52,14 +54,12 @@ namespace ForgeBench
         private static void ApplyTier(int value)
         {
             value=Mathf.Clamp(value,0,2);
+            RuntimeRenderBudget.SetTier(value);
             QualitySettings.vSyncCount=0;
             QualitySettings.antiAliasing=value==2?4:value==1?2:0;
             QualitySettings.anisotropicFiltering=value==0?AnisotropicFiltering.Disable:AnisotropicFiltering.Enable;
-            QualitySettings.shadowDistance=value==2?28f:value==1?18f:10f;
             QualitySettings.shadowResolution=value==2?ShadowResolution.High:value==1?ShadowResolution.Medium:ShadowResolution.Low;
-            QualitySettings.pixelLightCount=value==2?4:value==1?2:1;
-            QualitySettings.lodBias=value==2?1.3f:value==1?1.0f:.75f;
-            QualitySettings.realtimeReflectionProbes=value>0;
+            QualitySettings.pixelLightCount=RuntimeRenderBudget.RealtimeLightBudget;
         }
     }
 }
