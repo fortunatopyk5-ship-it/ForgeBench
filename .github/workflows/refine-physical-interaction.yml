@@ -15,50 +15,53 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: polish/physical-interaction-preview-20260915
-      - name: Harden interaction integration
+      - name: Cache physical sockets and validate
         shell: bash
         run: |
           python - <<'PY'
           from pathlib import Path
+          p=Path('Assets/Scripts/Production/ObjectHandlingController.cs')
+          text=p.read_text()
 
-          obj=Path('Assets/Scripts/Production/ObjectHandlingController.cs')
-          text=obj.read_text()
-          old='''        private readonly struct SocketCandidate\n        {\n            public readonly AssemblySnapPoint point;\n            public readonly SnapPreviewResult result;\n            public readonly string reason;'''
-          new='''        private struct SocketCandidate\n        {\n            public AssemblySnapPoint point;\n            public SnapPreviewResult result;\n            public string reason;'''
-          if old not in text:
-              raise SystemExit('SocketCandidate guard not found')
-          obj.write_text(text.replace(old,new,1))
-
-          assembly=Path('Assets/Scripts/Production/PhysicalAssemblyController.cs')
-          text=assembly.read_text()
-          old='''        private static void AddSnap(GameObject go, PartCategory category)\n        {\n            AssemblySnapPoint p = go.GetComponent<AssemblySnapPoint>() ?? go.AddComponent<AssemblySnapPoint>();\n            if (!p.accepts.Contains(category)) p.accepts.Add(category);\n        }'''
-          new='''        private static void AddSnap(GameObject go, PartCategory category)\n        {\n            AssemblySnapPoint p = go.GetComponent<AssemblySnapPoint>() ?? go.AddComponent<AssemblySnapPoint>();\n            if (!p.accepts.Contains(category)) p.accepts.Add(category);\n            string label = go.name.Replace("Ghost", string.Empty).Replace("_", " ").Trim();\n            p.socketLabel = (string.IsNullOrEmpty(label) ? category.ToString() : label) + " mount";\n            p.snapRadius = category == PartCategory.CPU || category == PartCategory.RAM ? .44f : .55f;\n            p.orientationTolerance = category == PartCategory.RAM ? 65f : category == PartCategory.CPU ? 75f : 90f;\n            p.requireOrientation = true;\n        }'''
-          if old not in text:
-              raise SystemExit('AddSnap anchor not found')
-          assembly.write_text(text.replace(old,new,1))
-
-          gate=Path('Assets/Scripts/Editor/ProductionBuildGate.cs')
-          text=gate.read_text()
-          old='''"Assets/Scripts/Production/PhysicalAssemblyController.cs","Assets/Scripts/Production/HardwarePresentationLayout.cs","Assets/Scripts/Production/ObjectHandlingController.cs"'''
-          new='''"Assets/Scripts/Production/PhysicalAssemblyController.cs","Assets/Scripts/Production/HardwarePresentationLayout.cs","Assets/Scripts/Production/AssemblyInteractionRules.cs","Assets/Scripts/Production/ObjectHandlingController.cs"'''
-          if old not in text:
-              raise SystemExit('critical production anchor not found')
+          old='''        private SnapPreviewState lastPreviewState = SnapPreviewState.None;\n\n        private static readonly Color PanelNeutral'''
+          new='''        private SnapPreviewState lastPreviewState = SnapPreviewState.None;\n        private AssemblySnapPoint[] cachedSnapPoints = Array.Empty<AssemblySnapPoint>();\n        private bool snapPointsDirty = true;\n\n        private static readonly Color PanelNeutral'''
+          if old not in text: raise SystemExit('field anchor missing')
           text=text.replace(old,new,1)
-          old='''            "Assets/Tests/EditMode/HardwarePresentationLayoutTests.cs",\n            "Assets/Tests/EditMode/JobDispatchTests.cs",'''
-          new='''            "Assets/Tests/EditMode/HardwarePresentationLayoutTests.cs",\n            "Assets/Tests/EditMode/AssemblyInteractionRulesTests.cs",\n            "Assets/Tests/EditMode/JobDispatchTests.cs",'''
-          if old not in text:
-              raise SystemExit('critical test anchor not found')
-          gate.write_text(text.replace(old,new,1))
+
+          old='''        private void OnStateChanged(object payload) { dirty = true; }'''
+          new='''        private void OnStateChanged(object payload) { dirty = true; snapPointsDirty = true; }'''
+          if old not in text: raise SystemExit('state anchor missing')
+          text=text.replace(old,new,1)
+
+          old='''            ClearPreview();\n            UpdateSnapStatus(SnapPreviewState.None, "Move the component near a compatible installation point.");'''
+          new='''            ClearPreview();\n            RefreshSnapPoints();\n            UpdateSnapStatus(SnapPreviewState.None, "Move the component near a compatible installation point.");'''
+          if old not in text: raise SystemExit('pickup anchor missing')
+          text=text.replace(old,new,1)
+
+          old='''            ActionResult compatible = PhysicalCompatibility(machine, item, def);\n            AssemblySnapPoint[] points = FindObjectsByType<AssemblySnapPoint>(FindObjectsSortMode.None);\n            AssemblySnapPoint best = null;'''
+          new='''            ActionResult compatible = PhysicalCompatibility(machine, item, def);\n            if (snapPointsDirty) RefreshSnapPoints();\n            AssemblySnapPoint[] points = cachedSnapPoints;\n            AssemblySnapPoint best = null;'''
+          if old not in text: raise SystemExit('scan anchor missing')
+          text=text.replace(old,new,1)
+
+          old='''        private ActionResult PhysicalCompatibility(MachineState machine, ItemInstance item, HardwareDefinition def)'''
+          new='''        private void RefreshSnapPoints()\n        {\n            cachedSnapPoints = FindObjectsByType<AssemblySnapPoint>(FindObjectsSortMode.None);\n            snapPointsDirty = false;\n        }\n\n        private ActionResult PhysicalCompatibility(MachineState machine, ItemInstance item, HardwareDefinition def)'''
+          if old not in text: raise SystemExit('refresh insertion anchor missing')
+          text=text.replace(old,new,1)
+
+          old='''\n            public static implicit operator SocketCandidate((AssemblySnapPoint point, SnapPreviewResult result, string reason) value)\n            {\n                return new SocketCandidate(value.point, value.result, value.reason);\n            }'''
+          if old not in text: raise SystemExit('implicit operator anchor missing')
+          text=text.replace(old,'',1)
+          p.write_text(text)
           PY
           python Tools/validate_project.py
           python Tools/validate_art_profiles.py
           python Tools/smoke_balance_test.py
           git diff --check
-      - name: Commit hardened integration
+      - name: Commit socket cache refinement
         shell: bash
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git add Assets/Scripts/Production/ObjectHandlingController.cs Assets/Scripts/Production/PhysicalAssemblyController.cs Assets/Scripts/Editor/ProductionBuildGate.cs
-          git commit -m "Harden physical socket preview integration" || exit 0
+          git add Assets/Scripts/Production/ObjectHandlingController.cs
+          git commit -m "Cache physical installation sockets during held-part interaction" || exit 0
           git push origin HEAD:polish/physical-interaction-preview-20260915
