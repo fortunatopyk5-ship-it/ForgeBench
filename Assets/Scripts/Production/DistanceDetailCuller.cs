@@ -41,8 +41,7 @@ namespace ForgeBench
             if(cameraRef==null)return;
 
             Vector3 p=cameraRef.transform.position;
-            bool saver=GameRuntime.Instance?.State?.settings?.batterySaver??false;
-            float factor=saver ? .72f : 1f;
+            float factor=RuntimeRenderBudget.DetailDistanceFactor;
             foreach(Entry e in entries)
             {
                 if(e.renderer==null)continue;
