@@ -86,7 +86,8 @@ namespace ForgeBench
                 if (renderer == null) continue;
                 string name = renderer.gameObject.name;
                 if (ShouldPreserveDynamicMaterial(name)) continue;
-                ProceduralSurfaceProfile profile = ProceduralSurfaceLibrary.Classify(SemanticName(renderer.transform));
+                string semantic = SemanticName(renderer.transform);
+                ProceduralSurfaceProfile profile = ResolveMachineProfile(semantic);
                 if (profile == ProceduralSurfaceProfile.None) continue;
                 Assign(renderer, profile);
             }
@@ -96,6 +97,17 @@ namespace ForgeBench
         {
             Material material = library != null ? library.Get(profile) : null;
             if (material != null) renderer.sharedMaterial = material;
+        }
+
+        private static ProceduralSurfaceProfile ResolveMachineProfile(string semantic)
+        {
+            string n = (semantic ?? string.Empty).ToLowerInvariant();
+            if (n.Contains("radiatorfinpack") || n.Contains("towerfinstack") || n.Contains("coolerfin_"))
+                return ProceduralSurfaceProfile.BrushedAluminum;
+            if (n.Contains("coldplate") || n.Contains("baseplate") || n.Contains("heatpipe_"))
+                return ProceduralSurfaceProfile.Copper;
+            if (n.Contains("pumphousing")) return ProceduralSurfaceProfile.GraphitePowderCoat;
+            return ProceduralSurfaceLibrary.Classify(semantic);
         }
 
         private static bool ShouldPreserveDynamicMaterial(string name)
