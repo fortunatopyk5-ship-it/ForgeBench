@@ -165,8 +165,10 @@ namespace ForgeBench
 
             int dimmSlots = HardwarePresentationLayout.DimmSlotCount(def);
             for (int i = 0; i < dimmSlots; i++)
+            {
                 Vector3 rp = RamSlotPosition(i, dimmSlots);
-            Box("DIMMSlot_" + i, new Vector3(rp.x, rp.y, p.z - .028f), new Vector3(.025f, .35f, .026f), chip);
+                Box("DIMMSlot_" + i, new Vector3(rp.x, rp.y, p.z - .028f), new Vector3(.025f, .35f, .026f), chip);
+            }
 
             int pcieSlots = HardwarePresentationLayout.PcieSlotCount(def);
             for (int i = 0; i < pcieSlots; i++)
