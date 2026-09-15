@@ -84,18 +84,65 @@ namespace ForgeBench
                     if(p.psuWattage>=850)AddConnector(p,"12V2x6");
                     break;
                 case PartCategory.Cooler:
+                {
                     if(p.airflowCfm<=0)p.airflowCfm=Mathf.Lerp(38f,82f,q/100f);
                     if(p.maxRpm<=0)p.maxRpm=Mathf.RoundToInt(Mathf.Lerp(1300,2300,q/100f));
-                    if(p.fanSizeMm<=0)p.fanSizeMm=p.tags.Contains("aio")?120:120;
-                    if(p.tags.Contains("aio")&&p.radiatorSupportMm<=0)p.radiatorSupportMm=p.performance>=160?360:p.performance>=120?280:240;
+                    bool aio=p.tags.Contains("aio");
+                    if(aio&&p.radiatorSupportMm<=0)
+                    {
+                        int taggedRadiator=TaggedPrefixedSize(p.tags,"rad");
+                        p.radiatorSupportMm=taggedRadiator>0?taggedRadiator:(p.performance>=160?360:p.performance>=120?280:240);
+                    }
+                    if(p.fanSizeMm<=0)
+                    {
+                        if(aio)p.fanSizeMm=p.radiatorSupportMm==280?140:120;
+                        else
+                        {
+                            int taggedFan=TaggedSuffixMmSize(p.tags);
+                            p.fanSizeMm=taggedFan>0?taggedFan:120;
+                        }
+                    }
                     break;
+                }
                 case PartCategory.Fan:
-                    if(p.fanSizeMm<=0)p.fanSizeMm=120;
+                {
+                    if(p.fanSizeMm<=0)
+                    {
+                        int taggedFan=TaggedSuffixMmSize(p.tags);
+                        p.fanSizeMm=taggedFan>0?taggedFan:120;
+                    }
                     if(p.maxRpm<=0)p.maxRpm=Mathf.RoundToInt(Mathf.Lerp(1100,2200,q/100f));
                     if(p.airflowCfm<=0)p.airflowCfm=Mathf.Lerp(35f,78f,q/100f);
                     if(p.staticPressure<=0)p.staticPressure=Mathf.Lerp(.9f,2.7f,q/100f);
                     break;
+                }
             }
+        }
+
+        private static int TaggedPrefixedSize(List<string> tags,string prefix)
+        {
+            if(tags==null||string.IsNullOrEmpty(prefix))return 0;
+            foreach(string raw in tags)
+            {
+                string tag=(raw??string.Empty).Trim();
+                if(!tag.StartsWith(prefix,StringComparison.OrdinalIgnoreCase))continue;
+                string digits=tag.Substring(prefix.Length);
+                if(int.TryParse(digits,out int size)&&size>=40&&size<=1000)return size;
+            }
+            return 0;
+        }
+
+        private static int TaggedSuffixMmSize(List<string> tags)
+        {
+            if(tags==null)return 0;
+            foreach(string raw in tags)
+            {
+                string tag=(raw??string.Empty).Trim();
+                if(!tag.EndsWith("mm",StringComparison.OrdinalIgnoreCase))continue;
+                string digits=tag.Substring(0,tag.Length-2);
+                if(int.TryParse(digits,out int size)&&size>=40&&size<=250)return size;
+            }
+            return 0;
         }
 
         private static void AddConnector(HardwareDefinition p,string connector)
