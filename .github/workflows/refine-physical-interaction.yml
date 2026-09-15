@@ -1,0 +1,64 @@
+name: Refine physical interaction source
+
+on:
+  push:
+    branches: [polish/physical-interaction-preview-20260915]
+    paths: [.github/workflows/refine-physical-interaction.yml]
+
+permissions:
+  contents: write
+
+jobs:
+  refine:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: polish/physical-interaction-preview-20260915
+      - name: Harden interaction integration
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          obj=Path('Assets/Scripts/Production/ObjectHandlingController.cs')
+          text=obj.read_text()
+          old='''        private readonly struct SocketCandidate\n        {\n            public readonly AssemblySnapPoint point;\n            public readonly SnapPreviewResult result;\n            public readonly string reason;'''
+          new='''        private struct SocketCandidate\n        {\n            public AssemblySnapPoint point;\n            public SnapPreviewResult result;\n            public string reason;'''
+          if old not in text:
+              raise SystemExit('SocketCandidate guard not found')
+          obj.write_text(text.replace(old,new,1))
+
+          assembly=Path('Assets/Scripts/Production/PhysicalAssemblyController.cs')
+          text=assembly.read_text()
+          old='''        private static void AddSnap(GameObject go, PartCategory category)\n        {\n            AssemblySnapPoint p = go.GetComponent<AssemblySnapPoint>() ?? go.AddComponent<AssemblySnapPoint>();\n            if (!p.accepts.Contains(category)) p.accepts.Add(category);\n        }'''
+          new='''        private static void AddSnap(GameObject go, PartCategory category)\n        {\n            AssemblySnapPoint p = go.GetComponent<AssemblySnapPoint>() ?? go.AddComponent<AssemblySnapPoint>();\n            if (!p.accepts.Contains(category)) p.accepts.Add(category);\n            string label = go.name.Replace("Ghost", string.Empty).Replace("_", " ").Trim();\n            p.socketLabel = (string.IsNullOrEmpty(label) ? category.ToString() : label) + " mount";\n            p.snapRadius = category == PartCategory.CPU || category == PartCategory.RAM ? .44f : .55f;\n            p.orientationTolerance = category == PartCategory.RAM ? 65f : category == PartCategory.CPU ? 75f : 90f;\n            p.requireOrientation = true;\n        }'''
+          if old not in text:
+              raise SystemExit('AddSnap anchor not found')
+          assembly.write_text(text.replace(old,new,1))
+
+          gate=Path('Assets/Scripts/Editor/ProductionBuildGate.cs')
+          text=gate.read_text()
+          old='''"Assets/Scripts/Production/PhysicalAssemblyController.cs","Assets/Scripts/Production/HardwarePresentationLayout.cs","Assets/Scripts/Production/ObjectHandlingController.cs"'''
+          new='''"Assets/Scripts/Production/PhysicalAssemblyController.cs","Assets/Scripts/Production/HardwarePresentationLayout.cs","Assets/Scripts/Production/AssemblyInteractionRules.cs","Assets/Scripts/Production/ObjectHandlingController.cs"'''
+          if old not in text:
+              raise SystemExit('critical production anchor not found')
+          text=text.replace(old,new,1)
+          old='''            "Assets/Tests/EditMode/HardwarePresentationLayoutTests.cs",\n            "Assets/Tests/EditMode/JobDispatchTests.cs",'''
+          new='''            "Assets/Tests/EditMode/HardwarePresentationLayoutTests.cs",\n            "Assets/Tests/EditMode/AssemblyInteractionRulesTests.cs",\n            "Assets/Tests/EditMode/JobDispatchTests.cs",'''
+          if old not in text:
+              raise SystemExit('critical test anchor not found')
+          gate.write_text(text.replace(old,new,1))
+          PY
+          python Tools/validate_project.py
+          python Tools/validate_art_profiles.py
+          python Tools/smoke_balance_test.py
+          git diff --check
+      - name: Commit hardened integration
+        shell: bash
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add Assets/Scripts/Production/ObjectHandlingController.cs Assets/Scripts/Production/PhysicalAssemblyController.cs Assets/Scripts/Editor/ProductionBuildGate.cs
+          git commit -m "Harden physical socket preview integration" || exit 0
+          git push origin HEAD:polish/physical-interaction-preview-20260915
