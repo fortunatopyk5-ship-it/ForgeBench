@@ -479,6 +479,11 @@ namespace ForgeBench
         {
             AssemblySnapPoint p = go.GetComponent<AssemblySnapPoint>() ?? go.AddComponent<AssemblySnapPoint>();
             if (!p.accepts.Contains(category)) p.accepts.Add(category);
+            string label = go.name.Replace("Ghost", string.Empty).Replace("_", " ").Trim();
+            p.socketLabel = (string.IsNullOrEmpty(label) ? category.ToString() : label) + " mount";
+            p.snapRadius = category == PartCategory.CPU || category == PartCategory.RAM ? .44f : .55f;
+            p.orientationTolerance = category == PartCategory.RAM ? 65f : category == PartCategory.CPU ? 75f : 90f;
+            p.requireOrientation = true;
         }
 
         private void InteractPart(GameObject go, string itemId, string label)

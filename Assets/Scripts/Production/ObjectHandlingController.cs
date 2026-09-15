@@ -595,11 +595,11 @@ namespace ForgeBench
             }
         }
 
-        private readonly struct SocketCandidate
+        private struct SocketCandidate
         {
-            public readonly AssemblySnapPoint point;
-            public readonly SnapPreviewResult result;
-            public readonly string reason;
+            public AssemblySnapPoint point;
+            public SnapPreviewResult result;
+            public string reason;
 
             public SocketCandidate(AssemblySnapPoint point, SnapPreviewResult result, string reason)
             {

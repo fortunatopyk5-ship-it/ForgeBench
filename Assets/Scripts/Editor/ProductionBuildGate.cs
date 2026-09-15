@@ -17,7 +17,7 @@ namespace ForgeBench.EditorTools
         private static readonly string[] CriticalFiles =
         {
             "Assets/Scenes/Workshop.unity","Assets/Resources/Data/hardware.json","Assets/Resources/Localization/en.json","Assets/Resources/Localization/uk.json","Assets/link.xml",
-            "Assets/Scripts/Production/ProductionBootstrap.cs","Assets/Scripts/Production/MainMenuController.cs","Assets/Scripts/Production/WorkshopProductionLayer.cs","Assets/Scripts/Production/PhysicalAssemblyController.cs","Assets/Scripts/Production/HardwarePresentationLayout.cs","Assets/Scripts/Production/ObjectHandlingController.cs","Assets/Scripts/Production/MobileInteractionBridge.cs","Assets/Scripts/Production/RuntimeQualityController.cs",
+            "Assets/Scripts/Production/ProductionBootstrap.cs","Assets/Scripts/Production/MainMenuController.cs","Assets/Scripts/Production/WorkshopProductionLayer.cs","Assets/Scripts/Production/PhysicalAssemblyController.cs","Assets/Scripts/Production/HardwarePresentationLayout.cs","Assets/Scripts/Production/AssemblyInteractionRules.cs","Assets/Scripts/Production/ObjectHandlingController.cs","Assets/Scripts/Production/MobileInteractionBridge.cs","Assets/Scripts/Production/RuntimeQualityController.cs",
             "Assets/Scripts/Production/SpecialistRepairPanel.cs","Assets/Scripts/Production/SpecialistStationsLayer.cs","Assets/Scripts/Production/SpecialistContractBoard.cs","Assets/Scripts/Production/SpecialistContractTerminalLayer.cs","Assets/Scripts/Production/SpecialistLifecycle.cs","Assets/Scripts/Production/SpecialistDeviceVisuals.cs",
             "Assets/Scripts/Production/EngineeringDiagnosticsPanel.cs","Assets/Scripts/Production/EngineeringTerminalLayer.cs","Assets/Scripts/Production/AdvancedDiagnosticWorkflowPanel.cs","Assets/Scripts/Production/AdvancedDiagnosticTerminalLayer.cs","Assets/Scripts/Production/FitmentPlannerPanel.cs","Assets/Scripts/Production/FitmentPlannerTerminalLayer.cs","Assets/Scripts/Production/JobDispatchPanel.cs","Assets/Scripts/Production/JobDispatchTerminalLayer.cs","Assets/Scripts/Production/JobDispatchLifecycle.cs","Assets/Scripts/Production/WorkshopBusinessPanel.cs","Assets/Scripts/Production/WorkshopManagementTerminalLayer.cs","Assets/Scripts/Production/WorkshopBusinessLifecycle.cs","Assets/Scripts/Production/SupplyChainPanel.cs","Assets/Scripts/Production/SupplyChainTerminalLayer.cs","Assets/Scripts/Production/AdvancedJobLifecycle.cs",
             "Assets/Scripts/Production/CustomerRelationsDirector.cs","Assets/Scripts/Production/CustomerRelationsPanel.cs","Assets/Scripts/Production/CustomerRelationsTerminalLayer.cs","Assets/Scripts/Production/ProgressionDirector.cs","Assets/Scripts/Production/ProgressionPanel.cs","Assets/Scripts/Production/ProgressionTerminalLayer.cs","Assets/Scripts/Production/WorkshopExpansionLayer.cs",
@@ -36,6 +36,7 @@ namespace ForgeBench.EditorTools
             "Assets/Tests/EditMode/AdvancedDiagnosticWorkflowTests.cs",
             "Assets/Tests/EditMode/FitmentPlanningTests.cs",
             "Assets/Tests/EditMode/HardwarePresentationLayoutTests.cs",
+            "Assets/Tests/EditMode/AssemblyInteractionRulesTests.cs",
             "Assets/Tests/EditMode/JobDispatchTests.cs",
             "Assets/Tests/EditMode/ProgressionTests.cs",
             "Assets/Tests/EditMode/ReliabilitySimulationTests.cs",
