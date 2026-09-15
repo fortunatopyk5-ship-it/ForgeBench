@@ -23,6 +23,7 @@ required = [
     "Assets/Scripts/Production/ProceduralGeneratedMeshOwner.cs",
     "Assets/Scripts/Production/ProceduralSurfaceLibrary.cs",
     "Assets/Scripts/Production/HardwareSurfaceUpgradeDirector.cs",
+    "Assets/Scripts/Production/WorkshopSurfaceUpgradeDirector.cs",
     "Assets/Scripts/Production/HardwarePresentationLayout.cs",
     "Assets/Scripts/Editor/CoolingVisualBuildGate.cs",
     "Assets/Tests/EditMode/ProceduralCoolingVisualTests.cs",
@@ -38,6 +39,7 @@ cooling = text("Assets/Scripts/Production/CoolingVisualUpgradeDirector.cs")
 layout = text("Assets/Scripts/Production/HardwarePresentationLayout.cs")
 surfaces = text("Assets/Scripts/Production/ProceduralSurfaceLibrary.cs")
 surface_director = text("Assets/Scripts/Production/HardwareSurfaceUpgradeDirector.cs")
+workshop_surface = text("Assets/Scripts/Production/WorkshopSurfaceUpgradeDirector.cs")
 mesh_owner = text("Assets/Scripts/Production/ProceduralGeneratedMeshOwner.cs")
 gate = text("Assets/Scripts/Editor/CoolingVisualBuildGate.cs")
 
@@ -73,7 +75,13 @@ for token in ["Restore()", "renderer.sharedMaterial = upgraded", "pair.Key.share
               "renderQueue", "sharedMaterials.Length != 1"]:
     if token not in surface_director: errors.append(f"surface upgrade missing non-destructive guard {token}")
 if not any("non-destructive guard" in e for e in errors):
-    checks.append("surface upgrade preserves/restores authoritative materials")
+    checks.append("hardware surface upgrade preserves/restores authoritative materials")
+
+for token in ["RuntimeRenderBudget.Changed", "tier < 2", "Restore()", "FindObjectsByType<Renderer>",
+              '"BackWall"', '"Main Assembly Bench"', '"WarehouseShelf"', "IsMachineOrUiHierarchy"]:
+    if token not in workshop_surface: errors.append(f"workshop surface upgrade missing quality/scope guard {token}")
+if not any("workshop surface upgrade" in e for e in errors):
+    checks.append("workshop surface treatment is quality-scaled and excludes machine/UI hierarchies")
 
 for mesh_name in ["ForgeBench_RadiatorFins", "ForgeBench_TowerFins", "ForgeBench_AioTube"]:
     if mesh_name not in mesh_owner: errors.append(f"generated mesh lifetime guard missing {mesh_name}")
@@ -85,6 +93,7 @@ if not any("mesh" in e.lower() for e in errors):
 for rel in [
     "Assets/Scripts/Production/ProceduralSurfaceLibrary.cs.meta",
     "Assets/Scripts/Production/HardwareSurfaceUpgradeDirector.cs.meta",
+    "Assets/Scripts/Production/WorkshopSurfaceUpgradeDirector.cs.meta",
     "Assets/Scripts/Production/ProceduralGeneratedMeshOwner.cs.meta",
     "Assets/Tests/EditMode/ProceduralSurfaceLibraryTests.cs.meta",
 ]:
@@ -102,7 +111,7 @@ for p in ROOT.glob("Assets/**/*.meta"):
     else: guids[guid] = rel
 if not any("duplicate Unity GUID" in e for e in errors): checks.append(f"{len(guids)} Unity asset GUIDs unique")
 
-for token in ["ProceduralSurfaceLibrary.cs", "HardwareSurfaceUpgradeDirector.cs", "ProceduralGeneratedMeshOwner.cs"]:
+for token in ["ProceduralSurfaceLibrary.cs", "HardwareSurfaceUpgradeDirector.cs", "WorkshopSurfaceUpgradeDirector.cs", "ProceduralGeneratedMeshOwner.cs"]:
     if token not in gate: errors.append(f"production visual build gate does not require {token}")
 if not any("production visual build gate" in e for e in errors): checks.append("production build gate covers visual runtime fallback stack")
 
