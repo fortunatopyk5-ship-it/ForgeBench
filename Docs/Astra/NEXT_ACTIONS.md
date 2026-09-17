@@ -1,1 +1,1 @@
-Implement socket-owned mounting fasteners, torque/tool interactions and migration. CPU/RAM retention and cable/mechanical servicing are implemented but not Unity-verified. Source publication authorization persists.
+Resume unfinished mounting implementation: add physical screw controls and tool mode; fix schema-10 validator; add mounting/migration tests; compile and run focused checks. Current WIP backup is unverified and may block POST on loose mounts. Then publish a validated implementation checkpoint. Unity 6/Android verification remains pending.

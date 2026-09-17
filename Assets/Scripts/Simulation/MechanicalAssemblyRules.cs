@@ -34,6 +34,7 @@ namespace ForgeBench
         public static ActionResult CanRemove(MachineState machine, PartCategory category, Func<string, HardwareDefinition> definition)
         {
             ActionResult access = Access(machine, category); if (!access.ok) return access;
+            ActionResult mount = ComponentMountRules.CanRemove(machine, category); if (!mount.ok) return mount;
             if (category == PartCategory.CPU && Has(machine.coolerItemId)) return ActionResult.Fail("Remove the CPU cooler before releasing the processor.");
             if (category == PartCategory.CPU && !machine.cpuRetentionOpen) return ActionResult.Fail("Open the CPU retention lever before removing the processor.");
             if (category == PartCategory.Motherboard)

@@ -319,6 +319,13 @@ namespace ForgeBench
     }
 
     [Serializable]
+    public class ComponentMountState
+    {
+        public string mountId;
+        public List<FastenerState> fasteners = new List<FastenerState>();
+    }
+
+    [Serializable]
     public class MachineState
     {
         public string machineId;
@@ -329,6 +336,7 @@ namespace ForgeBench
         public string motherboardItemId;
         public string cpuItemId;
         public bool cpuRetentionOpen;
+        public List<ComponentMountState> componentMounts = new List<ComponentMountState>();
         public List<string> ramItemIds = new List<string>();
         public List<int> ramSlotIndices = new List<int>();
         public List<RamLatchState> ramLatches = new List<RamLatchState>();
@@ -463,7 +471,7 @@ namespace ForgeBench
     [Serializable]
     public class GameState
     {
-        public int schemaVersion = 9;
+        public int schemaVersion = 10;
         public string saveId;
         public int day = 1;
         public float money = 1800f;

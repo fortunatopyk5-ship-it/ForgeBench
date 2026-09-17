@@ -6,7 +6,7 @@ namespace ForgeBench
 {
     public sealed class SaveService
     {
-        public const int CurrentSchema = 9;
+        public const int CurrentSchema = 10;
         private readonly string root;
         private readonly Func<string, HardwareDefinition> definition;
         [Serializable]
@@ -115,6 +115,19 @@ namespace ForgeBench
             foreach (MachineState m in s.machines)
             {
                 if (s.schemaVersion < 9) m.cpuRetentionOpen = string.IsNullOrEmpty(m.cpuItemId);
+                if (m.componentMounts == null) m.componentMounts = new System.Collections.Generic.List<ComponentMountState>();
+                if (s.schemaVersion < 10)
+                {
+                    PartCategory[] categories = { PartCategory.Motherboard, PartCategory.PSU, PartCategory.GPU, PartCategory.Cooler };
+                    string[] ids = { m.motherboardItemId, m.psuItemId, m.gpuItemId, m.coolerItemId };
+                    for (int i = 0; i < ids.Length; i++)
+                    {
+                        if (string.IsNullOrEmpty(ids[i])) continue;
+                        ItemInstance mountedItem = s.inventory.Find(item => item != null && item.instanceId == ids[i]);
+                        HardwareDefinition mountedDefinition = mountedItem != null && definition != null ? definition(mountedItem.definitionId) : null;
+                        ComponentMountRules.Ensure(m, categories[i], mountedDefinition, true);
+                    }
+                }
                 if (m.ramItemIds == null) m.ramItemIds = new System.Collections.Generic.List<string>();
                 ItemInstance boardItem = s.inventory.Find(item => item != null && item.instanceId == m.motherboardItemId);
                 RamSlotRules.Normalize(m, boardItem != null && definition != null ? definition(boardItem.definitionId) : null);

@@ -168,6 +168,8 @@ namespace ForgeBench
             if (D(m.motherboardItemId) == null) return Fail(m, "00", "No motherboard detected.");
             if (D(m.cpuItemId) == null) return Fail(m, "CPU", "CPU missing.");
             if (m.cpuRetentionOpen) return Fail(m, "CPU-LOCK", "CPU retention lever is not locked.");
+            string unsecuredMount = ComponentMountRules.UnsecuredMount(m);
+            if (unsecuredMount != null) return Fail(m, "MOUNT", "Secure the " + unsecuredMount + " mounting screws before POST.");
             if (m.ramItemIds.Count == 0) return Fail(m, "DRAM", "No memory installed.");
             if (!RamSlotRules.IsSecured(m, D(m.motherboardItemId))) return Fail(m, "DRAM", "RAM positions or retention latches are not secured.");
             if (D(m.psuItemId) == null) return Fail(m, "PWR", "Power supply missing.");
@@ -356,6 +358,7 @@ namespace ForgeBench
             m.ramItemIds.Add(CustomerPart(j,m,"ram_1"));m.gpuItemId=CustomerPart(j,m,"gpu_6");m.storageItemIds.Add(CustomerPart(j,m,"storage_1"));
             RamSlotRules.Normalize(m, inventory.Def(inventory.Get(m.motherboardItemId)));
             m.psuItemId=CustomerPart(j,m,"psu_2");m.coolerItemId=CustomerPart(j,m,"cooler_1");m.fanItemIds.Add(CustomerPart(j,m,"fan_1"));
+            ComponentMountRules.EnsureInstalled(m, id => inventory.Def(inventory.Get(id)), true);
             m.cables.atx24=true;m.cables.cpuEps=true;m.cables.gpuPower=true;m.cables.sataPower=true;m.cables.sataData=true;m.cables.frontPanel=true;m.cables.cpuFan=true;
             m.thermalPasteApplied=true;m.thermalPasteQuality=.72f;m.cableManagementScore=.62f;m.sidePanelInstalled=true;m.partitioned=true;m.osInstalled=true;m.activated=true;m.driversInstalled=j.type!=JobType.Software;m.postCode="A0";m.bootState=BootState.OperatingSystem;
             if(j.type==JobType.Cleaning)m.dust=.86f;

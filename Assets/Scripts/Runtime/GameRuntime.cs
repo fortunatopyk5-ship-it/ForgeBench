@@ -22,6 +22,7 @@ namespace ForgeBench
         public DiagnosticsService Diagnostics { get; private set; }
         public AssemblyService Assembly { get; private set; }
         public CableConnectionService Cabling { get; private set; }
+        public bool TightenMountFasteners { get; private set; } = true;
         public CustomizationService Customization { get; private set; }
         public SaveService Saves { get; private set; }
         public GameUI UI { get; private set; }
@@ -86,6 +87,7 @@ namespace ForgeBench
             foreach (MachineState machine in State.machines)
             {
                 RamSlotRules.Normalize(machine, Inventory.Def(Inventory.Get(machine.motherboardItemId)));
+                ComponentMountRules.EnsureInstalled(machine, id => Inventory.Def(Inventory.Get(id)));
                 Assembly.EnsureCaseHardware(machine);
             }
         }
@@ -201,6 +203,7 @@ namespace ForgeBench
                 if (d.category == PartCategory.Motherboard) { m.cpuRetentionOpen = true; m.ramLatches.Clear(); RamSlotRules.Normalize(m, d); }
             }
             item.reserved = true;
+            ComponentMountRules.Ensure(m, d.category, d);
             if (d.category == PartCategory.CPU) MechanicalAssemblyRules.BreakThermalInterface(m);
             CableConnectionService.InvalidateConnections(m, d.category);
             item.note = "Installed in " + m.machineId;
@@ -280,6 +283,19 @@ namespace ForgeBench
         {
             ActionResult custody = BenchCustodyGuard(); if (!custody.ok) { Notify(custody.message, false); return; }
             Result(MechanicalAssemblyRules.ToggleCpuRetention(ActiveMachine));
+        }
+
+        public void ToggleMountToolMode()
+        {
+            TightenMountFasteners = !TightenMountFasteners;
+            Refresh(); Notify(TightenMountFasteners ? "Screwdriver: tighten." : "Screwdriver: loosen.");
+        }
+
+        public void TurnMountFastener(PartCategory category, int index)
+        {
+            ActionResult custody = BenchCustodyGuard(); if (!custody.ok) { Notify(custody.message, false); return; }
+            bool hasDriver = Inventory.Available(PartCategory.Tool).Any(item => item.definitionId == "tool_driver" && item.condition > .1f && item.fault == FaultType.None);
+            Result(ComponentMountRules.Turn(ActiveMachine, category, index, TightenMountFasteners, hasDriver));
         }
 
         public void PowerOff()
