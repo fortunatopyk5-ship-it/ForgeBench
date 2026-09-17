@@ -25,3 +25,5 @@ python Tools/compile_managed_sources.py --unity-data "C:/Program Files/Unity/Hub
 Run the 12 SaveService Unity tests in required Unity 6, verify File.Replace on Android/IL2CPP, test app startup and backup recovery on device, and run full gameplay acceptance. Keep all related requirements PARTIAL until this evidence exists.
 RAM checkpoint: 22 Mono scenarios passed (14 save cases with serializer shim, 8 pure RAM rules). Managed audit now compiles 109 runtime and 5 editor sources. Unity 6 and Android remain pending.
 DIMM retention update: schema 8; 27 Mono cases pass, including legacy latch migration and partially opened latch persistence. 109 runtime + 5 editor source audit passes. Target Unity/Android verification pending.
+Cable integration: 110 runtime + 5 editor sources compile against installed older references; 34 existing Mono scenarios passed. Added cable save-roundtrip test afterward, execution pending. Target Unity 6/Android not run.
+Follow-up execution: all 35 Mono scenarios passed, including independent cable save/load. This remains a serializer-shim run, not Unity Test Runner.

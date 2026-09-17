@@ -21,6 +21,7 @@ namespace ForgeBench
         public JobService Jobs { get; private set; }
         public DiagnosticsService Diagnostics { get; private set; }
         public AssemblyService Assembly { get; private set; }
+        public CableConnectionService Cabling { get; private set; }
         public CustomizationService Customization { get; private set; }
         public SaveService Saves { get; private set; }
         public GameUI UI { get; private set; }
@@ -80,6 +81,7 @@ namespace ForgeBench
             Jobs = new JobService(State, Catalog, Inventory);
             Diagnostics = new DiagnosticsService(Inventory, PowerThermal);
             Assembly = new AssemblyService(Inventory);
+            Cabling = new CableConnectionService(id => Inventory.Def(Inventory.Get(id)));
             Customization = new CustomizationService(Inventory);
             foreach (MachineState machine in State.machines)
             {
@@ -164,6 +166,7 @@ namespace ForgeBench
             if (m == null) { Notify("Accept a job first.", false); return; }
             ActionResult custody = BenchCustodyGuard(); if (!custody.ok) { Notify(custody.message, false); return; }
             if (item == null || item.reserved) { Notify("Part is unavailable.", false); return; }
+            if (m.bootState != BootState.Off) { Notify("Power off the PC before installing components.", false); return; }
             HardwareDefinition requested = Inventory.Def(item);
             if (requested != null && requested.category == PartCategory.Motherboard && !string.IsNullOrEmpty(m.motherboardItemId) && m.ramItemIds.Count > 0) { Notify("Remove RAM before replacing its motherboard.", false); return; }
             if (requested != null && requested.category != PartCategory.Case && !Assembly.InternalsAccessible(m)) { Notify("Remove the side panel before accessing internal components.", false); return; }
@@ -185,12 +188,15 @@ namespace ForgeBench
                 string old = GetSingleSlot(m, d.category);
                 if (!string.IsNullOrEmpty(old))
                 {
+                    ActionResult released = Cabling.CanRemove(m, Inventory.Def(Inventory.Get(old)));
+                    if (!released.ok) { Notify(released.message, false); return; }
                     ItemInstance oldItem = Inventory.Get(old); if (oldItem != null) { oldItem.reserved = false; oldItem.note = oldItem.customerOwned ? "Removed customer part for " + m.ownerJobId : string.Empty; }
                 }
                 SetSingleSlot(m, d.category, item.instanceId);
                 if (d.category == PartCategory.Motherboard) { m.ramLatches.Clear(); RamSlotRules.Normalize(m, d); }
             }
             item.reserved = true;
+            CableConnectionService.InvalidateConnections(m, d.category);
             item.note = "Installed in " + m.machineId;
             if (d.category == PartCategory.Case)
             {
@@ -224,6 +230,8 @@ namespace ForgeBench
             if (m == null || item == null) return;
             ActionResult custody = BenchCustodyGuard(); if (!custody.ok) { Notify(custody.message, false); return; }
             HardwareDefinition removing = Inventory.Def(item);
+            ActionResult cableRelease = Cabling.CanRemove(m, removing);
+            if (!cableRelease.ok) { Notify(cableRelease.message, false); return; }
             if (removing != null && removing.category == PartCategory.Motherboard && m.ramItemIds.Count > 0) { Notify("Remove RAM before removing its motherboard.", false); return; }
             if (removing != null && removing.category != PartCategory.Case && !Assembly.InternalsAccessible(m)) { Notify("Remove the side panel before removing internal components.", false); return; }
             bool removed = false;
@@ -239,6 +247,7 @@ namespace ForgeBench
             else if (m.storageItemIds.Remove(instanceId) || m.fanItemIds.Remove(instanceId) || ClearSingleIfMatches(m, instanceId)) removed = true;
             if (removed)
             {
+                if (removing != null) CableConnectionService.InvalidateConnections(m, removing.category);
                 item.reserved = false; item.note = string.Empty; m.bootState = BootState.Off; m.benchmarkScore = 0; m.stressStable = false;
                 if (removing != null && removing.category == PartCategory.Case) { m.sidePanelInstalled = false; m.sidePanel = new PanelState { installed = false }; }
                 if (removing != null && removing.category == PartCategory.Storage && m.storageItemIds.Count == 0) { m.partitioned=false;m.osInstalled=false;m.activated=false;m.driversInstalled=false; }
@@ -275,46 +284,43 @@ namespace ForgeBench
         public void CycleRgbEffect() { MachineState m=ActiveMachine; if(m==null){Notify("No device on bench.",false);return;} Result(Customization.CycleEffect(m)); }
         public void CycleCableColor() { MachineState m=ActiveMachine; if(m==null){Notify("No device on bench.",false);return;} Result(Customization.CycleCableColor(m)); }
 
+        public void ToggleCable(CableCircuit circuit)
+        {
+            MachineState m = ActiveMachine;
+            if (m == null) return;
+            ActionResult custody = BenchCustodyGuard(); if (!custody.ok) { Notify(custody.message, false); return; }
+            ActionResult action = Cabling.SetConnection(m, circuit, !CableConnectionService.Connected(m, circuit));
+            if (action.ok) { UpdateCableRoutingScore(m); MarkInProgress(); }
+            Result(action);
+        }
+
+        private void UpdateCableRoutingScore(MachineState m)
+        {
+            int total = 0, connected = 0;
+            foreach (CableCircuit circuit in Enum.GetValues(typeof(CableCircuit)))
+            {
+                if (circuit == CableCircuit.Rgb || !Cabling.Present(m, circuit)) continue;
+                total++; if (CableConnectionService.Connected(m, circuit)) connected++;
+            }
+            m.cableManagementScore = total == 0 ? 0f : Mathf.Clamp01((float)connected / total * (.62f + State.workshop.benchLevel * .07f));
+        }
+
         public void ConnectCables()
         {
             MachineState m = ActiveMachine;
             if (m == null) { Notify("No device on bench.", false); return; }
             ActionResult custody = BenchCustodyGuard(); if (!custody.ok) { Notify(custody.message, false); return; }
-            HardwareDefinition board = Inventory.Def(Inventory.Get(m.motherboardItemId));
-            HardwareDefinition psu = Inventory.Def(Inventory.Get(m.psuItemId));
-            HardwareDefinition gpu = Inventory.Def(Inventory.Get(m.gpuItemId));
-            HardwareDefinition cooler = Inventory.Def(Inventory.Get(m.coolerItemId));
-            HardwareDefinition pcCase = Inventory.Def(Inventory.Get(m.caseItemId));
-            List<string> unresolved = new List<string>();
-
-            m.cables.atx24 = board != null && psu != null && board.connectors.Contains("ATX24") && psu.connectors.Contains("ATX24");
-            m.cables.cpuEps = board != null && psu != null && !string.IsNullOrEmpty(m.cpuItemId) && board.connectors.Contains("EPS8") && psu.connectors.Contains("EPS8");
-            m.cables.frontPanel = pcCase != null && board != null && board.connectors.Contains("FRONT_PANEL");
-            m.cables.cpuFan = cooler != null && board != null && board.connectors.Contains("CPU_FAN");
-            m.cables.pump = cooler != null && cooler.tags.Contains("aio") ? (board != null && board.fanHeaders >= 2) : false;
-
-            List<string> gpuPower = gpu == null ? new List<string>() : gpu.connectors.Where(c => c == "PCIE8" || c == "12V2x6").ToList();
-            m.cables.gpuPower = gpu == null || gpuPower.Count == 0 || (psu != null && gpuPower.All(c => psu.connectors.Contains(c)));
-
-            bool hasSata = m.storageItemIds.Any(id => Inventory.Def(Inventory.Get(id))?.storageInterface == "SATA");
-            m.cables.sataPower = !hasSata || (psu != null && psu.connectors.Contains("SATA_POWER"));
-            m.cables.sataData = !hasSata || (board != null && board.connectors.Contains("SATA") && board.sataPorts > 0);
-            m.cables.rgb = m.fanItemIds.Any(id => Inventory.Def(Inventory.Get(id))?.tags.Contains("rgb") == true) || (pcCase?.tags.Contains("rgb") ?? false);
-
-            if (!m.cables.atx24) unresolved.Add("ATX24");
-            if (!m.cables.cpuEps) unresolved.Add("CPU EPS");
-            if (!m.cables.frontPanel) unresolved.Add("front panel");
-            if (!m.cables.cpuFan) unresolved.Add("CPU fan");
-            if (cooler != null && cooler.tags.Contains("aio") && !m.cables.pump) unresolved.Add("pump header");
-            if (!m.cables.gpuPower) unresolved.Add("GPU power");
-            if (!m.cables.sataPower) unresolved.Add("SATA power");
-            if (!m.cables.sataData) unresolved.Add("SATA data");
-
-            m.cableManagementScore = unresolved.Count == 0 ? Mathf.Clamp01(.62f + State.workshop.benchLevel * .07f) : Mathf.Clamp01(.35f + State.workshop.benchLevel * .04f);
-            m.history.Add("Cable routing pass: " + (unresolved.Count == 0 ? "all required paths connected" : "unresolved " + string.Join(", ", unresolved)));
-            MarkInProgress(); Autosave(); Refresh();
-            if (unresolved.Count == 0) Notify("Required power, data, fan and front-panel cables connected.");
-            else Notify("Cable routing incomplete: " + string.Join(", ", unresolved) + ".", false);
+            List<string> unresolved = new List<string>(); int present = 0;
+            foreach (CableCircuit circuit in Enum.GetValues(typeof(CableCircuit)))
+            {
+                if (!Cabling.Present(m, circuit)) continue;
+                present++;
+                ActionResult action = Cabling.SetConnection(m, circuit, true);
+                if (!action.ok) unresolved.Add(action.message);
+            }
+            if (present == 0) { Notify("Install components before connecting cables.", false); return; }
+            UpdateCableRoutingScore(m); MarkInProgress(); Autosave(); Refresh();
+            Notify(unresolved.Count == 0 ? "Required cables connected." : string.Join(" ", unresolved), unresolved.Count == 0);
         }
 
         public void ApplyThermalPaste()

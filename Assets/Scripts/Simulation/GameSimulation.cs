@@ -179,7 +179,7 @@ namespace ForgeBench
             HardwareDefinition gpu = D(m.gpuItemId), cpu = D(m.cpuItemId);
             bool igpu = cpu != null && cpu.tags.Contains("igpu");
             if (gpu == null && !igpu) return Fail(m, "VGA", "No video adapter available.");
-            if (gpu != null && gpu.powerWatts >= 180 && !m.cables.gpuPower) return Fail(m, "VGA-P", "GPU auxiliary power is disconnected.");
+            if (gpu != null && (gpu.connectors.Contains("PCIE8") || gpu.connectors.Contains("12V2x6")) && !m.cables.gpuPower) return Fail(m, "VGA-P", "GPU auxiliary power is disconnected.");
             if (sim.PsuCapacity(m) < sim.EstimatePower(m) * 1.1f) return Fail(m, "OCP", "PSU capacity is insufficient for POST load.");
             foreach (string id in AllInstalled(m))
             {

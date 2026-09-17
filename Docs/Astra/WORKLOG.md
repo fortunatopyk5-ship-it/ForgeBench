@@ -6,3 +6,5 @@ Publication: source blob rejected by automatic review for insufficient explicit 
 Implemented explicit physical DIMM-slot selection, board-aware RAM placement/migration/training and machine-bound sockets. 22 Mono scenarios pass; 109 runtime + 5 editor sources compile using available references.
 Implemented persistent socket-owned DIMM retention clips, physical interactions, POST/training/preflight blockers, power-off interaction and schema-8 migration. 27 Mono scenarios pass; compile/static checks pass with documented target-version limitation.
 Published full source/specification/matrix snapshot to GitHub astra/finalization at ef380ac; verified full tree identity to local bfe1215. Earlier publication blockers resolved. Preserve both snapshot and incremental histories on future synchronization.
+Wired individual cable circuits into 3D interaction, runtime, remove/replace guards and existing save state; compatible connectors enforced. 34 Mono cases passed; Unity runtime remains unverified.
+Cable save-roundtrip test executed; 35/35 Mono scenarios now pass.

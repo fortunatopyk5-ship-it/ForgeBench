@@ -66,7 +66,7 @@ namespace ForgeBench
             foreach (string x in m.fanItemIds) s.Append("|f:").Append(x);
             s.Append('|').Append(m.sidePanelInstalled).Append('|').Append(m.thermalPasteApplied)
                 .Append('|').Append(m.cables.atx24).Append('|').Append(m.cables.cpuEps)
-                .Append('|').Append(m.cables.gpuPower).Append('|').Append(m.cables.sataData)
+                .Append('|').Append(m.cables.gpuPower).Append('|').Append(m.cables.sataData).Append('|').Append(m.cables.sataPower).Append('|').Append(m.cables.rgb)
                 .Append('|').Append(m.cables.frontPanel).Append('|').Append(m.cables.cpuFan).Append('|').Append(m.cables.pump)
                 .Append('|').Append(m.customization?.rgbEffect ?? 0).Append('|').Append(m.customization?.cableColorIndex ?? 0);
             if (m.sidePanel?.fasteners != null)
@@ -435,17 +435,24 @@ namespace ForgeBench
             Material cable = Mat(palette[idx], .25f, .08f);
             Material port = Mat(new Color(.18f, .20f, .22f), .40f, .45f);
 
-            if (m.cables.atx24) Cable("ATX24", new Vector3(.28f, -.15f, -.08f), new Vector3(.30f, .05f, .17f), cable, .028f);
-            else CablePort("ATX24Port", new Vector3(.30f, .08f, .17f), port, "Connect PC cables");
-            if (m.cables.cpuEps) Cable("EPS", new Vector3(.25f, -.08f, -.02f), new Vector3(-.18f, .24f, .18f), cable, .022f);
-            if (m.cables.gpuPower) Cable("GPU_PWR", new Vector3(.25f, -.13f, -.11f), new Vector3(.15f, -.13f, .02f), cable, .024f);
-            if (m.cables.sataData) Cable("SATA", new Vector3(-.22f, -.25f, -.12f), new Vector3(.05f, -.08f, .19f), cable, .016f);
+            CableSocket(m, CableCircuit.Atx24, new Vector3(.28f,-.15f,-.08f), new Vector3(.30f,.05f,.17f), cable, port);
+            CableSocket(m, CableCircuit.CpuEps, new Vector3(.25f,-.08f,-.02f), new Vector3(-.18f,.24f,.18f), cable, port);
+            CableSocket(m, CableCircuit.GpuPower, new Vector3(.25f,-.13f,-.11f), new Vector3(.15f,-.13f,.02f), cable, port);
+            CableSocket(m, CableCircuit.SataData, new Vector3(-.22f,-.25f,-.12f), new Vector3(.05f,-.08f,.19f), cable, port);
+            CableSocket(m, CableCircuit.SataPower, new Vector3(.22f,-.27f,-.08f), new Vector3(-.25f,-.25f,-.12f), cable, port);
+            CableSocket(m, CableCircuit.FrontPanel, new Vector3(.37f,.22f,-.28f), new Vector3(.23f,-.23f,.17f), cable, port);
+            CableSocket(m, CableCircuit.CpuFan, new Vector3(-.02f,.12f,.06f), new Vector3(-.07f,.27f,.18f), cable, port);
+            CableSocket(m, CableCircuit.Pump, new Vector3(-.05f,.10f,.09f), new Vector3(.02f,.27f,.18f), cable, port);
+            CableSocket(m, CableCircuit.Rgb, new Vector3(.25f,.28f,-.20f), new Vector3(.27f,-.16f,.18f), cable, port);
+        }
 
-            if (!m.cables.atx24 || !m.cables.cpuEps || (!string.IsNullOrEmpty(m.gpuItemId) && !m.cables.gpuPower))
-            {
-                GameObject harness = Box("CableHarnessPrompt", new Vector3(.40f, -.05f, -.20f), new Vector3(.08f, .12f, .08f), port);
-                Interact(harness, "Route and connect required cables", 35, () => game.ConnectCables());
-            }
+        private void CableSocket(MachineState machine, CableCircuit circuit, Vector3 source, Vector3 destination, Material cable, Material port)
+        {
+            if (!game.Cabling.Present(machine, circuit)) return;
+            bool connected = CableConnectionService.Connected(machine, circuit);
+            if (connected) Cable(circuit.ToString(), source, destination, cable, .018f);
+            GameObject connector = Box(circuit + "Connector", destination, new Vector3(.055f,.045f,.055f), port);
+            Interact(connector, (connected ? "Disconnect " : "Connect ") + CableConnectionService.Label(circuit), 47, () => game.ToggleCable(circuit));
         }
 
         private void BuildPanelAndFasteners(MachineState m, Material frame, Material silver)

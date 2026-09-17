@@ -169,5 +169,20 @@ namespace ForgeBench.Tests
             Assert.IsTrue(latch.topOpen);
             Assert.IsFalse(latch.bottomOpen);
         }
+
+        [Test]
+        public void IndependentCableConnectionsSurviveSaveLoad()
+        {
+            var state = new GameState(); var machine = new MachineState();
+            state.machines.Add(machine);
+            machine.cables.atx24 = true; machine.cables.cpuEps = false;
+            machine.cables.sataPower = true; machine.cables.sataData = false;
+            machine.cables.pump = true; machine.cables.cpuFan = false;
+            Assert.IsTrue(saves.Save(state, 1).ok);
+            var cables = saves.Load(1, out _).machines[0].cables;
+            Assert.IsTrue(cables.atx24); Assert.IsFalse(cables.cpuEps);
+            Assert.IsTrue(cables.sataPower); Assert.IsFalse(cables.sataData);
+            Assert.IsTrue(cables.pump); Assert.IsFalse(cables.cpuFan);
+        }
     }
 }

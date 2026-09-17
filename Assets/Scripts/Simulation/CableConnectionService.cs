@@ -78,6 +78,7 @@ namespace ForgeBench
                 if (!Compatible(m, circuit)) return ActionResult.Fail(Label(circuit) + " requires compatible source and destination connectors.");
             }
             if (m.cables == null) m.cables = new CableState();
+            if (Connected(m, circuit) == connected) return ActionResult.Success(Label(circuit) + " is already " + (connected ? "connected." : "disconnected."));
             switch (circuit)
             {
                 case CableCircuit.Atx24: m.cables.atx24 = connected; break;
@@ -131,6 +132,20 @@ namespace ForgeBench
                 if (blocked) return ActionResult.Fail("Disconnect " + Label(circuit) + " before removing this component.");
             }
             return ActionResult.Success("Cable connections released.");
+        }
+
+        public static void InvalidateConnections(MachineState m, PartCategory category)
+        {
+            if (m.cables == null) m.cables = new CableState();
+            var c = m.cables;
+            if (category == PartCategory.Motherboard) { c.atx24 = c.cpuEps = c.frontPanel = c.cpuFan = c.pump = c.sataData = c.rgb = false; }
+            if (category == PartCategory.PSU) { c.atx24 = c.cpuEps = c.gpuPower = c.sataPower = false; }
+            if (category == PartCategory.GPU) c.gpuPower = false;
+            if (category == PartCategory.Cooler) c.cpuFan = c.pump = false;
+            if (category == PartCategory.Storage) c.sataPower = c.sataData = false;
+            if (category == PartCategory.Case) c.frontPanel = c.rgb = false;
+            if (category == PartCategory.Fan) c.rgb = false;
+            if (category == PartCategory.CPU) c.cpuEps = false;
         }
     }
 }
