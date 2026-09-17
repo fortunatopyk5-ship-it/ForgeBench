@@ -293,9 +293,21 @@ namespace ForgeBench
 
         public void TurnMountFastener(PartCategory category, int index)
         {
+            TurnMountFastener(category, index, TightenMountFasteners);
+        }
+
+        public void TurnNextMountFastener(PartCategory category, bool tighten)
+        {
+            int index = ComponentMountRules.NextFastener(ActiveMachine, category, tighten);
+            if (index < 0) { Notify("No operable mounting screw needs this action.", false); return; }
+            TurnMountFastener(category, index, tighten);
+        }
+
+        private void TurnMountFastener(PartCategory category, int index, bool tighten)
+        {
             ActionResult custody = BenchCustodyGuard(); if (!custody.ok) { Notify(custody.message, false); return; }
             bool hasDriver = Inventory.Available(PartCategory.Tool).Any(item => item.definitionId == "tool_driver" && item.condition > .1f && item.fault == FaultType.None);
-            Result(ComponentMountRules.Turn(ActiveMachine, category, index, TightenMountFasteners, hasDriver));
+            Result(ComponentMountRules.Turn(ActiveMachine, category, index, tighten, hasDriver));
         }
 
         public void PowerOff()

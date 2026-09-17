@@ -19,6 +19,8 @@ namespace ForgeBench.Tests
             HardwareDefinition storage=catalog.ByCategory(PartCategory.Storage).First();
             m.caseItemId=Install(inv,pcCase.id,m);m.motherboardItemId=Install(inv,board.id,m);m.cpuItemId=Install(inv,cpu.id,m);m.ramItemIds.Add(Install(inv,ram.id,m));m.ramSlotIndices.Add(1);m.psuItemId=Install(inv,psu.id,m);m.coolerItemId=Install(inv,cooler.id,m);m.storageItemIds.Add(Install(inv,storage.id,m));
             m.cables.atx24=true;m.cables.cpuEps=true;m.cables.frontPanel=true;m.cables.cpuFan=true;m.cables.gpuPower=true;m.cables.sataPower=true;m.cables.sataData=true;m.thermalPasteApplied=true;m.thermalPasteQuality=.9f;
+            RamSlotRules.Normalize(m, board);
+            ComponentMountRules.EnsureInstalled(m, id => inv.Def(inv.Get(id)), true);
             state.machines.Add(m);return m;
         }
 

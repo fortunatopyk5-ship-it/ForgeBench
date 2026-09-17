@@ -201,11 +201,32 @@ namespace ForgeBench
             string screwState=string.Join(" · ",m.sidePanel.fasteners.Select(f=>f.fastenerId+":"+Mathf.RoundToInt(f.tightness*100)+"%"));
             CardText("SIDE PANEL / FASTENERS",(m.sidePanelInstalled?"PANEL INSTALLED":"PANEL REMOVED")+" · tightening quality "+Mathf.RoundToInt(game.Assembly.TighteningQuality(m)*100)+"%\n"+screwState);
             GameObject fasteners=Horizontal("FastenerActions",64);AddFlexButton(fasteners.transform,"LOOSEN NEXT",()=>game.LoosenFastener(),new Color(.35f,.31f,.22f,1));AddFlexButton(fasteners.transform,m.sidePanelInstalled?"REMOVE PANEL":"FIT PANEL",()=>game.ToggleSidePanel(),accent);AddFlexButton(fasteners.transform,"TIGHTEN NEXT",()=>game.TightenFastener(),good);
+            RenderComponentMounts(m);
             Section("CUSTOMIZATION / RGB");
             string[] fx={"Static","Breathing","Spectrum"};
             CardText("Aesthetic state","RGB hardware: "+OnOff(game.Customization.HasRgbDevice(m))+" · effect "+fx[Mathf.Clamp(m.customization.rgbEffect,0,2)]+" · cable theme #"+(m.customization.cableColorIndex+1)+" · aesthetic "+Mathf.RoundToInt(m.aestheticScore*100)+"%");
             GameObject rgb=Horizontal("RgbActions",64);AddFlexButton(rgb.transform,"NEXT COLOR",()=>game.CycleRgbPreset(),accent);AddFlexButton(rgb.transform,"RGB EFFECT",()=>game.CycleRgbEffect(),new Color(.30f,.32f,.40f,1));AddFlexButton(rgb.transform,"CABLE COLOR",()=>game.CycleCableColor(),new Color(.30f,.32f,.40f,1));
             CreateRgbPicker();
+        }
+
+        private void RenderComponentMounts(MachineState machine)
+        {
+            Section(loc.T("mount.title", "COMPONENT MOUNTING"));
+            CardText(loc.T("mount.control", "Screwdriver"), loc.T("mount.help", "Power off and remove the panel. Each action turns one screw by 25%. Tighten every screw before POST; release all screws before removal."));
+            WideButton(loc.T("mount.poweroff", "POWER OFF FOR SERVICE"), () => game.PowerOff(), accent);
+            foreach (PartCategory category in new[] { PartCategory.Motherboard, PartCategory.PSU, PartCategory.GPU, PartCategory.Cooler })
+            {
+                if (string.IsNullOrEmpty(ComponentMountRules.InstalledItemId(machine, category))) continue;
+                var mount = ComponentMountRules.Find(machine, category);
+                if (mount?.fasteners == null) continue;
+                string status = string.Join(" · ", mount.fasteners.Select((screw, index) => (index + 1) + ": " +
+                    (screw == null || screw.damaged ? loc.T("mount.damaged", "DAMAGED") : Mathf.RoundToInt(screw.tightness * 100) + "%")));
+                CardText(loc.T("mount." + category.ToString().ToLowerInvariant(), category.ToString()), status);
+                PartCategory captured = category;
+                GameObject row = Horizontal("MountActions_" + category, 64);
+                AddFlexButton(row.transform, loc.T("mount.loosen", "LOOSEN NEXT SCREW"), () => game.TurnNextMountFastener(captured, false), accent);
+                AddFlexButton(row.transform, loc.T("mount.tighten", "TIGHTEN NEXT SCREW"), () => game.TurnNextMountFastener(captured, true), good);
+            }
         }
 
         private void RenderBios()

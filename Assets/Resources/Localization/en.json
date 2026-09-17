@@ -17,6 +17,17 @@
     {"key":"engineering.post","value":"POST / BIOS"},{"key":"engineering.thermal","value":"THERMAL / POWER"},{"key":"engineering.storage","value":"OS / STORAGE"},{"key":"engineering.benchmark","value":"BENCHMARK"},
     {"key":"operations.title","value":"WORKSHOP OPERATIONS / QA COMMAND"},{"key":"operations.live","value":"LIVE OPERATIONS"},{"key":"operations.active","value":"ACTIVE CONTRACT / FINAL QUALITY"},{"key":"operations.customer","value":"CUSTOMER / WARRANTY RISK"},{"key":"operations.staff","value":"STAFF CAPACITY"},{"key":"operations.health","value":"WORKSHOP HEALTH"},{"key":"operations.controls","value":"CONTROL SURFACES"},{"key":"operations.preflight","value":"FINAL PREFLIGHT"},{"key":"operations.receive","value":"RECEIVE READY"},{"key":"operations.jobs","value":"JOB BOARD"},
     {"key":"warranty.title","value":"WARRANTY / COMEBACK DESK"},{"key":"warranty.action","value":"CREATE NO-CHARGE CALLBACK"},{"key":"warranty.none","value":"NO WARRANTY CASES"},{"key":"warranty.initializing","value":"INITIALIZING"},{"key":"warranty.button","value":"WARRANTY"},{"key":"maintenance.button","value":"MAINTENANCE"},
-    {"key":"common.close","value":"✕"},{"key":"common.yes","value":"YES"},{"key":"common.no","value":"NO"},{"key":"common.on","value":"ON"},{"key":"common.off","value":"OFF"}
+    {"key":"common.close","value":"✕"},{"key":"common.yes","value":"YES"},{"key":"common.no","value":"NO"},{"key":"common.on","value":"ON"},{"key":"common.off","value":"OFF"},
+    {"key": "mount.title", "value": "COMPONENT MOUNTING"},
+    {"key": "mount.control", "value": "Screwdriver"},
+    {"key": "mount.help", "value": "Power off and remove the panel. Each action turns one screw by 25%. Tighten every screw before POST; release all screws before removal."},
+    {"key": "mount.poweroff", "value": "POWER OFF FOR SERVICE"},
+    {"key": "mount.damaged", "value": "DAMAGED"},
+    {"key": "mount.loosen", "value": "LOOSEN NEXT SCREW"},
+    {"key": "mount.tighten", "value": "TIGHTEN NEXT SCREW"},
+    {"key": "mount.motherboard", "value": "Motherboard"},
+    {"key": "mount.psu", "value": "Power supply"},
+    {"key": "mount.gpu", "value": "Graphics card"},
+    {"key": "mount.cooler", "value": "CPU cooler"}
   ]
 }

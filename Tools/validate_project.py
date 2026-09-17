@@ -83,7 +83,7 @@ if miss:fail('Android build configuration','missing tokens: '+', '.join(miss))
 else:ok('Android build configuration','package id + ARM64 + IL2CPP + landscape + Android target source present')
 
 save=(ROOT/'Assets/Scripts/Runtime/SaveService.cs').read_text(encoding='utf-8');domain=(ROOT/'Assets/Scripts/Core/DomainModels.cs').read_text(encoding='utf-8');m=re.search(r'CurrentSchema\s*=\s*(\d+)',save);schema=int(m.group(1)) if m else 0
-if schema<7 or '.bak' not in save or '.tmp' not in save or not re.search(r'schemaVersion\s*=\s*[7-9]\d*',domain):fail('save safety',f'schema={schema}; expected schema 7+, temp writes and backup recovery')
+if schema<7 or '.bak' not in save or '.tmp' not in save or int(re.search(r'schemaVersion\s*=\s*(\d+)',domain).group(1)) != schema:fail('save safety',f'schema={schema}; expected schema 7+, temp writes and backup recovery')
 else:ok('save safety',f'schema {schema} + temp atomic write + backup recovery')
 if 'Mathf.Clamp(slot, 1, 3)' not in save:fail('save slots','SaveService must expose three bounded slots')
 else:ok('save slots','three persistent save slots are supported by SaveService')

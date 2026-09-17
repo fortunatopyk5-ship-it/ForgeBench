@@ -203,5 +203,44 @@ namespace ForgeBench.Tests
             Assert.IsTrue(saves.Save(state, 1).ok);
             Assert.IsTrue(saves.Load(1, out _).machines[0].cpuRetentionOpen);
         }
+
+        [TestCase("MiniITX", 4)]
+        [TestCase("mATX", 6)]
+        [TestCase("ATX", 9)]
+        public void LegacyMountMigrationSecuresInstalledComponentsOnly(string formFactor, int screws)
+        {
+            var state = new GameState { schemaVersion = 9 };
+            state.inventory.Add(new ItemInstance { instanceId = "board", definitionId = "board-definition" });
+            state.machines.Add(new MachineState { motherboardItemId = "board", psuItemId = "psu", coolerItemId = "cooler" });
+            string original = JsonUtility.ToJson(state);
+            File.WriteAllText(Primary, original);
+            var service = new SaveService(directory, id => new HardwareDefinition { formFactor = formFactor });
+            var loaded = service.Load(1, out _).machines[0];
+            Assert.AreEqual(screws, ComponentMountRules.Find(loaded, PartCategory.Motherboard).fasteners.Count);
+            Assert.IsTrue(ComponentMountRules.Secured(loaded, PartCategory.Motherboard));
+            Assert.IsTrue(ComponentMountRules.Secured(loaded, PartCategory.PSU));
+            Assert.IsTrue(ComponentMountRules.Secured(loaded, PartCategory.Cooler));
+            Assert.IsNull(ComponentMountRules.Find(loaded, PartCategory.GPU));
+            Assert.AreEqual(original, File.ReadAllText(Primary));
+        }
+
+        [Test]
+        public void CurrentMountProgressAndDamageSurviveSaveAndServiceRebuild()
+        {
+            var state = new GameState();
+            var machine = new MachineState { gpuItemId = "gpu", sidePanelInstalled = false };
+            state.machines.Add(machine);
+            var mount = ComponentMountRules.Ensure(machine, PartCategory.GPU, null);
+            Assert.IsTrue(ComponentMountRules.Turn(machine, PartCategory.GPU, 0, true, true).ok);
+            mount.fasteners[1].damaged = true;
+            Assert.IsTrue(saves.Save(state, 1).ok);
+            var loaded = saves.Load(1, out _).machines[0];
+            ComponentMountRules.EnsureInstalled(loaded, id => null);
+            var restored = ComponentMountRules.Find(loaded, PartCategory.GPU);
+            Assert.AreEqual(.25f, restored.fasteners[0].tightness);
+            Assert.AreEqual(0f, restored.fasteners[1].tightness);
+            Assert.IsTrue(restored.fasteners[1].damaged);
+            Assert.IsFalse(ComponentMountRules.Secured(loaded, PartCategory.GPU));
+        }
     }
 }

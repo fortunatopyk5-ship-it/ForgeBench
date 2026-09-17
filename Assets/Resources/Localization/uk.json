@@ -17,6 +17,17 @@
     {"key":"engineering.post","value":"POST / BIOS"},{"key":"engineering.thermal","value":"ТЕМПЕРАТУРИ / ЖИВЛЕННЯ"},{"key":"engineering.storage","value":"ОС / НАКОПИЧУВАЧІ"},{"key":"engineering.benchmark","value":"БЕНЧМАРК"},
     {"key":"operations.title","value":"ОПЕРАЦІЇ МАЙСТЕРНІ / КОНТРОЛЬ ЯКОСТІ"},{"key":"operations.live","value":"ПОТОЧНІ ОПЕРАЦІЇ"},{"key":"operations.active","value":"АКТИВНЕ ЗАМОВЛЕННЯ / ФІНАЛЬНА ЯКІСТЬ"},{"key":"operations.customer","value":"КЛІЄНТИ / ГАРАНТІЙНИЙ РИЗИК"},{"key":"operations.staff","value":"ЗАВАНТАЖЕННЯ ПЕРСОНАЛУ"},{"key":"operations.health","value":"СТАН МАЙСТЕРНІ"},{"key":"operations.controls","value":"ПАНЕЛІ КЕРУВАННЯ"},{"key":"operations.preflight","value":"ФІНАЛЬНА ПЕРЕВІРКА"},{"key":"operations.receive","value":"ПРИЙНЯТИ ГОТОВЕ"},{"key":"operations.jobs","value":"ЗАМОВЛЕННЯ"},
     {"key":"warranty.title","value":"ГАРАНТІЯ / ПОВТОРНІ ЗВЕРНЕННЯ"},{"key":"warranty.action","value":"СТВОРИТИ БЕЗКОШТОВНЕ ПОВТОРНЕ ЗАМОВЛЕННЯ"},{"key":"warranty.none","value":"НЕМАЄ ГАРАНТІЙНИХ ВИПАДКІВ"},{"key":"warranty.initializing","value":"ІНІЦІАЛІЗАЦІЯ"},{"key":"warranty.button","value":"ГАРАНТІЯ"},{"key":"maintenance.button","value":"ОБСЛУГОВУВАННЯ"},
-    {"key":"common.close","value":"✕"},{"key":"common.yes","value":"ТАК"},{"key":"common.no","value":"НІ"},{"key":"common.on","value":"УВІМК."},{"key":"common.off","value":"ВИМК."}
+    {"key":"common.close","value":"✕"},{"key":"common.yes","value":"ТАК"},{"key":"common.no","value":"НІ"},{"key":"common.on","value":"УВІМК."},{"key":"common.off","value":"ВИМК."},
+    {"key": "mount.title", "value": "КРІПЛЕННЯ КОМПОНЕНТІВ"},
+    {"key": "mount.control", "value": "Викрутка"},
+    {"key": "mount.help", "value": "Вимкніть живлення та зніміть панель. Кожна дія змінює затягування одного гвинта на 25%. Затягніть усі гвинти перед POST; відкрутіть їх перед зняттям деталі."},
+    {"key": "mount.poweroff", "value": "ВИМКНУТИ ДЛЯ ОБСЛУГОВУВАННЯ"},
+    {"key": "mount.damaged", "value": "ПОШКОДЖЕНО"},
+    {"key": "mount.loosen", "value": "ВІДКРУТИТИ НАСТУПНИЙ ГВИНТ"},
+    {"key": "mount.tighten", "value": "ЗАТЯГНУТИ НАСТУПНИЙ ГВИНТ"},
+    {"key": "mount.motherboard", "value": "Материнська плата"},
+    {"key": "mount.psu", "value": "Блок живлення"},
+    {"key": "mount.gpu", "value": "Відеокарта"},
+    {"key": "mount.cooler", "value": "Кулер процесора"}
   ]
 }

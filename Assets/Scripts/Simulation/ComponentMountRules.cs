@@ -26,7 +26,36 @@ namespace ForgeBench
         public static ComponentMountState Find(MachineState machine, PartCategory category)
         {
             string key = Key(category);
-            return key == null ? null : machine.componentMounts?.Find(m => m != null && m.mountId == key);
+            return key == null ? null : machine?.componentMounts?.Find(m => m != null && m.mountId == key);
+        }
+
+        public static string InstalledItemId(MachineState machine, PartCategory category)
+        {
+            if (machine == null) return null;
+            switch (category)
+            {
+                case PartCategory.Motherboard: return machine.motherboardItemId;
+                case PartCategory.PSU: return machine.psuItemId;
+                case PartCategory.GPU: return machine.gpuItemId;
+                case PartCategory.Cooler: return machine.coolerItemId;
+                default: return null;
+            }
+        }
+
+        // The least-tight screw is advanced first, so assisted touch control distributes
+        // tightening across the mount instead of fully loading one corner at a time.
+        public static int NextFastener(MachineState machine, PartCategory category, bool tighten)
+        {
+            var mount = Find(machine, category);
+            if (string.IsNullOrEmpty(InstalledItemId(machine, category)) || mount?.fasteners == null) return -1;
+            int next = -1;
+            for (int i = 0; i < mount.fasteners.Count; i++)
+            {
+                var screw = mount.fasteners[i];
+                if (screw == null || screw.damaged || (tighten ? screw.tightness >= .95f : screw.tightness <= .05f)) continue;
+                if (next < 0 || (tighten ? screw.tightness < mount.fasteners[next].tightness : screw.tightness > mount.fasteners[next].tightness)) next = i;
+            }
+            return next;
         }
 
         public static ComponentMountState Ensure(MachineState machine, PartCategory category, HardwareDefinition part, bool legacySecured = false)
@@ -82,6 +111,7 @@ namespace ForgeBench
         public static ActionResult Turn(MachineState machine, PartCategory category, int index, bool tighten, bool hasDriver)
         {
             if (machine == null) return ActionResult.Fail("No device on bench.");
+            if (string.IsNullOrEmpty(InstalledItemId(machine, category))) return ActionResult.Fail("Install the component before operating its mounting screws.");
             if (machine.bootState != BootState.Off) return ActionResult.Fail("Power off the PC before working on mount fasteners.");
             if (machine.sidePanelInstalled && !string.IsNullOrEmpty(machine.caseItemId)) return ActionResult.Fail("Remove the side panel to access mounting screws.");
             if (!hasDriver) return ActionResult.Fail("A compatible screwdriver is required.");
@@ -89,9 +119,11 @@ namespace ForgeBench
             if (mount?.fasteners == null || index < 0 || index >= mount.fasteners.Count) return ActionResult.Fail("Mount fastener is unavailable.");
             var screw = mount.fasteners[index];
             if (screw == null || screw.damaged) return ActionResult.Fail("Mount fastener requires repair.");
+            if (tighten ? screw.tightness >= 1f : screw.tightness <= 0f)
+                return ActionResult.Fail(tighten ? "The screw is already at controlled torque." : "The captive screw is already released.");
             screw.tightness = Math.Max(0f, Math.Min(1f, screw.tightness + (tighten ? .25f : -.25f)));
             machine.stressStable = false; machine.benchmarkScore = 0;
-            string message = screw.fastenerId + " tightened to " + (int)Math.Round(screw.tightness * 100) + "%.";
+            string message = screw.fastenerId + " tightness: " + (int)Math.Round(screw.tightness * 100) + "%.";
             machine.history.Add(message);
             return ActionResult.Success(message);
         }

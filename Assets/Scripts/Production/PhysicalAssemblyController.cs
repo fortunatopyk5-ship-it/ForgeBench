@@ -73,6 +73,9 @@ namespace ForgeBench
             if (m.sidePanel?.fasteners != null)
                 foreach (FastenerState f in m.sidePanel.fasteners)
                     s.Append('|').Append(f.fastenerId).Append(':').Append(Mathf.RoundToInt(f.tightness * 100));
+            if (m.componentMounts != null) foreach (var mount in m.componentMounts)
+                if (mount?.fasteners != null) foreach (var screw in mount.fasteners)
+                    s.Append("|mount:").Append(screw?.fastenerId).Append(':').Append(screw?.tightness).Append(':').Append(screw?.damaged);
             return s.ToString();
         }
 
@@ -117,6 +120,7 @@ namespace ForgeBench
             BuildFans(m, black, silver, ghost);
             BuildCables(m);
             BuildPanelAndFasteners(m, frame, silver);
+            BuildComponentMounts(m, silver);
             BuildPowerButton(m);
 
             BoxCollider col = root.AddComponent<BoxCollider>();
@@ -500,6 +504,44 @@ namespace ForgeBench
             {
                 GameObject edge = CreateGhostFrame("PanelMount", new Vector3(.472f, 0, 0), new Vector3(.02f, .69f, .55f), frame);
                 Interact(edge, "Fit side panel", 18, () => game.ToggleSidePanel());
+            }
+        }
+
+        private void BuildComponentMounts(MachineState m, Material silver)
+        {
+            if (m.sidePanelInstalled && !string.IsNullOrEmpty(m.caseItemId)) return;
+            string mode = game.TightenMountFasteners ? "Tighten" : "Loosen";
+            GameObject selector = Box("MountDriverMode", new Vector3(.60f, -.32f, -.32f), new Vector3(.14f, .06f, .06f), silver);
+            Interact(selector, "Screwdriver: " + mode + " — switch direction", 55, () => game.ToggleMountToolMode());
+            var categories = new[] { PartCategory.Motherboard, PartCategory.PSU, PartCategory.GPU, PartCategory.Cooler };
+            var ids = new[] { m.motherboardItemId, m.psuItemId, m.gpuItemId, m.coolerItemId };
+            Material loose = Mat(new Color(.85f, .48f, .08f), .4f, .5f);
+            Material damaged = Mat(Color.red, .3f);
+            var centers = new[] { new Vector3(.06f, .02f, .19f), new Vector3(.25f, -.245f, -.295f), new Vector3(-.33f, -.13f, -.09f), new Vector3(-.02f, .13f, -.05f) };
+            for (int c = 0; c < categories.Length; c++)
+            {
+                if (string.IsNullOrEmpty(ids[c])) continue;
+                var mount = ComponentMountRules.Find(m, categories[c]);
+                if (mount?.fasteners == null) continue;
+                for (int j = 0; j < mount.fasteners.Count; j++)
+                {
+                    var state = mount.fasteners[j]; if (state == null) continue;
+                    int index = j; PartCategory category = categories[c];
+                    float x, y;
+                    if (c == 0)
+                    {
+                        int columns = mount.fasteners.Count == 4 ? 2 : 3;
+                        int rows = (mount.fasteners.Count + columns - 1) / columns;
+                        x = -.27f + (j % columns) * .54f / (columns - 1);
+                        y = -.22f + (j / columns) * .44f / (rows - 1);
+                    }
+                    else { x = c == 2 ? 0 : (j % 2 == 0 ? -1f : 1f) * (c == 3 ? .15f : .13f); y = (j / 2 == 0 ? -.08f : .08f); if (c == 2) y = j == 0 ? -.04f : .04f; }
+                    Material mat = state.damaged ? damaged : state.tightness >= .95f ? silver : loose;
+                    var screw = Cylinder("Mount_" + state.fastenerId, centers[c] + new Vector3(x, y, -.015f * (1f - state.tightness)), new Vector3(.025f, .012f, .025f), Quaternion.Euler(90, 0, 0), mat);
+                    Interact(screw, mode + " " + category + " screw " + (j + 1) + " (" + Mathf.RoundToInt(state.tightness * 100) + "%)", 58, () => game.TurnMountFastener(category, index));
+                    var interaction = screw.GetComponent<WorldInteractable>();
+                    interaction.holdSeconds = .25f; interaction.requiredToolId = "tool_driver";
+                }
             }
         }
 
