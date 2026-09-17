@@ -167,6 +167,7 @@ namespace ForgeBench
             m.bootState = BootState.Posting;
             if (D(m.motherboardItemId) == null) return Fail(m, "00", "No motherboard detected.");
             if (D(m.cpuItemId) == null) return Fail(m, "CPU", "CPU missing.");
+            if (m.cpuRetentionOpen) return Fail(m, "CPU-LOCK", "CPU retention lever is not locked.");
             if (m.ramItemIds.Count == 0) return Fail(m, "DRAM", "No memory installed.");
             if (!RamSlotRules.IsSecured(m, D(m.motherboardItemId))) return Fail(m, "DRAM", "RAM positions or retention latches are not secured.");
             if (D(m.psuItemId) == null) return Fail(m, "PWR", "Power supply missing.");

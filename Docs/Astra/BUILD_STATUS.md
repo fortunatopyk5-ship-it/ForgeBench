@@ -28,3 +28,4 @@ DIMM retention update: schema 8; 27 Mono cases pass, including legacy latch migr
 Cable integration: 110 runtime + 5 editor sources compile against installed older references; 34 existing Mono scenarios passed. Added cable save-roundtrip test afterward, execution pending. Target Unity 6/Android not run.
 Follow-up execution: all 35 Mono scenarios passed, including independent cable save/load. This remains a serializer-shim run, not Unity Test Runner.
 Mechanical rules: 41 Mono scenarios pass (6 added), including cooler/CPU/paste lifecycle, chassis dependencies and NVMe motherboard blockers. 111 runtime + 5 editor sources compile. Unity 6/Android/runtime visuals remain pending.
+CPU retention checkpoint: 46 Mono scenarios pass (includes schema-8 to 9 migration and current open-lever roundtrip). 111 runtime + 5 editor sources compile using installed 2022.3 references. Unity 6/Android runtime acceptance remains pending.

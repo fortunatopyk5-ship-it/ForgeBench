@@ -63,6 +63,7 @@ namespace ForgeBench
             if (m.ramLatches != null) foreach (RamLatchState latch in m.ramLatches)
                 s.Append("|l:").Append(latch?.topOpen).Append(':').Append(latch?.bottomOpen);
             s.Append("|power:").Append(m.bootState);
+            s.Append("|cpu-lock:").Append(m.cpuRetentionOpen);
             foreach (string x in m.fanItemIds) s.Append("|f:").Append(x);
             s.Append('|').Append(m.sidePanelInstalled).Append('|').Append(m.thermalPasteApplied)
                 .Append('|').Append(m.cables.atx24).Append('|').Append(m.cables.cpuEps)
@@ -189,6 +190,13 @@ namespace ForgeBench
         {
             if (string.IsNullOrEmpty(m.motherboardItemId)) return;
             Vector3 cpuP = new Vector3(-.02f, .13f, .185f);
+            if (string.IsNullOrEmpty(m.coolerItemId))
+            {
+                GameObject lever = Box("CpuRetentionLever", cpuP + new Vector3(.095f, 0, m.cpuRetentionOpen ? -.055f : -.018f),
+                    new Vector3(.025f, .17f, .024f), silver);
+                lever.transform.localRotation = Quaternion.Euler(m.cpuRetentionOpen ? 65f : 0f, 0, 0);
+                Interact(lever, m.cpuRetentionOpen ? "Lock CPU retention lever" : "Open CPU retention lever", 49, () => game.ToggleCpuRetention());
+            }
             if (string.IsNullOrEmpty(m.cpuItemId))
             {
                 GameObject g = Box("CpuGhost", cpuP, new Vector3(.135f, .135f, .035f), ghost);
@@ -201,7 +209,7 @@ namespace ForgeBench
                 InteractPart(cpu, m.cpuItemId, "Remove CPU");
                 if (m.thermalPasteApplied)
                     Cylinder("ThermalPaste", cpuP + new Vector3(0, 0, -.025f), new Vector3(.045f, .006f, .045f), Quaternion.Euler(90, 0, 0), Mat(new Color(.62f, .64f, .66f), .18f, .05f));
-                else if (string.IsNullOrEmpty(m.coolerItemId))
+                else if (string.IsNullOrEmpty(m.coolerItemId) && !m.cpuRetentionOpen)
                 {
                     GameObject paste = Box("PastePrompt", cpuP + new Vector3(0, 0, -.045f), new Vector3(.10f, .10f, .012f), ghost);
                     Interact(paste, "Apply thermal paste", 38, () => game.ApplyThermalPaste());
@@ -211,7 +219,7 @@ namespace ForgeBench
             Vector3 coolP = new Vector3(-.02f, .13f, .045f);
             if (string.IsNullOrEmpty(m.coolerItemId))
             {
-                if (string.IsNullOrEmpty(m.cpuItemId) || !m.thermalPasteApplied) return;
+                if (string.IsNullOrEmpty(m.cpuItemId) || !m.thermalPasteApplied || m.cpuRetentionOpen) return;
                 GameObject g = Box("CoolerGhost", coolP, new Vector3(.26f, .28f, .20f), ghost);
                 AddSnap(g, PartCategory.Cooler);
                 Interact(g, "Install CPU cooler", 31, () => game.InstallBestAvailable(PartCategory.Cooler));

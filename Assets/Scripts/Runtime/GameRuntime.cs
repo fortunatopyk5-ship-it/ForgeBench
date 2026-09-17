@@ -198,7 +198,7 @@ namespace ForgeBench
                     ItemInstance oldItem = Inventory.Get(old); if (oldItem != null) { oldItem.reserved = false; oldItem.note = oldItem.customerOwned ? "Removed customer part for " + m.ownerJobId : string.Empty; }
                 }
                 SetSingleSlot(m, d.category, item.instanceId);
-                if (d.category == PartCategory.Motherboard) { m.ramLatches.Clear(); RamSlotRules.Normalize(m, d); }
+                if (d.category == PartCategory.Motherboard) { m.cpuRetentionOpen = true; m.ramLatches.Clear(); RamSlotRules.Normalize(m, d); }
             }
             item.reserved = true;
             if (d.category == PartCategory.CPU) MechanicalAssemblyRules.BreakThermalInterface(m);
@@ -274,6 +274,12 @@ namespace ForgeBench
             ActionResult result = RamSlotRules.ToggleLatch(machine, Inventory.Def(Inventory.Get(machine.motherboardItemId)), slot, top);
             if (result.ok) machine.history.Add(result.message);
             Result(result);
+        }
+
+        public void ToggleCpuRetention()
+        {
+            ActionResult custody = BenchCustodyGuard(); if (!custody.ok) { Notify(custody.message, false); return; }
+            Result(MechanicalAssemblyRules.ToggleCpuRetention(ActiveMachine));
         }
 
         public void PowerOff()

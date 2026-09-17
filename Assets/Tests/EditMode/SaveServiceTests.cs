@@ -149,7 +149,7 @@ namespace ForgeBench.Tests
             const string legacy = "{\"schemaVersion\":7,\"machines\":[{\"ramItemIds\":[\"a\"],\"ramSlotIndices\":[1]}]}";
             File.WriteAllText(Primary, legacy);
             var loaded = saves.Load(1, out _);
-            Assert.AreEqual(8, loaded.schemaVersion);
+            Assert.AreEqual(SaveService.CurrentSchema, loaded.schemaVersion);
             Assert.IsFalse(loaded.machines[0].ramLatches[1].topOpen);
             Assert.IsFalse(loaded.machines[0].ramLatches[1].bottomOpen);
             Assert.IsTrue(loaded.machines[0].ramLatches[0].topOpen);
@@ -183,6 +183,25 @@ namespace ForgeBench.Tests
             Assert.IsTrue(cables.atx24); Assert.IsFalse(cables.cpuEps);
             Assert.IsTrue(cables.sataPower); Assert.IsFalse(cables.sataData);
             Assert.IsTrue(cables.pump); Assert.IsFalse(cables.cpuFan);
+        }
+
+        [TestCase(true)]
+        [TestCase(false)]
+        public void LegacyCpuRetentionMigratesFromInstalledProcessor(bool installed)
+        {
+            var state = new GameState { schemaVersion = 8 };
+            state.machines.Add(new MachineState { cpuItemId = installed ? "cpu" : null });
+            File.WriteAllText(Primary, JsonUtility.ToJson(state));
+            Assert.AreEqual(!installed, saves.Load(1, out _).machines[0].cpuRetentionOpen);
+        }
+
+        [Test]
+        public void OpenCpuRetentionSurvivesCurrentSchemaRoundtrip()
+        {
+            var state = new GameState();
+            state.machines.Add(new MachineState { cpuItemId = "cpu", cpuRetentionOpen = true });
+            Assert.IsTrue(saves.Save(state, 1).ok);
+            Assert.IsTrue(saves.Load(1, out _).machines[0].cpuRetentionOpen);
         }
     }
 }

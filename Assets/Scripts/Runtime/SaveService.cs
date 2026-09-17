@@ -6,7 +6,7 @@ namespace ForgeBench
 {
     public sealed class SaveService
     {
-        public const int CurrentSchema = 8;
+        public const int CurrentSchema = 9;
         private readonly string root;
         private readonly Func<string, HardwareDefinition> definition;
         [Serializable]
@@ -114,6 +114,7 @@ namespace ForgeBench
             if (s.milestones == null) s.milestones = new System.Collections.Generic.List<string>();
             foreach (MachineState m in s.machines)
             {
+                if (s.schemaVersion < 9) m.cpuRetentionOpen = string.IsNullOrEmpty(m.cpuItemId);
                 if (m.ramItemIds == null) m.ramItemIds = new System.Collections.Generic.List<string>();
                 ItemInstance boardItem = s.inventory.Find(item => item != null && item.instanceId == m.motherboardItemId);
                 RamSlotRules.Normalize(m, boardItem != null && definition != null ? definition(boardItem.definitionId) : null);

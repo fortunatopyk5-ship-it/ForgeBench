@@ -16,6 +16,7 @@ namespace ForgeBench
 
         private void InspectDesktop(JobState j,MachineState m,PreflightReport r)
         {
+            if (m.cpuRetentionOpen) Block(r, "CPU retention", "CPU retention lever is not locked.");
             HardwareDefinition memoryBoard = game.Inventory.Def(game.Inventory.Get(m.motherboardItemId));
             if (memoryBoard != null && !RamSlotRules.IsSecured(m, memoryBoard)) Block(r, "Memory retention", "RAM slot placement or DIMM retention latches are not secured.");
             if(m.category!=DeviceCategory.Desktop&&j.type!=JobType.Network)Warn(r,"Device","Non-desktop device is using the standard desktop acceptance path.");foreach(string issue in game.Compatibility.ExplainSystem(m))Block(r,"Compatibility",issue+".");

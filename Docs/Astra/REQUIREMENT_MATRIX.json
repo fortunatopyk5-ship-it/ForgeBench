@@ -822,11 +822,23 @@
   {
     "id": 83,
     "summary": "DIMM slot topology.",
-    "status": "UNVERIFIED",
-    "implementation_files": [],
-    "tests": [],
-    "acceptance_evidence": [],
-    "known_gaps": [],
+    "status": "PARTIAL",
+    "implementation_files": [
+      "Assets/Scripts/Simulation/RamSlotRules.cs",
+      "Assets/Scripts/Production/PhysicalAssemblyController.cs",
+      "Assets/Scripts/Runtime/SaveService.cs"
+    ],
+    "tests": [
+      "Assets/Tests/EditMode/RamSlotRulesTests.cs",
+      "Assets/Tests/EditMode/SaveServiceTests.cs"
+    ],
+    "acceptance_evidence": [
+      "Docs/Astra/BUILD_STATUS.md: pure rules and save cases passed in Mono; Unity runtime unverified"
+    ],
+    "known_gaps": [
+      "Unity 6 scene/touch acceptance pending",
+      "Per-requirement full acceptance not complete"
+    ],
     "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
   },
   {
@@ -992,11 +1004,23 @@
   {
     "id": 100,
     "summary": "CPU installation fault states.",
-    "status": "UNVERIFIED",
-    "implementation_files": [],
-    "tests": [],
-    "acceptance_evidence": [],
-    "known_gaps": [],
+    "status": "PARTIAL",
+    "implementation_files": [
+      "Assets/Scripts/Simulation/MechanicalAssemblyRules.cs",
+      "Assets/Scripts/Runtime/GameRuntime.cs",
+      "Assets/Scripts/Production/PhysicalAssemblyController.cs"
+    ],
+    "tests": [
+      "Assets/Tests/EditMode/MechanicalAssemblyTests.cs",
+      "Assets/Tests/EditMode/SaveServiceTests.cs"
+    ],
+    "acceptance_evidence": [
+      "Docs/Astra/BUILD_STATUS.md: CPU retention and thermal servicing domain cases passed; physical runtime acceptance unverified"
+    ],
+    "known_gaps": [
+      "Physical alignment, installation damage and paste coverage simulation not complete",
+      "Unity 6/Android acceptance pending"
+    ],
     "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
   },
   {
@@ -1032,11 +1056,23 @@
   {
     "id": 104,
     "summary": "DIMM placement rules.",
-    "status": "UNVERIFIED",
-    "implementation_files": [],
-    "tests": [],
-    "acceptance_evidence": [],
-    "known_gaps": [],
+    "status": "PARTIAL",
+    "implementation_files": [
+      "Assets/Scripts/Simulation/RamSlotRules.cs",
+      "Assets/Scripts/Production/PhysicalAssemblyController.cs",
+      "Assets/Scripts/Runtime/SaveService.cs"
+    ],
+    "tests": [
+      "Assets/Tests/EditMode/RamSlotRulesTests.cs",
+      "Assets/Tests/EditMode/SaveServiceTests.cs"
+    ],
+    "acceptance_evidence": [
+      "Docs/Astra/BUILD_STATUS.md: pure rules and save cases passed in Mono; Unity runtime unverified"
+    ],
+    "known_gaps": [
+      "Unity 6 scene/touch acceptance pending",
+      "Per-requirement full acceptance not complete"
+    ],
     "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
   },
   {
@@ -1412,11 +1448,23 @@
   {
     "id": 142,
     "summary": "Thermal paste application.",
-    "status": "UNVERIFIED",
-    "implementation_files": [],
-    "tests": [],
-    "acceptance_evidence": [],
-    "known_gaps": [],
+    "status": "PARTIAL",
+    "implementation_files": [
+      "Assets/Scripts/Simulation/MechanicalAssemblyRules.cs",
+      "Assets/Scripts/Runtime/GameRuntime.cs",
+      "Assets/Scripts/Production/PhysicalAssemblyController.cs"
+    ],
+    "tests": [
+      "Assets/Tests/EditMode/MechanicalAssemblyTests.cs",
+      "Assets/Tests/EditMode/SaveServiceTests.cs"
+    ],
+    "acceptance_evidence": [
+      "Docs/Astra/BUILD_STATUS.md: CPU retention and thermal servicing domain cases passed; physical runtime acceptance unverified"
+    ],
+    "known_gaps": [
+      "Physical alignment, installation damage and paste coverage simulation not complete",
+      "Unity 6/Android acceptance pending"
+    ],
     "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
   },
   {

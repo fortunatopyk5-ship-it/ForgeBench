@@ -328,6 +328,7 @@ namespace ForgeBench
         public string caseItemId;
         public string motherboardItemId;
         public string cpuItemId;
+        public bool cpuRetentionOpen;
         public List<string> ramItemIds = new List<string>();
         public List<int> ramSlotIndices = new List<int>();
         public List<RamLatchState> ramLatches = new List<RamLatchState>();
@@ -462,7 +463,7 @@ namespace ForgeBench
     [Serializable]
     public class GameState
     {
-        public int schemaVersion = 8;
+        public int schemaVersion = 9;
         public string saveId;
         public int day = 1;
         public float money = 1800f;

@@ -48,3 +48,10 @@ Implemented MechanicalAssemblyRules across actual install/remove/replace/paste a
 World presentation now hides CPU placement without a motherboard and cooler placement until CPU/paste are ready; paste interaction is not shown beneath an installed cooler. This keeps the next physical action accessible.
 Verification: 41 Mono scenarios pass, including 6 mechanical lifecycle cases; save tests still use Newtonsoft shim rather than Unity JsonUtility. 111 runtime + 5 editor sources compile with installed 2022.3 references. Target Unity 6, Android and scene interaction remain unverified.
 Next implementation: physical CPU retention and mounting fasteners; continue per-device SATA endpoints and localization. Preserve existing authoritative inventory/state and migration behavior. Previous published checkpoint: 9a6ef070de28c9d03b5c4e9a96be5360442a136b.
+
+## CPU retention implementation — 2026-09-17
+Implemented socket-owned CPU retention lever in MachineState, world interaction and servicing rules. CPU insertion/removal requires open retention; paste/cooler/POST/customer acceptance require locked retention. Operating the lever is blocked under power, through the side panel or beneath the cooler. Changing retention invalidates benchmark/stability evidence. New motherboard installation resets its lever to open.
+Save schema 9 migrates pre-9 installed CPU to locked retention, empty sockets to open. Current open state round-trips without migration resetting it.
+Tests: 46 Mono scenarios pass, with the existing Newtonsoft save serializer shim; 111 runtime + 5 editor sources compile against 2022.3 references. Unity 6/Android and lever visual/touch acceptance remain pending.
+Requirement matrix now explicitly marks 83/104 DIMM topology/placement and 100/142 CPU fault/thermal-paste systems PARTIAL, retaining missing alignment/damage/coverage/runtime acceptance gaps.
+Next: socket-owned mounting fasteners, tool/torque interactions and persisted mounting state. Full original recovered patch still unavailable, so no patch claims or completion claims are made.

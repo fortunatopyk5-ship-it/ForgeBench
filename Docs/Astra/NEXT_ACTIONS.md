@@ -1,1 +1,1 @@
-Continue physical CPU retention and mounting fasteners; then per-device cable endpoints and localization. Current mechanical rules are implemented and checkpointed; Unity 6/Android acceptance remains pending. Source publication authorization persists.
+Implement socket-owned mounting fasteners, torque/tool interactions and migration. CPU/RAM retention and cable/mechanical servicing are implemented but not Unity-verified. Source publication authorization persists.

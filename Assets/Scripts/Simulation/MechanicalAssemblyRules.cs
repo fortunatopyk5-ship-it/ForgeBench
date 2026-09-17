@@ -19,10 +19,12 @@ namespace ForgeBench
             if (category == PartCategory.CPU || category == PartCategory.RAM || category == PartCategory.GPU)
                 if (!Has(machine.motherboardItemId)) return ActionResult.Fail("Install a motherboard before this component.");
             if (category == PartCategory.CPU && Has(machine.coolerItemId)) return ActionResult.Fail("Remove the CPU cooler before replacing the processor.");
+            if (category == PartCategory.CPU && !machine.cpuRetentionOpen) return ActionResult.Fail("Open the CPU retention lever before inserting the processor.");
             if (category == PartCategory.Cooler)
             {
                 if (Has(machine.coolerItemId)) return ActionResult.Fail("Remove the existing cooler before fitting another.");
                 if (!Has(machine.cpuItemId)) return ActionResult.Fail("Install the CPU before its cooler.");
+                if (machine.cpuRetentionOpen) return ActionResult.Fail("Close the CPU retention lever before installing the cooler.");
                 if (!machine.thermalPasteApplied || machine.thermalPasteQuality <= 0f) return ActionResult.Fail("Apply fresh thermal compound before installing the cooler.");
             }
             if (category == PartCategory.Case) return CanRemove(machine, category, null);
@@ -33,6 +35,7 @@ namespace ForgeBench
         {
             ActionResult access = Access(machine, category); if (!access.ok) return access;
             if (category == PartCategory.CPU && Has(machine.coolerItemId)) return ActionResult.Fail("Remove the CPU cooler before releasing the processor.");
+            if (category == PartCategory.CPU && !machine.cpuRetentionOpen) return ActionResult.Fail("Open the CPU retention lever before removing the processor.");
             if (category == PartCategory.Motherboard)
             {
                 if (Has(machine.coolerItemId) || Has(machine.cpuItemId) || Has(machine.gpuItemId) || machine.ramItemIds.Count > 0)
@@ -52,7 +55,20 @@ namespace ForgeBench
             ActionResult access = Access(machine, PartCategory.CPU); if (!access.ok) return access;
             if (!Has(machine.cpuItemId) || !Has(machine.motherboardItemId)) return ActionResult.Fail("Install the motherboard and CPU first.");
             if (Has(machine.coolerItemId)) return ActionResult.Fail("Remove the CPU cooler to reach the thermal interface.");
+            if (machine.cpuRetentionOpen) return ActionResult.Fail("Close the CPU retention lever before applying thermal compound.");
             return ActionResult.Success("CPU thermal interface accessible.");
+        }
+
+        public static ActionResult ToggleCpuRetention(MachineState machine)
+        {
+            ActionResult access = Access(machine, PartCategory.CPU); if (!access.ok) return access;
+            if (!Has(machine.motherboardItemId)) return ActionResult.Fail("Install a motherboard before operating its CPU retention lever.");
+            if (Has(machine.coolerItemId)) return ActionResult.Fail("Remove the cooler to reach the CPU retention lever.");
+            machine.cpuRetentionOpen = !machine.cpuRetentionOpen;
+            machine.stressStable = false; machine.benchmarkScore = 0;
+            string message = machine.cpuRetentionOpen ? "CPU retention lever opened." : "CPU retention lever locked.";
+            machine.history.Add(message);
+            return ActionResult.Success(message);
         }
 
         public static void BreakThermalInterface(MachineState machine)
