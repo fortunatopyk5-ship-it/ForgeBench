@@ -27,3 +27,4 @@ RAM checkpoint: 22 Mono scenarios passed (14 save cases with serializer shim, 8 
 DIMM retention update: schema 8; 27 Mono cases pass, including legacy latch migration and partially opened latch persistence. 109 runtime + 5 editor source audit passes. Target Unity/Android verification pending.
 Cable integration: 110 runtime + 5 editor sources compile against installed older references; 34 existing Mono scenarios passed. Added cable save-roundtrip test afterward, execution pending. Target Unity 6/Android not run.
 Follow-up execution: all 35 Mono scenarios passed, including independent cable save/load. This remains a serializer-shim run, not Unity Test Runner.
+Mechanical rules: 41 Mono scenarios pass (6 added), including cooler/CPU/paste lifecycle, chassis dependencies and NVMe motherboard blockers. 111 runtime + 5 editor sources compile. Unity 6/Android/runtime visuals remain pending.

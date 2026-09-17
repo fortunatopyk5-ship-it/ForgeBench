@@ -8,3 +8,4 @@ Implemented persistent socket-owned DIMM retention clips, physical interactions,
 Published full source/specification/matrix snapshot to GitHub astra/finalization at ef380ac; verified full tree identity to local bfe1215. Earlier publication blockers resolved. Preserve both snapshot and incremental histories on future synchronization.
 Wired individual cable circuits into 3D interaction, runtime, remove/replace guards and existing save state; compatible connectors enforced. 34 Mono cases passed; Unity runtime remains unverified.
 Cable save-roundtrip test executed; 35/35 Mono scenarios now pass.
+Implemented component dependency removal/install rules and thermal-paste servicing with checked consumption. Physical prompts follow available actions. 41 Mono cases pass; 111 runtime + 5 editor managed compilation passes using older references.

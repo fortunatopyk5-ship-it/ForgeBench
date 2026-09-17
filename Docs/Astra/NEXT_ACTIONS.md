@@ -1,1 +1,1 @@
-Publish current cable integration checkpoint using authorized GitHub connector. Continue component physical prerequisites, per-device cable state, connector/path interaction and runtime acceptance. Source publication authorization is granted; earlier blocker resolved. Required Unity 6 remains unavailable locally.
+Continue physical CPU retention and mounting fasteners; then per-device cable endpoints and localization. Current mechanical rules are implemented and checkpointed; Unity 6/Android acceptance remains pending. Source publication authorization persists.

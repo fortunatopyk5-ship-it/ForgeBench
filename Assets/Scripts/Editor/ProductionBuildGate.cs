@@ -37,6 +37,7 @@ namespace ForgeBench.EditorTools
             "Assets/Tests/EditMode/SaveServiceTests.cs",
             "Assets/Tests/EditMode/RamSlotRulesTests.cs",
             "Assets/Tests/EditMode/CableConnectionTests.cs",
+            "Assets/Tests/EditMode/MechanicalAssemblyTests.cs",
             "Assets/Tests/EditMode/EngineeringSimulationTests.cs",
             "Assets/Tests/EditMode/AdvancedDiagnosticWorkflowTests.cs",
             "Assets/Tests/EditMode/FitmentPlanningTests.cs",

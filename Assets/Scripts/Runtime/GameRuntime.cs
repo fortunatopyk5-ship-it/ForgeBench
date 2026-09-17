@@ -168,6 +168,9 @@ namespace ForgeBench
             if (item == null || item.reserved) { Notify("Part is unavailable.", false); return; }
             if (m.bootState != BootState.Off) { Notify("Power off the PC before installing components.", false); return; }
             HardwareDefinition requested = Inventory.Def(item);
+            if (requested == null) { Notify("Component data unavailable.", false); return; }
+            ActionResult mechanical = MechanicalAssemblyRules.CanInstall(m, requested.category);
+            if (!mechanical.ok) { Notify(mechanical.message, false); return; }
             if (requested != null && requested.category == PartCategory.Motherboard && !string.IsNullOrEmpty(m.motherboardItemId) && m.ramItemIds.Count > 0) { Notify("Remove RAM before replacing its motherboard.", false); return; }
             if (requested != null && requested.category != PartCategory.Case && !Assembly.InternalsAccessible(m)) { Notify("Remove the side panel before accessing internal components.", false); return; }
             if (requested != null && requested.category == PartCategory.Case && (!string.IsNullOrEmpty(m.motherboardItemId) || !string.IsNullOrEmpty(m.cpuItemId) || m.ramItemIds.Count > 0 || !string.IsNullOrEmpty(m.gpuItemId))) { Notify("Remove internal components before replacing the case.", false); return; }
@@ -188,6 +191,8 @@ namespace ForgeBench
                 string old = GetSingleSlot(m, d.category);
                 if (!string.IsNullOrEmpty(old))
                 {
+                    ActionResult mechanicalRelease = MechanicalAssemblyRules.CanRemove(m, d.category, id => Inventory.Def(Inventory.Get(id)));
+                    if (!mechanicalRelease.ok) { Notify(mechanicalRelease.message, false); return; }
                     ActionResult released = Cabling.CanRemove(m, Inventory.Def(Inventory.Get(old)));
                     if (!released.ok) { Notify(released.message, false); return; }
                     ItemInstance oldItem = Inventory.Get(old); if (oldItem != null) { oldItem.reserved = false; oldItem.note = oldItem.customerOwned ? "Removed customer part for " + m.ownerJobId : string.Empty; }
@@ -196,6 +201,7 @@ namespace ForgeBench
                 if (d.category == PartCategory.Motherboard) { m.ramLatches.Clear(); RamSlotRules.Normalize(m, d); }
             }
             item.reserved = true;
+            if (d.category == PartCategory.CPU) MechanicalAssemblyRules.BreakThermalInterface(m);
             CableConnectionService.InvalidateConnections(m, d.category);
             item.note = "Installed in " + m.machineId;
             if (d.category == PartCategory.Case)
@@ -230,6 +236,9 @@ namespace ForgeBench
             if (m == null || item == null) return;
             ActionResult custody = BenchCustodyGuard(); if (!custody.ok) { Notify(custody.message, false); return; }
             HardwareDefinition removing = Inventory.Def(item);
+            if (removing == null) { Notify("Component data unavailable.", false); return; }
+            ActionResult mechanicalRelease = MechanicalAssemblyRules.CanRemove(m, removing.category, id => Inventory.Def(Inventory.Get(id)));
+            if (!mechanicalRelease.ok) { Notify(mechanicalRelease.message, false); return; }
             ActionResult cableRelease = Cabling.CanRemove(m, removing);
             if (!cableRelease.ok) { Notify(cableRelease.message, false); return; }
             if (removing != null && removing.category == PartCategory.Motherboard && m.ramItemIds.Count > 0) { Notify("Remove RAM before removing its motherboard.", false); return; }
@@ -247,6 +256,7 @@ namespace ForgeBench
             else if (m.storageItemIds.Remove(instanceId) || m.fanItemIds.Remove(instanceId) || ClearSingleIfMatches(m, instanceId)) removed = true;
             if (removed)
             {
+                if (removing.category == PartCategory.CPU || removing.category == PartCategory.Cooler) MechanicalAssemblyRules.BreakThermalInterface(m);
                 if (removing != null) CableConnectionService.InvalidateConnections(m, removing.category);
                 item.reserved = false; item.note = string.Empty; m.bootState = BootState.Off; m.benchmarkScore = 0; m.stressStable = false;
                 if (removing != null && removing.category == PartCategory.Case) { m.sidePanelInstalled = false; m.sidePanel = new PanelState { installed = false }; }
@@ -326,11 +336,12 @@ namespace ForgeBench
         public void ApplyThermalPaste()
         {
             MachineState m = ActiveMachine;
-            if (m == null || string.IsNullOrEmpty(m.cpuItemId)) { Notify("Install a CPU first.", false); return; }
+            ActionResult access = MechanicalAssemblyRules.CanApplyPaste(m);
+            if (!access.ok) { Notify(access.message, false); return; }
             ActionResult custody = BenchCustodyGuard(); if (!custody.ok) { Notify(custody.message, false); return; }
             ItemInstance paste = Inventory.Available(PartCategory.Consumable).FirstOrDefault(i => Inventory.Def(i)?.tags.Contains("paste") == true);
             if (paste == null) { Notify("Thermal compound is not in inventory.", false); return; }
-            Inventory.Consume(paste.instanceId);
+            if (!Inventory.Consume(paste.instanceId)) { Notify("Thermal compound could not be consumed.", false); return; }
             m.thermalPasteApplied = true; m.thermalPasteQuality = Mathf.Clamp01(0.78f + State.workshop.benchLevel * 0.05f);
             Autosave(); Refresh(); Notify("Thermal compound applied with even coverage.");
         }

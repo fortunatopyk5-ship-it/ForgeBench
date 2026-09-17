@@ -187,6 +187,7 @@ namespace ForgeBench
 
         private void BuildCpuAndCooler(MachineState m, Material copper, Material silver, Material black, Material ghost)
         {
+            if (string.IsNullOrEmpty(m.motherboardItemId)) return;
             Vector3 cpuP = new Vector3(-.02f, .13f, .185f);
             if (string.IsNullOrEmpty(m.cpuItemId))
             {
@@ -200,7 +201,7 @@ namespace ForgeBench
                 InteractPart(cpu, m.cpuItemId, "Remove CPU");
                 if (m.thermalPasteApplied)
                     Cylinder("ThermalPaste", cpuP + new Vector3(0, 0, -.025f), new Vector3(.045f, .006f, .045f), Quaternion.Euler(90, 0, 0), Mat(new Color(.62f, .64f, .66f), .18f, .05f));
-                else
+                else if (string.IsNullOrEmpty(m.coolerItemId))
                 {
                     GameObject paste = Box("PastePrompt", cpuP + new Vector3(0, 0, -.045f), new Vector3(.10f, .10f, .012f), ghost);
                     Interact(paste, "Apply thermal paste", 38, () => game.ApplyThermalPaste());
@@ -210,6 +211,7 @@ namespace ForgeBench
             Vector3 coolP = new Vector3(-.02f, .13f, .045f);
             if (string.IsNullOrEmpty(m.coolerItemId))
             {
+                if (string.IsNullOrEmpty(m.cpuItemId) || !m.thermalPasteApplied) return;
                 GameObject g = Box("CoolerGhost", coolP, new Vector3(.26f, .28f, .20f), ghost);
                 AddSnap(g, PartCategory.Cooler);
                 Interact(g, "Install CPU cooler", 31, () => game.InstallBestAvailable(PartCategory.Cooler));
