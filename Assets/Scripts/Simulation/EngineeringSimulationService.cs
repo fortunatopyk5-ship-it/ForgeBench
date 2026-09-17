@@ -41,14 +41,11 @@ namespace ForgeBench
             List<HardwareDefinition> modules=m.ramItemIds.Select(D).Where(x=>x!=null).ToList();
             if(modules.Count!=m.ramItemIds.Count)return FailTraining(m,"One or more DIMMs have invalid catalog data.");
             if(modules.Any(x=>x.memoryType!=board.memoryType))return FailTraining(m,"Mixed/incompatible memory generation.");
-            int slotLimit=board.dimmSlots>0?board.dimmSlots:4;if(m.ramItemIds.Count>slotLimit)return FailTraining(m,"Installed DIMM count exceeds board slot count.");
-            bool slotLayout=true;
-            if(m.ramItemIds.Count==2&&m.ramSlotIndices!=null&&m.ramSlotIndices.Count>=2)
-            {
-                int a=m.ramSlotIndices[0],b=m.ramSlotIndices[1];slotLayout=(a==1&&b==3)||(a==3&&b==1);
-            }
+            int slotLimit=RamSlotRules.SlotCount(board);if(m.ramItemIds.Count>slotLimit)return FailTraining(m,"Installed DIMM count exceeds board slot count.");
+            if(!RamSlotRules.IsSecured(m,board))return FailTraining(m,"Close both retention latches on every installed DIMM.");
+            bool slotLayout=RamSlotRules.IsRecommendedPair(m,board);
             int native=modules.Min(x=>Mathf.Max(1,x.speed));int target=m.bios.memoryProfileEnabled?Mathf.Max(native,m.bios.memorySpeedOverride):native;
-            float quality=modules.Average(x=>x.quality)/100f;float condition=m.ramItemIds.Select(inventory.Get).Where(x=>x!=null).Average(x=>x.condition);
+            float quality=modules.Average(x=>(float)x.quality)/100f;float condition=m.ramItemIds.Select(inventory.Get).Where(x=>x!=null).Average(x=>x.condition);
             bool unstableFault=m.ramItemIds.Select(inventory.Get).Any(x=>x!=null&&(x.fault==FaultType.UnstableMemory||x.damage==DamageType.BurnedConnector));
             float voltage=m.bios.memoryVoltage;float required=target>6000?1.35f:target>4800?1.25f:1.20f;
             bool pass=slotLayout&&!unstableFault&&condition>.40f&&quality>.35f&&voltage+0.02f>=required;

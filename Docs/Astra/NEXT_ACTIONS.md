@@ -1,0 +1,1 @@
+Implement individual physical cable connection/disconnection and related component-removal blockers. Current DIMM latches and schema-8 migration are implemented but require Unity 6 runtime/touch/device acceptance. Source publication approval remains pending; full original recovery patch remains unavailable/corrupt remotely.

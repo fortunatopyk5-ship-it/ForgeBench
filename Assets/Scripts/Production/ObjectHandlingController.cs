@@ -97,13 +97,14 @@ namespace ForgeBench
             AssemblySnapPoint best=null;float bestD=float.MaxValue;
             foreach(AssemblySnapPoint p in points)
             {
+                if(p.machineId!=machine.machineId)continue;
                 if(!p.accepts.Contains(def.category))continue;float d=Vector3.Distance(proxy.transform.position,p.transform.position);if(d<p.snapRadius&&d<bestD){bestD=d;best=p;}
             }
             if(best==null)return false;
             ActionResult compatible=game.Compatibility.CanInstall(machine,item);
             if(!compatible.ok){game.Notify(compatible.message,false);proxy.Recover();return true;}
             proxy.transform.position=best.transform.position;proxy.transform.rotation=best.transform.rotation;
-            game.Install(proxy.instanceId);
+            game.Install(proxy.instanceId,best.ramSlot);
             if(item.reserved)Destroy(proxy.gameObject);else proxy.Recover();
             return true;
         }
@@ -196,6 +197,8 @@ namespace ForgeBench
 
     public sealed class AssemblySnapPoint : MonoBehaviour
     {
+        public string machineId;
+        public int ramSlot = -1;
         public List<PartCategory> accepts=new List<PartCategory>();
         public float snapRadius=.55f;
     }

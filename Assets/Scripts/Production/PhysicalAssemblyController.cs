@@ -60,6 +60,9 @@ namespace ForgeBench
                 s.Append(m.ramSlotIndices != null && i < m.ramSlotIndices.Count ? m.ramSlotIndices[i] : i);
             }
             foreach (string x in m.storageItemIds) s.Append("|s:").Append(x);
+            if (m.ramLatches != null) foreach (RamLatchState latch in m.ramLatches)
+                s.Append("|l:").Append(latch?.topOpen).Append(':').Append(latch?.bottomOpen);
+            s.Append("|power:").Append(m.bootState);
             foreach (string x in m.fanItemIds) s.Append("|f:").Append(x);
             s.Append('|').Append(m.sidePanelInstalled).Append('|').Append(m.thermalPasteApplied)
                 .Append('|').Append(m.cables.atx24).Append('|').Append(m.cables.cpuEps)
@@ -248,10 +251,28 @@ namespace ForgeBench
             HardwareDefinition board = Def(m.motherboardItemId);
             int slots = HardwarePresentationLayout.DimmSlotCount(board);
             int nextRecommended = HardwarePresentationLayout.NextRecommendedRamSlot(m, board);
+            RamSlotRules.EnsureLatches(m, board);
 
             for (int slot = 0; slot < slots; slot++)
             {
                 Vector3 p = RamSlotPosition(slot, slots);
+                if (board != null)
+                {
+                    int latchSlot = slot;
+                    RamLatchState latch = m.ramLatches[slot];
+                    for (int end = 0; end < 2; end++)
+                    {
+                        bool top = end == 0;
+                        bool open = top ? latch.topOpen : latch.bottomOpen;
+                        float direction = top ? 1f : -1f;
+                        GameObject clip = Box("DIMMLatch_" + slot + "_" + end,
+                            p + new Vector3(0, direction * (open ? .206f : .181f), open ? .014f : -.012f),
+                            new Vector3(.04f, .035f, .065f), open ? copper : chip);
+                        clip.transform.localRotation = Quaternion.Euler(open ? direction * 35f : 0, 0, 0);
+                        Interact(clip, (open ? "Close" : "Open") + " DIMM " + (slot + 1) + (top ? " top latch" : " bottom latch"), 48,
+                            () => game.ToggleRamLatch(latchSlot, top));
+                    }
+                }
                 int itemIndex = HardwarePresentationLayout.RamItemIndexAtSlot(m, slot, slots);
                 if (itemIndex >= 0 && itemIndex < m.ramItemIds.Count)
                 {
@@ -262,11 +283,13 @@ namespace ForgeBench
                         Box("RAMChip_" + slot + "_" + c, p + new Vector3(0, -.12f + c * .034f, -.048f), new Vector3(.036f, .022f, .012f), chip);
                     Box("RAMContacts_" + slot, p + new Vector3(0, -.17f, -.01f), new Vector3(.035f, .018f, .07f), copper);
                 }
-                else if (slot == nextRecommended)
+                else if (board != null)
                 {
+                    int selectedSlot = slot;
                     GameObject g = Box("RAMGhost_Slot" + slot, p, new Vector3(.028f, .33f, .045f), ghost);
-                    AddSnap(g, PartCategory.RAM);
-                    Interact(g, "Install RAM — recommended DIMM " + (slot + 1), 28, () => game.InstallBestAvailable(PartCategory.RAM));
+                    AddSnap(g, PartCategory.RAM, slot);
+                    string label = "Install RAM — DIMM " + (slot + 1) + (slot == nextRecommended ? " (recommended)" : "");
+                    Interact(g, label, 28, () => game.InstallBestAvailable(PartCategory.RAM, selectedSlot));
                 }
             }
         }
@@ -472,13 +495,16 @@ namespace ForgeBench
                 led.SetColor("_EmissionColor", led.color * 2f);
             }
             GameObject p = Cylinder("PowerButton", new Vector3(.32f, .27f, -.325f), new Vector3(.035f, .012f, .035f), Quaternion.Euler(90, 0, 0), led);
-            Interact(p, "Power on / run POST", 50, () => game.PowerOn());
+            bool powered = m.bootState != BootState.Off;
+            Interact(p, powered ? "Power off for service" : "Power on / run POST", 50, () => { if (powered) game.PowerOff(); else game.PowerOn(); });
         }
 
-        private static void AddSnap(GameObject go, PartCategory category)
+        private void AddSnap(GameObject go, PartCategory category, int ramSlot = -1)
         {
             AssemblySnapPoint p = go.GetComponent<AssemblySnapPoint>() ?? go.AddComponent<AssemblySnapPoint>();
             if (!p.accepts.Contains(category)) p.accepts.Add(category);
+            p.machineId = game.ActiveMachine?.machineId;
+            p.ramSlot = ramSlot;
         }
 
         private void InteractPart(GameObject go, string itemId, string label)

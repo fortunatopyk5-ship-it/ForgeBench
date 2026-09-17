@@ -39,7 +39,7 @@ namespace ForgeBench
         {
             if(instance!=null&&instance!=this){Destroy(gameObject);return;}instance=this;DontDestroyOnLoad(gameObject);font=Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");EnsureEventSystem();BuildArticles();Build();root.SetActive(false);
         }
-        private void Update(){if(root!=null&&root.activeSelf&&Input.GetKeyDown(KeyCode.Escape)&&!Application.isMobilePlatform)Close();}
+        private void Update(){if(root!=null&&root.activeSelf&&UnityEngine.Input.GetKeyDown(KeyCode.Escape)&&!Application.isMobilePlatform)Close();}
 
         private void Show(string id)
         {

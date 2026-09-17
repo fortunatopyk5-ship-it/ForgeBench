@@ -66,6 +66,7 @@ namespace ForgeBench
                     if (board != null && !CaseAccepts(p.formFactor, board.formFactor)) return ActionResult.Fail("Case does not support motherboard form factor " + board.formFactor + ".");
                     break;
                 case PartCategory.Motherboard:
+                    if (m.ramItemIds.Count > RamSlotRules.SlotCount(p)) return ActionResult.Fail("Installed RAM exceeds this motherboard's DIMM slot count.");
                     if (pcCase != null && !CaseAccepts(pcCase.formFactor, p.formFactor)) return ActionResult.Fail("Motherboard form factor does not fit this case.");
                     HardwareDefinition cpu = D(m.cpuItemId);
                     if (cpu != null && cpu.socket != p.socket) return ActionResult.Fail("CPU socket mismatch: " + cpu.socket + " vs " + p.socket + ".");
@@ -79,8 +80,9 @@ namespace ForgeBench
                     if (board != null && board.socket != p.socket) return ActionResult.Fail("CPU socket " + p.socket + " does not match board " + board.socket + ".");
                     break;
                 case PartCategory.RAM:
+                    if (board == null) return ActionResult.Fail("Install a motherboard before RAM.");
                     if (board != null && board.memoryType != p.memoryType) return ActionResult.Fail("RAM " + p.memoryType + " does not match board " + board.memoryType + ".");
-                    int dimmCapacity = board != null && board.dimmSlots > 0 ? board.dimmSlots : 4;
+                    int dimmCapacity = RamSlotRules.SlotCount(board);
                     if (m.ramItemIds.Count >= dimmCapacity) return ActionResult.Fail("All " + dimmCapacity + " DIMM slots are occupied.");
                     break;
                 case PartCategory.GPU:
@@ -166,6 +168,7 @@ namespace ForgeBench
             if (D(m.motherboardItemId) == null) return Fail(m, "00", "No motherboard detected.");
             if (D(m.cpuItemId) == null) return Fail(m, "CPU", "CPU missing.");
             if (m.ramItemIds.Count == 0) return Fail(m, "DRAM", "No memory installed.");
+            if (!RamSlotRules.IsSecured(m, D(m.motherboardItemId))) return Fail(m, "DRAM", "RAM positions or retention latches are not secured.");
             if (D(m.psuItemId) == null) return Fail(m, "PWR", "Power supply missing.");
             if (D(m.coolerItemId) == null) return Fail(m, "FAN", "CPU cooler missing.");
             if (!m.thermalPasteApplied) return Fail(m, "TEMP", "Thermal interface material missing.");
@@ -350,6 +353,7 @@ namespace ForgeBench
         {
             m.caseItemId=CustomerPart(j,m,"case_1");m.motherboardItemId=CustomerPart(j,m,"board_5");m.cpuItemId=CustomerPart(j,m,"cpu_7");
             m.ramItemIds.Add(CustomerPart(j,m,"ram_1"));m.gpuItemId=CustomerPart(j,m,"gpu_6");m.storageItemIds.Add(CustomerPart(j,m,"storage_1"));
+            RamSlotRules.Normalize(m, inventory.Def(inventory.Get(m.motherboardItemId)));
             m.psuItemId=CustomerPart(j,m,"psu_2");m.coolerItemId=CustomerPart(j,m,"cooler_1");m.fanItemIds.Add(CustomerPart(j,m,"fan_1"));
             m.cables.atx24=true;m.cables.cpuEps=true;m.cables.gpuPower=true;m.cables.sataPower=true;m.cables.sataData=true;m.cables.frontPanel=true;m.cables.cpuFan=true;
             m.thermalPasteApplied=true;m.thermalPasteQuality=.72f;m.cableManagementScore=.62f;m.sidePanelInstalled=true;m.partitioned=true;m.osInstalled=true;m.activated=true;m.driversInstalled=j.type!=JobType.Software;m.postCode="A0";m.bootState=BootState.OperatingSystem;

@@ -1,0 +1,5241 @@
+[
+  {
+    "id": 1,
+    "summary": "Complete gameplay loop.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 2,
+    "summary": "Source-first deliverable.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 3,
+    "summary": "No fake features.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 4,
+    "summary": "Autonomous agent execution.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 5,
+    "summary": "Android build readiness.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 6,
+    "summary": "Original IP and assets.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 7,
+    "summary": "Deep interconnected simulation.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 8,
+    "summary": "Long-term replayability.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 9,
+    "summary": "Data-driven content growth.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 10,
+    "summary": "End-to-end completion test.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 11,
+    "summary": "Modular system boundaries.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 12,
+    "summary": "Event-driven communication.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 13,
+    "summary": "Data-driven hardware database.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 14,
+    "summary": "Game service layer.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 15,
+    "summary": "UI-domain separation.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 16,
+    "summary": "Scene lifecycle architecture.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 17,
+    "summary": "Prefab discipline.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 18,
+    "summary": "Tuning config separation.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 19,
+    "summary": "Developer debug tools.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 20,
+    "summary": "Code quality gate.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 21,
+    "summary": "First-person locomotion.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 22,
+    "summary": "Touch movement joystick.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 23,
+    "summary": "Touch camera look.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 24,
+    "summary": "Keyboard and mouse fallback.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 25,
+    "summary": "Gamepad support.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 26,
+    "summary": "Collision handling.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 27,
+    "summary": "Interaction focus selection.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 28,
+    "summary": "Precision/crouch mode.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 29,
+    "summary": "Camera collision safety.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 30,
+    "summary": "Input context switching.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 31,
+    "summary": "Common interactable contract.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 32,
+    "summary": "Context-sensitive actions.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 33,
+    "summary": "Hold-to-complete actions.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 34,
+    "summary": "Interaction priority rules.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 35,
+    "summary": "Highlight feedback.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 36,
+    "summary": "Action error explanations.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 37,
+    "summary": "Interaction history state.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 38,
+    "summary": "Distance validation.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 39,
+    "summary": "Tool-dependent actions.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 40,
+    "summary": "Cross-input acceptance test.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 41,
+    "summary": "Main PC assembly bench.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 42,
+    "summary": "Diagnostic bench.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 43,
+    "summary": "Laptop repair bench.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 44,
+    "summary": "Board repair station.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 45,
+    "summary": "Benchmark station.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 46,
+    "summary": "Cleaning station.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 47,
+    "summary": "Packaging station.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 48,
+    "summary": "Upgradeable workbenches.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 49,
+    "summary": "Station state persistence.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 50,
+    "summary": "Station occupancy rules.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 51,
+    "summary": "Pickup behavior.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 52,
+    "summary": "Precise object rotation.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 53,
+    "summary": "Component snap points.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 54,
+    "summary": "Ghost installation preview.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 55,
+    "summary": "Occlusion and blocked-slot handling.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 56,
+    "summary": "Object lifecycle states.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 57,
+    "summary": "Safe drop recovery.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 58,
+    "summary": "Box and shelf snapping.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 59,
+    "summary": "Inspection mode.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 60,
+    "summary": "Manipulation save consistency.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 61,
+    "summary": "Screw state model.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 62,
+    "summary": "Screwdriver interaction.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 63,
+    "summary": "Panel dependency logic.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 64,
+    "summary": "Lost screw prevention.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 65,
+    "summary": "Different fastener types.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 66,
+    "summary": "Tightening quality.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 67,
+    "summary": "Panel clip damage.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 68,
+    "summary": "Fastener visualization.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 69,
+    "summary": "Assembly-order constraints.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 70,
+    "summary": "Fastener save/load tests.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 71,
+    "summary": "Case form factors.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 72,
+    "summary": "Removable panels.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 73,
+    "summary": "Motherboard tray mounting.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 74,
+    "summary": "GPU clearance.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 75,
+    "summary": "CPU cooler clearance.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 76,
+    "summary": "Radiator mounting points.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 77,
+    "summary": "Drive bay mounting.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 78,
+    "summary": "Cable-routing space.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 79,
+    "summary": "Airflow resistance.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 80,
+    "summary": "Case customization.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 81,
+    "summary": "CPU socket and chipset support.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 82,
+    "summary": "Board form factor.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 83,
+    "summary": "DIMM slot topology.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 84,
+    "summary": "PCIe slot topology.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 85,
+    "summary": "M.2 slot topology.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 86,
+    "summary": "Board power connectors.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 87,
+    "summary": "Fan and pump headers.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 88,
+    "summary": "VRM quality simulation.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 89,
+    "summary": "Board-specific BIOS capabilities.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 90,
+    "summary": "POST diagnostics hardware.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 91,
+    "summary": "CPU socket installation.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 92,
+    "summary": "Core and thread topology.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 93,
+    "summary": "Integrated graphics.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 94,
+    "summary": "CPU power limits.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 95,
+    "summary": "Dynamic clocks.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 96,
+    "summary": "Voltage behavior.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 97,
+    "summary": "Thermal throttling.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 98,
+    "summary": "Silicon degradation.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 99,
+    "summary": "CPU benchmark contribution.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 100,
+    "summary": "CPU installation fault states.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 101,
+    "summary": "DDR generation compatibility.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 102,
+    "summary": "Capacity limits.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 103,
+    "summary": "Memory channels.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 104,
+    "summary": "DIMM placement rules.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 105,
+    "summary": "Memory training.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 106,
+    "summary": "Memory timings.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 107,
+    "summary": "Memory performance profiles.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 108,
+    "summary": "Mixed memory kits.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 109,
+    "summary": "Memory diagnostics.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 110,
+    "summary": "Physical RAM clearance.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 111,
+    "summary": "GPU physical fit.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 112,
+    "summary": "PCIe bandwidth limits.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 113,
+    "summary": "GPU power connectors.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 114,
+    "summary": "VRAM behavior.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 115,
+    "summary": "GPU clock behavior.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 116,
+    "summary": "GPU fan modes.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 117,
+    "summary": "GPU thermal model.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 118,
+    "summary": "Used GPU faults.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 119,
+    "summary": "GPU benchmark contribution.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 120,
+    "summary": "Multi-GPU edge cases.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 121,
+    "summary": "Mechanical HDD model.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 122,
+    "summary": "SATA SSD model.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 123,
+    "summary": "NVMe SSD model.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 124,
+    "summary": "Storage installation methods.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 125,
+    "summary": "Partitioning.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 126,
+    "summary": "SMART-like health data.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 127,
+    "summary": "Drive failure symptoms.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 128,
+    "summary": "Storage benchmarks.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 129,
+    "summary": "M.2 heatsinks.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 130,
+    "summary": "Customer data protection.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 131,
+    "summary": "PSU wattage model.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 132,
+    "summary": "Connector inventory.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 133,
+    "summary": "Modular cable inventory.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 134,
+    "summary": "System power budget.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 135,
+    "summary": "Efficiency model.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 136,
+    "summary": "PSU quality and aging.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 137,
+    "summary": "PSU tester tool.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 138,
+    "summary": "Cable compatibility safeguards.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 139,
+    "summary": "PSU fan behavior.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 140,
+    "summary": "Overload failure behavior.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 141,
+    "summary": "Tower cooler compatibility.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 142,
+    "summary": "Thermal paste application.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 143,
+    "summary": "Mounting pressure.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 144,
+    "summary": "Fan orientation.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 145,
+    "summary": "Dual-fan cooler setups.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 146,
+    "summary": "Passive cooling limits.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 147,
+    "summary": "Dust in heatsinks.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 148,
+    "summary": "Fan bearing wear.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 149,
+    "summary": "BIOS fan control.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 150,
+    "summary": "Cooling impact on performance.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 151,
+    "summary": "AIO sizing.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 152,
+    "summary": "Pump connectivity.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 153,
+    "summary": "Radiator placement.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 154,
+    "summary": "Radiator fan push-pull.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 155,
+    "summary": "Custom loop components.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 156,
+    "summary": "Closed-loop validation.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 157,
+    "summary": "Leak-test game mechanic.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 158,
+    "summary": "Coolant fill state.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 159,
+    "summary": "Radiator heat capacity.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 160,
+    "summary": "Loop maintenance.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 161,
+    "summary": "Fan specifications.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 162,
+    "summary": "Intake versus exhaust.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 163,
+    "summary": "Case airflow graph.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 164,
+    "summary": "Dust filters.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 165,
+    "summary": "Case pressure balance.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 166,
+    "summary": "Fan header capacity.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 167,
+    "summary": "PWM and DC modes.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 168,
+    "summary": "Noise simulation.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 169,
+    "summary": "Zero-RPM behavior.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 170,
+    "summary": "Silent-build objectives.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 171,
+    "summary": "24-pin ATX cable.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 172,
+    "summary": "CPU EPS power.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 173,
+    "summary": "GPU power cables.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 174,
+    "summary": "SATA power.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 175,
+    "summary": "SATA data.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 176,
+    "summary": "Front-panel headers.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 177,
+    "summary": "USB headers.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 178,
+    "summary": "Fan and RGB cables.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 179,
+    "summary": "Cable-management score.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 180,
+    "summary": "Cable graph persistence.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 181,
+    "summary": "CPU-board compatibility.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 182,
+    "summary": "RAM-board compatibility.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 183,
+    "summary": "Board-case compatibility.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 184,
+    "summary": "GPU-case compatibility.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 185,
+    "summary": "Cooler-case compatibility.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 186,
+    "summary": "PSU-case compatibility.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 187,
+    "summary": "Storage compatibility.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 188,
+    "summary": "Electrical compatibility.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 189,
+    "summary": "Compatibility UI explanations.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 190,
+    "summary": "Compatibility automated tests.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 191,
+    "summary": "Power-button flow.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 192,
+    "summary": "POST codes.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 193,
+    "summary": "No-RAM state.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 194,
+    "summary": "No-video-output state.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 195,
+    "summary": "Missing boot device.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 196,
+    "summary": "CPU fan warning.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 197,
+    "summary": "Overtemperature safety.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 198,
+    "summary": "Memory training during POST.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 199,
+    "summary": "Boot timing.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 200,
+    "summary": "Boot failure history.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 201,
+    "summary": "BIOS navigation.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 202,
+    "summary": "Boot order.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 203,
+    "summary": "Memory profile activation.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 204,
+    "summary": "Manual RAM tuning.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 205,
+    "summary": "CPU multiplier tuning.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 206,
+    "summary": "CPU voltage tuning.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 207,
+    "summary": "Fan curves.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 208,
+    "summary": "Security and virtualization settings.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 209,
+    "summary": "BIOS version updates.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 210,
+    "summary": "Safe recovery and CMOS reset.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 211,
+    "summary": "OS installation.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 212,
+    "summary": "Desktop shell.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 213,
+    "summary": "System-information app.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 214,
+    "summary": "Driver manager.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 215,
+    "summary": "OS update system.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 216,
+    "summary": "Disk management.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 217,
+    "summary": "Task manager.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 218,
+    "summary": "Game terminal.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 219,
+    "summary": "Antivirus simulation.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 220,
+    "summary": "OS state persistence.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 221,
+    "summary": "Driver compatibility.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 222,
+    "summary": "GPU driver impact.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 223,
+    "summary": "Chipset drivers.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 224,
+    "summary": "Network drivers.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 225,
+    "summary": "Driver updates.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 226,
+    "summary": "Software licensing.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 227,
+    "summary": "Benchmark software suite.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 228,
+    "summary": "Stress-test tools.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 229,
+    "summary": "Utility applications.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 230,
+    "summary": "Software-job validation.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 231,
+    "summary": "Deterministic scoring.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 232,
+    "summary": "CPU benchmark.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 233,
+    "summary": "GPU benchmark.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 234,
+    "summary": "Combined gaming benchmark.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 235,
+    "summary": "Storage benchmark.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 236,
+    "summary": "Memory benchmark.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 237,
+    "summary": "Long thermal benchmark.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 238,
+    "summary": "Stability detection.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 239,
+    "summary": "Job score targets.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 240,
+    "summary": "Local result history.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 241,
+    "summary": "Ambient temperature.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 242,
+    "summary": "Heat generation.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 243,
+    "summary": "Thermal resistance.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 244,
+    "summary": "Thermal inertia.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 245,
+    "summary": "Throttle thresholds.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 246,
+    "summary": "Idle versus load states.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 247,
+    "summary": "Case heat interactions.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 248,
+    "summary": "Sensor behavior.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 249,
+    "summary": "Thermal logging.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 250,
+    "summary": "Thermal determinism tests.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 251,
+    "summary": "Per-component power draw.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 252,
+    "summary": "CPU voltage scaling.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 253,
+    "summary": "GPU power limits.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 254,
+    "summary": "Transient power spikes.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 255,
+    "summary": "PSU efficiency losses.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 256,
+    "summary": "Workshop electricity costs.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 257,
+    "summary": "Battery-powered devices.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 258,
+    "summary": "Power diagnostics.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 259,
+    "summary": "Sleep and off states.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 260,
+    "summary": "Power-model tests.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 261,
+    "summary": "Hidden fault generation.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 262,
+    "summary": "Symptom system.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 263,
+    "summary": "Diagnostic decision tree.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 264,
+    "summary": "Known-good test parts.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 265,
+    "summary": "RAM diagnostics.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 266,
+    "summary": "Storage diagnostics.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 267,
+    "summary": "Thermal diagnostics.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 268,
+    "summary": "Power diagnostics.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 269,
+    "summary": "Diagnosis rewards.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 270,
+    "summary": "Fault discoverability tests.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 271,
+    "summary": "Dust accumulation.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 272,
+    "summary": "Visual dust masks.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 273,
+    "summary": "Compressed-air cleaning.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 274,
+    "summary": "Filter cleaning.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 275,
+    "summary": "Heatsink cleaning.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 276,
+    "summary": "Fan cleaning.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 277,
+    "summary": "Cleaning objectives.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 278,
+    "summary": "Workshop cleanliness.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 279,
+    "summary": "Dust-rate modifiers.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 280,
+    "summary": "Partial-clean state saving.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 281,
+    "summary": "Component health.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 282,
+    "summary": "Cosmetic damage.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 283,
+    "summary": "Fan wear.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 284,
+    "summary": "Storage wear.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 285,
+    "summary": "Connector damage.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 286,
+    "summary": "Thermal pad aging.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 287,
+    "summary": "Battery wear.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 288,
+    "summary": "Overclock degradation.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 289,
+    "summary": "Repair versus replace choice.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 290,
+    "summary": "Per-instance condition persistence.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 291,
+    "summary": "Safe abstraction of board repair.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 292,
+    "summary": "Board inspection.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 293,
+    "summary": "Diagnostic meter mechanic.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 294,
+    "summary": "Soldering station gameplay.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 295,
+    "summary": "Connector replacement.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 296,
+    "summary": "Generic small components.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 297,
+    "summary": "Repair quality score.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 298,
+    "summary": "Failed repair consequences.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 299,
+    "summary": "Board-repair progression.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 300,
+    "summary": "Board-repair acceptance criteria.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 301,
+    "summary": "Laptop chassis structure.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 302,
+    "summary": "Laptop accessibility differences.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 303,
+    "summary": "Laptop battery system.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 304,
+    "summary": "Laptop thermal service.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 305,
+    "summary": "SO-DIMM memory.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 306,
+    "summary": "Laptop storage.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 307,
+    "summary": "Display faults.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 308,
+    "summary": "Keyboard and touchpad repair.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 309,
+    "summary": "Laptop firmware.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 310,
+    "summary": "Laptop job generation.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 311,
+    "summary": "Shared device-category framework.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 312,
+    "summary": "Phone battery replacement.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 313,
+    "summary": "Non-upgradable phone storage.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 314,
+    "summary": "Tablet repair.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 315,
+    "summary": "Console storage upgrades.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 316,
+    "summary": "Controller repair.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 317,
+    "summary": "Gaming handhelds.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 318,
+    "summary": "Accessory compatibility.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 319,
+    "summary": "Category progression.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 320,
+    "summary": "Shared diagnostic modules.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 321,
+    "summary": "Router hardware.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 322,
+    "summary": "NAS construction.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 323,
+    "summary": "Server motherboards.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 324,
+    "summary": "Drive arrays.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 325,
+    "summary": "Network diagnostics.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 326,
+    "summary": "Rack station.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 327,
+    "summary": "High-speed network tiers.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 328,
+    "summary": "Redundant power.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 329,
+    "summary": "Server cooling.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 330,
+    "summary": "Corporate contracts.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 331,
+    "summary": "Unique item instances.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 332,
+    "summary": "Stackable consumables.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 333,
+    "summary": "Inventory search and filters.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 334,
+    "summary": "Reserved parts.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 335,
+    "summary": "Customer-owned parts.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 336,
+    "summary": "Physical warehouse shelves.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 337,
+    "summary": "Bulk storage upgrades.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 338,
+    "summary": "Inventory valuation.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 339,
+    "summary": "Damaged-return status.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 340,
+    "summary": "Inventory duplication tests.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 341,
+    "summary": "Large catalog support.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 342,
+    "summary": "Store search.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 343,
+    "summary": "Category-specific filters.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 344,
+    "summary": "Store sorting.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 345,
+    "summary": "Build compatibility filter.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 346,
+    "summary": "Stock levels.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 347,
+    "summary": "Dynamic pricing.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 348,
+    "summary": "Discounts and bundles.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 349,
+    "summary": "Cart and checkout.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 350,
+    "summary": "Purchase persistence.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 351,
+    "summary": "Shipment entities.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 352,
+    "summary": "Delivery speed tiers.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 353,
+    "summary": "Receiving area.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 354,
+    "summary": "Package inspection.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 355,
+    "summary": "Wrong-item event.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 356,
+    "summary": "Delivery delays.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 357,
+    "summary": "Shipment tracking UI.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 358,
+    "summary": "Returns and refunds.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 359,
+    "summary": "Supplier reputation.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 360,
+    "summary": "Shipment save/load test.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 361,
+    "summary": "Customer profiles.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 362,
+    "summary": "Use-case preferences.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 363,
+    "summary": "Trust level.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 364,
+    "summary": "Communication tone.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 365,
+    "summary": "Hidden preferences.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 366,
+    "summary": "Complaint system.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 367,
+    "summary": "Repeat customers.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 368,
+    "summary": "Corporate clients.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 369,
+    "summary": "VIP customers.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 370,
+    "summary": "Customer state persistence.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 371,
+    "summary": "Job lifecycle.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 372,
+    "summary": "Repair jobs.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 373,
+    "summary": "Custom-build jobs.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 374,
+    "summary": "Upgrade jobs.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 375,
+    "summary": "Software jobs.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 376,
+    "summary": "Performance targets.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 377,
+    "summary": "Noise targets.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 378,
+    "summary": "Deadlines.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 379,
+    "summary": "Optional objectives.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 380,
+    "summary": "Central completion validator.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 381,
+    "summary": "Solvable generation.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 382,
+    "summary": "Budget feasibility.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 383,
+    "summary": "Market availability awareness.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 384,
+    "summary": "Fault combinations.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 385,
+    "summary": "Difficulty scaling.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 386,
+    "summary": "Anti-repetition memory.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 387,
+    "summary": "Customer archetype weighting.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 388,
+    "summary": "Progression gating.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 389,
+    "summary": "Reward calculation.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 390,
+    "summary": "Mass generator testing.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 391,
+    "summary": "Cash-flow ledger.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 392,
+    "summary": "Job profit breakdown.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 393,
+    "summary": "Rent.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 394,
+    "summary": "Utilities.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 395,
+    "summary": "Tool purchases.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 396,
+    "summary": "Resale market.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 397,
+    "summary": "Recovery from low funds.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 398,
+    "summary": "Difficulty economy.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 399,
+    "summary": "Financial dashboard.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 400,
+    "summary": "Transaction consistency.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 401,
+    "summary": "Workshop level.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 402,
+    "summary": "Reputation score.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 403,
+    "summary": "Skill unlocks.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 404,
+    "summary": "Tool gating.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 405,
+    "summary": "Supplier unlocks.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 406,
+    "summary": "Job tiers.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 407,
+    "summary": "Cosmetic progression.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 408,
+    "summary": "Milestones.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 409,
+    "summary": "Early-game pacing.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 410,
+    "summary": "Progression persistence.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 411,
+    "summary": "Additional benches.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 412,
+    "summary": "Storage upgrades.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 413,
+    "summary": "Reception upgrades.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 414,
+    "summary": "Automated delivery handling.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 415,
+    "summary": "Helper staff.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 416,
+    "summary": "Staff recurring costs.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 417,
+    "summary": "Specialist staff.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 418,
+    "summary": "Workshop layout evolution.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 419,
+    "summary": "Visual workshop evolution.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 420,
+    "summary": "Upgrade save safety.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 421,
+    "summary": "Build color themes.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 422,
+    "summary": "RGB-capable devices.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 423,
+    "summary": "RGB effects.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 424,
+    "summary": "Touch color picker.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 425,
+    "summary": "RGB sync groups.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 426,
+    "summary": "Cable colors.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 427,
+    "summary": "Case cosmetics.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 428,
+    "summary": "Aesthetic score.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 429,
+    "summary": "RGB performance neutrality.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 430,
+    "summary": "Customization persistence.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 431,
+    "summary": "Responsive layouts.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 432,
+    "summary": "Player tablet hub.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 433,
+    "summary": "Context prompts.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 434,
+    "summary": "Hardware tooltips.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 435,
+    "summary": "Component comparison.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 436,
+    "summary": "Compatibility visualization.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 437,
+    "summary": "Readable error messages.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 438,
+    "summary": "Navigation consistency.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 439,
+    "summary": "Virtualized hardware lists.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 440,
+    "summary": "Touch-only usability test.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 441,
+    "summary": "Workshop ambience.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 442,
+    "summary": "Dynamic fan audio.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 443,
+    "summary": "Tool sounds.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 444,
+    "summary": "PC startup sounds.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 445,
+    "summary": "UI sounds.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 446,
+    "summary": "Spatial audio.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 447,
+    "summary": "Install haptics.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 448,
+    "summary": "Error haptics.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 449,
+    "summary": "Audio settings.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 450,
+    "summary": "Audio optimization.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 451,
+    "summary": "URP quality tiers.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 452,
+    "summary": "PBR materials.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 453,
+    "summary": "Lighting strategy.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 454,
+    "summary": "Reflection probes.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 455,
+    "summary": "Shadow presets.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 456,
+    "summary": "Post-processing presets.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 457,
+    "summary": "LOD system.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 458,
+    "summary": "Texture strategy.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 459,
+    "summary": "Glass rendering.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 460,
+    "summary": "Graphics acceptance criteria.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 461,
+    "summary": "Touch-first completion.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 462,
+    "summary": "Gesture conflict resolution.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 463,
+    "summary": "Adjustable controls.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 464,
+    "summary": "Safe-area support.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 465,
+    "summary": "Landscape behavior.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 466,
+    "summary": "Suspend and resume.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 467,
+    "summary": "Real-device thermal awareness.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 468,
+    "summary": "FPS limits.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 469,
+    "summary": "Battery saver mode.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 470,
+    "summary": "Android acceptance tests.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 471,
+    "summary": "Object pooling.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 472,
+    "summary": "Update minimization.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 473,
+    "summary": "Physics budget.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 474,
+    "summary": "UI virtualization.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 475,
+    "summary": "Async loading.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 476,
+    "summary": "Memory budget.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 477,
+    "summary": "GPU instancing.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 478,
+    "summary": "Occlusion culling.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 479,
+    "summary": "Profiler checks.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 480,
+    "summary": "Real-device performance tests.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 481,
+    "summary": "Multiple save slots.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 482,
+    "summary": "Versioned save schema.",
+    "status": "PARTIAL",
+    "implementation_files": [
+      "Assets/Scripts/Runtime/SaveService.cs"
+    ],
+    "tests": [
+      "Assets/Tests/EditMode/SaveServiceTests.cs"
+    ],
+    "acceptance_evidence": [
+      "Docs/Astra/BUILD_STATUS.md: 12 Mono file-operation scenarios passed with Newtonsoft shim; not Unity acceptance"
+    ],
+    "known_gaps": [
+      "Unity JsonUtility/EditMode execution pending",
+      "Android File.Replace and pause/resume runtime verification pending",
+      "Full requirement acceptance, migration and integration audit incomplete"
+    ],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 483,
+    "summary": "Atomic save writes.",
+    "status": "PARTIAL",
+    "implementation_files": [
+      "Assets/Scripts/Runtime/SaveService.cs"
+    ],
+    "tests": [
+      "Assets/Tests/EditMode/SaveServiceTests.cs"
+    ],
+    "acceptance_evidence": [
+      "Docs/Astra/BUILD_STATUS.md: 12 Mono file-operation scenarios passed with Newtonsoft shim; not Unity acceptance"
+    ],
+    "known_gaps": [
+      "Unity JsonUtility/EditMode execution pending",
+      "Android File.Replace and pause/resume runtime verification pending",
+      "Full requirement acceptance, migration and integration audit incomplete"
+    ],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 484,
+    "summary": "Autosave triggers.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 485,
+    "summary": "Workstation state saving.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 486,
+    "summary": "Inventory state saving.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 487,
+    "summary": "Timer restoration.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 488,
+    "summary": "Settings separation.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 489,
+    "summary": "Corruption recovery.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 490,
+    "summary": "Save/load scenario tests.",
+    "status": "PARTIAL",
+    "implementation_files": [
+      "Assets/Scripts/Runtime/SaveService.cs"
+    ],
+    "tests": [
+      "Assets/Tests/EditMode/SaveServiceTests.cs"
+    ],
+    "acceptance_evidence": [
+      "Docs/Astra/BUILD_STATUS.md: 12 Mono file-operation scenarios passed with Newtonsoft shim; not Unity acceptance"
+    ],
+    "known_gaps": [
+      "Unity JsonUtility/EditMode execution pending",
+      "Android File.Replace and pause/resume runtime verification pending",
+      "Full requirement acceptance, migration and integration audit incomplete"
+    ],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 491,
+    "summary": "Localization keys.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 492,
+    "summary": "English localization.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 493,
+    "summary": "Ukrainian localization.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 494,
+    "summary": "Font coverage.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 495,
+    "summary": "Text scaling.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 496,
+    "summary": "Colorblind support.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 497,
+    "summary": "Reduced motion.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 498,
+    "summary": "Haptics toggle.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 499,
+    "summary": "Captions.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 500,
+    "summary": "Live language switching.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 501,
+    "summary": "First repair tutorial.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 502,
+    "summary": "First build tutorial.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 503,
+    "summary": "BIOS tutorial.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 504,
+    "summary": "OS tutorial.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 505,
+    "summary": "Diagnostics tutorial.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 506,
+    "summary": "Context help.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 507,
+    "summary": "In-game manual.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 508,
+    "summary": "Optional guidance.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 509,
+    "summary": "Teaching through failure.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 510,
+    "summary": "Tutorial usability test.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 511,
+    "summary": "Compile gate.",
+    "status": "PARTIAL",
+    "implementation_files": [
+      "Tools/compile_managed_sources.py",
+      "Assets/Scripts/Editor/ProductionBuildGate.cs"
+    ],
+    "tests": [],
+    "acceptance_evidence": [
+      "Docs/Astra/BUILD_STATUS.md: 108 runtime + 5 editor C# sources compile with Unity 2022.3 references"
+    ],
+    "known_gaps": [
+      "Required Unity 6000.3.15f1 import/compilation not run",
+      "Android IL2CPP build not run",
+      "Source existence gates do not establish runtime acceptance"
+    ],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 512,
+    "summary": "Scene validation.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 513,
+    "summary": "Automated tests.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 514,
+    "summary": "Full gameplay smoke test.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 515,
+    "summary": "Android build test.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 516,
+    "summary": "Manifest and permissions.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 517,
+    "summary": "Crash logging.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 518,
+    "summary": "Content validation.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 519,
+    "summary": "README.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  },
+  {
+    "id": 520,
+    "summary": "Final deliverables.",
+    "status": "UNVERIFIED",
+    "implementation_files": [],
+    "tests": [],
+    "acceptance_evidence": [],
+    "known_gaps": [],
+    "notes": "Pending source and runtime audit; full acceptance text in PRODUCT_SPECIFICATION.md."
+  }
+]

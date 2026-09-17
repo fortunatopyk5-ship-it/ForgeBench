@@ -11,7 +11,7 @@ namespace ForgeBench
     {
         public static int DimmSlotCount(HardwareDefinition board)
         {
-            return Mathf.Clamp(board != null && board.dimmSlots > 0 ? board.dimmSlots : 4, 1, 8);
+            return RamSlotRules.SlotCount(board);
         }
 
         public static int PcieSlotCount(HardwareDefinition board)

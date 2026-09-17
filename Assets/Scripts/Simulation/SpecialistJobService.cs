@@ -108,11 +108,11 @@ namespace ForgeBench
                 case SpecialistContractKind.BoardRepair:
                     m.boardRepair=new BoardRepairState();m.history.Add("Customer symptom: no power; abnormal low core rail suspected short");m.lastDiagnostic="Board power-stage short suspected";break;
                 case SpecialistContractKind.LaptopBattery:
-                    m.portable=new PortableDeviceState{batteryHealth=.38f,chargingPortHealth=.58f,displayHealth=.96f,screwsRemaining=8,sealed=true,sealQuality=.96f};m.history.Add("Customer symptom: battery runtime below one hour and intermittent charging");break;
+                    m.portable=new PortableDeviceState{batteryHealth=.38f,chargingPortHealth=.58f,displayHealth=.96f,screwsRemaining=8,@sealed=true,sealQuality=.96f};m.history.Add("Customer symptom: battery runtime below one hour and intermittent charging");break;
                 case SpecialistContractKind.PhoneDisplay:
-                    m.portable=new PortableDeviceState{batteryHealth=.86f,chargingPortHealth=.92f,displayHealth=.18f,screwsRemaining=2,sealed=true,sealQuality=.92f};m.history.Add("Customer symptom: cracked/no-touch display; preserve battery and board");break;
+                    m.portable=new PortableDeviceState{batteryHealth=.86f,chargingPortHealth=.92f,displayHealth=.18f,screwsRemaining=2,@sealed=true,sealQuality=.92f};m.history.Add("Customer symptom: cracked/no-touch display; preserve battery and board");break;
                 case SpecialistContractKind.ConsoleController:
-                    m.portable=new PortableDeviceState{batteryHealth=.78f,chargingPortHealth=.88f,displayHealth=1f,screwsRemaining=6,sealed=true,sealQuality=.95f,controllerDrift=.32f};m.history.Add("Customer symptom: severe right-stick drift");break;
+                    m.portable=new PortableDeviceState{batteryHealth=.78f,chargingPortHealth=.88f,displayHealth=1f,screwsRemaining=6,@sealed=true,sealQuality=.95f,controllerDrift=.32f};m.history.Add("Customer symptom: severe right-stick drift");break;
                 case SpecialistContractKind.NasRecovery:
                     m.network=new NetworkLabState{linkUp=false,dhcp=true,ipAddress="0.0.0.0",throughputMbps=0,packetLoss=.045f,latencyMs=0,raidLevel=5,disksTotal=4,disksHealthy=3,arrayDegraded=true,scrubComplete=false};m.history.Add("Customer symptom: RAID degraded after one disk failure; network performance inconsistent");break;
                 case SpecialistContractKind.ServerNetwork:
@@ -165,15 +165,15 @@ namespace ForgeBench
                 case SpecialistContractKind.LaptopBattery:
                     if(m.portable==null||m.portable.batteryHealth<.90f)miss.Add("battery health below 90%");
                     if(m.portable==null||m.portable.chargingPortHealth<.75f)miss.Add("charging path not restored");
-                    if(m.portable==null||!m.portable.sealed)miss.Add("device not reassembled");
+                    if(m.portable==null||!m.portable.@sealed)miss.Add("device not reassembled");
                     break;
                 case SpecialistContractKind.PhoneDisplay:
                     if(m.portable==null||m.portable.displayHealth<.95f)miss.Add("display replacement incomplete");
-                    if(m.portable==null||!m.portable.sealed||m.portable.sealQuality<.78f)miss.Add("enclosure seal below acceptance threshold");
+                    if(m.portable==null||!m.portable.@sealed||m.portable.sealQuality<.78f)miss.Add("enclosure seal below acceptance threshold");
                     break;
                 case SpecialistContractKind.ConsoleController:
                     if(m.portable==null||m.portable.controllerDrift>.06f)miss.Add("controller drift remains above 0.06");
-                    if(m.portable==null||!m.portable.sealed)miss.Add("controller not reassembled");
+                    if(m.portable==null||!m.portable.@sealed)miss.Add("controller not reassembled");
                     break;
                 case SpecialistContractKind.NasRecovery:
                     if(m.network==null||!m.network.linkUp)miss.Add("network link down");

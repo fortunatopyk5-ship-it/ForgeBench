@@ -112,17 +112,17 @@ namespace ForgeBench
                     break;
                 case SpecialistContractKind.LaptopBattery:
                     m.category = DeviceCategory.Laptop;
-                    m.portable = new PortableDeviceState { screwsRemaining = 8, backCoverRemoved = false, batteryDisconnected = false, batteryHealth = .61f, chargingPortHealth = .69f, displayHealth = .96f, adhesiveIntegrity = .92f, sealed = true, sealQuality = .90f };
+                    m.portable = new PortableDeviceState { screwsRemaining = 8, backCoverRemoved = false, batteryDisconnected = false, batteryHealth = .61f, chargingPortHealth = .69f, displayHealth = .96f, adhesiveIntegrity = .92f, @sealed = true, sealQuality = .90f };
                     m.history.Add("Customer report: charging/runtime regression after portable service");
                     break;
                 case SpecialistContractKind.PhoneDisplay:
                     if (m.category != DeviceCategory.Tablet) m.category = DeviceCategory.Phone;
-                    m.portable = new PortableDeviceState { screwsRemaining = 2, backCoverRemoved = false, batteryDisconnected = false, batteryHealth = .84f, chargingPortHealth = .91f, displayHealth = .68f, adhesiveIntegrity = .74f, sealed = true, sealQuality = .66f, waterDamage = .05f };
+                    m.portable = new PortableDeviceState { screwsRemaining = 2, backCoverRemoved = false, batteryDisconnected = false, batteryHealth = .84f, chargingPortHealth = .91f, displayHealth = .68f, adhesiveIntegrity = .74f, @sealed = true, sealQuality = .66f, waterDamage = .05f };
                     m.history.Add("Customer report: display/seal quality regression");
                     break;
                 case SpecialistContractKind.ConsoleController:
                     m.category = DeviceCategory.Controller;
-                    m.portable = new PortableDeviceState { screwsRemaining = 6, backCoverRemoved = false, batteryDisconnected = false, batteryHealth = .78f, chargingPortHealth = .88f, displayHealth = 1f, sealed = true, sealQuality = .92f, controllerDrift = .19f };
+                    m.portable = new PortableDeviceState { screwsRemaining = 6, backCoverRemoved = false, batteryDisconnected = false, batteryHealth = .78f, chargingPortHealth = .88f, displayHealth = 1f, @sealed = true, sealQuality = .92f, controllerDrift = .19f };
                     m.history.Add("Customer report: analog drift returned after service");
                     break;
                 case SpecialistContractKind.NasRecovery:

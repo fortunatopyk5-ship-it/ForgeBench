@@ -47,7 +47,7 @@ namespace ForgeBench
                     if(m.portable!=null)
                     {
                         m.portable.batteryHealth=Mathf.Max(.05f,m.portable.batteryHealth-.00025f);
-                        if(!m.portable.sealed)m.portable.adhesiveIntegrity=Mathf.Max(0f,m.portable.adhesiveIntegrity-.006f);
+                        if(!m.portable.@sealed)m.portable.adhesiveIntegrity=Mathf.Max(0f,m.portable.adhesiveIntegrity-.006f);
                     }
                     if(m.network!=null&&m.network.linkUp)
                     {

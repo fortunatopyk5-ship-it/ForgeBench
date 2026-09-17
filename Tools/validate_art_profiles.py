@@ -22,7 +22,9 @@ def validate(root, manifest, require_ready=False):
     parts = json.loads(raw)["parts"]
     if manifest.get("catalogPath") != "Assets/Resources/Data/hardware.json":
         errors.append("catalogPath must reference the real hardware catalog")
-    actual_catalog_sha = hashlib.sha256(raw).hexdigest()
+    # Git may check out LF source as CRLF on Windows. Keep the fingerprint
+    # stable across platforms without masking changes to catalog content.
+    actual_catalog_sha = hashlib.sha256(raw.replace(b"\r\n", b"\n")).hexdigest()
     expected_catalog_sha = manifest.get("catalogSha256")
     if actual_catalog_sha != expected_catalog_sha:
         errors.append(

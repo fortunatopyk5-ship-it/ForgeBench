@@ -42,7 +42,7 @@ namespace ForgeBench
             DontDestroyOnLoad(gameObject);
             Catalog = new HardwareCatalog();
             Catalog.Load();
-            Saves = new SaveService();
+            Saves = new SaveService(Catalog.Get);
             Events = new GameEvents();
             State = new GameState();
             RebuildServices();
@@ -60,7 +60,7 @@ namespace ForgeBench
                 string message;
                 GameState loaded = Saves.Load(1, out message);
                 if (loaded != null) { State = loaded; RebuildServices(); Notify(message); }
-                else NewGame();
+                else { NewGame(); Notify(message, false); }
             }
             else NewGame();
             World.Build();
@@ -81,7 +81,11 @@ namespace ForgeBench
             Diagnostics = new DiagnosticsService(Inventory, PowerThermal);
             Assembly = new AssemblyService(Inventory);
             Customization = new CustomizationService(Inventory);
-            foreach (MachineState machine in State.machines) Assembly.EnsureCaseHardware(machine);
+            foreach (MachineState machine in State.machines)
+            {
+                RamSlotRules.Normalize(machine, Inventory.Def(Inventory.Get(machine.motherboardItemId)));
+                Assembly.EnsureCaseHardware(machine);
+            }
         }
 
         public void NewGame()
@@ -153,7 +157,7 @@ namespace ForgeBench
             return service == null ? ActionResult.Success("Intake service unavailable; legacy release path allowed.") : service.CanRelease(job.jobId);
         }
 
-        public void Install(string instanceId)
+        public void Install(string instanceId, int ramSlot = -1)
         {
             MachineState m = ActiveMachine;
             ItemInstance item = Inventory.Get(instanceId);
@@ -161,6 +165,7 @@ namespace ForgeBench
             ActionResult custody = BenchCustodyGuard(); if (!custody.ok) { Notify(custody.message, false); return; }
             if (item == null || item.reserved) { Notify("Part is unavailable.", false); return; }
             HardwareDefinition requested = Inventory.Def(item);
+            if (requested != null && requested.category == PartCategory.Motherboard && !string.IsNullOrEmpty(m.motherboardItemId) && m.ramItemIds.Count > 0) { Notify("Remove RAM before replacing its motherboard.", false); return; }
             if (requested != null && requested.category != PartCategory.Case && !Assembly.InternalsAccessible(m)) { Notify("Remove the side panel before accessing internal components.", false); return; }
             if (requested != null && requested.category == PartCategory.Case && (!string.IsNullOrEmpty(m.motherboardItemId) || !string.IsNullOrEmpty(m.cpuItemId) || m.ramItemIds.Count > 0 || !string.IsNullOrEmpty(m.gpuItemId))) { Notify("Remove internal components before replacing the case.", false); return; }
             ActionResult compatible = Compatibility.CanInstall(m, item);
@@ -168,7 +173,11 @@ namespace ForgeBench
             HardwareDefinition d = Inventory.Def(item);
             if (d == null) { Notify("Part definition missing.", false); return; }
 
-            if (d.category == PartCategory.RAM) InstallRamInRecommendedSlot(m, item.instanceId);
+            if (d.category == PartCategory.RAM)
+            {
+                ActionResult placement = RamSlotRules.Install(m, Inventory.Def(Inventory.Get(m.motherboardItemId)), item.instanceId, ramSlot);
+                if (!placement.ok) { Notify(placement.message, false); return; }
+            }
             else if (d.category == PartCategory.Storage) m.storageItemIds.Add(item.instanceId);
             else if (d.category == PartCategory.Fan) m.fanItemIds.Add(item.instanceId);
             else
@@ -179,6 +188,7 @@ namespace ForgeBench
                     ItemInstance oldItem = Inventory.Get(old); if (oldItem != null) { oldItem.reserved = false; oldItem.note = oldItem.customerOwned ? "Removed customer part for " + m.ownerJobId : string.Empty; }
                 }
                 SetSingleSlot(m, d.category, item.instanceId);
+                if (d.category == PartCategory.Motherboard) { m.ramLatches.Clear(); RamSlotRules.Normalize(m, d); }
             }
             item.reserved = true;
             item.note = "Installed in " + m.machineId;
@@ -195,14 +205,14 @@ namespace ForgeBench
             MarkInProgress(); Autosave(); Refresh(); Notify(d.model + " installed.");
         }
 
-        public void InstallBestAvailable(PartCategory category)
+        public void InstallBestAvailable(PartCategory category, int ramSlot = -1)
         {
             MachineState m = ActiveMachine;
             if (m == null) { Notify("Accept a job first.", false); return; }
             List<ItemInstance> candidates = Inventory.Available(category).OrderByDescending(i => Inventory.Def(i)?.performance ?? 0).ThenByDescending(i => Inventory.Def(i)?.quality ?? 0).ToList();
             foreach (ItemInstance item in candidates)
             {
-                if (Compatibility.CanInstall(m, item).ok) { Install(item.instanceId); return; }
+                if (Compatibility.CanInstall(m, item).ok) { Install(item.instanceId, ramSlot); return; }
             }
             Notify("No compatible " + category + " is available in inventory.", false);
         }
@@ -214,11 +224,14 @@ namespace ForgeBench
             if (m == null || item == null) return;
             ActionResult custody = BenchCustodyGuard(); if (!custody.ok) { Notify(custody.message, false); return; }
             HardwareDefinition removing = Inventory.Def(item);
+            if (removing != null && removing.category == PartCategory.Motherboard && m.ramItemIds.Count > 0) { Notify("Remove RAM before removing its motherboard.", false); return; }
             if (removing != null && removing.category != PartCategory.Case && !Assembly.InternalsAccessible(m)) { Notify("Remove the side panel before removing internal components.", false); return; }
             bool removed = false;
             int ramIndex = m.ramItemIds.IndexOf(instanceId);
             if (ramIndex >= 0)
             {
+                ActionResult released = RamSlotRules.CanRemove(m, Inventory.Def(Inventory.Get(m.motherboardItemId)), ramIndex);
+                if (!released.ok) { Notify(released.message, false); return; }
                 m.ramItemIds.RemoveAt(ramIndex);
                 if (m.ramSlotIndices != null && ramIndex < m.ramSlotIndices.Count) m.ramSlotIndices.RemoveAt(ramIndex);
                 removed = true;
@@ -231,6 +244,26 @@ namespace ForgeBench
                 if (removing != null && removing.category == PartCategory.Storage && m.storageItemIds.Count == 0) { m.partitioned=false;m.osInstalled=false;m.activated=false;m.driversInstalled=false; }
                 Autosave(); Refresh(); Notify("Component removed.");
             }
+        }
+
+        public void ToggleRamLatch(int slot, bool top)
+        {
+            MachineState machine = ActiveMachine;
+            if (machine == null) return;
+            ActionResult custody = BenchCustodyGuard(); if (!custody.ok) { Notify(custody.message, false); return; }
+            if (!Assembly.InternalsAccessible(machine)) { Notify("Remove the side panel to reach DIMM latches.", false); return; }
+            ActionResult result = RamSlotRules.ToggleLatch(machine, Inventory.Def(Inventory.Get(machine.motherboardItemId)), slot, top);
+            if (result.ok) machine.history.Add(result.message);
+            Result(result);
+        }
+
+        public void PowerOff()
+        {
+            MachineState machine = ActiveMachine;
+            if (machine == null) return;
+            machine.bootState = BootState.Off;
+            machine.history.Add("PC powered off for service.");
+            Autosave(); Refresh(); Notify("PC powered off.");
         }
 
         public void LoosenFastener() { MachineState m=ActiveMachine; if(m==null){Notify("No device on bench.",false);return;} Result(Assembly.LoosenNext(m)); }
@@ -429,22 +462,6 @@ namespace ForgeBench
         private void Autosave() { if (State != null) Saves.Save(State, 1); }
         private void Refresh() { Events?.Publish("state.changed"); UI?.Refresh(); World?.RefreshMachine(); }
         public void Notify(string text, bool success = true) { UI?.ShowToast(text, success); Feedback?.Play(success); Debug.Log((success ? "[ForgeBench] " : "[ForgeBench ERROR] ") + text); }
-
-        private void InstallRamInRecommendedSlot(MachineState m, string instanceId)
-        {
-            if (m.ramSlotIndices == null) m.ramSlotIndices = new List<int>();
-            HardwareDefinition board = Inventory.Def(Inventory.Get(m.motherboardItemId));
-            int slots = Mathf.Clamp(board?.dimmSlots ?? 4, 1, 8);
-            int[] preferred = slots >= 4 ? new[] { 1, 3, 0, 2, 4, 5, 6, 7 } : new[] { 0, 1, 2, 3, 4, 5, 6, 7 };
-            int chosen = 0;
-            foreach (int candidate in preferred)
-            {
-                if (candidate >= slots) continue;
-                if (!m.ramSlotIndices.Contains(candidate)) { chosen = candidate; break; }
-            }
-            m.ramItemIds.Add(instanceId);
-            m.ramSlotIndices.Add(chosen);
-        }
 
         private static string GetSingleSlot(MachineState m, PartCategory category)
         {

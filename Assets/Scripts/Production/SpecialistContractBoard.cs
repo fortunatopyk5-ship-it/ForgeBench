@@ -60,7 +60,8 @@ namespace ForgeBench
                 Card("CONTRACT BOARD LOCKED","Finish the active contract before accepting another.",new Color(.72f,.76f,.82f,1f));return;
             }
 
-            Heading("AVAILABLE SPECIALIST WORK","These contracts use dedicated persistent repair state and cannot be completed through the normal desktop validation path.");
+            Heading("AVAILABLE SPECIALIST WORK");
+            Heading("These contracts use dedicated persistent repair state and cannot be completed through the normal desktop validation path.");
             Contract("CUSTOM LIQUID-LOOP WORKSTATION","Build, fill, bleed and leak-test a custom loop.",SpecialistContractKind.LiquidBuild,SpecialistPanelMode.Liquid);
             Contract("BOARD-LEVEL POWER SHORT","ESD, microscope, rail measurement, fault localization and controlled rework.",SpecialistContractKind.BoardRepair,SpecialistPanelMode.Board);
             Contract("LAPTOP BATTERY / CHARGE PATH","Safe disassembly, battery replacement, charging service and reassembly.",SpecialistContractKind.LaptopBattery,SpecialistPanelMode.Portable);

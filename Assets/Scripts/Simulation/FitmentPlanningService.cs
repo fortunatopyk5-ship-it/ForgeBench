@@ -53,7 +53,9 @@ namespace ForgeBench
             CheckPower(r, m, psu, null);
             if (pcCase != null && gpu != null && pcCase.lengthMm > 0f && gpu.lengthMm > pcCase.lengthMm) Block(r, "GPU clearance", gpu.lengthMm.ToString("0") + " mm GPU exceeds " + pcCase.lengthMm.ToString("0") + " mm chassis clearance.");
             if (pcCase != null && cooler != null && cooler.tags != null && cooler.tags.Contains("air") && pcCase.heightMm > 0f && cooler.heightMm > pcCase.heightMm) Block(r, "Cooler clearance", cooler.heightMm.ToString("0") + " mm cooler exceeds " + pcCase.heightMm.ToString("0") + " mm chassis limit.");
-            if (m.ramItemIds != null && m.ramItemIds.Count == 2 && m.ramSlotIndices != null && m.ramSlotIndices.Count >= 2 && !(m.ramSlotIndices.Contains(1) && m.ramSlotIndices.Contains(3))) Advise(r, "Memory layout", "Two-DIMM configuration is not in preferred dual-channel slots 2/4.");
+            if (board != null && !RamSlotRules.IsValid(m, board)) Block(r, "Memory layout", "DIMM positions are missing, duplicated or outside this board's slots.");
+            else if (board != null && !RamSlotRules.IsSecured(m, board)) Block(r, "Memory retention", "Close both retention latches on each installed DIMM.");
+            else if (board != null && m.ramItemIds.Count == 2 && !RamSlotRules.IsRecommendedPair(m, board)) Advise(r, "Memory layout", "Two-DIMM configuration is not in this board's preferred dual-channel slots.");
             return Finish(r);
         }
 

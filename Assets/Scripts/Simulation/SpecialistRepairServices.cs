@@ -302,7 +302,7 @@ namespace ForgeBench
             if (s.screwsRemaining > 0) return ActionResult.Fail("Remove all chassis screws before lifting the cover.");
             if (s.backCoverRemoved) return ActionResult.Success("Back cover is already removed.");
             s.backCoverRemoved = true;
-            s.sealed = false;
+            s.@sealed = false;
             s.adhesiveIntegrity = Mathf.Max(0f, s.adhesiveIntegrity - (m.category == DeviceCategory.Phone || m.category == DeviceCategory.Tablet ? .35f : .05f));
             s.history.Add("Back cover removed without connector damage");
             return ActionResult.Success("Back cover removed. Disconnect the battery before touching internal connectors.");
@@ -391,7 +391,7 @@ namespace ForgeBench
             float baseSeal = (m.category == DeviceCategory.Phone || m.category == DeviceCategory.Tablet) ? .82f : .95f;
             s.sealQuality = Mathf.Clamp01(baseSeal + workshop.benchLevel * .025f - s.waterDamage * .20f);
             s.adhesiveIntegrity = s.sealQuality;
-            s.sealed = true;
+            s.@sealed = true;
             s.history.Add("Device reassembled; seal quality " + Mathf.RoundToInt(s.sealQuality * 100f) + "%");
             return ActionResult.Success("Device resealed. Seal quality " + Mathf.RoundToInt(s.sealQuality * 100f) + "%.");
         }

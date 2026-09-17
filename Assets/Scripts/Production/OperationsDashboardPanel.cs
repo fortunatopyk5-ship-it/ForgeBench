@@ -199,7 +199,7 @@ namespace ForgeBench
             {
                 Btn("FINAL PREFLIGHT", PreflightInspectionPanel.Open, new Color(.10f,.52f,.76f,1f)),
                 Btn("WARRANTY", WarrantyPanel.Open, new Color(.70f,.36f,.10f,1f)),
-                Btn("CUSTOMERS", CustomerRelationsPanel.Open, new Color(.15f,.54f,.72f,1f)),
+                Btn("CUSTOMERS", () => CustomerRelationsPanel.Open(), new Color(.15f,.54f,.72f,1f)),
                 Btn("STAFF", StaffRosterPanel.Open, new Color(.20f,.48f,.68f,1f))
             });
             ButtonRow(new[]

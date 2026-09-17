@@ -207,7 +207,7 @@ namespace ForgeBench
         public float adhesiveIntegrity = 1f;
         public float waterDamage;
         public bool displaySeparated;
-        public bool sealed = true;
+        public bool @sealed = true;
         public float sealQuality = 1f;
         public float controllerDrift;
         public List<string> history = new List<string>();
@@ -312,6 +312,13 @@ namespace ForgeBench
     }
 
     [Serializable]
+    public class RamLatchState
+    {
+        public bool topOpen;
+        public bool bottomOpen;
+    }
+
+    [Serializable]
     public class MachineState
     {
         public string machineId;
@@ -323,6 +330,7 @@ namespace ForgeBench
         public string cpuItemId;
         public List<string> ramItemIds = new List<string>();
         public List<int> ramSlotIndices = new List<int>();
+        public List<RamLatchState> ramLatches = new List<RamLatchState>();
         public string gpuItemId;
         public List<string> storageItemIds = new List<string>();
         public string psuItemId;
@@ -454,7 +462,7 @@ namespace ForgeBench
     [Serializable]
     public class GameState
     {
-        public int schemaVersion = 7;
+        public int schemaVersion = 8;
         public string saveId;
         public int day = 1;
         public float money = 1800f;

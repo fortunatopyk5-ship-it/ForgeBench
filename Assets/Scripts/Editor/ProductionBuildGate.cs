@@ -34,6 +34,8 @@ namespace ForgeBench.EditorTools
 
         private static readonly string[] CriticalTests =
         {
+            "Assets/Tests/EditMode/SaveServiceTests.cs",
+            "Assets/Tests/EditMode/RamSlotRulesTests.cs",
             "Assets/Tests/EditMode/EngineeringSimulationTests.cs",
             "Assets/Tests/EditMode/AdvancedDiagnosticWorkflowTests.cs",
             "Assets/Tests/EditMode/FitmentPlanningTests.cs",

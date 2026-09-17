@@ -75,7 +75,7 @@ namespace ForgeBench.Tests
             Assert.IsTrue(service.DisconnectBattery(m).ok);
             Assert.IsTrue(service.ServiceChargingPort(m).ok);
             Assert.IsTrue(service.Reseal(m).ok);
-            Assert.IsTrue(m.portable.sealed);
+            Assert.IsTrue(m.portable.@sealed);
             Assert.IsFalse(m.portable.batteryDisconnected);
         }
 
