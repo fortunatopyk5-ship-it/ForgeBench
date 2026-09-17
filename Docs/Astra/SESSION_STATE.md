@@ -29,3 +29,9 @@ Save schema raised to 8. Legacy installed RAM migrates to closed clips, empty so
 Verification: 27 Mono cases passed (serializer shim, not Unity Test Runner); 109 runtime and 5 editor sources compile against available 2022.3 assemblies; static validation passes; diff check passes. Target Unity 6, visual/touch acceptance and Android remain unverified.
 Next implementation: individual physical cable connections/disconnections using existing CableState, then component removal prerequisites that reference those connections. Preserve original full scope. Publication still awaits explicit source-disclosure approval after auto-review rejection; do not retry without it.
 User explicitly requested saving current code to GitHub (збережи поки в гітгаб). Publication of current source is authorized. CableConnectionService is an unfinished checkpoint: not wired into runtime/UI yet and not claimed complete.
+
+## GitHub publication succeeded — 2026-09-17
+User explicitly requested saving current code to GitHub. Published branch: astra/finalization.
+Verified remote checkpoint: ef380acfc3decaf8643f36a6091d7475f8b5d02a.
+Its tree 907cfd3fb7c9d94abfc4f345e04486016951a771 exactly matches local bfe1215; all 41 changed blob hashes verified, INCLUDING complete specification and requirement matrix. Previous publication blockers are resolved.
+Connector publishing produced a snapshot commit based on main, while local branch retains incremental checkpoints. Reconcile histories with a normal merge after fetching before a later CLI push; never force-push or discard local history. Current cable service is checkpointed but not wired to gameplay.
