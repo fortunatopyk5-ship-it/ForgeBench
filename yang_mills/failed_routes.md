@@ -126,3 +126,25 @@ UV stability, as such, does not identify a compact set at fixed g_match in the n
 
 Can it be repaired?
 Prove YM-MATCH-EXTRACT-1 by extracting explicit bounds from the Balaban effective-density representation and translating them into crossover_spec.md.
+
+
+---
+
+## Route: Treat the chosen KP domain as if it characterized all gapped/mixing theories
+Why it looked promising:
+KP gives a clean rigorous endpoint with explicit exponential decay.
+
+Exact failure:
+A measure can be exactly product across blocks and therefore have zero connected correlations, while a poorly chosen product-Haar activity representation has arbitrarily large one-block activities and violates the fixed KP smallness condition.
+
+Can it be repaired?
+Interpret D_KP only as one sufficient landing chart. If the invariant tube approaches strong mixing but Q_KP remains large because of local weights, re-factor the reference product measure/local counterterms before declaring the route blocked.
+
+---
+
+## Route: Start source control only at the crossover matching scale
+Exact failure:
+Microscopic observables have already passed through a cutoff-dependent number of UV integrations before K_match. Losing quasi-locality there cannot be repaired by a perfect finite crossover.
+
+Can it be repaired?
+Add YM-UV-SOURCE-MATCH-1 or strengthen YM-MATCH-EXTRACT-1 to include source kernels.
