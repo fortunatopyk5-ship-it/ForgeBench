@@ -161,3 +161,47 @@ The resulting interval inequalities are written in YM-RG-TAYLOR-1.
 
 Result:
 The abstract infinite-dimensional inclusion is reduced to a finite list of scalar bounds per RG step, but obtaining those bounds for 4D Yang-Mills at intermediate coupling remains open.
+
+
+## Attempt K — Iteration 3: audit of YM-MATCH-EXTRACT-1
+
+### K1. Compactness correction
+The old matching tube was incorrectly called compact. It is only closed/bounded in the Banach topology. None of YM-TUBE-1, YM-RG-TAYLOR-1, or the interval verifier needs an attained maximum. All bounds must be supplied as genuine finite suprema/majorants.
+
+### K2. Global C^p topology versus Balaban output
+The old local norm takes a supremum over every compact-group link configuration and all invariant derivatives up to order p.
+
+The extracted Balaban structure is different:
+- the density is a sum over admissible domain histories with characteristic factors and T-operations;
+- E/R/B activities are analytic on restricted regularity domains;
+- large-field terms are controlled by separate sector/activity estimates.
+
+Therefore the source estimates do not imply smallness in the old global all-field derivative norm.
+
+This is a topology/source mismatch, not a theorem that the exact recombined density is nonsmooth.
+
+### K3. Corrected matching representation
+Keep domain histories as combinatorial labels and use an anchored activity norm on the restricted analytic domains, with separate E/R/B/large-field coordinates. A source pointwise decay A exp(-kappa d(X)) can be converted to an anchored norm only after a rooted polymer-counting estimate (YM-NATIVE-TAIL-1).
+
+### K4. Full RG differentiability correction
+The identities
+D E[A]=E[A|V],
+D^2 E[A,B]=-Cov(A,B|V)
+hold for exact fiber integration E only.
+
+For R=L o S o E, use YM-RG-CHAINRULE-1. No bound on D R or D^2 R is currently available until:
+- E is shown to map the chosen activity spaces with bounded derivatives;
+- S has a controlled metric/weight rescaling norm;
+- L is constructed as a bounded C^2 localization/extraction map (or a source-faithful substitute).
+
+### K5. STEP_0 decision
+Because no legitimate K_0 containing actual Balaban matching output has been established, STEP_0 was NOT numerically attacked.
+
+Statuses:
+- f_0^±: UNKNOWN
+- H_0: UNKNOWN
+- A_0: UNKNOWN
+- B_0: UNKNOWN
+- C_0: UNKNOWN
+
+No Yang-Mills constants were invented.
