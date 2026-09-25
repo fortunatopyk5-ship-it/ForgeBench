@@ -153,3 +153,33 @@ STATUS: BLOCKED AT YM-MATCH-EXTRACT-1.
 
 Exact continuation point:
 Build the exact native density-space predicate and rooted summability constants from CMP119/CMP122, then establish a closed/bounded K_0 at fixed small g_match. Only then attempt the first full-R STEP_0 certificate.
+
+
+## 2026-09-26 — Iteration 4: mathematical validity of Balaban-native matching space
+
+Scope:
+Only YM-MATCH-EXTRACT-1 state-space validity. STEP_0 was prohibited and not attempted.
+
+Strongest correction:
+The native weighted l-infinity H-infinity coefficient product is not a state space of actual effective densities. The correct mathematical object is a nonlinear reconstruction graph over a closed linear compatibility layer.
+
+History audit:
+The full density sums over admissible domain histories. A sup over histories does not control that sum. No exact-disjointness theorem, cutoff-uniform finite-overlap constant, or complete source history weight was verified. Added YM-HISTORY-SUP-FAIL-1 and YM-HISTORY-WEIGHT-1.
+
+Metric audit:
+The source ledger identifies CMP109 d_j(X) as a shortest-tree localization size divided by M. Diameter-only exponential counting is false. For a bounded-degree block graph, connected m-block animals through an anchor are bounded by Delta^{2(m-1)} using a canonical DFS traversal. Hence d-shell counting is reduced to the Balaban-specific coercivity |X|<=a_0+a_1 d_j(X). History entropy remains separate.
+
+Analytic-domain audit:
+A raw common analytic core may collapse because historical analytic radii depend on g_j and early UV couplings approach zero. A normalized source-dependent analytic chart is required; no uniform chart/collar theorem was extracted.
+
+Coupling audit:
+The native coordinate is a localized c_j(x)=1/g_j^2(x). A scalar c alone is insufficient near domain boundaries. The augmented state must include a coupling-profile defect q.
+
+Primary-source audit:
+CMP119/CMP122 direct equation-level verification could not be upgraded: repository DOI links redirect to Springer endpoints inaccessible to the available browser. Equation-level formulas therefore retain secondary visual-transcription status. Paper-level metadata/abstracts were verified. The CMP109 d_j definition remains source-extracted through the audit ledger.
+
+Result:
+STATUS: BLOCKED BEFORE K_0.
+
+Exact continuation:
+Extract exact primary admissible-history/nesting/characteristic structure and history summation mechanism; prove Balaban-specific tree coercivity; construct normalized analytic charts with a positive fixed reference collar; then prove reconstruction continuity and native RG preservation.
