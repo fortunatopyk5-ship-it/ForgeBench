@@ -222,7 +222,7 @@ KNOWN FROM BALABAN (at the level verified in the primary-paper metadata/abstract
 - large-field R operations were constructed; the 1989 Part II states completion of the ultraviolet-stability proof for four-dimensional pure gauge theories.
 
 NOT obtained merely from those statements:
-- a cutoff/volume-uniform compact K_match in the global Banach norm above at a fixed g_match;
+- a cutoff/volume-uniform closed/bounded K_match in the global Banach norm above at a fixed g_match;
 - a proof that beta(Phi) in this global chart is quantitatively equivalent to Balaban's perturbative coupling coordinate at matching;
 - a finite-step nonperturbative invariant tube all the way to D_KP;
 - source/observable transport bounds sufficient to transfer final coarse mixing to all microscopic local observables;
@@ -254,3 +254,148 @@ with Phi in K_match and source kernels whose quasi-local norms are uniformly bou
 A practical drift certificate should not assume that every beta<=beta_sc belongs to D_KP. Use a bounded terminal strip
 beta_min <= beta <= beta_sc
 and prove a no-overshoot lower bound for the last step. This is encoded in YM-RG-DRIFT-2.
+
+
+## 11. Iteration 3 correction: compactness
+
+The matching tube
+K_match={Phi in B^sym: beta_-<=beta(Phi)<=beta_+, r(Phi)<=R_match}
+is CLOSED and BOUNDED when beta is continuous and r(Phi)=||Q Phi|| with Q bounded. It is not claimed compact.
+
+No existing tube-induction argument requires compactness. Expressions such as
+sup_{Phi in K_j} F(Phi)
+are supremums in the extended real numbers and need not be attained. Every use in a proof must supply a finite upper bound explicitly. Continuity on a closed bounded infinite-dimensional set does not by itself imply such a bound.
+
+If future work requires attainment/subsequence compactness, a separate compact-embedding/tighter-topology lemma must be stated.
+
+## 12. Iteration 3 verdict on the global all-field C^p matching norm
+
+The space B_{alpha,mu,p,rho} defined above remains a mathematically legitimate Banach space, but it is NOT presently a legitimate Balaban matching space.
+
+The reason is structural.
+
+Balaban's full effective density is represented sector-by-sector, with admissible domain histories, characteristic factors, a T-operation, and an E/R/B effective action. The available analytic bounds for local E/R/B terms are stated on restricted regularity/analyticity domains. Large-field pieces are controlled by separate localized activity estimates and large-field suppression. These estimates do not give uniform derivatives of a single recombined interaction over every U in G^{E(X^+)}.
+
+In particular, a bound that is small because a large-field sector carries an activity/probability factor does not imply
+sup_U |D^m Phi_X(U)| << 1.
+Rare configurations are not discounted by the old local norm.
+
+A literal absorption of sharp characteristic factors into Phi_X is also incompatible with C^p regularity at sector boundaries. The exact total density may nevertheless be smooth after summing sectors; what is missing is a theorem controlling derivatives of that recombination. Therefore the rigorous conclusion is:
+
+[NOT ESTABLISHED]
+Balaban output => ||Q Phi_match||_{alpha,mu,p,rho} <= epsilon_match.
+
+This is a mismatch of known estimates/topology, not a proof that no globally smooth representation exists.
+
+## 13. Candidate Balaban-native matching topology
+
+To avoid differentiating sector characteristic functions, keep the domain history as a combinatorial label.
+
+Let Sigma be an admissible domain-history label (Omega_j,Lambda_j,S_j, etc.) and let d_Sigma(X) denote the native localization metric attached to the corresponding scale/sector. Let U^c_Sigma(X) be the restricted analytic/regularity domain on which the local activity is controlled.
+
+For a local analytic activity F_{Sigma,X}, define
+
+||F_{Sigma,X}||^{an}_{p,rho}
+ =
+ max_{0<=m<=p} rho^m/m!
+ sup_{U in U^c_Sigma(X)}
+ sup_{e_i,|xi_i|=1}
+ |D_{e_1,xi_1}...D_{e_m,xi_m}F_{Sigma,X}(U)|.
+
+For kappa'>0 define the anchored native activity norm
+
+N_{kappa',p,rho}(F)
+ =
+ sup_{Sigma,B}
+ sum_{X contains B}
+ exp(kappa' d_Sigma(X))
+ ||F_{Sigma,X}||^{an}_{p,rho}.
+
+The characteristic/domain indicator is NOT differentiated; it belongs to Sigma.
+
+A candidate matching datum is the tuple
+D=(g,{E_Sigma},{R_Sigma},{B_Sigma},{C_Sigma},...)
+with norm assembled componentwise, for example
+
+||D||_native
+ =
+ |c(g)|
+ + w_E N(E)
+ + w_R N(R)
+ + w_B N(B)
+ + w_C N(C),
+
+where the weights are chosen to normalize the native amplitudes appearing in the source bounds (such as powers of g or exp[-p_0(g)]). The exact weights are part of YM-MATCH-EXTRACT-1 and are not fixed here without source justification.
+
+This is a candidate topology because its geometry matches the form of the extracted Balaban estimates. Preservation by the full RG still has to be proved/identified with Balaban's inductive class.
+
+### Rooted-tail conversion needed
+
+A pointwise source estimate
+||F_{Sigma,X}|| <= A(g) exp(-kappa d_Sigma(X))
+does not automatically imply N_{kappa'}(F)<infinity.
+
+It suffices to prove a volume-uniform rooted counting bound
+# {X contains B: n<=d_Sigma(X)<n+1} <= C_count exp(c_count n)
+and choose kappa-kappa'>c_count. Then
+
+N_{kappa'}(F)
+ <= A(g) C_count
+    sum_{n>=0} exp[-(kappa-kappa'-c_count)n],
+
+which is finite and explicit.
+
+This counting/tail conversion is a separate requirement, not hidden inside the notation.
+
+## 14. Natural source extension
+
+The native sector/activity topology has a direct source extension. If J denotes quasi-local source kernels indexed by the same (Sigma,X), define
+
+||(D,J)||_src = ||D||_native + lambda_J N_{kappa'_J,p_J,rho_J}(J).
+
+Thus the corrected topology can in principle accommodate YM-UV-SOURCE-MATCH-1 / YM-RG-SOURCE-1 without changing representation. No source theorem is proved by this observation.
+
+## 15. Full RG is E then S then L, not just E
+
+Write
+R = L o S o E.
+
+E is exact fiber integration. Its formal finite-volume differential identities are
+
+D E_Phi[A] = E_{Phi,V}[A],
+D^2 E_Phi[A,B] = -Cov_{Phi,V}(A,B).
+
+These identities alone DO NOT establish that E maps one of the above infinite-volume uniform Banach spaces to another with bounded derivatives.
+
+S is block identification/rescaling. Its operator norm depends on the chosen polymer metric and weights and must be estimated.
+
+L is localization/extraction. In the old specification it was only named, not constructed as a bounded linear map. Balaban localization is implemented through localized expansions/random-walk/cluster machinery; it has not been identified here with a single fixed bounded linear operator on B_{alpha,mu,p,rho}.
+
+If E is C^2, S is bounded linear, and L is C^2, the correct chain rule is
+
+D R_Phi
+ = D L_{S E(Phi)} o S o D E_Phi,
+
+D^2 R_Phi[A,B]
+ = D^2 L_{S E(Phi)}
+     [S D E_Phi[A], S D E_Phi[B]]
+   + D L_{S E(Phi)}
+     [S D^2 E_Phi[A,B]].
+
+Only if L is bounded linear does this simplify to
+D R = L S D E,
+D^2 R = L S D^2 E.
+
+Therefore C_0 in YM-RG-TAYLOR-1 is not instantiated for the full Yang-Mills RG until E/S/L mapping and derivative bounds are supplied.
+
+## 16. Level A versus Level B certificate reduction
+
+The five STEP_j bounds f,H,A,B,C are a FINITE NUMBER of certificate families (Level A).
+
+They are not thereby finite-dimensional computations.
+
+For example
+C_j=sup_{Phi in K_j} ||D^2 R_Phi||
+is an infinite-dimensional optimization problem unless one further proves a reduction to finite polymer sizes/group integrals plus controlled analytic tails.
+
+The interval verifier checks Level A certificates after they have been rigorously derived. It does not solve Level B.
