@@ -56,3 +56,10 @@ Iteration 3 extracted source shapes (secondary visual transcriptions):
 - CMP122-II Theorem 1: preservation of the CMP119 Sect.2 density form/conditions while all effective couplings remain in a sufficiently small interval.
 
 These formulas justify the domain-indexed activity topology investigation; they do NOT justify a global all-field C^p matching ball.
+
+
+Iteration 4 primary-source access audit:
+- Rutgers repository records CMP109 and CMP119 as open version-of-record links, but the DOI links redirect to Springer endpoints that were inaccessible to the available browser in this run. Therefore no CMP109/CMP119 equation-level statement was newly upgraded to direct-primary-verified status.
+- CMP122-II bibliographic/paper-level metadata and abstract were verified through Rutgers/publisher-indexed metadata, but equation/Theorem-1 bodies remain secondary visual transcriptions from the SHA-pinned source-audit ledger.
+- The source-audit ledger marks CMP109 printed p.257 / PDF p.9 as source-extracted for the definition of d_j(X): shortest tree-graph length intersecting all localization cubes, divided by M. This is used only with that provenance label; it is not claimed as newly direct primary verification.
+- CMP119's abstract-level statement that complete effective densities include large-field domains and that the renormalization transformations preserve their form is independently corroborated by Rutgers/OpenAIRE metadata. This is paper-level support, not an equation-level dictionary.
