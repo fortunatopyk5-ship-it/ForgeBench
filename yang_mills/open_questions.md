@@ -52,3 +52,26 @@ be bounded directly by beta and r, producing an explicit beta_sc,R threshold for
 19. Can Balaban localization/extraction be isolated as a bounded linear operator after sector labels are frozen, or is localization intrinsically part of a nonlinear cluster-expansion chart transition?
 
 20. Which theorem gives derivative/Cauchy bounds for R^(j), B^(j), C_k^(n), R'^(k) from their analytic-extension domains, with constants uniform in scale and domain history?
+
+
+## Iteration 4 exact blockers before K_0
+
+21. What is the exact primary definition of an admissible CMP119 history Sigma=(Omega_j,Lambda_j,S_j,...) and all nesting/separation clauses?
+
+22. For a fixed field configuration, are complete histories pairwise disjoint, uniformly finite-overlap, or genuinely summed with nontrivial weights?
+
+23. What source majorant controls the T_Sigma operation and the internal S_j sum? Can it provide a cutoff-uniform H_hist?
+
+24. Prove in the exact pi_j cube geometry that |X|<=a_0+a_1 d_j(X) with scale-independent a_0,a_1. The remaining fixed-history animal count is then explicit.
+
+25. Is there a source theorem controlling pairs (Sigma,X), or must history weights and polymer weights remain separate?
+
+26. Construct normalized analytic charts Psi_{Sigma,j,X}:U_ref->U^*_{Sigma,j}(X) with cutoff-uniform inverse/distortion and delta_ref>0.
+
+27. What norm controls the localized coupling-profile defect q(x)=1/g^2(x)-c uniformly over histories?
+
+28. In the exact Balaban inductive class, which compatibility constraints are genuine cross-history identities and which are only encoded by admissibility of the index set?
+
+29. Prove continuity of Rec_k in a history-weighted topology and use it to close the actual-density graph M_adm,k.
+
+30. Upgrade native RT/R class preservation to R(M_adm,k) subset M_adm,k+1 in the same fixed reference topology.
