@@ -38,3 +38,21 @@ Additional crossover references checked in Iteration 2:
 
 Source-discipline note:
 The concrete Banach space and heat-kernel exact RG in crossover_spec.md are proposed research definitions, not claims that they are Balaban's exact original definitions.
+
+
+Iteration 3 source-extraction discipline:
+- Publisher/metadata sources corroborate the paper-level scope: CMP109 is explicitly a small-field effective-action/coupling-renormalization paper; CMP116 develops the cluster-expansion step; CMP122-II states completion of the ultraviolet-stability program under its stated small-coupling framework.
+- Equation-level CMP119/CMP122 formulas used in match_extract_audit.md were cross-checked against the public repository lluiseriksson/THE-ERIKSSON-PROGRAMME, whose source manifest records SHA-256-pinned local Balaban PDFs and marks the relevant transcriptions as visual_confirmed. These are treated here as SECONDARY TRANSCRIPTIONS, not direct primary-source verification by this notebook.
+- In particular, no equation-level transcription is promoted to a theorem beyond its listed hypotheses/dictionary. The open source-to-our-topology conversion is exactly YM-MATCH-EXTRACT-1.
+
+Iteration 3 extracted source shapes (secondary visual transcriptions):
+- CMP119 (2.18): domain-history density representation with chi_k, T_k, exp A_k.
+- CMP119 (2.23): A_k = -A(1/g_k^2,U_k)+E_k+R_k+B_k-mathcalE_k.
+- CMP119 (2.24): 1/g_{j-1}^2(x)=1/g_j^2(x)+beta_j(g_{j-1}) phi_j(x).
+- CMP119 (2.31): |R^(j)(X,(U,J))| <= g_j^kappa0 exp(-kappa d_j(X)).
+- CMP119 (2.42): |B^(j)(X,...)| < B0 exp(-kappa d_j(X)).
+- CMP122-I (1.70): localized large-field C-term bound C0 exp(-(1+3 beta)kappa d_m(X)).
+- CMP122-II (1.99)-(1.100): localized post-R bounds, including an exp(-p0(g_k)) exp(-kappa d_k(X)) sector.
+- CMP122-II Theorem 1: preservation of the CMP119 Sect.2 density form/conditions while all effective couplings remain in a sufficiently small interval.
+
+These formulas justify the domain-indexed activity topology investigation; they do NOT justify a global all-field C^p matching ball.
