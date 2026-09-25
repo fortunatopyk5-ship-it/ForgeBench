@@ -63,3 +63,80 @@ If this single landing estimate is proved, standard cluster expansion gives expo
 
 Status:
 PROMISING ROUTE — NOT A PROOF.
+
+
+## Attempt F — adversarial attack on YM-CROSSOVER-1
+
+### F1. Scalar coupling is not enough
+Toy RG:
+R(g,r)=(g+1,r+1).
+Then g->infinity while the generated remainder diverges.
+
+Even with contraction:
+R(g,r)=(g+delta,rho r+h), 0<rho<1.
+If h/(1-rho) lies outside the desired cluster-expansion radius, the flow never enters that radius.
+
+Conclusion:
+the crossover must be a coupled full-action estimate, not a beta-function argument.
+
+### F2. Measure-only KP landing is not enough
+Let a fine theory split into visible variables V and hidden variables H. Let V have product measure and H have long-range correlations. An RG that retains V and integrates out H lands immediately in a product/KP coarse measure, but H-observables still have long-range correlations.
+
+Exact identity:
+Cov(F,G)
+=Cov(E[F|V],E[G|V])
+ + E[Cov(F,G|V)].
+
+Therefore coarse mixing controls only the first term. A source-dependent RG locality bound is required for the second term.
+
+Result:
+YM-RG-LANDING-1 from Iteration 1 must be read with an added source/observable hypothesis (YM-RG-SOURCE-1).
+
+## Attempt G — concrete Banach/KP specification
+
+Defined in crossover_spec.md:
+- blocks: unit 4-cells after RG rescaling;
+- polymers: finite face-connected block sets;
+- local variables: compact G-link variables in a one-block collar;
+- local C^p norm: sup of left-invariant Lie derivatives through order p;
+- global interaction norm:
+  sup_B sum_{X contains B} exp(alpha|X|+mu diam(X)) ||Phi_X||_{p,rho};
+- strong-coupling coordinate beta=ell_W(Phi);
+- remainder r=||Phi-beta W||;
+- exact gauge-covariant RG candidate via central heat-kernel blocking, exact conditional integration, rescaling, and a fixed localization prescription;
+- D_KP defined by scalar super-polymer activities obtained by expanding exp(-sum Phi_X), grouping overlapping connected families, and integrating each disconnected component against product Haar.
+
+The anchored condition
+Q_{alpha,mu}(z)<alpha
+is sufficient for the standard KP theorem.
+
+## Attempt H — invariant tube
+
+Define
+K_j={beta in I_j, r<=R_j}.
+If rigorous one-step enclosures bound beta' and r' into I_{j+1},R_{j+1}, induction proves
+R(K_j) subset K_{j+1}.
+
+A stronger drift form proves finite M:
+beta'<=beta-delta,
+r'<=rho r+B,
+B<=(1-rho)R.
+Then r stays in the tube and beta reaches the final region in at most
+ceil((beta_max-beta_sc)/delta)+1 steps.
+
+This removes the previous unsupported heuristic "fixed matching coupling automatically implies a finite number of nonperturbative steps".
+
+## Attempt I — corrected lattice-to-continuum passage
+
+Problem:
+A cluster estimate may have prefactor C_O(a) diverging with cutoff, so directly passing
+C_O(a)e^{-m t}
+to the continuum is unsafe.
+
+Repair:
+At each fixed cutoff first use common long-time decay on a dense local sector plus reflection positivity to obtain an ACTUAL transfer spectral gap m_a. Then
+C_a(t+s)<=e^{-m_a s} C_a(t).
+This inequality has no observable prefactor. Positive-time correlation convergence passes it to the continuum, and the spectral theorem excludes support below liminf m_a.
+
+Result:
+YM-CUTOFF-BRIDGE-2. Equal-time norm convergence is not needed for this version.
