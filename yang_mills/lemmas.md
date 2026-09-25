@@ -235,7 +235,7 @@ Merely reaching an O(1) effective coupling is not enough; the KP norm must actua
 
 ## LEMMA ID: YM-CROSSOVER-1
 Statement:
-Fix a block factor b>1 and a Banach space B of gauge-invariant effective interactions with an exact RG map R. Assume the UV construction supplies, at the first matching scale where a chosen renormalized coupling reaches a fixed small value g_match>0, a cutoff- and volume-uniform compact set K_match subset B of possible effective actions, with matching spacing a_match comparable (up to a fixed G-dependent factor) to Lambda_YM^{-1}.
+Fix a block factor b>1 and a Banach space B of gauge-invariant effective interactions with an exact RG map R. Assume the UV construction supplies, at the first matching scale where a chosen renormalized coupling reaches a fixed small value g_match>0, a cutoff- and volume-uniform closed and bounded matching tube K_match subset B of possible effective actions, with matching spacing a_match comparable (up to a fixed G-dependent factor) to Lambda_YM^{-1}.
 
 Prove that there exist an integer M_G<infinity and q<1, both independent of the original cutoff a and volume, such that
 R^{M_G}(K_match) subset D_KP(q),
@@ -404,25 +404,31 @@ YM-CROSSOVER-1 needs coupled inequalities for relevant and generated polymer/irr
 
 ## LEMMA ID: YM-MATCH-EXTRACT-1
 
-Statement:
-At a fixed small matching coupling, convert the Balaban-type small/large-field effective density into a globally defined group-valued interaction Phi in the concrete Banach space B_{alpha,mu,p,rho} of crossover_spec.md, uniformly in UV cutoff and physical volume, with quantitative bounds
+Statement (corrected Iteration 3):
+At a fixed small matching coupling, extract from the Balaban-type UV density representation a cutoff- and volume-uniform CLOSED AND BOUNDED matching tube K_0 in a source-faithful domain-indexed activity topology. The matching datum must retain the admissible domain-history labels and separate E/R/B/large-field activities rather than first forcing them into one globally C^p interaction.
 
-beta(Phi) in [beta_-,beta_+],
-||Phi-beta(Phi)W||_{alpha,mu,p,rho} <= epsilon_match,
+Required quantitative outputs:
+(1) a coupling coordinate c(g) in a fixed interval I_0, with an explicit dictionary to the coefficient of the Wilson/classical-action direction;
+(2) finite anchored activity norms for the E/R/B/large-field components, obtained from their native pointwise-decay/analyticity estimates plus a rooted tail-counting lemma;
+(3) constants uniform in UV cutoff and physical volume over the selected matching scale.
 
-and with a matching-scale relation a_match Lambda_YM in [c_-,c_+].
+Optional stronger conclusion:
+If a separate embedding theorem maps this native matching space boundedly into B_{alpha,mu,p,rho}, then one may recover a global tube there. Such an embedding is NOT assumed.
 
 Purpose:
-Supply the actual K_match used by YM-CROSSOVER-1.
+Construct a mathematically legitimate K_0 before attempting STEP_0.
 
 Status:
-UNKNOWN.
+BLOCKED / REFORMULATED.
 
 Known input:
-Balaban constructed gauge-field averaging/RG operations, developed 4D small-field effective actions and coupling renormalization, exponentiated the fluctuation integral by cluster expansion, and completed the stated 4D ultraviolet-stability program with large-field R operations.
+Balaban's RG papers provide a domain-decomposed density representation, localized E/R/B terms, small-field analytic domains, and large-field/R-operation bounds in their native variables under small-coupling hypotheses.
 
 Gap:
-Those known results have NOT been verified here to imply the global Banach-ball statement above at a fixed g_match. In particular, "UV stability" is not the same statement as a compact K_match in this norm, nor a complete R^4 continuum QFT construction.
+No theorem has been established here converting these estimates to the previous all-field global C^p remainder norm. The corrected native norm itself still needs a source-exact parameter dictionary and rooted summability constants.
+
+Counterexample/adversarial issue:
+Measure/activity suppression of large-field sectors does not imply pointwise smallness under a supremum over all gauge configurations. Sharp characteristic/domain factors cannot simply be differentiated in the old C^p norm.
 
 ---
 
@@ -699,3 +705,120 @@ Balaban's UV work provides localized effective-action/cluster-expansion machiner
 
 Gap:
 Extract or prove source estimates with constants compatible with the matching Banach norm.
+
+
+---
+
+## LEMMA ID: YM-COMPACTNESS-CORRECTION-1
+
+Statement:
+Let B be an infinite-dimensional Banach space, beta in B* continuous, Q:B->B bounded, and
+K={Phi in B: beta_-<=beta(Phi)<=beta_+, ||Q Phi||<=R}.
+Then K is closed and bounded in the directions controlled by beta and Q (and is a bounded subset when beta together with Q controls the full norm as in Phi=beta(Phi)W+QPhi). In general K need not be compact.
+
+For the tube-induction lemmas, compactness is unnecessary: all hypotheses may be formulated with non-attained suprema and explicit finite upper bounds.
+
+Status:
+PROVED.
+
+Proof:
+Continuity of beta and Q makes the inverse images defining K closed. In the decomposition Phi=beta(Phi)W+QPhi with beta(W)=1 and Q=I-W beta, the interval and Q-radius imply
+||Phi|| <= max(|beta_-|,|beta_+|)||W||+R.
+Noncompactness is generic: the closed unit ball of an infinite-dimensional normed space is not compact. YM-TUBE-1 only uses universal inequalities for all Phi in K; no maximizing Phi is required.
+
+---
+
+## LEMMA ID: YM-RG-CHAINRULE-1
+
+Statement:
+Let B0,B1,B2,B3 be Banach spaces,
+E:B0->B1 be C^2,
+S:B1->B2 bounded linear,
+L:B2->B3 be C^2,
+and R=L o S o E.
+Then
+
+D R_Phi
+ = D L_{S E(Phi)} o S o D E_Phi,
+
+and
+
+D^2 R_Phi[A,B]
+ = D^2 L_{S E(Phi)}
+     [S D E_Phi[A], S D E_Phi[B]]
+   + D L_{S E(Phi)}
+     [S D^2 E_Phi[A,B]].
+
+If L is bounded linear, the first term vanishes and
+D R=L S D E,
+D^2 R=L S D^2 E.
+
+Status:
+PROVED.
+
+Proof:
+Standard first- and second-order Frechet chain rule.
+
+Purpose:
+Prevent the exact fiber-integration covariance identity from being incorrectly promoted to a derivative formula for the full RG map.
+
+Yang-Mills instantiation status:
+UNKNOWN. Mapping/boundedness/differentiability of E,S,L in the corrected matching topology have not been established. In particular the localization/extraction operator L is not yet a proved bounded linear operator.
+
+---
+
+## LEMMA ID: YM-NATIVE-TAIL-1
+
+Statement:
+Suppose a domain-indexed polymer family F_{Sigma,X} satisfies
+||F_{Sigma,X}|| <= A exp(-kappa d_Sigma(X))
+and there are volume-uniform constants C_count,c_count such that for every Sigma, anchor block B and n>=0,
+
+#{X contains B: n<=d_Sigma(X)<n+1}
+ <= C_count exp(c_count n).
+
+Then for every kappa'<kappa-c_count,
+
+sup_{Sigma,B}
+sum_{X contains B}
+e^{kappa' d_Sigma(X)}
+||F_{Sigma,X}||
+<=
+A C_count /
+(1-exp[-(kappa-kappa'-c_count)]).
+
+Status:
+PROVED.
+
+Proof:
+Group polymers into integer distance shells and sum the resulting geometric series.
+
+Purpose:
+This is the missing elementary conversion between Balaban-style pointwise polymer decay and a volume-uniform anchored activity Banach norm. The nontrivial source-specific input is the rooted counting estimate and the exact comparison between Balaban's d_j and the chosen polymer index.
+
+---
+
+## LEMMA ID: YM-GLOBAL-CP-MATCH-IMPLICATION-1
+
+Statement:
+The currently extracted Balaban estimates do NOT establish the implication
+
+Balaban UV/small-coupling output
+=>
+||Q Phi_match||_{alpha,mu,p,rho} <= epsilon
+
+for the old global all-field C^p polymer norm.
+
+Status:
+PROVED AS A SOURCE/LOGICAL NON-IMPLICATION; NOT a theorem that such an embedding is impossible.
+
+Reason:
+The extracted hypotheses and conclusions control:
+- analytic local activities on restricted regularity domains;
+- sector/domain-history dependent E/R/B decompositions;
+- separate large-field activities and suppression factors.
+
+They contain no bound on derivatives of a single globally recombined interaction over all U in G^{E(X^+)} and no bounded embedding theorem into B_{alpha,mu,p,rho}. Therefore using them to infer the global norm estimate is an unsupported strengthening.
+
+Important limitation:
+It remains possible that a different argument proves the exact recombined density is globally smooth and bounded in such a norm. That theorem is simply absent from the currently extracted UV package.
