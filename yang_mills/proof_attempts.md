@@ -205,3 +205,35 @@ Statuses:
 - C_0: UNKNOWN
 
 No Yang-Mills constants were invented.
+
+
+## Attempt L — Iteration 4: make the native state a space of actual densities
+
+### L1. Failure of coefficient-space identification
+The weighted l-infinity H-infinity product is Banach, but arbitrary coefficient families do not reconstruct a Balaban density. The correct object is a nonlinear graph rho=Rec(c,q,F) over the verified compatibility layer.
+
+### L2. Linear compatibility layer
+Support, gauge invariance, Euclidean covariance, normalization, and genuine restriction equalities can be imposed as kernels of bounded maps. This yields a closed Banach subspace C_lin (YM-COMPAT-CLOSED-1).
+
+Exact admissibility/nesting/overlap rules were not recovered directly from primary CMP119/CMP122 text, so no guessed cross-history equations were added.
+
+### L3. History-sum failure
+CMP119's source form contains a sum over admissible domain histories, with additional S_j summation inside T_k. A sup over histories cannot control this sum. No exact-disjointness theorem, uniform overlap number, or source history weight was obtained.
+
+Thus the old B_pt norm is insufficient for the reconstruction map even before STEP_0.
+
+### L4. Metric repair
+The source ledger identifies d_j(X) as a shortest-tree localization size, not diameter. Diameter-only counting was falsified adversarially. For tree size, a fully explicit fixed-history animal bound is available:
+connected m-block sets through an anchor <= Delta^{2(m-1)}.
+Therefore exponential d-shell counting reduces to the single Balaban-geometric coercivity |X|<=a_0+a_1 d_j(X).
+
+This still does not count histories.
+
+### L5. Analytic-domain failure
+A common raw analytic core is not justified because historical source radii depend on g_j and can shrink toward zero at early UV scales. Proposed repair: normalized source-dependent charts to a fixed reference domain. Uniform chart distortion/collar remains open.
+
+### L6. Coupling coordinate repair
+The native recursion is for c_j(x)=1/g_j^2(x), not just a scalar. A faithful state therefore carries a bulk c plus a localized profile q(x)=c(x)-c. The old ell_W coordinate remains suspended.
+
+Result:
+STATUS: BLOCKED BEFORE K_0. No STEP_0 bounds were attempted.
