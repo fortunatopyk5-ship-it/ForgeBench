@@ -42,3 +42,8 @@ However, adversarial analysis shows a global PI may be too strong because auxili
 
 A second, cleaner mass-gap target is YM-RG-LANDING-1:
 prove that exact RG lands, at block scale a_*~Lambda_YM^{-1}, inside a cutoff-independent Kotecky-Preiss polymer domain. If this holds, clustering and the physical gap follow while reflection positivity is used only at the original Wilson lattice level.
+
+
+Refined blocker:
+YM-CROSSOVER-1 is now the sharpest proposed new lemma after the UV package.
+The key observation is that all cutoff-dependent infinitely many UV scales can be handled before a FIXED matching coupling g_match. From that fixed matching surface to a fixed strong-mixing polymer domain, only a finite number M_G of RG block steps should be required if the exact nonperturbative flow can be controlled. Therefore the new mathematical target is a finite-step inclusion in an effective-action Banach space, not an analytic continuation of a bare-coupling gap formula.
