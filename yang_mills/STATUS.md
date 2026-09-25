@@ -4,7 +4,7 @@ Current objective:
 Determine whether Balaban's UV/small-coupling output can be converted into a mathematically legitimate matching set K_0 for STEP_0. The immediate task is functional-analytic: audit the matching topology, remove the false compactness assumption, and extract only those bounds actually supplied by Balaban-type estimates.
 
 Current strongest result:
-The previous global sup-over-all-fields C^p polymer norm is NOT presently supported by the known Balaban estimates as a matching topology. Balaban's published RG representation is domain-indexed: small-field terms are analytic on restricted regularity domains, while large-field pieces are handled by characteristic/domain decompositions and separate exponentially localized activity bounds. Therefore the implication "Balaban UV stability => ||Q Phi_match||_{global C^p} <= epsilon" has not been established and must not be used. A Balaban-native, domain-indexed regulated activity norm is the correct candidate matching topology.
+The previous global sup-over-all-fields C^p polymer norm is NOT presently supported by the known Balaban estimates as a matching topology. A source-faithful replacement has been isolated: a domain-indexed weighted l^infinity H^infinity activity Banach space, where characteristic/domain histories are combinatorial labels and local analytic functions are normed only on the source regularity domains. Pointwise Balaban-type bounds A(g)e^{-kappa d(X)} feed this norm directly; rooted counting plus a decay reserve is then a separate theorem converting it to anchored l^1/KP control. This separation removes an unsupported summability and all-field-supremum assumption.
 
 Current blocking lemma:
 YM-MATCH-EXTRACT-1 (corrected): construct a cutoff/volume-uniform CLOSED AND BOUNDED matching tube in a Balaban-native domain-indexed activity space, with an explicit dictionary between Balaban's running coupling g_k / coefficient 1/g_k^2 and the crossover coordinate, plus explicit E/R/B/large-field activity bounds. Only after this is proved is STEP_0 mathematically instantiated.
@@ -34,7 +34,7 @@ Unverified:
 - finite-dimensional computability of the five STEP_0 certificates.
 
 Next action:
-Do NOT attempt numerical STEP_0 yet. First prove a source-faithful native matching statement from CMP119/CMP122: formulate the exact domain-indexed Banach/regulator norm, translate the published E/R/B/large-field pointwise-decay estimates into an anchored volume-uniform norm bound, and establish the coupling-coordinate dictionary. If that succeeds, define K_0 in that topology and only then derive STEP_0 operator bounds.
+Do NOT attempt numerical STEP_0 yet. Instantiate the native pointwise analytic Banach space with the exact CMP119/CMP122 analytic domains, amplitudes, metrics and constant restrictions; prove a common inner analytic-domain/coupling interval and the rooted-counting conversion. Use the source-native marginal coordinate c=1/g^2 until a comparison with ell_W is proved. This produces the first legitimate quantitative K_0; only then derive STEP_0 operator bounds.
 
 Iteration-3 verdict:
 STATUS: BLOCKED AT YM-MATCH-EXTRACT-1 — CURRENT GLOBAL C^p MATCHING NORM IS NOT JUSTIFIED BY KNOWN UV ESTIMATES.
