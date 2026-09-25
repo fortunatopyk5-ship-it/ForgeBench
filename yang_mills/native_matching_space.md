@@ -119,13 +119,13 @@ The robust formulation is to supply source weights W_Sigma >= 0 and operator maj
 
 H_hist =
  sup_U sum_{Sigma in Adm_k}
- |chi_Sigma(U)| tau_Sigma W_Sigma
+ |chi_Sigma(U)| tau_Sigma / w_Sigma
  < infinity
 
 uniformly in k/cutoff/volume,
 
 while the sector data obey
-a_Sigma(F) <= R W_Sigma^{-1}.
+a_Sigma(F) <= R / w_Sigma.
 
 Then
 
