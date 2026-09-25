@@ -30,3 +30,15 @@ Unverified:
 
 Next action:
 Attack YM-FI-1 quantitatively. Derive a general covariance-decay theorem from (i) a Poincare inequality for a reversible local semigroup and (ii) a finite-propagation/commutator matrix estimate; then determine the exact scaling requirement on lambda_a/v_a and compare it with a Lambda_YM.
+
+
+Update — Iteration 1b:
+A new abstract bridge YM-SEMIGROUP-1 was proved:
+PI relaxation + weighted finite-propagation of local gradients gives a common spatial clustering rate
+gamma >= kappa lambda/[2(lambda+v_kappa)].
+Thus a sufficient cutoff target is
+lambda_a/(lambda_a+v_{kappa,a}) >= c a Lambda_YM.
+However, adversarial analysis shows a global PI may be too strong because auxiliary slow global/topological modes need not coincide with the physical local spectrum.
+
+A second, cleaner mass-gap target is YM-RG-LANDING-1:
+prove that exact RG lands, at block scale a_*~Lambda_YM^{-1}, inside a cutoff-independent Kotecky-Preiss polymer domain. If this holds, clustering and the physical gap follow while reflection positivity is used only at the original Wilson lattice level.
