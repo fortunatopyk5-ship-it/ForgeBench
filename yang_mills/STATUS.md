@@ -1,43 +1,55 @@
 # STATUS
 
 Current objective:
-Determine whether Balaban's UV/small-coupling output can be converted into a mathematically legitimate matching set K_0 for STEP_0. The immediate task is functional-analytic: audit the matching topology, remove the false compactness assumption, and extract only those bounds actually supplied by Balaban-type estimates.
+Determine whether the new Balaban-native matching object can be made a mathematically legitimate SPACE OF ACTUAL EFFECTIVE DENSITIES. This iteration is restricted to admissibility/gluing, domain-history summability, the native tree metric, common analytic charts, and the separate c=1/g^2 coupling coordinate. STEP_0 is prohibited.
 
 Current strongest result:
-The previous global sup-over-all-fields C^p polymer norm is NOT presently supported by the known Balaban estimates as a matching topology. A source-faithful replacement has been isolated: a domain-indexed weighted l^infinity H^infinity activity Banach space, where characteristic/domain histories are combinatorial labels and local analytic functions are normed only on the source regularity domains. Pointwise Balaban-type bounds A(g)e^{-kappa d(X)} feed this norm directly; rooted counting plus a decay reserve is then a separate theorem converting it to anchored l^1/KP control. This separation removes an unsupported summability and all-field-supremum assumption.
+The previous weighted l^infinity H^infinity coefficient product B_pt is only a component space, not a state space of effective densities. The actual Balaban state must be represented by a nonlinear reconstruction graph
+rho=Rec(c,q,F)
+over source-admissible domain histories, with a separate localized coupling-profile coordinate q. A second history-summability/overlap norm is mandatory unless exact history disjointness or cutoff-uniform finite overlap is proved. Polymer/tree entropy and domain-history entropy are distinct certificates.
 
 Current blocking lemma:
-YM-MATCH-EXTRACT-1 (corrected): construct a cutoff/volume-uniform CLOSED AND BOUNDED matching tube in a Balaban-native domain-indexed activity space, with an explicit dictionary between Balaban's running coupling g_k / coefficient 1/g_k^2 and the crossover coordinate, plus explicit E/R/B/large-field activity bounds. Only after this is proved is STEP_0 mathematically instantiated.
-
-Assumptions:
-- compact simple gauge group G;
-- Wilson-type lattice UV regularization;
-- use of Balaban's small-coupling inductive density class only where the hypotheses of the cited RG theorems are satisfied;
-- no compactness of infinite-dimensional matching balls is assumed.
+YM-MATCH-EXTRACT-1 now blocks BEFORE K_0. To construct K_0 one must prove simultaneously:
+(1) exact source admissibility/nesting and reconstruction compatibility;
+(2) cutoff/volume-uniform convergence/continuity of the history sum;
+(3) the Balaban tree-metric coercivity/counting constants;
+(4) a fixed normalized analytic chart with positive uniform reference collar;
+(5) a scalar bulk c=1/g^2 plus localized coupling-profile state;
+(6) native RG preservation in this topology.
 
 Verified:
-- closed bounded subsets of an infinite-dimensional Banach space need not be compact; previous compact-K_match wording was incorrect and unnecessary for tube induction;
-- YM-TUBE-1 uses suprema/upper bounds and induction, not attainment of extrema;
-- the exact fiber-integration derivative identities D E[A]=E[A|V], D^2 E[A,B]=-Cov(A,B|V) apply to E only, not automatically to the full R=L∘S∘E;
-- abstract chain rule for the full R is valid only after mapping/boundedness/differentiability of S and L are established;
-- Balaban's density representation includes characteristic/domain histories and separate E/R/B/large-field sectors; extracted local estimates are on restricted analytic domains, not a global all-field C^p ball;
-- the five STEP_j quantities f,H,A,B,C are a finite NUMBER of certificates (Level A), but have NOT been reduced to finite-dimensional computations (Level B);
-- no actual Yang-Mills numerical constants f_0^±, H_0, A_0, B_0, C_0 have been proved.
+- B_pt is Banach but arbitrary coefficient families need not reconstruct a density.
+- Verified bounded linear compatibility equations define a closed Banach subspace C_lin (YM-COMPAT-CLOSED-1).
+- The state of actual densities is generally a nonlinear closed graph, conditional on continuity of Rec; it is not naturally a linear Banach subspace (YM-RECON-GRAPH-1, YM-NATIVE-STATE-GRAPH-1).
+- l^infinity over histories does not control the history sum (YM-HISTORY-SUP-FAIL-1).
+- Exact disjointness, finite overlap, or weighted history summability would each suffice; none has been source-verified yet.
+- The Balaban metric tracked by the source ledger is a shortest-tree localization size, not diameter. A diameter-only metric would not support the required exp(c n) polymer counting (YM-DIAMETER-COUNT-FAIL-1).
+- Tree-shell counting follows from bounded-degree lattice-animal counting plus a uniform coercivity |X|<=a_0+a_1 d_tree(X) (YM-TREE-COUNT-1).
+- Counting X at fixed history does not count pairs (Sigma,X); history entropy is separate (YM-HISTORY-POLYMER-SEPARATION-1).
+- A naive common raw analytic core can collapse if historical analytic radii tend to zero; normalized analytic charts are the correct repair target.
+- CMP119's native coupling is localized c_j(x)=1/g_j^2(x). A single scalar c does not encode the boundary/profile part; a profile coordinate q is required (YM-LOCAL-COUPLING-PROFILE-1).
+- No STEP_0 bound was attempted.
+
+Primary-source status:
+Direct equation-level primary verification for CMP119/CMP122 was NOT achieved in this run. Rutgers marks CMP109/CMP119 version-of-record links as open, but the DOI redirects to Springer endpoints inaccessible to the available browser. Therefore CMP119/CMP122 formulas remain secondary visual transcriptions pinned to primary-PDF hashes in the source-audit repository. Paper-level publisher/repository metadata are verified. The CMP109 d_j definition remains source-extracted through that audit ledger, not newly direct-primary-verified here.
 
 Unverified:
-- nonemptiness of a matching tube containing the actual Balaban output at a fixed matching coupling in the corrected native topology;
-- a cutoff/volume-uniform native matching radius R_0 and whether it is small enough for a Taylor tube;
-- boundedness/differentiability of the chosen localization/extraction map in any crossover Banach topology;
-- existence of D^2 R for the FULL RG map in the intended infinite-volume uniform topology;
-- quantitative comparison of beta=ell_W(Phi) with Balaban's running coupling/coefficient;
-- self-mapping of the proposed global C^p space by the full RG;
-- finite-dimensional computability of the five STEP_0 certificates.
+- exact primary definition of the complete admissible history set Adm_k and all nesting/overlap rules;
+- whether characteristic sectors are disjoint, finite-overlap, or require a nontrivial history weight;
+- a cutoff-uniform history reconstruction constant H_hist;
+- source-geometric coercivity |X|<=a_0+a_1 d_j(X) in the exact Balaban cube convention;
+- a pair-count/history-weight analogue for (Sigma,X);
+- a fixed normalized analytic reference chart and delta_*>0;
+- exact chart-transition bounds under native RG;
+- a cutoff-uniform coupling-profile norm/radius;
+- continuity of the reconstruction map and topology-level RG preservation;
+- component/history constants sufficient to define actual K_0.
 
 Next action:
-Do NOT attempt numerical STEP_0 yet. Instantiate the native pointwise analytic Banach space with the exact CMP119/CMP122 analytic domains, amplitudes, metrics and constant restrictions; prove a common inner analytic-domain/coupling interval and the rooted-counting conversion. Use the source-native marginal coordinate c=1/g^2 until a comparison with ell_W is proved. This produces the first legitimate quantitative K_0; only then derive STEP_0 operator bounds.
+Stay inside YM-MATCH-EXTRACT-1. Extract the exact admissible-history definition and characteristic/T-operation summation mechanism from primary CMP119/CMP122 source material. In parallel, prove the source-geometric tree coercivity/counting lemma in the exact pi_j cube convention and construct normalized analytic charts for shrinking alpha_{r,j}. Only after a cutoff-uniform history reconstruction bound and chart collar are available can a legitimate K_0 be defined.
 
-Iteration-3 verdict:
-STATUS: BLOCKED AT YM-MATCH-EXTRACT-1 — CURRENT GLOBAL C^p MATCHING NORM IS NOT JUSTIFIED BY KNOWN UV ESTIMATES.
+Iteration-4 verdict:
+STATUS: BLOCKED BEFORE K_0.
 
 
 ## Update — Iteration 2 (YM-CROSSOVER-1 only)
