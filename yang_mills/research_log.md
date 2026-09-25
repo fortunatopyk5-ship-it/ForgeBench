@@ -46,3 +46,15 @@ Make YM-RG-LANDING-1 less black-box by splitting it into:
 (b) a finite crossover lemma for the remaining O(1) range of effective coupling;
 (c) entry into a rigorous strong-mixing/polymer domain.
 The likely genuinely new content is (b).
+
+
+## 2026-09-25 — Iteration 1c
+
+Reduction sharpened:
+Introduce YM-CROSSOVER-1. After the UV RG reaches a fixed matching coupling g_match, prove that a finite, cutoff-independent number M_G of exact RG steps sends the full compact matching set of effective interactions into a Kotecky-Preiss strong-mixing domain.
+
+Reason this matters:
+The number of UV steps diverges as a->0, but those are the asymptotically-free/small-coupling steps for which constructive RG is the natural tool. The genuinely nonperturbative crossover starts from a fixed g_match, so its required scale interval is fixed; if it can be controlled, it is a finite-step problem.
+
+Adversarial warning:
+A scalar running coupling is not enough. The inclusion must be in a norm controlling the entire generated effective action, including irrelevant operators and large-field/polymer terms.
