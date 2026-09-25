@@ -63,9 +63,7 @@ Why:
 Therefore no legitimate R_0 in that topology was extracted.
 
 ### Corrected candidate
-Use a domain-indexed activity family with native metric d_Sigma(X), restricted analytic derivative norm, and anchored exponential sum. Keep E,R,B,C sectors separate and keep characteristic histories as combinatorial labels rather than differentiable fields.
-
-A source bound A exp(-kappa d_Sigma(X)) becomes an anchored Banach bound only after a rooted counting estimate; see YM-NATIVE-TAIL-1.
+Use first a domain-indexed weighted l^infinity H^infinity activity family with native metric d_Sigma(X) and restricted analytic domains. Keep E,R,B,C sectors separate and keep characteristic histories as combinatorial labels rather than differentiable fields. This is a Banach space and a pointwise source bound A exp(-kappa d_Sigma(X)) feeds it directly. Only afterwards use YM-NATIVE-TAIL-1 plus rooted counting to reach an anchored l^1/KP norm.
 
 ## E. Full RG map audit
 
@@ -98,7 +96,7 @@ Because a legitimate K_0 containing the actual matching output has NOT yet been 
 
 | Certificate | Status | Reason |
 |---|---|---|
-| f_0^- , f_0^+ | UNKNOWN | full RG + coupling-coordinate dictionary not fixed |
+| f_0^- , f_0^+ | UNKNOWN in old ell_W chart; EXPLICIT BUT UNEVALUATED in native c=1/g^2 chart | CMP119 (2.24) gives the native recursion shape, but no rigorous interval extrema/beta-function constants have been extracted |
 | H_0 | UNKNOWN | no native/global K_0 and no bounded localization map |
 | A_0 | UNKNOWN | D R for full RG not established in matching topology |
 | B_0 | UNKNOWN | same |
