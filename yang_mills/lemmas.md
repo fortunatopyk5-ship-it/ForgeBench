@@ -1004,32 +1004,54 @@ UNKNOWN. No source-derived disjointness theorem, cutoff-uniform overlap constant
 ## LEMMA ID: YM-TREE-COUNT-1
 
 Statement:
-Let G be a graph of uniformly bounded degree. Assume a class of connected finite sets X containing an anchor B has an exponential lattice-animal count
-
-#{X contains B: |X|=m} <= C_A exp(c_A m),
-
-and a nonnegative tree-size metric d satisfies
+Let G be a graph of maximum degree Delta<infinity and let d be a nonnegative tree-size metric on connected finite vertex sets. Assume
 
 |X| <= a_0 + a_1 d(X)
 
 with constants independent of volume/scale.
 
-Then there exist explicit constants C_count,c_count depending only on
-C_A,c_A,a_0,a_1 such that
+Then for every anchor B and n>=0,
 
 #{X contains B: n<=d(X)<n+1}
 <= C_count exp(c_count n)
 
-for all n>=0.
+with explicit constants depending only on Delta,a_0,a_1.
 
 Status:
 PROVED.
 
 Proof:
-For d(X)<n+1, coercivity gives |X|<=a_0+a_1(n+1). Sum the exponential animal bound over all allowed cardinalities.
+Fix once and for all an ordering of vertices and neighbours. Every connected m-vertex set X containing B has a canonical spanning tree (choose the first one under the induced ordering) and a canonical depth-first traversal beginning at B. The traversal has exactly 2(m-1) edge steps and its set of visited vertices is X. Hence the map X -> canonical traversal is injective. Since each step has at most Delta choices,
+
+#{connected X containing B: |X|=m}
+<= Delta^{2(m-1)}.
+
+If d(X)<n+1, coercivity gives
+
+m=|X| <= M_n := floor(a_0+a_1(n+1)).
+
+Therefore
+
+#{X contains B: n<=d(X)<n+1}
+<= sum_{m=1}^{M_n} Delta^{2(m-1)}.
+
+For Delta>1,
+
+sum_{m=1}^{M_n} Delta^{2(m-1)}
+= (Delta^{2M_n}-1)/(Delta^2-1),
+
+so one may take, for example,
+
+c_count=2 a_1 log Delta
+
+and a finite C_count depending only on Delta,a_0,a_1. The cases Delta<=1 are trivial.
 
 Balaban relevance:
-The source-audit ledger identifies CMP109 d_j(X) as shortest tree-graph length divided by M for a connected finite union of localization cubes. Therefore the missing source-geometric input is a uniform coercivity inequality |X|<=a_0+a_1 d_j(X) in the exact Balaban cube convention.
+The source-audit ledger identifies CMP109 d_j(X) as shortest tree-graph length divided by M for a connected finite union of localization cubes. Thus the remaining Balaban-specific geometric input is the uniform coercivity
+
+|X| <= a_0+a_1 d_j(X)
+
+in the exact pi_j-cube convention. The lattice-animal combinatorics itself is no longer a blocker.
 
 ---
 
