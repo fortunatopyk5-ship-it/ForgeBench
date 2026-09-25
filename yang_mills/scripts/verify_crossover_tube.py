@@ -10,6 +10,12 @@ next beta-coordinate and remainder coordinate on the current box. The checker
 uses interval arithmetic to prove that these enclosures lie in the proposed
 next box. A final polynomial upper bound q(beta,r) can be checked against a
 Kotecky--Preiss threshold alpha.
+
+LEVEL-A ONLY: this verifier checks a finite NUMBER of scalar certificate
+inequalities after they have been rigorously derived. It does not prove that
+the input bounds came from Yang--Mills, does not reduce infinite-dimensional
+operator suprema to finite-dimensional problems, and does not establish a
+matching set K_0.
 """
 from __future__ import annotations
 
