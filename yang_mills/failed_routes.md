@@ -173,3 +173,52 @@ The full map is R=L o S o E. Localization/extraction and rescaling contribute th
 
 Can it be repaired?
 Prove the E/S/L mapping properties and then use YM-RG-CHAINRULE-1.
+
+
+---
+
+## Route: Treat the native l-infinity coefficient product as the actual effective-density space
+Why it looked promising:
+Balaban local activity bounds have exactly the pointwise exponential form that fits a weighted l-infinity product.
+
+Exact failure:
+The full density is a sum over admissible multiscale histories with characteristic factors and T-operations. Arbitrary coefficient families need not satisfy admissibility/gluing/reconstruction, and sup over histories does not control their sum.
+
+Can it be repaired?
+Use a closed linear compatibility layer plus a nonlinear reconstruction graph, and add a source-derived history summability/overlap norm.
+
+---
+
+## Route: Assume characteristic functions make complete histories disjoint
+Why it looked promising:
+Small/large-field decompositions often arise from partitions of unity.
+
+Exact failure:
+No primary/source theorem was extracted showing that complete CMP119 multiscale histories are pairwise disjoint at fixed field, or that their overlap multiplicity is cutoff-uniform. The density formula explicitly sums histories, and S_j summation is included in T_k.
+
+Can it be repaired?
+Extract exact disjointness/overlap from the primary source, or prove a weighted history-summability bound.
+
+---
+
+## Route: Use a single raw common analytic domain across all historical scales
+Why it looked promising:
+A compact matching interval in the current coupling suggests a positive analytic radius.
+
+Exact failure:
+The effective density retains terms generated at earlier UV scales; their source analytic radii depend on g_j and can shrink as g_j->0 when the cutoff is removed. The infimum of raw radii can therefore vanish.
+
+Can it be repaired?
+Normalize each source analytic domain by a scale/coupling-dependent chart into a fixed reference domain and prove uniform chart/RG distortion.
+
+---
+
+## Route: Model the Balaban coupling by one scalar c=1/g^2
+Why it looked promising:
+The bulk classical action has coefficient 1/g^2.
+
+Exact failure:
+CMP119 uses a localized coupling c_j(x) and a cutoff/domain function phi_j(x). Boundary/history geometry produces nonconstant coupling profiles.
+
+Can it be repaired?
+Use scalar bulk c plus a coupling-profile coordinate q(x)=c(x)-c.
