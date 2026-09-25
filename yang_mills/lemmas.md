@@ -893,3 +893,251 @@ The extracted theorem shape of CMP119 Theorem 1 / CMP122-II Theorem 1 provides (
 
 Unverified:
 (ii)-(iii) and the full numerical parameter dictionary. Therefore this is not yet an instantiated STEP_0 theorem.
+
+
+---
+
+## LEMMA ID: YM-COMPAT-CLOSED-1
+
+Statement:
+Let B be Banach and let {C_a:B->Y_a}_{a in A} be any family of bounded linear maps into normed spaces. Then
+
+C = intersection_{a in A} ker C_a
+
+is a closed linear subspace of B and therefore Banach with the inherited norm.
+
+Status:
+PROVED.
+
+Proof:
+Each ker C_a is closed because C_a is continuous. An arbitrary intersection of closed sets is closed. Closed linear subspaces of Banach spaces are Banach.
+
+Use:
+Verified support/gauge/covariance/normalization/restriction equalities may be imposed this way on the native coefficient product. This does NOT prove that Balaban's complete admissibility and overlap rules are all of this form.
+
+---
+
+## LEMMA ID: YM-RECON-GRAPH-1
+
+Statement:
+Let X,Y be metric spaces and Rec:X->Y continuous. Then
+
+Graph(Rec)={(x,y): y=Rec(x)}
+
+is closed in X x Y.
+
+If Y is a Banach function space with closed positive cone Y_+, and N:Y->R is continuous, then
+
+{(x,rho): rho=Rec(x), rho in Y_+, N(rho)=1}
+
+is closed.
+
+Status:
+PROVED.
+
+Purpose:
+The actual Balaban matching state should be represented as a nonlinear reconstruction graph, not as the entire linear coefficient product.
+
+Yang-Mills instantiation:
+BLOCKED because continuity of the history sum defining Rec has not been established uniformly in cutoff/volume.
+
+---
+
+## LEMMA ID: YM-HISTORY-SUP-FAIL-1
+
+Statement:
+There is no constant C independent of N such that for all nonnegative families
+(a_1,...,a_N),
+
+sum_{i=1}^N a_i <= C max_i a_i.
+
+Status:
+PROVED.
+
+Proof:
+Take a_i=1. Then the left side is N and the right side is C.
+
+Consequence:
+A weighted l-infinity norm over Balaban domain histories does not by itself control the reconstruction sum over histories. Either exact disjointness, cutoff-uniform finite overlap, or weighted history summability is required.
+
+---
+
+## LEMMA ID: YM-HISTORY-WEIGHT-1
+
+Statement:
+Let sector contributions Sec_Sigma(U) obey
+
+|Sec_Sigma(U)| <= tau_Sigma a_Sigma
+
+and suppose there are positive weights w_Sigma such that
+
+a_Sigma <= R / w_Sigma
+
+and
+
+H_hist :=
+sup_U sum_{Sigma in Adm}
+ |chi_Sigma(U)| tau_Sigma / w_Sigma
+< infinity.
+
+Then
+
+sup_U |sum_Sigma chi_Sigma(U) Sec_Sigma(U)|
+<= H_hist R.
+
+Status:
+PROVED.
+
+Proof:
+Triangle inequality followed by the two assumed majorants.
+
+Special cases:
+- exact disjointness with |chi|<=1 gives H_hist<=sup tau when at most one history contributes;
+- overlap multiplicity <=C gives H_hist<=C sup tau for w=1;
+- genuine branching requires a nontrivial history weight.
+
+Yang-Mills instantiation:
+UNKNOWN. No source-derived disjointness theorem, cutoff-uniform overlap constant, or complete history weight has been extracted.
+
+---
+
+## LEMMA ID: YM-TREE-COUNT-1
+
+Statement:
+Let G be a graph of uniformly bounded degree. Assume a class of connected finite sets X containing an anchor B has an exponential lattice-animal count
+
+#{X contains B: |X|=m} <= C_A exp(c_A m),
+
+and a nonnegative tree-size metric d satisfies
+
+|X| <= a_0 + a_1 d(X)
+
+with constants independent of volume/scale.
+
+Then there exist explicit constants C_count,c_count depending only on
+C_A,c_A,a_0,a_1 such that
+
+#{X contains B: n<=d(X)<n+1}
+<= C_count exp(c_count n)
+
+for all n>=0.
+
+Status:
+PROVED.
+
+Proof:
+For d(X)<n+1, coercivity gives |X|<=a_0+a_1(n+1). Sum the exponential animal bound over all allowed cardinalities.
+
+Balaban relevance:
+The source-audit ledger identifies CMP109 d_j(X) as shortest tree-graph length divided by M for a connected finite union of localization cubes. Therefore the missing source-geometric input is a uniform coercivity inequality |X|<=a_0+a_1 d_j(X) in the exact Balaban cube convention.
+
+---
+
+## LEMMA ID: YM-DIAMETER-COUNT-FAIL-1
+
+Statement:
+A metric that controls only diameter does not in general imply a shell count
+#{X contains B: d(X) in [n,n+1)} <= C exp(c n)
+for connected subsets of Z^d when d>=2.
+
+Status:
+PROVED.
+
+Reason:
+A box of side O(n) contains O(n^d) sites. Fix a connected backbone spanning the box and independently include many adjacent optional sites while maintaining connectedness. This gives exp(c n^d) distinct connected sets of diameter O(n), which cannot be bounded by C exp(c' n).
+
+Purpose:
+The native metric must be verified to control tree/cardinality complexity, not merely geometric diameter.
+
+---
+
+## LEMMA ID: YM-HISTORY-POLYMER-SEPARATION-1
+
+Statement:
+A polymer shell bound for fixed history,
+
+sup_{Sigma,B}
+#{X: B in X, n<=d_Sigma(X)<n+1}
+<= C exp(c n),
+
+does not imply a corresponding bound on pairs (Sigma,X).
+
+Status:
+PROVED.
+
+Proof:
+For any fixed X one may replicate the same X under arbitrarily many distinct history labels without changing d_Sigma(X). Thus the pair count can be arbitrarily larger unless the history family has an independent multiplicity/weight bound.
+
+Consequence:
+Polymer entropy and domain-history entropy are separate certificates in YM-MATCH-EXTRACT-1.
+
+---
+
+## LEMMA ID: YM-NATIVE-STATE-GRAPH-1
+
+Statement:
+Let B_pt be the native coefficient Banach product, C_lin its verified closed linear compatibility subspace, I_c a coupling interval, Q a coupling-profile Banach space, and D a density Banach space. If
+
+Rec:I_c x Q x C_lin -> D
+
+is continuous, define
+
+M_adm =
+{(c,q,F,rho):
+ c in I_c,
+ q in Q,
+ F in C_lin,
+ rho=Rec(c,q,F),
+ rho>=0,
+ N(rho)=1}.
+
+Then M_adm is a closed nonlinear subset of the product state space whenever I_c is closed, the positive cone of D is closed, and N is continuous.
+
+Status:
+PROVED CONDITIONALLY ON continuity of Rec and the chosen density topology.
+
+Important:
+M_adm is not generally linear or affine because Rec contains exponentiation/integration and positivity. Thus calling the space of actual Balaban densities a closed linear subspace of B_pt would be incorrect.
+
+Yang-Mills instantiation:
+BLOCKED by history summability/reconstruction continuity, exact admissibility data, and a fixed analytic chart.
+
+---
+
+## LEMMA ID: YM-RAW-COMMON-DOMAIN-WARNING-1
+
+Statement:
+Suppose a family of analytic domains has radii r_j with inf_j r_j=0. Then there is no common raw ball of positive radius delta_* contained in every domain.
+
+Status:
+PROVED.
+
+Balaban relevance:
+The extracted CMP119 domain parameters have the schematic dependence
+alpha_{r,j}=g_j C_r (log g_j^{-2})^{q_r}.
+For historical UV scales along an asymptotically-free trajectory, g_j may approach zero as the UV cutoff is removed. Hence a positive cutoff-uniform common raw analytic core cannot be inferred and may fail.
+
+Repair target:
+Use normalized source-dependent charts into a fixed reference domain and prove uniform chart/transition distortion instead of intersecting all raw domains.
+
+---
+
+## LEMMA ID: YM-LOCAL-COUPLING-PROFILE-1
+
+Statement:
+A recursion of the form
+
+c_{j-1}(x)=c_j(x)+b_j phi_j(x)
+
+cannot in general be represented by a single scalar coordinate c_j unless phi_j is spatially constant or the nonconstant coupling profile is stored in additional state data.
+
+Status:
+PROVED.
+
+Proof:
+If phi_j(x) is nonconstant, then even a constant c_j(x) produces a nonconstant c_{j-1}(x).
+
+Balaban relevance:
+For c_j(x)=1/g_j^2(x), CMP119's localized recursion uses phi_j supported in the relevant domain and equal to one only on an interior core. Therefore a faithful matching state requires a scalar bulk/reference c plus a localized coupling-profile coordinate (or an equivalent history-dependent field), not I_c alone.
+
+The old ell_W coordinate remains outside the native matching construction.
