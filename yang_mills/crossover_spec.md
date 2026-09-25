@@ -229,3 +229,28 @@ NOT obtained merely from those statements:
 - the complete R^4 continuum OS theory.
 
 These are explicit additional tasks, not consequences of the phrase "UV stability".
+
+
+## 10. Corrections after adversarial audit
+
+### 10.1 Polymer incompatibility uses actual collars/supports
+Because Phi_X is a function of links in X^+, two interaction polymers are incompatible whenever their actual link-supports overlap, not merely when their core block sets X overlap.
+
+Define supp(Phi_X) as the set of blocks meeting E(X^+). All super-polymer unions, diameters used in the KP activity, and incompatibility relations are henceforth understood in terms of these actual support blocks. The anchored KP proof is unchanged after this replacement.
+
+### 10.2 D_KP is sufficient, not necessary
+The fixed product-Haar polymer chart can fail even for a perfectly mixing measure. Example: a product measure over blocks with a very large one-block potential has exactly zero connected correlations between distinct blocks, but the activity exp(-Phi_B)-1 can have arbitrarily large norm and violate Q_{alpha,mu}<alpha.
+
+Therefore failure to enter this particular D_KP does not imply absence of a mass gap. YM-CROSSOVER-1 is a sufficient route and may be strictly stronger than the desired physical statement.
+
+### 10.3 Source data must already be present at matching
+Microscopic observables pass through the many UV steps before K_match is reached. Thus the UV-to-matching package cannot consist only of a measure interaction Phi. It must also provide a controlled source chart for the chosen local gauge-invariant observable algebra.
+
+The corrected matching object is a pair
+(Phi,J-map)
+with Phi in K_match and source kernels whose quasi-local norms are uniformly bounded. YM-MATCH-EXTRACT-1 must be strengthened accordingly, or an explicit UV-SOURCE-MATCH lemma must be supplied.
+
+### 10.4 Finite-drift terminal strip
+A practical drift certificate should not assume that every beta<=beta_sc belongs to D_KP. Use a bounded terminal strip
+beta_min <= beta <= beta_sc
+and prove a no-overshoot lower bound for the last step. This is encoded in YM-RG-DRIFT-2.
