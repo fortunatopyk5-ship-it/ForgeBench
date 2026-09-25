@@ -100,3 +100,16 @@ C = YM-RG-SOURCE-1.
 
 Next action:
 Do not open a new mass-gap route. Extract an actual one-step Balaban gauge-RG map/bounds into the variables beta,r of crossover_spec.md and determine whether the first nontrivial tube step can be proved analytically.
+
+
+### Iteration 2 final refinement
+
+Proved YM-RG-DERIV-1:
+the first and second Frechet derivatives of exact block integration are conditional expectations and minus conditional covariances.
+
+Proved YM-RG-TAYLOR-1:
+a full infinite-dimensional one-step tube inclusion is implied by five scalar families of rigorous bounds (center flow, generated remainder, relevant/irrelevant mixing, irrelevant amplification, second derivative). This is the closest result of this iteration to the target
+YM-CROSSOVER-1 <=> finite explicit list of inequalities.
+
+Exact continuation point:
+extract the first matching interval I_0 and radius R_0 from Balaban-type bounds, then prove numerical/analytic enclosures f_0^±,H_0,A_0,B_0,C_0. Do not move to another mass-gap route before this first tube step is either certified or shown impossible in the chosen norm.
