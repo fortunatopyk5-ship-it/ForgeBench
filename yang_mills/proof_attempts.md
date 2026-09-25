@@ -36,3 +36,30 @@ only gives a positive continuum lower bound if its exponent/power corrections ar
 
 Status:
 PROVED as a comparison criterion, conditional on the standard asymptotic-scaling relation being the chosen trajectory.
+
+
+## Attempt D — abstract semigroup-to-space theorem
+Result: YM-SEMIGROUP-1 proved under explicit assumptions.
+
+The key rate is not the Poincare constant lambda_a by itself but
+  rho_a(kappa)=lambda_a/(lambda_a+v_{kappa,a}),
+where v_{kappa,a} controls how quickly a local derivative can spread under the auxiliary semigroup.
+
+For a reflection-positive lattice theory this gives the sufficient physical-gap estimate
+  Delta_a >= [kappa/(2a)] rho_a(kappa).
+
+This ratio is invariant under an overall rescaling of stochastic-quantization time L_a -> r L_a, because both lambda_a and v_{kappa,a} scale by r.
+
+Adversarial correction:
+A global PI may be stronger than necessary. Slow global/topological modes can make an auxiliary Markov gap tiny while local Euclidean correlations remain short-ranged. Future work should replace global PI by conditional/block or local-observable relaxation.
+
+## Attempt E — RG landing into a polymer mixing domain
+Instead of analytically continuing the strong-coupling proof in the bare beta, run an exact RG from weak UV coupling toward the IR.
+
+Concrete sufficient landing condition:
+at a coarse spacing a_*~Lambda_YM^{-1}, the effective polymer activities satisfy a cutoff-independent Kotecky-Preiss norm bound with exponential diameter weight.
+
+If this single landing estimate is proved, standard cluster expansion gives exponential correlation decay at rate O(1/a_*)=O(Lambda_YM), and original-lattice reflection positivity gives the physical mass gap.
+
+Status:
+PROMISING ROUTE — NOT A PROOF.
