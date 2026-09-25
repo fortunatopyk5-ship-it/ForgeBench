@@ -135,3 +135,92 @@ Balaban-type UV control does not by itself supply the full R^4 OS theory with th
 
 Counterexample search:
 A subsequential or fixed-volume UV limit is insufficient if thermodynamic-limit control or nontriviality is missing.
+
+
+---
+
+## LEMMA ID: YM-SEMIGROUP-1
+Statement:
+Let mu be a Gibbs measure on a bounded-degree lattice, invariant for a reversible diffusion semigroup P_t with generator L. Assume:
+
+(1) Poincare decay:
+Var_mu(P_t f) <= exp(-2 lambda t) Var_mu(f).
+
+(2) Diffusion/carre-du-champ identity:
+P_t(fg)-P_t f P_t g
+= 2 integral_0^t P_s Gamma(P_{t-s}f,P_{t-s}g) ds,
+with Gamma decomposing into local edge gradients.
+
+(3) Weighted gradient propagation: for every kappa>0 in some interval and local f supported on A,
+G_e(P_t f) <= L_f exp(v_kappa t-kappa d(e,A)),
+where G_e is the local gradient norm and v_kappa is independent of volume.
+
+Then for local f,g with supports A,B and R=d(A,B),
+|Cov_mu(f,g)| <= C_{f,g,kappa} exp(-gamma R),
+with a common rate
+gamma >= kappa lambda/[2(lambda+v_kappa)]
+(up to an arbitrarily small loss if the underlying graph only has polynomial volume growth).
+
+If the Euclidean lattice measure is reflection positive, the physical transfer-Hamiltonian gap in lattice units is at least this common clustering rate on the dense local gauge-invariant sector.
+
+Purpose:
+Separate the two ingredients hidden inside “functional inequality implies mass gap”: relaxation in auxiliary Markov time and finite propagation in Euclidean space.
+
+Dependencies:
+Reversible diffusion calculus; reflection positivity only for the last spectral interpretation.
+
+Status:
+PROVED under the stated abstract hypotheses.
+
+Proof:
+By invariance,
+Cov(f,g)=mu(P_t(fg)-P_t f P_t g)+Cov(P_t f,P_t g).
+The Poincare assumption and Cauchy-Schwarz give
+|Cov(P_t f,P_t g)| <= exp(-2 lambda t) ||f-mu f||_2 ||g-mu g||_2.
+For the first term, the diffusion identity and weighted gradient bound give
+||P_t(fg)-P_t f P_t g||_infty
+<= C L_f L_g exp(-kappa R/2+2v_kappa t).
+Here one uses
+sum_e exp[-kappa(d(e,A)+d(e,B))]
+<= C_{kappa,d}|A||B| exp(-kappa R/2)
+on a polynomial-growth lattice. Choosing
+t = kappa R/[4(lambda+v_kappa)]
+makes both exponents at least
+kappa lambda R/[2(lambda+v_kappa)].
+This proves the claim.
+
+Gap:
+At weak coupling, no required cutoff-sharp lower bound on lambda/(lambda+v_kappa) has been proved here.
+
+Counterexample search:
+A global Poincare constant may be unnecessarily strong and may be degraded by slow topological/global modes even if local physical correlations are short-ranged. Therefore the next version should seek a conditional/local or observable-restricted replacement.
+
+---
+
+## LEMMA ID: YM-RG-LANDING-1
+Statement:
+Fix a block factor b>1. Suppose an exact gauge-invariant RG can be iterated to a scale k_*(a) such that the coarse spacing
+a_* = b^{k_*(a)} a
+obeys c_1/Lambda_YM <= a_* <= c_2/Lambda_YM, and the exact effective measure admits a polymer representation with activities z(X) satisfying a volume- and cutoff-independent Kotecky-Preiss type bound
+sup_B sum_{X contains B} ||z(X)|| exp(alpha |X| + mu diam(X)) <= epsilon < epsilon_KP
+for fixed alpha,mu>0. Assume the exact RG map sends microscopic local gauge-invariant observables to quasi-local coarse observables whose tails decay faster than the same polymer rate.
+
+Then the original lattice theory has exponential gauge-invariant correlation decay with physical rate at least c Lambda_YM, and, using reflection positivity at the ORIGINAL Wilson lattice level, its transfer Hamiltonian has a physical gap >= c Lambda_YM.
+
+Purpose:
+Turn the vague slogan “RG flows to strong coupling” into one precise landing inequality in a known mixing domain.
+
+Dependencies:
+Standard convergent polymer/cluster expansion once the KP bound holds; exact pullback of observables; YM-BRIDGE-1 / lattice transfer spectral argument.
+
+Status:
+PARTIALLY PROVED.
+
+Proof:
+The KP bound yields exponential connected-correlation decay exp(-mu R_*) in coarse lattice units for quasi-local observables. Pulling the estimate back through the exact RG gives microscopic decay exp[-c mu r/a_*]. Since a_* is comparable to Lambda_YM^{-1}, the physical decay exponent is >= c' Lambda_YM. Reflection positivity is required only for the original Wilson measure; the blocked effective action itself need not be reflection positive. The spectral theorem then gives the transfer gap.
+
+Gap:
+The landing hypothesis itself: prove that 4D asymptotically-free Yang-Mills enters such a uniform polymer domain at a physical scale O(Lambda_YM^{-1}). This is precisely the UV-to-IR crossover not controlled by present perturbative/strong-coupling estimates.
+
+Counterexample search:
+Merely reaching an O(1) effective coupling is not enough; the KP norm must actually be below its convergence threshold with cutoff-independent constants.
