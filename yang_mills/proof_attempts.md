@@ -140,3 +140,24 @@ This inequality has no observable prefactor. Positive-time correlation convergen
 
 Result:
 YM-CUTOFF-BRIDGE-2. Equal-time norm convergence is not needed for this version.
+
+
+## Attempt J — Frechet reduction of one exact RG step
+
+For the exact block fiber integral E(Phi)(V)=-log int Q(V|U)e^{-S_Phi(U)}dU:
+
+D E_Phi[A]=E_{Phi,V}[A],
+D^2 E_Phi[A,B]=-Cov_{Phi,V}(A,B).
+
+Combining this identity with a second-order Taylor expansion around the one-dimensional center beta W gives a finite sufficient certificate for each tube step. On I_j x [0,R_j] it is enough to bound five objects:
+
+f(beta)=ell(R(beta W)),
+h(beta)=||Q R(beta W)||,
+A_j >= ||ell D R_{beta W}Q||,
+B_j >= ||Q D R_{beta W}Q||,
+C_j >= sup ||D^2 R||.
+
+The resulting interval inequalities are written in YM-RG-TAYLOR-1.
+
+Result:
+The abstract infinite-dimensional inclusion is reduced to a finite list of scalar bounds per RG step, but obtaining those bounds for 4D Yang-Mills at intermediate coupling remains open.
