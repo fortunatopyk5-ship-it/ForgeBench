@@ -93,3 +93,35 @@ Verified this iteration:
 
 Validated-numerics support:
 scripts/verify_crossover_tube.py uses exact rational interval arithmetic to certify the finite tube induction once rigorous one-step bounds are supplied. The bundled JSON is explicitly only a toy example.
+
+
+### Final refinement — Iteration 2
+
+The one-step invariant-tube problem has now been reduced further by YM-RG-DERIV-1 and YM-RG-TAYLOR-1.
+
+For Phi=beta W+eta with ell(eta)=0 and ||eta||<=r, define
+f(beta)=ell(R(beta W)),
+h(beta)=||Q R(beta W)||.
+A rigorous one-step tube enclosure follows from five scalar bound families on each compact beta interval I_j:
+
+1. center flow: f_j^- <= f(beta) <= f_j^+;
+2. generated center remainder: h(beta) <= H_j;
+3. relevant/irrelevant mixing: ||ell D R_{beta W} Q|| <= A_j;
+4. irrelevant amplification: ||Q D R_{beta W} Q|| <= B_j;
+5. curvature: sup_{Phi in K_j} ||D^2 R_Phi|| <= C_j.
+
+It then suffices that
+
+beta_{j+1}^- <= f_j^- - A_j R_j - (1/2)||ell|| C_j R_j^2,
+
+beta_{j+1}^+ >= f_j^+ + A_j R_j + (1/2)||ell|| C_j R_j^2,
+
+R_{j+1} >= H_j + B_j R_j + (1/2)||Q|| C_j R_j^2.
+
+For the exact block-integration part of R,
+D E_Phi[A]=E_{Phi,V}[A] and
+D^2 E_Phi[A,B]=-Cov_{Phi,V}(A,B).
+Thus the fifth bound is concretely a one-shell conditional-covariance estimate, not an abstract Frechet-regularity placeholder.
+
+Current deepest blocker:
+obtain rigorous, volume-independent Yang-Mills bounds for f,H,A,B,C on at least the first intermediate-coupling interval emerging from YM-MATCH-EXTRACT-1. This is the exact next step.
