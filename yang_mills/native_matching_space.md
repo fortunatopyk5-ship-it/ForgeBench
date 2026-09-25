@@ -383,3 +383,46 @@ Therefore:
 STATUS: BLOCKED BEFORE K_0.
 
 No STEP_0 estimate is attempted.
+
+
+## 16. Primary-source verification ledger for this iteration
+
+Direct primary equation-level access was attempted through the version-of-record/DOI endpoints. CMP119/CMP109 DOI endpoints were inaccessible to the available browser, and the CMP122-II PDF endpoint redirected to a Springer subscription preview. Therefore equation-level claims below are NOT promoted to newly direct-primary-verified status.
+
+| Paper | Location needed | Mathematical content used | Mapping here | Status this run |
+|---|---|---|---|---|
+| Balaban CMP109 (1987), 109:249-301 | printed p.257 / PDF p.9, definition before (0.24), (0.24)-(0.26) | localization domain and d_j(X) shortest-tree size / M | native polymer metric | SOURCE-EXTRACTED IN SHA-PINNED AUDIT LEDGER; direct primary unavailable |
+| Balaban CMP119 (1988), 119:243-285 | (2.17)-(2.18), printed p.257 / PDF p.15 | effective-density sum over admissible domain sequences | reconstruction Rec_k / history index Adm_k | SECONDARY VISUAL TRANSCRIPTION ONLY |
+| same | (2.23), printed pp.258-259 / PDF pp.16-17 | classical + E/R/B action decomposition | component coordinates F | SECONDARY VISUAL TRANSCRIPTION ONLY |
+| same | (2.24), Sect.2 | localized recursion for c_j(x)=1/g_j^2(x) | bulk c + profile q | SECONDARY VISUAL TRANSCRIPTION ONLY |
+| same | (2.25)-(2.29) | local analytic E terms / source analytic domains | local H-infinity charts | SECONDARY VISUAL TRANSCRIPTION ONLY |
+| same | (2.31), printed p.260 / PDF p.18 | R local exponential tree-metric bound | pointwise native activity norm | SECONDARY VISUAL TRANSCRIPTION ONLY |
+| same | (2.34)-(2.42), printed pp.260-263 / PDF pp.18-21 | B analytic domains and B local decay | pointwise native activity norm | SECONDARY VISUAL TRANSCRIPTION ONLY |
+| same | Theorem 1, printed p.262 / PDF p.20 | RT preserves the paper inductive assumptions under coupling/constant restrictions | semantic RG preservation target | SECONDARY VISUAL TRANSCRIPTION ONLY |
+| Balaban CMP122-I (1989), 122:175-202 | (1.70), printed p.192 / PDF p.18 | large-field C local bound | C component | SECONDARY VISUAL TRANSCRIPTION ONLY |
+| Balaban CMP122-II (1989), 122:355-392 | Theorem 1, printed p.355 / PDF p.1 | under sufficiently small effective coupling, densities have CMP119 Sect.2 form/bounds | native-class preservation | PAPER ABSTRACT DIRECT; theorem body secondary only |
+| same | (1.98)-(1.100), printed p.390 / PDF p.36 | post-R localized remainder bounds | R' component | SECONDARY VISUAL TRANSCRIPTION ONLY |
+
+Paper-level facts directly verified from publisher/repository metadata:
+- CMP119 is explicitly about complete effective densities including large-field domains and preservation of their form by renormalization transformations.
+- CMP122-II explicitly states in its abstract that it concludes the R-operation bounds and completes the stated ultraviolet-stability proof for four-dimensional pure gauge theories.
+
+Neither abstract supplies the compatibility, history-counting, common-chart, or K_0 constants required here.
+
+## 17. Exact conclusion of Iteration 4
+
+The mathematically legitimate state-space target is now sharper:
+
+1. a closed linear coefficient compatibility layer C_lin;
+2. a separate bulk coupling c and coupling-profile q;
+3. a history-weighted reconstruction topology making Rec continuous;
+4. the nonlinear actual-density graph M_adm;
+5. normalized analytic charts with a positive fixed reference collar;
+6. tree/polymer counting and independent history entropy control;
+7. native RG preservation in this SAME topology.
+
+Items 3-7 are not established with source-uniform constants.
+
+Therefore the existence of a mathematically legitimate quantitative native K_0 has NOT been proved.
+
+STATUS: BLOCKED BEFORE K_0.
