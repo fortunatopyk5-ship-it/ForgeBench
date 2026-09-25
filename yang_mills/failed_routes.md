@@ -71,3 +71,16 @@ That is decay in stochastic-quantization time, not Euclidean spatial separation.
 
 Can it be repaired?
 Target the pair (lambda_a,v_a), not lambda_a alone.
+
+
+---
+
+## Route: Global stochastic-quantization Poincare gap as the final target
+Why it looked promising:
+Together with locality it gives spatial mixing (YM-SEMIGROUP-1).
+
+Exact failure / overstrength:
+The auxiliary Markov generator can possess very slow global or topological modes that are not the physical Hamiltonian excitations controlling local glueball correlations. Thus a volume-uniform global Markov PI could fail even when the physical theory is locally gapped.
+
+Can it be repaired?
+Use conditional/block Poincare inequalities, restricted local-observable decay, or RG landing directly into a local polymer-mixing domain.
