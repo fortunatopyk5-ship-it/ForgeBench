@@ -144,3 +144,157 @@ Level B is NOT proved: each certificate is currently an infinite-dimensional opt
 
 10. Are the five bounds actually computable?
     Not yet. They are five named infinite-dimensional certificate problems until additional tail/operator reductions are proved.
+
+
+# Iteration 4 addendum — actual-density state-space audit
+
+## I. Coefficient space versus density space
+
+Correction:
+B_pt is a Banach space of local coefficient families. It is not, by itself, the space of Balaban effective densities.
+
+The reconstructed density has schematic form
+
+rho_k = sum_{Sigma in Adm_k} chi_Sigma T_Sigma[exp A_Sigma(c,q,F)].
+
+The exact matching state must therefore contain a reconstruction condition. The mathematically safe representation is the graph
+
+M_adm,k =
+{(c,q,F,rho):
+  F in C_lin,
+  rho=Rec_k(c,q,F),
+  rho>=0,
+  N(rho)=1}.
+
+Here C_lin is only the closed linear layer of verified compatibility equalities. M_adm,k is generally nonlinear.
+
+## II. Compatibility/gluing status
+
+Admissibility/nesting are encoded in the history index set Adm_k once its exact source definition is extracted.
+
+Verified compatibility constraints that are linear can be packaged as kernels of bounded maps:
+- local support/restriction;
+- gauge invariance;
+- Euclidean covariance where source-required;
+- component normalization;
+- any actual source-proved overlap/restriction identity.
+
+By YM-COMPAT-CLOSED-1 their intersection is a closed Banach subspace.
+
+However exact global cross-history consistency/overlap rules have not been directly primary-extracted. They are NOT filled in by guess. Thus B_adm as a fully source-faithful closed linear subspace is not yet defined.
+
+## III. History sum audit
+
+The source form sums over admissible histories, and S_j summation is included in T_k.
+
+Therefore
+
+sup_Sigma ||F_Sigma||
+
+is insufficient to control reconstruction.
+
+Three sufficient mechanisms were tested:
+
+A. exact disjointness of characteristic sectors — NOT VERIFIED;
+B. cutoff-uniform bounded overlap — NOT VERIFIED;
+C. weighted history summability — mathematically sufficient, but no source-derived weights/constants extracted.
+
+A robust target is
+
+H_hist =
+sup_U sum_{Sigma in Adm_k}
+ |chi_Sigma(U)| tau_Sigma / w_Sigma
+< infinity,
+
+with sector majorants a_Sigma<=R/w_Sigma.
+
+No cutoff/volume-uniform H_hist has been proved.
+
+## IV. Native metric audit
+
+The source ledger records CMP109 printed p257 / PDF p9 as defining d_j(X) by
+
+d_j(X) = shortest tree-graph length meeting all pi_j cubes of X / M,
+
+for a connected finite union of localization cubes.
+
+This is a tree-size metric, not diameter.
+
+Direct primary PDF access was not available in this run, so the status remains source-extracted via the audit ledger.
+
+Adversarial result:
+diameter alone would fail: in d>=2 there can be exp(c n^d) connected subsets with diameter O(n).
+
+For the tree metric, exponential shell counting follows from
+
+|X| <= a_0+a_1 d_j(X)
+
+plus a standard exponential lattice-animal bound.
+
+The coercivity constants a_0,a_1 in Balaban's exact cube convention remain unproved.
+
+History-pair counting remains separate and unresolved.
+
+## V. Analytic-domain audit
+
+A single fixed raw domain is not currently justified.
+
+Historical source radii are of the form
+
+alpha_{r,j} ~ g_j (log g_j^{-2})^{q_r}.
+
+As cutoff removal adds earlier UV scales with g_j->0, the infimum of raw radii can approach zero. Thus a naive cutoff-uniform raw collar delta_*>0 may fail.
+
+Required repair:
+construct normalized charts
+
+Psi_{Sigma,j,X}: U_ref(X)->U^*_{Sigma,j}(X)
+
+that scale by the native analytic radii and prove uniform chart/inverse/restriction/gauge/RG distortion.
+
+No such chart theorem has been extracted.
+
+## VI. Coupling coordinate audit
+
+The native coupling is a localized profile
+
+c_j(x)=1/g_j^2(x),
+
+not merely one scalar.
+
+The recursion shape
+
+c_{j-1}(x)=c_j(x)+beta_j(g_{j-1}) phi_j(x)
+
+shows that boundary/domain geometry generates a nonconstant profile.
+
+Therefore the augmented native state must contain
+
+(c,q,F,rho),
+
+where c is a bulk/reference scalar and q(x)=c(x)-c is the localized profile defect.
+
+On a deep interior with phi_j=1 the source-native scalar direction is
+
+c_j=c_{j-1}-beta_j(g_{j-1}).
+
+No claim is made that the full nonperturbative marginal update is independent of all irrelevant activities beyond the displayed source recursion.
+
+## VII. K_0 verdict
+
+A legitimate K_0 requires at least
+
+[c_-,c_+],
+R_q,
+kappa_*,
+delta_ref,
+R_E,R_R,R_B,R_C,...,
+C_count,c_count or equivalent tree constants,
+H_hist or exact disjointness/overlap constant,
+and a continuous reconstruction theorem.
+
+These have not all been obtained cutoff- and volume-uniformly.
+
+STATUS: BLOCKED BEFORE K_0.
+
+STEP_0 was not attacked.
