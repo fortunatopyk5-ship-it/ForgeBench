@@ -51,7 +51,7 @@ The likely genuinely new content is (b).
 ## 2026-09-25 — Iteration 1c
 
 Reduction sharpened:
-Introduce YM-CROSSOVER-1. After the UV RG reaches a fixed matching coupling g_match, prove that a finite, cutoff-independent number M_G of exact RG steps sends the full compact matching set of effective interactions into a Kotecky-Preiss strong-mixing domain.
+Introduce YM-CROSSOVER-1. After the UV RG reaches a fixed matching coupling g_match, prove that a finite, cutoff-independent number M_G of exact RG steps sends the full closed/bounded matching tube of effective interactions into a Kotecky-Preiss strong-mixing domain.
 
 Reason this matters:
 The number of UV steps diverges as a->0, but those are the asymptotically-free/small-coupling steps for which constructive RG is the natural tool. The genuinely nonperturbative crossover starts from a fixed g_match, so its required scale interval is fixed; if it can be controlled, it is a finite-step problem.
@@ -81,7 +81,7 @@ Proved YM-TUBE-1. YM-CROSSOVER measure inclusion follows from a finite list of o
 Proved YM-RG-DRIFT-1. A uniform drift delta>0 together with an invariant remainder tube implies a cutoff-independent finite number of crossover steps; finite M is therefore no longer assumed.
 
 Matching correction:
-Balaban's verified published claims provide a substantial UV RG package, but do not automatically give the specific compact K_match in the new global norm. Added YM-MATCH-EXTRACT-1 as a separate unresolved input.
+Balaban's verified published claims provide a substantial UV RG package, but do not automatically give the specific closed/bounded K_match in the new global norm. Added YM-MATCH-EXTRACT-1 as a separate unresolved input.
 
 Continuum bridge audit:
 Strengthened the cutoff bridge to YM-CUTOFF-BRIDGE-2. Once each fixed-cutoff theory has a genuine transfer gap m_a, the semigroup inequality
@@ -113,3 +113,43 @@ YM-CROSSOVER-1 <=> finite explicit list of inequalities.
 
 Exact continuation point:
 extract the first matching interval I_0 and radius R_0 from Balaban-type bounds, then prove numerical/analytic enclosures f_0^±,H_0,A_0,B_0,C_0. Do not move to another mass-gap route before this first tube step is either certified or shown impossible in the chosen norm.
+
+
+## 2026-09-25 — Iteration 3: YM-MATCH-EXTRACT-1 + STEP_0 validity only
+
+Compactness audit:
+The earlier description of K_match as compact in an infinite-dimensional Banach space was incorrect. The matching object is now only closed/bounded. All tube results use universal inequalities/suprema and do not need attainment.
+
+Source/topology audit:
+Equation-level source extraction shows that Balaban's effective density is domain-history dependent and includes characteristic/T-operation structure. The E/R/B pieces are localized and analytic on restricted regularity domains; large-field terms are controlled separately. This does not furnish a global all-field C^p remainder bound.
+
+Verdict:
+The previous global B_{alpha,mu,p,rho} remains a legitimate abstract Banach space but is not currently justified as the matching topology. YM-MATCH-EXTRACT-1 was reformulated in a domain-indexed native activity topology.
+
+Concrete source shapes recorded:
+- CMP119 (2.18): domain-history density expansion;
+- CMP119 (2.23): classical + E/R/B action decomposition;
+- CMP119 (2.24): localized 1/g^2 coupling recursion;
+- CMP119 (2.31): R-term pointwise exponential decay;
+- CMP119 (2.42): B-term pointwise exponential decay;
+- CMP122-I (1.70): large-field C-term exponential bound;
+- CMP122-II (1.99)-(1.100): post-R localized remainder bounds;
+- CMP122-II Theorem 1: preservation of the CMP119 inductive density class while effective couplings remain sufficiently small.
+
+Proved:
+- YM-COMPACTNESS-CORRECTION-1.
+- YM-RG-CHAINRULE-1 (abstract full-R chain rule).
+- YM-NATIVE-TAIL-1 (pointwise polymer decay + rooted counting => anchored norm).
+
+Full-R audit:
+E derivative identities are valid at finite volume, but E/S/L Banach mapping and localization boundedness remain open; therefore C_0 is not instantiated.
+
+STEP_0:
+Not attacked with constants because no mathematically legitimate K_0 containing the actual matching output has been constructed.
+All f_0^±,H_0,A_0,B_0,C_0 remain UNKNOWN.
+
+Result:
+STATUS: BLOCKED AT YM-MATCH-EXTRACT-1.
+
+Exact continuation point:
+Build the exact native density-space predicate and rooted summability constants from CMP119/CMP122, then establish a closed/bounded K_0 at fixed small g_match. Only then attempt the first full-R STEP_0 certificate.
