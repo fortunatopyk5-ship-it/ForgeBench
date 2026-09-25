@@ -47,13 +47,18 @@ Dependencies:
 reflection positivity, convergence of renormalized correlators, YM-BRIDGE-1.
 
 Status:
-PARTIALLY PROVED.
+PROVED under the stated convergence/reflection-positivity hypotheses.
 
 Proof:
-At each cutoff, RP gives a positive transfer semigroup. The common decay exponent excludes lattice transfer spectrum below gamma(a_k). Under convergence of diagonal Laplace transforms plus t=0 mass control, spectral measures cannot acquire support below m_* in the weak limit. Apply YM-BRIDGE-1 to the limiting dense algebra.
+At cutoff a_k (and after a volume-uniform thermodynamic estimate), reflection positivity gives a transfer Hamiltonian H_k. The common lattice-unit exponent gamma(a_k) excludes transfer spectrum below gamma(a_k), so if gamma(a_k)/a_k >= m_* then for every centered local vector psi_k,
+C_k(t_k)=<psi_k,exp(-t_k H_k)psi_k> <= exp(-m_* t_k) C_k(0)
+at lattice times t_k=n_k a_k.
+For fixed physical t choose n_k=floor(t/a_k), hence t_k->t. By convergence of the renormalized diagonal Schwinger functions and their t=0 norms,
+C(t) <= exp(-m_* t) C(0).
+OS reconstruction identifies C(t)=<psi,exp(-tH)psi> in the continuum. YM-BRIDGE-1 then excludes continuum spectrum in (0,m_*), provided these local vectors are dense in Omega^perp.
 
 Gap:
-Write a fully abstract varying-Hilbert-space spectral-measure convergence theorem and verify the observable-renormalization hypotheses in the YM setting.
+The theorem is conditional on the actual Yang-Mills hypotheses: cutoff/volume-uniform gamma(a)>=m_* a, convergence of renormalized local correlators including norms, and OS reconstruction. Those are not proved by this bridge.
 
 Counterexample search:
 If only gamma(a)>0 is known, gamma(a)/a may tend to zero. Fixed-cutoff positivity therefore does not imply a continuum mass gap.
