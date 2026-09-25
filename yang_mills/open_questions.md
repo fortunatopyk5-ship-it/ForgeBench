@@ -39,3 +39,16 @@ be bounded directly by beta and r, producing an explicit beta_sc,R threshold for
 14. Can the source transport theorem be made observable-independent for the algebra of bounded local gauge-invariant cylindrical functions, so a common exponent is available on a dense physical sector?
 
 15. For validated numerics, which finite set of analytically bounded RG coefficients can be enclosed rigorously enough that verify_crossover_tube.py checks the remaining induction?
+
+
+## Iteration 3 focused questions
+
+16. What exact rooted counting theorem converts CMP119/CMP122 native d_j(X)-decay into a volume-uniform anchored activity norm? Track the entropy constant explicitly.
+
+17. Can the CMP119 restricted analytic domains U_j^c(X,alpha_0,alpha_1) be organized into a complete domain-indexed Banach family on which one RT/R step is a bounded map?
+
+18. What is the exact normalization relating the classical coefficient 1/g_j^2 to a chosen one-plaquette/Wilson coordinate? Is ell_W the right coordinate at all, or should the crossover coordinate be defined directly by the extracted action coefficient?
+
+19. Can Balaban localization/extraction be isolated as a bounded linear operator after sector labels are frozen, or is localization intrinsically part of a nonlinear cluster-expansion chart transition?
+
+20. Which theorem gives derivative/Cauchy bounds for R^(j), B^(j), C_k^(n), R'^(k) from their analytic-extension domains, with constants uniform in scale and domain history?
