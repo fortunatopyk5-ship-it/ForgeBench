@@ -822,3 +822,74 @@ They contain no bound on derivatives of a single globally recombined interaction
 
 Important limitation:
 It remains possible that a different argument proves the exact recombined density is globally smooth and bounded in such a norm. That theorem is simply absent from the currently extracted UV package.
+
+
+---
+
+## LEMMA ID: YM-NATIVE-POINTWISE-BANACH-1
+
+Statement:
+Fix an index set I of sector/polymer pairs i=(Sigma,X), Banach spaces H_i (for example H^infty on fixed inner analytic domains), nonnegative distances d_i, and kappa_*>0. Define
+
+B_pt={F=(F_i): sup_i exp(kappa_* d_i)||F_i||_{H_i}<infinity}
+
+with norm
+||F||_pt=sup_i exp(kappa_* d_i)||F_i||_{H_i}.
+
+Then B_pt is Banach.
+
+If a source theorem gives
+||F_i||_{H_i}<=A exp(-kappa d_i)
+for every i and kappa>=kappa_*, then
+||F||_pt<=A.
+
+Status:
+PROVED.
+
+Proof:
+The isometric map F_i -> exp(kappa_*d_i)F_i identifies B_pt with the l^infinity product of the H_i, which is complete. The source-bound implication is immediate.
+
+Purpose:
+Provide a source-faithful matching Banach topology that uses exactly the form of Balaban-type pointwise analytic polymer estimates, postponing polymer entropy/summability to YM-NATIVE-TAIL-1.
+
+---
+
+## LEMMA ID: YM-ANALYTIC-COLLAR-1
+
+Statement:
+Let F be holomorphic on a complex Banach-space domain D_+ and suppose every point of a smaller domain D is surrounded, in each normalized complex direction h under consideration, by a complex disk of radius delta contained in D_+. Then
+
+||D^m F(x)[h_1,...,h_m]||
+ <= m! delta^{-m} ||F||_{H^infty(D_+)}
+
+for x in D and normalized directions, with the standard multivariable Cauchy bound.
+
+Status:
+PROVED.
+
+Purpose:
+Explain how source H^infty activity bounds on a slightly larger Balaban analytic domain can supply derivative bounds on a smaller common domain without imposing a global all-field C^p supremum.
+
+Yang-Mills gap:
+Need a uniform analytic collar delta>0 over the matching interval and sector family; this has not been extracted.
+
+---
+
+## LEMMA ID: YM-NATIVE-MATCH-PRESERVATION-1
+
+Statement:
+Suppose a Balaban RT/R theorem supplies a fixed inductive density predicate P_k(D) whose local E/R/B/large-field components obey pointwise analytic bounds with common decay reserve kappa>kappa_*, and suppose:
+(i) RT/R maps P_k into P_{k+1};
+(ii) the analytic domains contain a common inner family U^*;
+(iii) the source metrics/index families admit the same pointwise norm definition at consecutive scales after rescaling.
+
+Then the component family of every D satisfying P_k lies in a bounded ball of the pointwise native Banach space of YM-NATIVE-POINTWISE-BANACH-1, and the image lies in the corresponding next-scale bounded ball. If the amplitude bounds are unchanged by the inductive predicate, this is a self-ball preservation statement after rescaling.
+
+Status:
+PROVED CONDITIONALLY ON (i)-(iii).
+
+Known source support:
+The extracted theorem shape of CMP119 Theorem 1 / CMP122-II Theorem 1 provides (i) at the level of their native inductive density class under stated small-coupling and constant restrictions.
+
+Unverified:
+(ii)-(iii) and the full numerical parameter dictionary. Therefore this is not yet an instantiated STEP_0 theorem.
