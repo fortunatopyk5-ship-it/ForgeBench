@@ -1,52 +1,43 @@
 # STATUS
 
 Current objective:
-Prove a cutoff/volume-uniform physical-scale clustering estimate along the asymptotically-free Wilson trajectory, or reduce it to a normalization-invariant functional inequality.
+Determine whether Balaban's UV/small-coupling output can be converted into a mathematically legitimate matching set K_0 for STEP_0. The immediate task is functional-analytic: audit the matching topology, remove the false compactness assumption, and extract only those bounds actually supplied by Balaban-type estimates.
 
 Current strongest result:
-YM-BRIDGE-1: assuming an OS-reconstructible continuum limit and a common exponential Euclidean-time decay rate m_*>0 on a dense centered gauge-invariant local algebra, the reconstructed Hamiltonian obeys Spec(H)∩(0,m_*)=∅. The proof is a direct spectral-measure argument.
+The previous global sup-over-all-fields C^p polymer norm is NOT presently supported by the known Balaban estimates as a matching topology. Balaban's published RG representation is domain-indexed: small-field terms are analytic on restricted regularity domains, while large-field pieces are handled by characteristic/domain decompositions and separate exponentially localized activity bounds. Therefore the implication "Balaban UV stability => ||Q Phi_match||_{global C^p} <= epsilon" has not been established and must not be used. A Balaban-native, domain-indexed regulated activity norm is the correct candidate matching topology.
 
 Current blocking lemma:
-YM-IR-1 / YM-FI-1. Need a rate in lattice units gamma(a) satisfying gamma(a) >= c a Lambda_YM, uniformly in volume as a->0. A promising sufficient proxy is lambda_a/v_a >= c a Lambda_YM, where lambda_a is a reversible stochastic-quantization Poincare rate and v_a is a local commutator/influence propagation scale.
+YM-MATCH-EXTRACT-1 (corrected): construct a cutoff/volume-uniform CLOSED AND BOUNDED matching tube in a Balaban-native domain-indexed activity space, with an explicit dictionary between Balaban's running coupling g_k / coefficient 1/g_k^2 and the crossover coordinate, plus explicit E/R/B/large-field activity bounds. Only after this is proved is STEP_0 mathematically instantiated.
 
 Assumptions:
 - compact simple gauge group G;
-- Wilson lattice regularization used for the current route;
-- continuum observable renormalization/convergence is separated into YM-UV-1 rather than assumed silently.
+- Wilson-type lattice UV regularization;
+- use of Balaban's small-coupling inductive density class only where the hypotheses of the cited RG theorems are satisfied;
+- no compactness of infinite-dimensional matching balls is assumed.
 
 Verified:
-- finite-cutoff Wilson measure is a genuine finite-dimensional Haar Gibbs measure;
-- reflection positivity / positive transfer-matrix machinery is classical for Wilson lattice gauge theory;
-- strong-coupling SU(N) functional inequalities and exponential correlation decay are rigorous (Shen–R. Zhu–X. Zhu);
-- clustering-to-gap bridge under OS reconstruction is proved in lemmas.md;
-- positivity of a lattice gap for each fixed cutoff/volume is not sufficient for the continuum gap.
+- closed bounded subsets of an infinite-dimensional Banach space need not be compact; previous compact-K_match wording was incorrect and unnecessary for tube induction;
+- YM-TUBE-1 uses suprema/upper bounds and induction, not attainment of extrema;
+- the exact fiber-integration derivative identities D E[A]=E[A|V], D^2 E[A,B]=-Cov(A,B|V) apply to E only, not automatically to the full R=L∘S∘E;
+- abstract chain rule for the full R is valid only after mapping/boundedness/differentiability of S and L are established;
+- Balaban's density representation includes characteristic/domain histories and separate E/R/B/large-field sectors; extracted local estimates are on restricted analytic domains, not a global all-field C^p ball;
+- the five STEP_j quantities f,H,A,B,C are a finite NUMBER of certificates (Level A), but have NOT been reduced to finite-dimensional computations (Level B);
+- no actual Yang-Mills numerical constants f_0^±, H_0, A_0, B_0, C_0 have been proved.
 
 Unverified:
-- full d=4 continuum OS construction on R^4;
-- nontriviality of that continuum limit;
-- YM-IR-1 at beta->infinity;
-- YM-FI-1 at weak coupling;
-- uniform thermodynamic-limit control on the continuum trajectory.
+- nonemptiness of a matching tube containing the actual Balaban output at a fixed matching coupling in the corrected native topology;
+- a cutoff/volume-uniform native matching radius R_0 and whether it is small enough for a Taylor tube;
+- boundedness/differentiability of the chosen localization/extraction map in any crossover Banach topology;
+- existence of D^2 R for the FULL RG map in the intended infinite-volume uniform topology;
+- quantitative comparison of beta=ell_W(Phi) with Balaban's running coupling/coefficient;
+- self-mapping of the proposed global C^p space by the full RG;
+- finite-dimensional computability of the five STEP_0 certificates.
 
 Next action:
-Attack YM-FI-1 quantitatively. Derive a general covariance-decay theorem from (i) a Poincare inequality for a reversible local semigroup and (ii) a finite-propagation/commutator matrix estimate; then determine the exact scaling requirement on lambda_a/v_a and compare it with a Lambda_YM.
+Do NOT attempt numerical STEP_0 yet. First prove a source-faithful native matching statement from CMP119/CMP122: formulate the exact domain-indexed Banach/regulator norm, translate the published E/R/B/large-field pointwise-decay estimates into an anchored volume-uniform norm bound, and establish the coupling-coordinate dictionary. If that succeeds, define K_0 in that topology and only then derive STEP_0 operator bounds.
 
-
-Update — Iteration 1b:
-A new abstract bridge YM-SEMIGROUP-1 was proved:
-PI relaxation + weighted finite-propagation of local gradients gives a common spatial clustering rate
-gamma >= kappa lambda/[2(lambda+v_kappa)].
-Thus a sufficient cutoff target is
-lambda_a/(lambda_a+v_{kappa,a}) >= c a Lambda_YM.
-However, adversarial analysis shows a global PI may be too strong because auxiliary slow global/topological modes need not coincide with the physical local spectrum.
-
-A second, cleaner mass-gap target is YM-RG-LANDING-1:
-prove that exact RG lands, at block scale a_*~Lambda_YM^{-1}, inside a cutoff-independent Kotecky-Preiss polymer domain. If this holds, clustering and the physical gap follow while reflection positivity is used only at the original Wilson lattice level.
-
-
-Refined blocker:
-YM-CROSSOVER-1 is now the sharpest proposed new lemma after the UV package.
-The key observation is that all cutoff-dependent infinitely many UV scales can be handled before a FIXED matching coupling g_match. From that fixed matching surface to a fixed strong-mixing polymer domain, only a finite number M_G of RG block steps should be required if the exact nonperturbative flow can be controlled. Therefore the new mathematical target is a finite-step inclusion in an effective-action Banach space, not an analytic continuation of a bare-coupling gap formula.
+Iteration-3 verdict:
+STATUS: BLOCKED AT YM-MATCH-EXTRACT-1 — CURRENT GLOBAL C^p MATCHING NORM IS NOT JUSTIFIED BY KNOWN UV ESTIMATES.
 
 
 ## Update — Iteration 2 (YM-CROSSOVER-1 only)
