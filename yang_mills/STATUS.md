@@ -47,3 +47,49 @@ prove that exact RG lands, at block scale a_*~Lambda_YM^{-1}, inside a cutoff-in
 Refined blocker:
 YM-CROSSOVER-1 is now the sharpest proposed new lemma after the UV package.
 The key observation is that all cutoff-dependent infinitely many UV scales can be handled before a FIXED matching coupling g_match. From that fixed matching surface to a fixed strong-mixing polymer domain, only a finite number M_G of RG block steps should be required if the exact nonperturbative flow can be controlled. Therefore the new mathematical target is a finite-step inclusion in an effective-action Banach space, not an analytic continuation of a bare-coupling gap formula.
+
+
+## Update — Iteration 2 (YM-CROSSOVER-1 only)
+
+STATUS:
+YM-CROSSOVER-1 REDUCED TO EXPLICIT SUBLEMMAS; inclusion itself NOT proved.
+
+Strongest new result:
+The measure-only claim
+R^M(K_match) subset D_KP
+is insufficient for the original microscopic mass gap unless source/observable transport is controlled. The corrected crossover package is:
+
+(A) YM-MATCH-EXTRACT-1:
+extract a global, cutoff/volume-uniform K_match from the UV construction in the concrete Banach space of crossover_spec.md.
+
+(B) YM-TUBE-1 + YM-RG-DRIFT-1:
+prove finite one-step enclosures for beta and the full remainder norm. Once a uniform drift delta>0 and invariant remainder radius R exist, M_G<infinity follows and is no longer an independent heuristic assumption.
+
+(C) YM-RG-SOURCE-1:
+control source transport / conditional covariance across eliminated RG shells.
+
+(D) Final KP landing:
+Q_{alpha,mu}(z_Phi)<alpha. YM-KP-ANCHOR-1 then gives uniform cluster expansion and exponential coarse correlations.
+
+Concrete Banach space:
+B_{alpha,mu,p,rho} of globally defined gauge-invariant polymer interactions Phi_X on connected 4D block polymers, with norm
+sup_B sum_{X contains B} exp(alpha|X|+mu diam(X)) ||Phi_X||_{C^p,rho}.
+Full definition: crossover_spec.md.
+
+Corrected blocker:
+The hardest unresolved estimate is no longer the abstract statement "M_G finite". It is the construction of rigorous one-step Yang-Mills enclosures
+
+F_j^-(beta,r) <= beta(R Phi) <= F_j^+(beta,r),
+r(R Phi) <= G_j(beta,r)
+
+on an invariant tube, together with source-locality estimates, starting from a rigorously extracted K_match.
+
+Verified this iteration:
+- scalar-coupling-only flow is insufficient (explicit toy counterexamples);
+- q<alpha in the anchored weighted polymer norm is a sufficient KP condition;
+- the finite invariant-tube induction is rigorous;
+- a positive uniform beta drift plus invariant remainder tube implies cutoff-independent finite M;
+- previous cutoff bridge can be strengthened to positive-time correlator convergence only (YM-CUTOFF-BRIDGE-2), so divergent equal-time renormalization constants/prefactors need not be assumed controlled.
+
+Validated-numerics support:
+scripts/verify_crossover_tube.py uses exact rational interval arithmetic to certify the finite tube induction once rigorous one-step bounds are supplied. The bundled JSON is explicitly only a toy example.
