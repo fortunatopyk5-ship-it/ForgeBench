@@ -58,3 +58,45 @@ The number of UV steps diverges as a->0, but those are the asymptotically-free/s
 
 Adversarial warning:
 A scalar running coupling is not enough. The inclusion must be in a norm controlling the entire generated effective action, including irrelevant operators and large-field/polymer terms.
+
+
+## 2026-09-25 — Iteration 2: YM-CROSSOVER-1 only
+
+Adversarial result 1:
+The previous reduction was too optimistic if it tracked only a running coupling. Explicit toy RG maps show that a coupling can run monotonically to a nominal strong-coupling region while generated irrelevant/polymer coordinates grow or settle outside every small-activity domain.
+
+Adversarial result 2:
+Measure-only landing in a KP domain does not by itself control original microscopic correlations. The exact conditional-covariance decomposition exposes the missing term. A hidden-sector toy model gives a direct counterexample. Added YM-RG-SOURCE-1.
+
+Concrete state space:
+Defined B_{alpha,mu,p,rho}, a weighted Banach space of globally defined gauge-invariant interactions on connected 4D block polymers. Local norms are explicit C^p norms built from invariant Lie derivatives and supremized over collar/boundary link fields. See crossover_spec.md.
+
+Concrete landing domain:
+Defined exact scalar super-polymer activities by expanding the global interaction, grouping connected overlapping families and integrating against product Haar. Proved that
+Q_{alpha,mu}<alpha
+implies the Kotecky-Preiss condition and uniform cluster expansion.
+
+Finite-step reduction:
+Proved YM-TUBE-1. YM-CROSSOVER measure inclusion follows from a finite list of one-step interval enclosures plus a final KP inequality.
+Proved YM-RG-DRIFT-1. A uniform drift delta>0 together with an invariant remainder tube implies a cutoff-independent finite number of crossover steps; finite M is therefore no longer assumed.
+
+Matching correction:
+Balaban's verified published claims provide a substantial UV RG package, but do not automatically give the specific compact K_match in the new global norm. Added YM-MATCH-EXTRACT-1 as a separate unresolved input.
+
+Continuum bridge audit:
+Strengthened the cutoff bridge to YM-CUTOFF-BRIDGE-2. Once each fixed-cutoff theory has a genuine transfer gap m_a, the semigroup inequality
+C_a(t+s)<=e^{-m_a s}C_a(t)
+passes to the continuum using positive-time correlator convergence; no equal-time norm convergence or uniform cluster prefactor is required.
+
+Validated numerics:
+Added scripts/verify_crossover_tube.py, an exact Fraction-based interval checker, and a toy certificate. It certifies only the finite induction conditional on genuine RG enclosure formulae.
+
+Result:
+STATUS: YM-CROSSOVER-1 REDUCED TO LEMMAS A/B/C — NOT PROVED.
+
+A = YM-MATCH-EXTRACT-1.
+B = Yang-Mills one-step invariant-tube/drift enclosures ending in Q_KP<alpha.
+C = YM-RG-SOURCE-1.
+
+Next action:
+Do not open a new mass-gap route. Extract an actual one-step Balaban gauge-RG map/bounds into the variables beta,r of crossover_spec.md and determine whether the first nontrivial tube step can be proved analytically.
