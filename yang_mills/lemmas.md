@@ -505,3 +505,115 @@ Additional assumptions made explicit:
 - reflection positivity is closed under the relevant Schwinger-function limit;
 - the limiting centered local gauge-invariant states must be dense in Omega^perp;
 - uniqueness of the reconstructed vacuum (or an explicit choice of vacuum sector) is required for the Clay-type statement.
+
+
+---
+
+## LEMMA ID: YM-RG-DERIV-1
+
+Statement:
+Let Q(V|U)>=0 be a normalized exact block kernel and let S_Phi(U) be a finite-volume fine action depending affinely on an interaction parameter Phi. Define the unnormalized effective action, modulo V-independent constants,
+
+E(Phi)(V)
+ = -log int Q(V|U) exp[-S_Phi(U)] dU.
+
+For perturbations A,B of the fine action,
+
+D E(Phi)[A](V)
+ = E_{Phi,V}[A(U)],
+
+D^2 E(Phi)[A,B](V)
+ = -Cov_{Phi,V}(A(U),B(U)),
+
+where E_{Phi,V} is expectation in the fine conditional measure with density proportional to
+Q(V|U) exp[-S_Phi(U)].
+
+Status:
+PROVED.
+
+Proof:
+Differentiate the logarithm of the fiber partition function. The first derivative is the conditional expectation. Differentiating that expectation once more gives minus the connected conditional second moment. Additive V-independent normalization terms can be removed by the fixed localization/zero-mean convention.
+
+Purpose:
+Translate Frechet derivative estimates for one exact RG step into conditional moment/covariance estimates of one RG shell.
+
+Important interpretation:
+This does not assume the physical Yang-Mills mass gap. The covariance is in the constrained single-shell fluctuation measure conditioned on the retained coarse field V. To use the lemma one still needs quantitative conditional localization bounds uniform over the crossover tube.
+
+---
+
+## LEMMA ID: YM-RG-TAYLOR-1
+
+Statement:
+Let B be a Banach space, W in B, and ell in B* with ell(W)=1. Set
+P=W ell, Q=I-P.
+Write any Phi in a tube as
+Phi=beta W+eta,
+ell(eta)=0,
+||eta||<=r.
+
+Let R:B->B be C^2 on every segment beta W+t eta in the tube.
+Define the center quantities
+
+f(beta)=ell(R(beta W)),
+h(beta)=||Q R(beta W)||,
+
+and bounds
+
+a(beta,r) >= || ell o D R_{beta W} o Q ||,
+b(beta,r) >= || Q o D R_{beta W} o Q ||,
+c_2(beta,r) >= sup_{0<=t<=1} ||D^2 R_{beta W+t eta}||
+
+uniformly over ||eta||<=r.
+
+Then
+
+| beta(R Phi)-f(beta) |
+ <= a(beta,r) r
+    + (1/2)||ell|| c_2(beta,r) r^2,
+
+and
+
+r(R Phi)
+ <= h(beta)
+    + b(beta,r) r
+    + (1/2)||Q|| c_2(beta,r) r^2.
+
+Status:
+PROVED.
+
+Proof:
+Second-order Banach-space Taylor formula with integral remainder, followed by ell and Q.
+
+Purpose:
+Reduce each infinite-dimensional tube inclusion to a finite collection of scalar interval bounds:
+(1) center flow f,
+(2) generated center remainder h,
+(3) relevant/irrelevant mixing a,
+(4) irrelevant amplification b,
+(5) second derivative/conditional covariance c_2.
+
+Combined with YM-RG-DERIV-1, c_2 can be attacked through conditional covariance estimates in one RG shell.
+
+Finite enclosure form:
+For beta in I_j and r<=R_j define rigorous numbers
+f_j^- <= f(beta) <= f_j^+,
+H_j >= h(beta),
+A_j >= a(beta,R_j),
+B_j >= b(beta,R_j),
+C_j >= c_2(beta,R_j).
+Then it suffices to choose
+
+beta_{j+1}^-
+ <= f_j^- - A_j R_j - (1/2)||ell|| C_j R_j^2,
+
+beta_{j+1}^+
+ >= f_j^+ + A_j R_j + (1/2)||ell|| C_j R_j^2,
+
+R_{j+1}
+ >= H_j + B_j R_j + (1/2)||Q|| C_j R_j^2.
+
+This is a finite explicit list of inequalities for each crossover step.
+
+Gap:
+No rigorous Yang-Mills values for f_j^±,H_j,A_j,B_j,C_j across the intermediate-coupling region have been established here.
