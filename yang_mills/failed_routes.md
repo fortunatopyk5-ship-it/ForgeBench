@@ -84,3 +84,45 @@ The auxiliary Markov generator can possess very slow global or topological modes
 
 Can it be repaired?
 Use conditional/block Poincare inequalities, restricted local-observable decay, or RG landing directly into a local polymer-mixing domain.
+
+
+---
+
+## Route: Track only g_k or beta_k through the crossover
+Why it looked promising:
+Asymptotic freedom suggests a monotone running coupling toward strong coupling.
+
+Exact failure:
+Generated operators can grow or approach a non-small stationary remainder even while the scalar coupling moves monotonically. Explicit toy systems:
+R(g,r)=(g+1,r+1),
+and
+R(g,r)=(g+delta,rho r+h) with h/(1-rho) above the desired KP radius.
+
+Can it be repaired?
+Yes, but only with a coupled invariant-tube estimate controlling the full remainder norm.
+
+---
+
+## Route: Coarse measure enters D_KP, therefore microscopic observables cluster
+Why it looked promising:
+Exact RG preserves the partition function and the final coarse measure is strongly mixing.
+
+Exact failure:
+For a coarse variable V,
+Cov(F,G)=Cov(E[F|V],E[G|V])+E[Cov(F,G|V)].
+D_KP controls the first term only. A hidden/conditional sector can retain long-range correlations even when the visible coarse measure is product.
+
+Can it be repaired?
+Track sources/insertions through the RG and prove shell-by-shell quasi-locality plus mixed-source decay (YM-RG-SOURCE-1).
+
+---
+
+## Route: "Balaban UV stability" directly supplies K_match
+Why it looked promising:
+Balaban's program constructs RG effective actions and proves the stated UV stability of 4D pure gauge theory.
+
+Exact failure:
+UV stability, as such, does not identify a compact set at fixed g_match in the new global group-valued Banach norm, nor does it prove the matching-scale relation to Lambda_YM, thermodynamic/IR control, or the complete continuum OS construction.
+
+Can it be repaired?
+Prove YM-MATCH-EXTRACT-1 by extracting explicit bounds from the Balaban effective-density representation and translating them into crossover_spec.md.
