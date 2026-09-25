@@ -122,7 +122,7 @@ Why it looked promising:
 Balaban's program constructs RG effective actions and proves the stated UV stability of 4D pure gauge theory.
 
 Exact failure:
-UV stability, as such, does not identify a compact set at fixed g_match in the new global group-valued Banach norm, nor does it prove the matching-scale relation to Lambda_YM, thermodynamic/IR control, or the complete continuum OS construction.
+UV stability, as such, does not identify a closed/bounded matching tube at fixed g_match in the new global group-valued Banach norm, nor does it prove the matching-scale relation to Lambda_YM, thermodynamic/IR control, or the complete continuum OS construction.
 
 Can it be repaired?
 Prove YM-MATCH-EXTRACT-1 by extracting explicit bounds from the Balaban effective-density representation and translating them into crossover_spec.md.
@@ -148,3 +148,28 @@ Microscopic observables have already passed through a cutoff-dependent number of
 
 Can it be repaired?
 Add YM-UV-SOURCE-MATCH-1 or strengthen YM-MATCH-EXTRACT-1 to include source kernels.
+
+
+---
+
+## Route: Extract Balaban matching output directly into the old global all-field C^p tube
+Why it looked promising:
+The link group G is compact, so every fixed smooth local function has finite C^p sup norm.
+
+Exact failure:
+Balaban's actual UV estimates are not stated as global derivatives of one recombined interaction. They use restricted small-field analytic domains plus a domain/characteristic decomposition and separate large-field activities. Compactness of G does not turn probabilistic/activity suppression into pointwise smallness, nor does it control derivatives across sector boundaries.
+
+Can it be repaired?
+Use a domain-indexed regulated activity topology native to the available estimates. A later bounded embedding into a global C^p chart would be an additional theorem, not an assumption.
+
+---
+
+## Route: Treat exact fiber-integration derivative identities as derivatives of the full RG
+Why it looked promising:
+For E(Phi)=-log int Q exp(-S_Phi), D E is a conditional expectation and D^2 E is minus a conditional covariance.
+
+Exact failure:
+The full map is R=L o S o E. Localization/extraction and rescaling contribute their own operator norms and, if L is nonlinear, D^2 L terms. No full-R C^2 theorem in the crossover Banach topology has been proved.
+
+Can it be repaired?
+Prove the E/S/L mapping properties and then use YM-RG-CHAINRULE-1.
