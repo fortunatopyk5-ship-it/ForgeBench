@@ -25,3 +25,24 @@ STATUS: PROMISING ROUTE — NOT A PROOF.
 
 Next step:
 Prove an abstract PI+finite-propagation => covariance theorem with explicit constants, then search for an RG mechanism that gives lambda_a/v_a at the asymptotically-free trajectory without assuming Dobrushin mixing as an input.
+
+
+## 2026-09-25 — Iteration 1b
+
+New theorem:
+YM-SEMIGROUP-1. Under a Poincare variance decay and a weighted gradient-propagation bound for a local reversible diffusion, covariance decays in lattice distance with rate at least
+kappa lambda/[2(lambda+v_kappa)].
+This makes explicit the hidden second ingredient behind the Shen–Zhu–Zhu strong-coupling argument.
+
+Adversarial finding:
+A global auxiliary Markov spectral gap is not obviously a minimal target. Global/topological bottlenecks may make it small without forcing long-range local physical correlations.
+
+New reduced route:
+YM-RG-LANDING-1. Run exact RG from the asymptotically-free UV and prove that at a_* comparable to Lambda_YM^{-1} the effective polymer activities obey a uniform Kotecky-Preiss exponential norm bound. Standard cluster expansion would then yield an O(Lambda_YM) correlation rate. Reflection positivity can remain entirely at the original Wilson lattice level; it need not be preserved by each blocking transformation.
+
+Current best next attack:
+Make YM-RG-LANDING-1 less black-box by splitting it into:
+(a) UV Balaban-controlled steps up to a matching scale;
+(b) a finite crossover lemma for the remaining O(1) range of effective coupling;
+(c) entry into a rigorous strong-mixing/polymer domain.
+The likely genuinely new content is (b).
