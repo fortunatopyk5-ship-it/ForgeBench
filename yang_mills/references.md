@@ -16,3 +16,10 @@ Current overview:
 
 Audit policy:
 Recent independent or AI-assisted claims of a complete proof are not accepted here merely from their abstracts/websites. Each claimed bridge must be re-derived and checked for cutoff/volume dependence, RP/OS reconstruction, nontriviality, and hidden hypotheses.
+
+
+Constructive UV / fixed-IR control:
+- J. Magnen, V. Rivasseau, R. Seneor, "Construction of YM4 with an infrared cutoff", Commun. Math. Phys. 155 (1993) 325-383. Pure SU(2), fixed IR cutoff, UV cutoff removed in a regularized axial-gauge construction.
+- T. Balaban, "Large field renormalization I-II", Commun. Math. Phys. 122 (1989). Completes the stated ultraviolet-stability program for four-dimensional pure lattice gauge theory.
+
+These results are treated as UV-side inputs only; they do not supply the cutoff/volume-uniform IR mass-gap estimate used in YM-CROSSOVER-1.
