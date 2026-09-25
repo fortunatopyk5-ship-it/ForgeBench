@@ -125,3 +125,29 @@ Thus the fifth bound is concretely a one-shell conditional-covariance estimate, 
 
 Current deepest blocker:
 obtain rigorous, volume-independent Yang-Mills bounds for f,H,A,B,C on at least the first intermediate-coupling interval emerging from YM-MATCH-EXTRACT-1. This is the exact next step.
+
+
+### Adversarial corrections — final
+
+1. D_KP is NOT equivalent to a mass gap. It is only a sufficient landing chart; even exactly product measures can violate a badly chosen product-Haar activity smallness condition if local weights are large. Therefore failure of YM-CROSSOVER-1 in this chart would not imply gaplessness.
+
+2. Polymer incompatibility must be defined using the actual collar/link support of Phi_X, not just the core block set.
+
+3. Source control must start before the finite crossover: the UV-to-matching package must deliver quasi-local source kernels for microscopic gauge-invariant observables (YM-UV-SOURCE-MATCH-1).
+
+4. The practical finite-drift lemma is YM-RG-DRIFT-2, with a bounded terminal beta strip and a no-overshoot estimate.
+
+Final status of Iteration 2:
+STATUS: YM-CROSSOVER-1 REDUCED TO EXPLICIT LEMMAS/INEQUALITIES — NOT PROVED.
+
+For the measure inclusion itself, the remaining Yang-Mills content is:
+- MATCH: rigorous K_match extraction in the concrete global norm;
+- STEP_j: rigorous f_j^±, H_j, A_j, B_j, C_j bounds for finitely many intermediate-coupling intervals;
+- LAND: final Q_{alpha,mu}<alpha estimate.
+
+For use in the mass-gap chain, additionally:
+- UV-SOURCE: microscopic-to-matching source localization;
+- CROSSOVER-SOURCE: shell-by-shell source/conditional-covariance bounds.
+
+Exact next attack:
+prove or falsify the FIRST one-step certificate STEP_0 in the chosen norm, starting from the strongest matching estimates that can actually be extracted from Balaban's small-field/large-field RG results.
