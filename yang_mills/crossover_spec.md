@@ -497,3 +497,141 @@ For YM-MATCH-EXTRACT-1 + STEP_0 there are two legitimate choices:
 (B) Extract a physical density from Balaban's construction and switch to the heat-kernel RG. Then a new chart-transition theorem must first place that density in the heat-kernel map's input Banach space.
 
 Iteration 3 adopts (A). Therefore no STEP_0 estimate may mix Balaban matching bounds with derivatives of the unrelated heat-kernel candidate without a chart-transition theorem.
+
+
+## 21. Iteration 4 correction: the native matching state is a reconstructed-density graph
+
+The pointwise coefficient product of Sections 17-19 is not by itself the state space. An arbitrary family of sector/polymer activities need not correspond to any effective density.
+
+At scale k let Adm_k denote the exact source-admissible multiscale histories. The complete native state has schematic coordinates
+
+(c,q,F,rho),
+
+where:
+- c is a bulk/reference coefficient 1/g^2;
+- q is the localized coupling-profile defect;
+- F is the compatible family of local E/R/B/large-field activities;
+- rho is the actual reconstructed effective density.
+
+The reconstruction has the source architecture
+
+rho = Rec_k(c,q,F)
+    = sum_{Sigma in Adm_k}
+        chi_Sigma T_Sigma[exp A_Sigma(c,q,F)].
+
+The mathematical matching state is therefore a nonlinear graph
+
+M_adm,k =
+{(c,q,F,rho): F in C_lin, rho=Rec_k(c,q,F), rho>=0, N(rho)=1}.
+
+C_lin is the closed linear layer generated only by source-verified bounded compatibility maps. Admissibility and nesting are encoded by Adm_k itself.
+
+No claim is made that M_adm,k is linear or affine. It becomes closed only after continuity of Rec_k is proved in the chosen history/density topology.
+
+## 22. History norm is independent of polymer norm
+
+The old norm
+
+sup_{Sigma,X} exp(kappa_* d_Sigma(X)) ||F_{Sigma,X}||
+
+does not control the sum over Sigma.
+
+A valid native state norm must additionally control
+
+sup_U sum_{Sigma in Adm_k}
+ |chi_Sigma(U)| tau_Sigma a_Sigma(F),
+
+or an equivalent source theorem must prove exact sector disjointness / uniformly bounded overlap.
+
+Here tau_Sigma is a majorant for the history operation T_Sigma and a_Sigma(F) majorizes the local sector data.
+
+The following are all currently UNKNOWN for complete Balaban histories:
+- exact disjointness;
+- a cutoff-uniform finite overlap constant;
+- a source weight w_Sigma with a cutoff-uniform weighted history sum.
+
+Therefore history reconstruction is a separate blocker from polymer/tree summability.
+
+## 23. Native metric and explicit fixed-history polymer counting
+
+The source ledger identifies the paper-native d_j(X) as a shortest tree-graph localization size divided by M, not as diameter.
+
+For any bounded-degree block graph with maximum degree Delta, if
+
+|X| <= a_0+a_1 d_j(X),
+
+then the number of connected m-block sets through a fixed block is at most
+
+Delta^{2(m-1)}
+
+by canonical spanning-tree DFS encoding. Hence
+
+# {X contains B: n<=d_j(X)<n+1}
+<= sum_{m<=floor(a_0+a_1(n+1))} Delta^{2(m-1)}
+<= C_count exp(c_count n).
+
+Thus only the Balaban-specific coercivity constants a_0,a_1 remain to be proved in the exact pi_j geometry.
+
+This does NOT count histories Sigma. Pair counting requires a separate history bound.
+
+## 24. Analytic charts across historical scales
+
+A common raw analytic domain is no longer assumed.
+
+Because source analytic radii depend on historical couplings, and earlier UV couplings can tend to zero as the cutoff is removed, the raw intersection over all historical domains may have zero collar.
+
+The matching topology must instead use normalized charts
+
+Psi_{Sigma,j,X}: U_ref(X) -> U^*_{Sigma,j}(X)
+
+and pulled-back activities
+
+F_tilde_{Sigma,j,X}=F_{Sigma,j,X} o Psi_{Sigma,j,X}.
+
+The required chart theorem must give cutoff/volume-uniform control of:
+- chart and inverse distortion;
+- gauge covariance;
+- support/restriction maps;
+- a positive reference Cauchy collar delta_ref;
+- the RT/R transition between charts.
+
+Until this is proved, derivative norms on a fixed matching Banach space are not available.
+
+## 25. Coupling coordinate is scalar plus profile
+
+The native source recursion is spatially localized:
+
+c_{j-1}(x)=c_j(x)+beta_j(g_{j-1}) phi_j(x),
+c_j(x)=1/g_j^2(x).
+
+Therefore the corrected augmented coordinate is not I_c alone but
+
+(c,q),   q(x)=c(x)-c.
+
+The bulk scalar c is useful in an interior where phi_j=1, giving the direction
+
+c_j=c_{j-1}-beta_j(g_{j-1}).
+
+The profile q carries boundary/history dependence.
+
+No ell_W coordinate is used in YM-MATCH-EXTRACT-1.
+
+## 26. Native K_0 criterion after Iteration 4
+
+K_0 will be declared constructed only after all of the following are source-derived and cutoff/volume-uniform:
+
+- c in [c_-,c_+];
+- coupling-profile radius R_q;
+- exact Adm_k / nesting / support compatibility;
+- a continuous reconstruction map Rec_k;
+- history disjointness/overlap constant or H_hist;
+- kappa_* and tree coercivity/counting constants;
+- a fixed normalized analytic chart and delta_ref>0;
+- component radii R_E,R_R,R_B,R_C,...;
+- native RT/R preservation in this topology.
+
+Current status:
+
+BLOCKED BEFORE K_0.
+
+STEP_0 remains out of scope.
