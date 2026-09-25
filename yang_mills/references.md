@@ -23,3 +23,18 @@ Constructive UV / fixed-IR control:
 - T. Balaban, "Large field renormalization I-II", Commun. Math. Phys. 122 (1989). Completes the stated ultraviolet-stability program for four-dimensional pure lattice gauge theory.
 
 These results are treated as UV-side inputs only; they do not supply the cutoff/volume-uniform IR mass-gap estimate used in YM-CROSSOVER-1.
+
+
+Additional crossover references checked in Iteration 2:
+- T. Balaban, "Averaging operations for lattice gauge theories", Commun. Math. Phys. 98 (1985) 17-51. The abstract explicitly states that RG transformations are defined by averaging operations and studies regular/analytic gauge-field averaging maps.
+- T. Balaban, "Propagators for lattice gauge theories in a background field", Commun. Math. Phys. 99 (1985) 389-434. The abstract states regularity and decay properties for RG propagators in external gauge backgrounds.
+- T. Balaban, "Renormalization group approach to lattice gauge field theories. I", Commun. Math. Phys. 109 (1987) 249-301. Small-field effective actions and coupling renormalization in four dimensions.
+- T. Balaban, "Renormalization group approach to lattice gauge field theories. II. Cluster expansions", Commun. Math. Phys. 116 (1988) 1-22. The fluctuation integral is represented by an exponentiated cluster expansion and the terms preserve the small-field inductive assumptions.
+- T. Balaban, "Convergent renormalization expansions for lattice gauge theories", Commun. Math. Phys. 119 (1988) 243-285. Introduces inductive complete effective densities including large-field domains; the abstract notes convergent expansions for the superrenormalizable cases treated there.
+- T. Balaban, "Large field renormalization. I-II", Commun. Math. Phys. 122 (1989). Part II states that its R-operation bounds complete the proof of ultraviolet stability of four-dimensional pure gauge theories.
+- R. Kotecky, D. Preiss, "Cluster expansion for abstract polymer models", Commun. Math. Phys. 103 (1986) 491-498. Standard sufficient criterion used in YM-KP-ANCHOR-1.
+- J. Dimock, "The renormalization group according to Balaban I-III" (2013-2014). Scalar expository model, useful for the polymer/tree-distance Banach-space architecture; NOT a source for a completed 4D Yang-Mills crossover.
+- T. Balaban, M. O'Carroll, "A Simple Method for Correlation Functions via the Effective Actions in the Renormalization Group Framework", Ann. Phys. 260 (1997) 1-8. Relevant to the source/observable issue: correlation functions can be recovered from source-dependent effective actions when the required effective-action bounds are available.
+
+Source-discipline note:
+The concrete Banach space and heat-kernel exact RG in crossover_spec.md are proposed research definitions, not claims that they are Balaban's exact original definitions.
