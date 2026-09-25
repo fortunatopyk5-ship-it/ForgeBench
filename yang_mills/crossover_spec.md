@@ -81,7 +81,7 @@ K_match(beta_-,beta_+,eps)
       beta_- <= beta(Phi) <= beta_+,
       r(Phi) <= eps}.
 
-For the crossover route beta is expected to decrease toward the product-Haar/strong-coupling side.
+For the old crossover chart beta was expected to decrease toward the product-Haar/strong-coupling side. Iteration 3 does NOT use this as an identified Balaban coordinate. The source-faithful marginal coordinate is the displayed classical-action parameter c=1/g^2; comparison with beta=ell_W(Phi) remains an open normalization/dictionary lemma.
 
 ## 5. Exact RG map
 
@@ -399,3 +399,101 @@ C_j=sup_{Phi in K_j} ||D^2 R_Phi||
 is an infinite-dimensional optimization problem unless one further proves a reduction to finite polymer sizes/group integrals plus controlled analytic tails.
 
 The interval verifier checks Level A certificates after they have been rigorously derived. It does not solve Level B.
+
+
+## 17. Preferred matching norm: pointwise analytic activity norm with decay reserve
+
+The anchored l^1 norm in Section 13 is useful downstream, but it is already stronger than the source statements. For matching, use a pointwise weighted l^infinity norm first.
+
+Fix a compact matching interval for the native marginal parameter
+c=1/g^2
+(or equivalently a g-interval bounded away from 0 and from the edge of the small-coupling theorem). Choose a common inner analytic domain U^*_{Sigma}(X) contained in every source analyticity domain throughout that interval.
+
+For a sector-indexed activity define
+
+||F||^{pt}_{kappa_*}
+ =
+ sup_{Sigma,X}
+ exp(kappa_* d_Sigma(X))
+ ||F_{Sigma,X}||_{H^infty(U^*_{Sigma}(X))}.
+
+Here H^infty carries the sup norm on the complex analytic domain. The product over all (Sigma,X), with weighted l^infinity norm, is Banach because every H^infty(U^*_{Sigma}(X)) is Banach and a weighted l^infinity product of Banach spaces is Banach.
+
+Separate components are normalized by their native amplitudes, e.g. schematically
+
+||R||^{norm}
+ = sup exp(kappa_* d) |R_X| / a_R(g),
+
+with a_R(g)=g^{kappa0} when the CMP119 (2.31) bound applies. Analogous component norms are used for E,B,C,R' with the amplitudes actually appearing in their source estimates. No amplitude is invented when it has not been extracted.
+
+Why this norm is preferable:
+- a pointwise source estimate |F_X|<=A(g)e^{-kappa d(X)} immediately yields
+  ||F||^{pt}_{kappa_*}<=A(g)
+  for kappa_*<=kappa;
+- characteristic/domain histories remain indices and are not differentiated;
+- derivative norms can be recovered on a smaller analytic domain by Cauchy estimates if a uniform analyticity collar is available;
+- KP/anchored summability is postponed to YM-NATIVE-TAIL-1, where polymer entropy is paid explicitly.
+
+Thus the logical sequence is
+
+Balaban pointwise analytic bounds
+ -> native weighted l^infinity Banach ball
+ -> rooted counting + decay reserve
+ -> anchored l^1 activity bound
+ -> eventual KP/source estimates.
+
+The second arrow is the part directly compatible with the extracted source estimates; the rooted-counting arrow remains a separate theorem.
+
+## 18. Native marginal coordinate and sign convention
+
+CMP119 writes the effective action in the source transcription as
+
+A_k(1/g_k^2,U_k)
+ = -A(1/g_k^2,U_k)+E_k+R_k+B_k-mathcalE_k
+
+inside the density exponent.
+
+If our Gibbs convention is exp[-S_eff], the natural positive classical-action coefficient is therefore the source parameter
+
+c_k=1/g_k^2.
+
+CMP119 (2.24) is transcribed as
+
+c_{j-1}(x)
+ = c_j(x)+beta_j(g_{j-1}) phi_j(x).
+
+On a homogeneous interior region with phi_j=1, this gives the source-native one-step marginal relation
+
+c_j = c_{j-1}-beta_j(g_{j-1}).
+
+This fixes the qualitative direction of the native coefficient. It does NOT identify c with beta=ell_W(Phi) or with the conventional Wilson beta_W=2N/g^2 without an action-normalization dictionary.
+
+For Iteration 3, c=1/g^2 is therefore the preferred matching coordinate. The ell_W coordinate is suspended for MATCH/STEP_0 until comparability is proved.
+
+## 19. Status of one-step preservation
+
+The source-level theorem shape recorded for CMP119/CMP122 is stronger than a mere finite-volume existence claim: under its recursive coupling inequalities, constant restrictions, and sufficiently-small-coupling assumptions, successive RT/R operations preserve the paper's inductive density form and bounds.
+
+This supports using the native inductive class as the matching state space while g remains in that theorem's small-coupling window.
+
+However it does NOT yet prove that the specific weighted l^infinity norm above is a self-map with an explicit operator constant, because the following have not been fully extracted:
+- the complete list of inductive assumptions and constant restrictions;
+- a common inner analytic domain U^* over the matching interval;
+- exact metric/index dictionaries;
+- all component amplitude constants.
+
+Thus one-step preservation is:
+KNOWN at the source predicate/class level under small-coupling hypotheses;
+NOT YET PROVED as a bounded operator theorem in the new Banach norm.
+
+## 20. Heat-kernel RG candidate versus Balaban RT/R map
+
+Section 5's heat-kernel block map is only an independent exact-RG candidate. It is not identified with Balaban's RT/R operation.
+
+For YM-MATCH-EXTRACT-1 + STEP_0 there are two legitimate choices:
+
+(A) Stay in Balaban's native RT/R map. Then the source inductive estimates are relevant directly, but the exact Banach/operator dictionary must be extracted.
+
+(B) Extract a physical density from Balaban's construction and switch to the heat-kernel RG. Then a new chart-transition theorem must first place that density in the heat-kernel map's input Banach space.
+
+Iteration 3 adopts (A). Therefore no STEP_0 estimate may mix Balaban matching bounds with derivatives of the unrelated heat-kernel candidate without a chart-transition theorem.
