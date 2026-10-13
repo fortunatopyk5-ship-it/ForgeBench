@@ -1,43 +1,45 @@
 # STATUS
 
 Current objective:
-Close YM-HISTORY-NORM-1: replace the impossible absolute sum over complete global histories by a local/relative connected-history/activity Banach reconstruction. K_0 and STEP_0 remain prohibited.
+Determine whether the Balaban history-resummation/local-cluster map is uniformly C^1 between connected anchored Banach spaces, allowing a controlled loss of tree-decay exponent. K_0 and STEP_0 remain prohibited.
 
 Current strongest result:
-The old global target H_0=sum_{all complete histories}tau_H is PROVED TOO STRONG: an exact binary hard partition on N independent remote blocks has sum_H||chi_H||_infinity=2^N while every fixed local normalized source ratio is independent of N. The correct source-faithful target is the connected relative log-density/activity representation. CMP119 factorizes T_k over disjoint large-field components, and CMP122-II (1.90)-(1.100) directly resums/exponentiates history-dependent terms into connected localization activities. CMP109 Eq. (0.26) then converts their exponential tree decay into a volume/cutoff/scale-uniform anchored Banach norm.
+The functional-analytic C^1 problem is now decomposed sharply. The local reconstruction theorem has been repaired by introducing a common direct-sum target D_A and canonical injections. A correct weighted Schur theorem (YM-HISTORY-JACOBIAN-1) now gives the exact sufficient condition for an anchored polymer Jacobian. Independently, Banach-valued Cauchy shows that a uniformly analytic resummation on a slightly larger input ball is automatically bounded C^1. For source submaps: the fixed local T-component derivative is explicitly controlled, and CMP122-II's R' cluster step visibly spends the decay reserve (1+beta)kappa -> (1+beta/2)kappa. The remaining obstruction is not exp/log algebra; it is the lack of one fixed normalized analytic chart plus a complete source support/collar dictionary for the full outer-history Jacobian.
 
 Current blocking lemma:
-The remaining blocker is no longer global history entropy. It is the FULL outer-history-to-connected-activity map: prove that the entire compressed CMP119 Eq. (2.18) history reconstruction can be represented in one fixed local/relative Banach chart, with cutoff/RG-depth-uniform Lipschitz control. Local absolute H_0 bounds are now proved for important T and regular R sectors; a uniform H_1 for the full pre-resummed history map is not yet extracted.
+YM-HISTORY-C1-CHART-1 (new working name inside YM-HISTORY-NORM-1):
+construct normalized local complex charts for CMP119/CMP122 activity spaces with a scale/cutoff/volume-uniform collar delta_ref>0, and prove that the full history-resummation map in those charts has either
+(a) the quasi-local Jacobian Schur bound of YM-HISTORY-JACOBIAN-QUASILOCAL-1, or
+(b) a uniformly bounded holomorphic extension to a larger anchored input ball.
+Only then can one state a cutoff/volume/depth-uniform full-history C^1 theorem.
 
 Verified:
-- YM-GLOBAL-H0-FAIL-1: global complete-history absolute summability can grow like exp(cV) even for an exact partition with perfectly controlled local physics.
-- DIRECT PRIMARY CMP119: T_k(Z_k)=product_i T_k(X_i) on disjoint large-field components.
-- DIRECT PRIMARY CMP122-II: Eqs. (1.90)-(1.99) turn the local R/history sector into connected polymer activities and exponentiate them into sum_X R'^(k)(X); Eq. (1.100) gives a sharp regular-sector bound.
-- DIRECT PRIMARY CMP109 Eq. (0.26): for sufficiently large decay rate lambda,
-  sup_{j,Delta} sum_{X contains Delta} exp[-lambda d_j(X)] <= C_geo(lambda)
-  with C_geo volume/scale independent.
-- Therefore any source bound A exp[-Lambda d_j(X)] gives the local anchored estimate
-  ||K||_{loc,mu} <= A C_geo(Lambda-mu)
-  whenever Lambda-mu remains in the source summability regime.
-- YM-T-HISTORY-LOCAL-H0-1: the improved CMP122-II (1.89) history-component bound gives a volume/cutoff/depth-uniform local H_0 for connected T-components.
-- YM-R-HISTORY-LOCAL-H0-1: CMP122-II (1.100) gives the corresponding anchored local H_0 for regular connected R'-activities.
-- YM-HISTORY-RECON-LOCAL-1: any connected activity family with finite anchored h_0,h_1 reconstructs a local relative object with bounds <=|A|h_0 and Lipschitz constant <=|A|h_1.
-- YM-REMOTE-HISTORY-CANCEL-1: disconnected remote connected-history components cancel exactly from the local connected-log-density projection.
-- For a connected source/log-partition expansion, all remote source-independent clusters cancel termwise in W(J_A)=log Z(J_A)-log Z(0) (YM-SOURCE-RATIO-CANCEL-ABSTRACT-1).
-- Preferred target D is the connected relative log-density/polymer activity space; local marginals/source ratios are downstream normalized outputs.
-- Tree normalization audit confirms no missing M factor in d_j; for Banach summability CMP109 (0.26) supersedes the crude DFS constant.
+- YM-HISTORY-RECON-LOCAL-1 is corrected and PROVED in a common target D_A^(mu)=weighted l^1 direct sum of local activity spaces; the old untyped sum is superseded.
+- Explicit input/output spaces are B_in(mu_in), B_out(mu_out), anchored l^1-in-polymer / l^infinity-in-anchor Banach spaces. mu_out<mu_in is allowed.
+- YM-HISTORY-JACOBIAN-1: a selector-based weighted Schur test is PROVED with the correct orientation for these norms.
+- YM-HISTORY-JACOBIAN-QUASILOCAL-1: off-diagonal e^{-nu dist(a,b)} control of the anchored Jacobian kernel implies a bounded operator norm.
+- YM-BANACH-CAUCHY-C1-1: a Banach-valued holomorphic map uniformly bounded on a radius-(R+delta) ball has derivative norm <=M/delta on radius R.
+- YM-EXP-LOG-BANACH-1 gives exact derivative bounds in a genuine Banach algebra; applying it to polymer activities still requires a product/convolution theorem.
+- DIRECT/SOURCE-VERIFIED CMP122-II R' exponent ledger: pre-exponentiation connected activity carries (1+beta)kappa decay and post-exponentiation R' carries (1+beta/2)kappa decay. Thus the visible decay expenditure is beta*kappa/2.
+- R' cluster/log submap is uniformly C^1 CONDITIONALLY on a strict source-to-our-norm convergence margin; the exact fixed anchored convergence radius has not been extracted.
+- YM-T-NORMALIZED-DERIV-1: for a fixed local T component, D Tbar[h](F)=Tbar(hF)-Tbar(h)Tbar(F), with explicit norm bound from CMP122-II (1.75).
+- YM-T-SECTOR-C1-1: the fixed/local T derivative lifts to an anchored derivative bound conditionally on the source collar/restriction dictionary and a positive decay reserve.
+- A local source mark J_A is a legitimate tangent vector; if the full history map is C^1, D Hscr[J_A] is a marked connected activity.
+- The source indicates slightly larger analytic spaces/improved decay for newly generated E/R/B terms, but exact enlarged-domain coefficients needed for a normalized collar have not been extracted.
 
 Unverified:
-- a theorem converting the ENTIRE compressed outer-history sum in CMP119 (2.18), not just the local R-operation sector, into one connected polymer/operator representation in a fixed chart;
-- a cutoff/RG-depth-uniform Lipschitz bound for the map from pre-resummed history data to connected activity coordinates;
-- fixed normalized analytic reference charts across historical scales;
-- a fully source-dependent Yang-Mills W(J_A) theorem and marked two-source estimates;
-- the exact anchored norm for intermediate relative-metric boundary activities before they are reclassified into the final B-sector.
+- a fixed normalized reference chart for U_j^c(X,alpha_0,j,alpha_1,j) with delta_ref>0 independent of historical scale/cutoff/volume;
+- uniform chart-transition bounds under RT/R;
+- exact full Jacobian support/collar rule M_{gamma eta}=0 outside a controlled connected neighborhood for every E/R/B/T coordinate;
+- a source-to-our-norm strict convergence radius for the complete R' cluster map;
+- full T-history resummation C^1, beyond a fixed local component;
+- a full-history quasi-local Schur bound or larger-ball Cauchy bound;
+- source-specific first-mark quasi-locality for YM-UV-SOURCE-MATCH-1.
 
 Next action:
-Stay inside YM-HISTORY-NORM-1. Do not build K_0 or attack STEP_0. Extract the final CMP119/CMP122 source bounds for the complete T/B/E/R output class into one product local activity norm and prove that the remaining outer Omega/Lambda sum acts as a bounded map into that space. The first concrete subgoal is a source-faithful operator-polymer theorem for the outer T-components, using the improved (1.89) bound plus CMP109 (0.26), followed by a local Lipschitz estimate for perturbations of those component activities.
+Stay inside YM-HISTORY-NORM-1. Do not build K_0 or attack STEP_0. Extract the exact enlarged analytic-domain margins around CMP119 Sect.2 / the pre-Theorem-1 reserve and express them as normalized local Banach charts. In parallel extract the support/enlargement rule for CMP116/CMP122 cluster outputs so that the Jacobian kernel M_{gamma eta} has a source-verified zero/collar condition. Then test the weighted Schur condition. If the fixed chart fails because alpha_0,j and alpha_1,j cannot be normalized uniformly, record that as the blocker rather than hiding it.
 
-Iteration-6 verdict:
+Iteration-7 verdict:
 STATUS: BLOCKED AT YM-HISTORY-NORM-1.
 
 
