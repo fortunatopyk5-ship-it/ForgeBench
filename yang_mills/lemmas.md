@@ -1480,9 +1480,9 @@ T'_k(X)1 <= exp[-a_0 p_0(g_k)]
 and, for an arbitrary large-field region, the source states the improved form with an additional tree penalty
 
 T'_k(X)1
-<= exp[-a_0 p_0(g_k)] exp[-kappa_1 d_k(X)].
+<= exp[-a_0 p_0(g_k)] exp[-lambda_T d_k(X)].
 
-Hence for any mu such that kappa_1-mu lies in the CMP109 summability regime,
+Hence for any mu such that lambda_T-mu lies in the CMP109 summability regime,
 
 H_{0,T}^{loc}(mu)
 :=
@@ -1490,12 +1490,12 @@ sup_Delta
 sum_{X contains Delta}
 e^{mu d_k(X)} |T'_k(X)1|
 
-<= exp[-a_0 p_0(g_k)] C_geo(kappa_1-mu).
+<= exp[-a_0 p_0(g_k)] C_geo(lambda_T-mu).
 
 If g_k in (0,gamma] and p_min(gamma)=inf_{0<g<=gamma}p_0(g), then
 
 H_{0,T}^{loc}(mu)
-<= exp[-a_0 p_min(gamma)] C_geo(kappa_1-mu),
+<= exp[-a_0 p_min(gamma)] C_geo(lambda_T-mu),
 
 uniformly in volume, cutoff, and RG depth.
 
@@ -1504,6 +1504,10 @@ DIRECT PRIMARY SOURCE + PROVED SUMMATION CONSEQUENCE.
 
 Operator version:
 CMP122-II (1.75) multiplies the scalar bound by exp(3 sup|sigma|) for the normalized action on F.
+
+
+Notation note:
+Here lambda_T denotes the positive tree-decay coefficient in the source's improved arbitrary-region form following (1.89); no numerical value is assigned.
 
 ---
 
