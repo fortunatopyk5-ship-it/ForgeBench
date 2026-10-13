@@ -199,9 +199,9 @@ Therefore exponential shell counting follows from:
 (ii) the tree metric,
 (iii) TC.
 
-The nontrivial Balaban-specific missing item is TC with constants uniform in j and the exact cube convention.
-
-This is stronger and safer than assuming the counting estimate directly.
+Iteration-5 correction: this Balaban-specific item is now closed by direct CMP109 verification. The source shortest-tree definition gives
+|X|<=16(d_j(X)+1)
+in d=4, uniformly in j/volume/cutoff (YM-BALABAN-TREE-COERCIVITY-1). Combined with degree-8 cube adjacency and DFS counting, the fixed-history shell estimate is explicit (YM-BALABAN-TREE-SHELL-COUNT-1).
 
 ## 9. Histories cannot be counted from d_j(X) alone
 
@@ -358,8 +358,9 @@ fixed normalized analytic charts,
 kappa_* and component radii,
 a volume-independent local/relative density target D,
 fixed history weights/operator majorants yielding finite H_0,H_1,
-polymer/tree constants,
 and an open-neighborhood native RG theorem in B_amb.
+
+Fixed-history polymer/tree constants are no longer a blocker: they are explicit after the direct CMP109 audit.
 
 An independent physical coupling-profile radius is removed from this list: the profile is history-derived once the cutoff convention is fixed.
 
