@@ -2085,3 +2085,201 @@ PROVED ABSTRACTLY.
 
 Yang-Mills status:
 The topology admits first source marks. The source-specific Jacobian/quasi-locality estimate for the full Balaban history map is still open.
+
+
+---
+
+## LEMMA ID: YM-CLUSTER-JACOBIAN-SCHUR-1
+
+Statement:
+Let Hscr:B_in(mu_in)->B_out(mu_out) be a map with components Hscr_gamma taking values in C_gamma. Fix R,delta,A,kappa>0.
+
+Assume for every ||F||_in<R+delta:
+
+(A1) component bound:
+||Hscr_gamma(F)||_{C_gamma}
+<= A exp[-kappa d(gamma)];
+
+(A2) holomorphy:
+Hscr_gamma is holomorphic as a function on the B_in(mu_in) ball;
+
+(A3) collar locality:
+there is a scale-independent integer r_col>=0 such that the coordinate derivative
+M_{gamma eta}(F)=D_eta Hscr_gamma(F)
+vanishes unless
+supp(eta) subset N_{r_col}(supp(gamma))
+(or any source-specific condition implying dist(supp eta,supp gamma)<=r_col and allowing a selector within r_col of gamma).
+
+Then for ||F||_in<=R, coordinate Cauchy gives
+
+||M_{gamma eta}(F)||
+<=
+(A/delta)
+e^{mu_in d(eta)}
+e^{-kappa d(gamma)}.                                    (J1)
+
+Suppose further that the source polymer geometry has the two-anchor consequence:
+for any blocks a,b and gamma meeting b and lying within r_col of a,
+
+d(gamma)
+>= dist(a,b)-c_col
+
+with c_col depending only on r_col.
+
+Choose nu>0 such that
+
+lambda_res
+ :=
+ kappa-mu_out-nu
+
+lies in the CMP109 geometric summability regime.
+
+Then the weighted Jacobian kernel satisfies
+
+sup_{eta contains a}
+[
+ e^{-mu_in d(eta)}
+ sum_{gamma contains b:s(gamma,eta)=a}
+ e^{mu_out d(gamma)}
+ ||M_{gamma eta}(F)||
+]
+<=
+(A/delta)
+e^{nu c_col}
+C_geo(lambda_res)
+e^{-nu dist(a,b)}.                                      (J2)
+
+Consequently, by YM-HISTORY-JACOBIAN-QUASILOCAL-1,
+
+||D Hscr_F||_{B_in(mu_in)->B_out(mu_out)}
+<=
+(A/delta)
+e^{nu c_col}
+C_geo(lambda_res)
+C_lat(nu).                                               (J3)
+
+Status:
+PROVED UNDER (A1)-(A3) AND THE STATED SOURCE-GEOMETRIC INPUT.
+
+Proof:
+For a local unit vector h in A_eta, its coordinate injection I_eta h has
+
+||I_eta h||_in
+<=
+e^{mu_in d(eta)}.
+
+Thus the complex line
+F+z I_eta h
+remains in the larger input ball for
+
+|z|<delta e^{-mu_in d(eta)}.
+
+Scalar/Banach Cauchy applied to Hscr_gamma gives (J1).
+
+Multiply by the Schur weights. The factor e^{mu_in d(eta)} cancels exactly against the input weight. Split
+
+e^{-(kappa-mu_out)d(gamma)}
+=
+e^{-nu d(gamma)}
+e^{-lambda_res d(gamma)}.
+
+The collar geometry gives
+e^{-nu d(gamma)}
+<=e^{nu c_col}e^{-nu dist(a,b)}.
+Sum the remaining factor with C_geo(lambda_res), obtaining (J2). Apply the quasi-local Schur lemma.
+
+Importance:
+This theorem converts exactly the three source ingredients one expects from a constructive cluster expansion—
+(1) analytic reserve,
+(2) output tree decay,
+(3) connected support/collar locality—
+into a uniform quasi-local C^1 operator bound.
+
+---
+
+## LEMMA ID: YM-GRADED-ACTIVITY-BANACH-1
+
+Statement:
+Let the scale/history index i range over an arbitrary countable set and let A_i be arbitrary Banach spaces (they need not be the same space or be defined on the same analytic field domain). Let each i carry a polymer support supp(i), a tree size d(i), and scale-local anchors.
+
+The anchored product
+
+B_grad(mu)
+ =
+ {F=(F_i), F_i in A_i:
+   sup_anchor
+   sum_{i incident to anchor}
+     e^{mu d(i)}||F_i||_{A_i}<infinity}
+
+is Banach.
+
+Status:
+PROVED.
+
+Proof:
+Same coordinatewise completeness plus Fatou argument as for YM-LOCAL-ACTIVITY-BANACH-1.
+
+Interpretation:
+A common raw field domain is NOT logically necessary merely to define a single fixed Banach space of ACTIVITY COEFFICIENTS. One may use a graded product whose coordinate Banach spaces are the native H-infinity spaces at their historical scales.
+
+However:
+- RG chart transitions must still be bounded maps between the coordinate spaces;
+- field/source differentiation inside A_i still needs a uniform analytic collar;
+- a first source mark J_A is a field/source derivative, so the normalized-chart problem remains essential for YM-UV-SOURCE-MATCH-1.
+
+Thus the fixed-reference-domain blocker is essential for source-variable C^1, but not for the bare coefficient-space definition.
+
+---
+
+## LEMMA ID: YM-RPRIME-CLUSTER-C1-1
+
+Statement:
+Let C_R be the connected cluster/log submap taking pre-exponentiation activities F(X') to post-exponentiation connected activities R'(X).
+
+Assume there exists a source-uniform activity convergence radius r_*>0 such that:
+
+(i) for every rho<r_* and every input family in the anchored input ball ||F||<=rho, the finite-volume cluster expansion defining C_R converges absolutely with bounds uniform in volume/cutoff/scale;
+
+(ii) on that ball the output components satisfy
+
+||C_R(F)_X||
+<=
+C_R0 rho
+exp[-kappa_out d(X)]
+
+with C_R0 independent of volume/cutoff/scale;
+
+(iii) derivative support obeys the exact-union/collar condition of YM-CLUSTER-JACOBIAN-SCHUR-1.
+
+Then for every r<rho<r_* the map
+
+C_R:
+B_in(mu_in; ||F||<r)
+ ->
+B_out(mu_out)
+
+is uniformly C^1 whenever
+kappa_out-mu_out-nu
+lies in the CMP109 summability regime for some nu>0.
+
+A valid explicit derivative constant is obtained from YM-CLUSTER-JACOBIAN-SCHUR-1 with
+
+A=C_R0 rho,
+delta=rho-r.
+
+Status:
+PROVED UNDER (i)-(iii).
+
+CMP122-II instantiation:
+The source proves a sufficiently-small pre-exponentiation activity regime, convergent exponentiation, and the decay ledger
+
+kappa_in=(1+beta)kappa,
+kappa_out=(1+beta/2)kappa.
+
+Thus the source-visible decay loss is
+
+epsilon_R=(beta/2)kappa.
+
+What remains unverified is the precise translation of the source "sufficiently small c_1" regime into one anchored input radius r_* and the exact source collar/union dictionary required by (iii).
+
+Therefore the cluster/log SUBMAP theorem is ready; the full source instantiation remains PARTIAL.
