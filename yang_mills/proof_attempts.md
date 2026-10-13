@@ -263,3 +263,39 @@ A cutoff/depth-uniform local Lipschitz h_1 for the entire compressed CMP119 oute
 
 Result:
 STATUS: BLOCKED AT YM-HISTORY-NORM-1.
+
+
+## Attempt N — Iteration 7: C^1 history resummation
+
+### N1. Fix the local-reconstruction typing defect
+Use D_A^(mu)=weighted l^1 direct sum of local activity spaces and canonical injections iota_{gamma,A}. Old untyped sums are superseded.
+
+### N2. Derive the anchored Schur test
+For M_{gamma eta}=D_eta Hscr_gamma, assign every nonzero pair to a selector block s(gamma,eta) in eta. The resulting Schur constant has orientation
+sup_b sum_a sup_{eta contains a} e^{-mu_in d(eta)}
+ sum_{gamma contains b, s=a} e^{mu_out d(gamma)}||M_{gamma eta}||.
+This controls the operator norm exactly.
+
+### N3. Cauchy plus locality
+Uniform analyticity on a larger input ball yields coordinate derivative
+||M_{gamma eta}||
+<=
+(A/delta)e^{mu_in d(eta)}e^{-kappa d(gamma)}.
+The input exponential cancels in the Schur kernel. If the derivative is zero outside a fixed support collar, output tree decay yields off-diagonal anchor decay and hence uniform C^1.
+
+### N4. R' sector
+Source gives the decay ledger
+(1+beta)kappa -> (1+beta/2)kappa.
+Thus beta*kappa/2 is a real source-visible loss reserve.
+The remaining missing inputs are strict anchored convergence-ball radius and exact support/collar dictionary.
+
+### N5. T sector
+Fixed-component normalized T derivative is a covariance:
+D Tbar[h](F)=Tbar(hF)-Tbar(h)Tbar(F).
+CMP122-II (1.75) bounds it. Tree suppression plus a local collar gives anchored derivative control after spending a little decay.
+
+### N6. Chart audit
+A graded activity Banach product avoids the need to identify all H^infinity field domains just to define coefficient C^1. But first physical source derivative still needs a uniform normalized analytic collar.
+
+Result:
+No full history C^1 theorem. Blocked at source instantiation of support/collar and strict convergence margin.
