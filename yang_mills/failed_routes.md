@@ -222,3 +222,28 @@ CMP119 uses a localized coupling c_j(x) and a cutoff/domain function phi_j(x). B
 
 Can it be repaired?
 Use scalar bulk c plus a coupling-profile coordinate q(x)=c(x)-c.
+
+
+---
+
+## Route: Require absolute summability over complete global histories
+Why it looked promising:
+It turns reconstruction into an ordinary Banach-valued series with a simple global H_0.
+
+Exact failure:
+Even an exact product hard partition with one binary history choice per distant block has 2^N global histories of unit sup norm while fixed local normalized observables remain independent of N. The norm destroys exact remote partition cancellation before it can occur.
+
+Can it be repaired?
+Do not norm complete histories globally. First factor/resum into connected local components and use anchored local activity norms.
+
+---
+
+## Route: Use raw unnormalized density as the volume-independent target D
+Why it looked promising:
+It would make reconstruction literal.
+
+Exact failure:
+The Gibbs/effective density contains an extensive vacuum/free-energy factor; source UV-stability bounds naturally scale exponentially with total volume.
+
+Can it be repaired?
+Quotient additive constants or retain only vacuum energy density, and norm the connected relative log-density/local activities. Use Z(J)/Z(0) or W(J) only as normalized downstream observables.
