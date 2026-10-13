@@ -1538,48 +1538,88 @@ The boundary/large-field-connected intermediate activities in (1.99) use a relat
 
 ## LEMMA ID: YM-HISTORY-RECON-LOCAL-1
 
-Statement:
-Let P be a countable family of connected polymers on a block lattice. Let Phi_gamma map an ambient radius-R ball into Banach spaces A_gamma. Assume
+Iteration-7 corrected typed statement:
+Let P be a countable family of connected polymers. For each gamma let C_gamma be a Banach space. For a finite block region A with dependency collar A^+, define
 
-h_0 =
-sup_B sum_{gamma contains B}
-sup_{||F||<=R} ||Phi_gamma(F)||
-<infinity,
+Gamma_A={gamma: supp(gamma) intersects A^+}
 
-h_1 =
-sup_B sum_{gamma contains B}
-Lip_R(Phi_gamma)
-<infinity.
+and the common local target
 
-For finite block region A define
+D_A^(mu)
+ =
+ l^1({C_gamma}_{gamma in Gamma_A}; e^{mu d(gamma)}),
+
+i.e. vectors u=(u_gamma) with norm
+
+||u||_{D_A^(mu)}
+ =
+ sum_{gamma in Gamma_A}
+ e^{mu d(gamma)} ||u_gamma||_{C_gamma}.
+
+For every gamma in Gamma_A define the canonical coordinate injection
+
+iota_{gamma,A}:C_gamma -> D_A^(mu),
+
+whose only nonzero coordinate is gamma. Then
+
+||iota_{gamma,A}||
+ =
+ e^{mu d(gamma)}.
+
+Let Phi_gamma map an ambient radius-R ball U_R into C_gamma. Define the TYPED local reconstruction
 
 Rec_A(F)
-=
-sum_{gamma: supp(gamma) intersects A}
-Phi_gamma(F)
+ =
+ sum_{gamma in Gamma_A}
+ iota_{gamma,A} Phi_gamma(F).
 
-as an absolutely summed local relative object.
+Assume
+
+h_0^(mu)
+ =
+ sup_B
+ sum_{gamma: B in supp(gamma)}
+ e^{mu d(gamma)}
+ sup_{F in U_R} ||Phi_gamma(F)||
+ < infinity,
+
+and
+
+h_1^(mu)
+ =
+ sup_B
+ sum_{gamma: B in supp(gamma)}
+ e^{mu d(gamma)}
+ Lip_R(Phi_gamma)
+ < infinity.
 
 Then:
-1. Rec_A(F) converges absolutely;
+1. Rec_A(F) converges absolutely in D_A^(mu);
 2.
-||Rec_A(F)|| <= |A| h_0;
+   ||Rec_A(F)||_{D_A^(mu)}
+   <= |A^+| h_0^(mu);
 3.
-||Rec_A(F)-Rec_A(G)|| <= |A| h_1 ||F-G||.
+   ||Rec_A(F)-Rec_A(G)||_{D_A^(mu)}
+   <= |A^+| h_1^(mu) ||F-G||.
 
 Status:
-PROVED.
+PROVED. This supersedes the untyped Iteration-6 formulation.
 
 Proof:
-Every contributing polymer contains at least one anchor block B in A. Bound the sum by
-sum_{B in A} sum_{gamma contains B}.
-The h_0 and h_1 definitions give the claims.
+The norm of each injected term is exactly
+e^{mu d(gamma)}||Phi_gamma(F)||.
+Every gamma in Gamma_A contains at least one anchor block B in A^+. Therefore
 
-Weighted version:
-The same proof holds with exponential size weights included in h_0,h_1.
+sum_{gamma in Gamma_A} (...)
+<=
+sum_{B in A^+}
+sum_{gamma contains B} (...).
 
-Interpretation:
-This is the correct local replacement of YM-HISTORY-RECON-ABSTRACT-1 when global complete-history H_0 is volume-divergent.
+Apply h_0 or h_1.
+
+Cylinder-function interpretation:
+If C_gamma is a Banach space of cylinder functions on the local field variables of gamma, iota_{gamma,A} is NOT extension of that function to a common physical configuration space. It is the canonical injection into the l^1 direct-sum activity target. Any later synthesis/evaluation map from D_A^(mu) to actual local functions is a separate bounded map and must be proved.
+
 
 ---
 
@@ -1673,3 +1713,375 @@ DIRECT PRIMARY VERIFIED / PROVED.
 
 Recommendation:
 For local Banach summability use CMP109 Eq. (0.26) directly rather than the crude explicit DFS shell constant.
+
+
+---
+
+## LEMMA ID: YM-HISTORY-JACOBIAN-1
+
+Statement:
+Let P_in,P_out be polymer families on a countable block lattice. Let A_eta,C_gamma be Banach spaces and define anchored norms
+
+||h||_in
+ =
+ sup_a
+ sum_{eta contains a}
+ v_eta ||h_eta||_{A_eta},
+
+||k||_out
+ =
+ sup_b
+ sum_{gamma contains b}
+ u_gamma ||k_gamma||_{C_gamma},
+
+with positive weights v_eta,u_gamma.
+
+Let M=(M_{gamma eta}) be bounded linear coordinate maps
+M_{gamma eta}:A_eta->C_gamma.
+For every pair with M_{gamma eta} nonzero choose a selector
+s(gamma,eta) in supp(eta).
+
+Define
+
+S(M)
+ =
+ sup_b
+ sum_a
+ sup_{eta contains a}
+ [
+   v_eta^(-1)
+   sum_{gamma contains b: s(gamma,eta)=a}
+   u_gamma ||M_{gamma eta}||
+ ].
+
+If S(M)<infinity, then the coordinate series
+
+(Mh)_gamma=sum_eta M_{gamma eta} h_eta
+
+defines a bounded map B_in->B_out and
+
+||M||_{B_in->B_out} <= S(M).
+
+Status:
+PROVED.
+
+Proof:
+For fixed output anchor b,
+
+sum_{gamma contains b}u_gamma||(Mh)_gamma||
+<=
+sum_{gamma contains b}sum_eta u_gamma||M_{gamma eta}||||h_eta||.
+
+Assign each pair (gamma,eta) to the unique a=s(gamma,eta). For fixed a this is
+
+sum_{eta contains a}
+ ||h_eta||
+ sum_{gamma contains b:s(gamma,eta)=a}
+ u_gamma||M_{gamma eta}||.
+
+Bound the bracket divided by v_eta by its supremum over eta containing a and use
+
+sum_{eta contains a}v_eta||h_eta||<=||h||_in.
+
+Sum over a and take sup over b.
+
+Interpretation:
+This is the correct orientation of the weighted Schur test for an anchored l^1-in-polymer / l^infinity-in-anchor norm. A bare sup_gamma sum_eta condition is not the native operator norm.
+
+---
+
+## LEMMA ID: YM-HISTORY-JACOBIAN-QUASILOCAL-1
+
+Statement:
+In the setting of YM-HISTORY-JACOBIAN-1, suppose there are C,nu>0 such that for every blocks a,b,
+
+sup_{eta contains a}
+ [
+ v_eta^(-1)
+ sum_{gamma contains b:s(gamma,eta)=a}
+ u_gamma ||M_{gamma eta}||
+ ]
+<=
+C exp[-nu dist(a,b)].
+
+If
+
+C_lat(nu):=sup_b sum_a exp[-nu dist(a,b)]<infinity,
+
+then
+
+||M||_{B_in->B_out}
+<= C C_lat(nu).
+
+Status:
+PROVED.
+
+Purpose:
+This is the exact quasi-local Jacobian target to extract from Balaban history resummation. It simultaneously controls multiplicity of input polymers, output polymers, and spatial propagation.
+
+---
+
+## LEMMA ID: YM-BANACH-CAUCHY-C1-1
+
+Statement:
+Let X,Y be complex Banach spaces. Suppose H is holomorphic on the open ball
+B_X(0,R+delta), delta>0, and
+
+sup_{||F||<R+delta} ||H(F)||_Y <= M.
+
+Then for every ||F||<=R,
+
+||D H_F||_{X->Y}
+<= M/delta.
+
+More generally, if the uniform output bound is M_Rplusdelta on that ball, use that value.
+
+Status:
+PROVED.
+
+Proof:
+For ||h||_X=1 and any complex continuous functional y* with ||y*||=1, apply the scalar Cauchy formula to
+z -> y*(H(F+z h))
+on |z|<delta. Taking the dual supremum gives the result.
+
+Loss-of-decay use:
+If source estimates only bound H in a weaker output space B_{mu_out}, this theorem gives
+H:B_{mu_in}->B_{mu_out}
+C^1 with exactly that decay loss. No coordinatewise Jacobian estimate is needed for bounded C^1, though the Jacobian theorem is still needed for marked quasi-locality.
+
+---
+
+## LEMMA ID: YM-EXP-LOG-BANACH-1
+
+Statement:
+Let A be a unital Banach algebra with submultiplicative norm.
+
+Exponentiation:
+For all K,H in A,
+
+D exp(K)[H]
+ =
+ integral_0^1 exp((1-t)K) H exp(tK) dt,
+
+and
+
+||D exp(K)|| <= exp(||K||).
+
+Logarithm:
+For ||X||<1,
+
+log(1+X)=sum_{n>=1}(-1)^(n+1)X^n/n
+
+converges absolutely, is analytic, and
+
+||D log(1+X)|| <= 1/(1-||X||).
+
+Status:
+PROVED.
+
+Proof:
+Standard norm-convergent power-series / Duhamel differentiation. For log, differentiating the series termwise gives n terms at order n, whose total norm is bounded by ||H|| ||X||^(n-1).
+
+Limitation:
+Applying this directly to polymer activities requires a separately proved Banach-algebra/convolution estimate for the chosen anchored polymer product. Balaban's cluster expansion provides a different, source-native route to the log map.
+
+---
+
+## LEMMA ID: YM-CLUSTER-CAUCHY-C1-1
+
+Statement:
+Let B_in^kappa and B_out^{kappa-epsilon} be complex connected-activity Banach spaces. Suppose a cluster/resummation map C is represented in finite volume by analytic polynomial/power-series expressions in the input activities, and the series converges absolutely and uniformly in volume on the larger ball
+
+||F||_{B_in^kappa}<R+delta
+
+with
+
+sup ||C(F)||_{B_out^{kappa-epsilon}} <= M
+
+independent of volume/cutoff/scale.
+
+Then the infinite-volume/uniform map is holomorphic on that ball and, on ||F||<=R,
+
+||D C_F||
+<= M/delta.
+
+Status:
+PROVED UNDER THE STATED UNIFORM-CONVERGENCE HYPOTHESIS.
+
+Proof:
+Uniform limits on smaller balls of Banach-valued holomorphic maps are holomorphic. Apply YM-BANACH-CAUCHY-C1-1.
+
+Purpose:
+This is the precise theorem needed to turn a STRICT cluster-expansion smallness reserve into a uniform C^1 estimate.
+
+---
+
+## LEMMA ID: YM-T-NORMALIZED-DERIV-1
+
+Statement:
+Let
+
+T_A(F)=integral dnu(U) W(U) exp(A(U)) F(U)
+
+on a fixed local history component, with Z_A=T_A(1)>0 and normalized operator
+
+Tbar_A(F)=T_A(F)/Z_A.
+
+Assume on a complex neighborhood
+
+|Tbar_A(G)| <= C_T ||G||_infinity
+
+for all bounded local G.
+
+Then for any bounded action perturbation h,
+
+D Tbar_A[h](F)
+ =
+ Tbar_A(hF)-Tbar_A(h)Tbar_A(F),
+
+and
+
+|D Tbar_A[h](F)|
+<=
+(C_T+C_T^2)||h||_infinity||F||_infinity.
+
+Also
+
+D Z_A[h]=T_A(h)
+
+and
+
+|D Z_A[h]|
+<=
+Z_A C_T ||h||_infinity.
+
+Status:
+PROVED.
+
+Balaban instantiation:
+CMP122-II (1.75) provides C_T=exp(3 sup|sigma|) for the normalized local T'_k operation, subject to its source hypotheses. Combined with the source scalar/tree suppression of Z_A=T'_k(X)1, a local action derivative inherits the same tree decay up to the local restriction norm of h.
+
+Limitation:
+This proves C^1 of a FIXED local T component with respect to analytic action perturbations. It does not prove C^1 of the complete history branching/resummation map, where characteristic domains and chart changes also vary.
+
+---
+
+## LEMMA ID: YM-LOCAL-RESTRICTION-1
+
+Statement:
+Let h=(h_eta) be in an anchored input activity space with mu_in>=0. For a finite block set X^+ define the local summed perturbation
+
+r_X h
+ =
+ sum_{eta: supp(eta) intersects X^+} h_eta
+
+viewed in any common local sup-norm space in which restriction/extension of each h_eta has operator norm at most 1.
+
+Then
+
+||r_X h||_infinity
+<=
+|X^+| ||h||_in.
+
+Status:
+PROVED.
+
+Proof:
+Overcount by anchors:
+sum_{eta intersects X^+}||h_eta||
+<=
+sum_{a in X^+}
+sum_{eta contains a}||h_eta||
+<=
+|X^+| ||h||_in.
+
+Use:
+When |X^+| has at most polynomial/linear growth in d(X), this factor can be absorbed by a positive loss of exponential tree decay.
+
+---
+
+## LEMMA ID: YM-T-SECTOR-C1-1
+
+Statement:
+Assume the local T'_k component satisfies:
+(i) CMP122-II normalized operator bound with C_T=exp(3 sup|sigma|);
+(ii) scalar/tree suppression
+Z_X:=|T'_k(X)1|
+<= A_T exp[-lambda_T d_k(X)];
+(iii) the action input enters T'_k(X) only through a local collar X^+ and the restriction map obeys YM-LOCAL-RESTRICTION-1;
+(iv) |X^+|<=C_col(1+d_k(X)).
+
+Then the derivative with respect to the local action-activity input satisfies
+
+||D T'_k(X)||
+<=
+A_T C_T C_col(1+d_k(X))
+exp[-lambda_T d_k(X)]
+
+as a map from the anchored input norm to the local output operator norm.
+
+Consequently, for any mu_out and epsilon>0 such that
+lambda_T-mu_out-epsilon is in the CMP109 geometric summability regime,
+
+sup_Delta
+sum_{X contains Delta}
+e^{mu_out d_k(X)}
+||D T'_k(X)||
+<=
+A_T C_T C_col C_epsilon
+C_geo(lambda_T-mu_out-epsilon),
+
+where
+
+C_epsilon:=sup_{t>=0}(1+t)e^{-epsilon t}<infinity.
+
+Status:
+PROVED CONDITIONAL ON (ii)-(iv) in the precise chosen local charts.
+
+Source status:
+(i) and the existence of source tree suppression are primary-verified.
+The exact collar constant C_col and one fixed normalized chart needed for (iii)-(iv) have NOT been source-instantiated.
+
+Therefore:
+fixed-component T derivative mechanism = PROVED;
+full uniform T-sector C^1 in one fixed Balaban Banach chart = NOT YET PROVED.
+
+---
+
+## LEMMA ID: YM-DECAY-LOSS-1
+
+Statement:
+Let source activities/derivatives have pointwise tree decay exp[-kappa d(X)] and suppose CMP109 geometric summability is finite for every lambda>lambda_geo,* (or for a stated source threshold regime). If the output anchored exponent is mu_out=kappa-epsilon, then the anchored sum is finite whenever
+
+epsilon>lambda_geo,*.
+
+More generally any additional polynomial factor P(d(X)) is absorbed by reserving a further epsilon_1>0 because
+
+sup_{t>=0} P(t)e^{-epsilon_1 t}<infinity.
+
+Status:
+PROVED.
+
+Interpretation:
+A positive loss of decay is natural and should be budgeted explicitly. No numerical minimal epsilon is claimed because the source threshold lambda_geo,* has not been numerically extracted.
+
+---
+
+## LEMMA ID: YM-SOURCE-MARK-TANGENT-1
+
+Statement:
+Let B_in be an anchored activity Banach space. A bounded local source insertion J_A represented by finitely many input activity coordinates supported in A^+ is an element of B_in.
+
+If H:U subset B_in->B_out is C^1, then
+
+D H_F[J_A] in B_out
+
+is a well-defined marked connected activity.
+
+If, in addition, the Jacobian satisfies the quasi-local Schur hypothesis of YM-HISTORY-JACOBIAN-QUASILOCAL-1, the marked output obeys the corresponding spatial quasi-locality bound away from A.
+
+Status:
+PROVED ABSTRACTLY.
+
+Yang-Mills status:
+The topology admits first source marks. The source-specific Jacobian/quasi-locality estimate for the full Balaban history map is still open.
