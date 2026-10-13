@@ -283,3 +283,39 @@ STATUS: BLOCKED AT YM-HISTORY-NORM-1.
 
 Exact continuation:
 prove a uniform local Lipschitz/analytic bound for the complete compressed outer-history/T -> connected-activity map in fixed normalized analytic charts. Global history H_0 should not be revived.
+
+
+## 2026-10-13 — Iteration 7: bounded C^1 history resummation
+
+Scope:
+Only C^1 validity of history-resummation between connected anchored Banach spaces. No K_0 and no STEP_0.
+
+Typing correction:
+The old local reconstruction sum was ill-typed when activities lived in different local Banach spaces. Replaced it by a weighted l^1 direct-sum target D_A^(mu) with canonical coordinate injections. The corrected theorem gives |A^+|h_0 and |A^+|h_1 bounds.
+
+Input/output spaces:
+Defined explicit anchored B_in(mu_in),B_out(mu_out) with possibly different decay exponents. Positive loss mu_in-mu_out is allowed.
+
+Jacobian:
+Proved YM-HISTORY-JACOBIAN-1, a selector-based weighted Schur theorem with the correct orientation for anchored norms. Proved the quasi-local corollary: an off-diagonal e^{-nu dist(a,b)} kernel bound gives a uniform operator norm.
+
+Cauchy route:
+Proved Banach-valued Cauchy derivative theorem. Combined analyticity on a larger activity ball, pointwise output tree decay, and a support/collar rule into YM-CLUSTER-JACOBIAN-SCHUR-1. The input coordinate weight from Cauchy cancels exactly against the input Schur weight.
+
+R' sector:
+CMP122-II source decay changes from (1+beta)kappa before exponentiation to (1+beta/2)kappa after exponentiation; source-visible loss is beta*kappa/2. The cluster/log C^1 theorem is complete abstractly once a strict anchored input convergence radius and exact support/collar dictionary are supplied. Those two source translations remain open.
+
+T sector:
+For fixed local T component, exact differentiation of the normalized operator gives a covariance-type formula and an explicit bound using CMP122-II (1.75). Combined with tree suppression and local restriction, this yields an anchored derivative bound conditionally on the exact collar/source chart. Full T-history resummation C^1 is not proved.
+
+Analytic charts:
+A naive common raw field domain remains unjustified. A graded Banach product of scale-dependent H^infinity coordinate spaces is enough for bare activity-coefficient C^1, so shrinking raw radii are not by themselves fatal. But source/field derivatives and future homogeneous RG coordinates still require a cutoff-independent normalized analytic collar.
+
+Source marks:
+A local J_A is a legitimate tangent vector abstractly. Quasi-local first-mark propagation follows once the full Jacobian Schur estimate is source-instantiated.
+
+Result:
+STATUS: BLOCKED AT YM-HISTORY-NORM-1.
+
+Exact continuation:
+extract the strict anchored cluster convergence radius and exact support/collar relation for the R' cluster map first; this is now the cleanest candidate for a fully source-instantiated C^1 sector.
