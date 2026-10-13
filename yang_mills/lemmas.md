@@ -1151,7 +1151,7 @@ A recursion of the form
 
 c_{j-1}(x)=c_j(x)+b_j phi_j(x)
 
-cannot in general be represented by a single scalar coordinate c_j unless phi_j is spatially constant or the nonconstant coupling profile is stored in additional state data.
+cannot in general be represented pointwise by a single scalar c_j unless phi_j is spatially constant.
 
 Status:
 PROVED.
@@ -1159,7 +1159,170 @@ PROVED.
 Proof:
 If phi_j(x) is nonconstant, then even a constant c_j(x) produces a nonconstant c_{j-1}(x).
 
-Balaban relevance:
-For c_j(x)=1/g_j^2(x), CMP119's localized recursion uses phi_j supported in the relevant domain and equal to one only on an interior core. Therefore a faithful matching state requires a scalar bulk/reference c plus a localized coupling-profile coordinate (or an equivalent history-dependent field), not I_c alone.
+Iteration-5 physical interpretation correction:
+Primary CMP119 Eq. (2.24) directly shows that phi_j is a localization cutoff attached to Lambda_j:
+phi_j in C_0^infinity(Lambda_j), equal to 1 on the prescribed shrunken interior. The source does not sum or integrate over phi_j.
+
+Therefore the nonconstant profile need NOT be an independent physical state coordinate. After fixing a deterministic cutoff-selection rule Lambda -> phi_Lambda, the profile is DERIVED from the bulk coupling sequence and the domain history. An independently variable q may still be useful as an off-physical ambient extension for differentiation, but such an extension has to be constructed/proved and is not source-native.
 
 The old ell_W coordinate remains outside the native matching construction.
+
+
+---
+
+## LEMMA ID: YM-RAW-PARTITION-1
+
+Statement:
+For each elementary CMP119 large/small-field decomposition of the form used in Eqs. (3.2), (3.3), and (3.16), with a finite cube set C and complementary pointwise conditions P_< and P_>= partitioning field space at a threshold, the family
+
+chi_S =
+ product_{cube in C\S} 1_{P_<}
+ product_{cube in S}    1_{P_>=}
+
+satisfies
+
+chi_S in {0,1},
+sum_{S subset C} chi_S = 1
+
+pointwise.
+
+Status:
+PROVED, and the source instantiation is DIRECT PRIMARY VERIFIED.
+
+Proof:
+For each cube exactly one of the complementary conditions < threshold and >= threshold holds. Thus exactly one subset S, namely the set of cubes on which the >= condition holds, has chi_S=1.
+
+Balaban relevance:
+CMP119 Eqs. (3.2), (3.3), (3.16) are exactly of this form.
+
+Important limitation:
+After resummation these raw labels are not the labels of Eq. (2.18). Fixed raw P,Q sets producing the same Omega are resummed into zeta, while S is summed inside T. Therefore this lemma does NOT imply sum over compressed histories of chi_k(Omega_k)=1.
+
+---
+
+## LEMMA ID: YM-COMPRESSED-CHI-NOT-HISTORY-1
+
+Statement:
+In CMP119 Eq. (2.18), chi_k(Omega_k) is not a characteristic factor indexed by the complete compressed history H_k=(Omega_1,Lambda_1;...;Omega_k,Lambda_k;S_1,...,S_k).
+
+Status:
+PROVED FROM PRIMARY SOURCE STRUCTURE.
+
+Reason:
+Eq. (2.17) defines chi_k using only the terminal domain Omega_k. Immediately after Eq. (2.18), the source states that the S_j sums are inside T_k and that A_k depends on the full Omega/Lambda/S sequences. Sec. 3 further resums distinct raw P,Q choices producing the same Omega_{k+1} into zeta(Omega_{k+1}^c).
+
+Consequence:
+The identity
+sum_H chi_H(U)=1
+must not be asserted with chi_H identified with chi_k(Omega_k). The final history sum requires T/zeta/energy control.
+
+---
+
+## LEMMA ID: YM-HISTORY-RECON-ABSTRACT-1
+
+Statement:
+Let {A_H}_{H in H} be unital Banach algebras of scalar functions and D a Banach space. Let linear maps K_H:A_H->D satisfy
+
+||K_H G||_D <= tau_H ||G||_{A_H}.
+
+Let w_H>=1 and define
+
+B_amb = {A=(A_H): ||A||_w:=sup_H w_H||A_H||_{A_H}<infinity}.
+
+Assume
+
+H_0 := sum_H tau_H < infinity,
+H_1 := sum_H tau_H/w_H < infinity.
+
+For ||A||_w<=R define
+
+Rec(A)=sum_H K_H(exp A_H).
+
+Then:
+(1) the series converges absolutely in D;
+(2)
+||Rec(A)||_D <= e^R H_0;
+(3) for ||A||_w,||B||_w<=R,
+
+||Rec(A)-Rec(B)||_D
+ <= e^R H_1 ||A-B||_w.
+
+Status:
+PROVED.
+
+Proof:
+Because w_H>=1,
+||A_H||<=R and ||exp A_H||<=e^R, so absolute convergence and (2) follow from H_0.
+
+For scalar pointwise multiplication,
+exp a-exp b
+=(a-b) integral_0^1 exp((1-t)b+t a) dt.
+Hence
+||exp A_H-exp B_H||
+<=e^R||A_H-B_H||
+<=e^R||A-B||_w/w_H.
+Apply K_H and sum to obtain (3).
+
+Purpose:
+This is the precise absolute/Lipschitz reconstruction theorem needed after source history weights have been identified.
+
+Yang-Mills instantiation:
+PARTIAL. CMP122-II directly supplies a normalized local T operator estimate (1.75), an explicit admissible-history entropy majorant before (1.79), large-field penalties, and the local consequence (1.89). The unresolved step is to package these into one fixed local/relative density norm D and weights w_H with cutoff/volume/depth independent H_0,H_1.
+
+---
+
+## LEMMA ID: YM-T-LOCAL-MAJORANT-1
+
+Statement:
+Under the hypotheses of CMP122-II's local post-R large-field analysis, the localized T'_k operation satisfies
+
+|(T'_k(X,(U,J))1)^(-1) T'_k(X,(U,J))F|
+<= exp(3 sup|sigma|) sup|F|,
+
+and the same source proves
+
+T'_k(X)1
+<= exp[-2(1+beta_0)^(-1)p_0(g_k)]
+
+for the domain X in the construction.
+
+Therefore
+
+|T'_k(X)F|
+<= exp(3 sup|sigma|)
+   exp[-2(1+beta_0)^(-1)p_0(g_k)]
+   sup|F|.
+
+Status:
+DIRECT PRIMARY VERIFIED / algebraic combination of CMP122-II (1.75) and (1.89).
+
+Limitation:
+This is a local T majorant, not yet a global Rec_k operator norm in the new ambient Banach topology.
+
+---
+
+## LEMMA ID: YM-HISTORY-ENTROPY-PAYMENT-1
+
+Statement:
+In the CMP122-II estimate leading to Eq. (1.79), the summation over admissible sequences contributes positive entropy factors of the form
+
+exp{O(1)(M R_j)^(-d)|Z_j|}.
+
+The large-field characteristic functions created at the same scales give negative exponential factors. After decomposition into M R_j-scale components Z_j^(i), their combined form includes penalties of the source shape
+
+exp[
+ -(1/2) gamma_0 A_1^2 p_0(g_j)^2
+        (d'_j(Z_j^(i))+1)
+ -2p_0(g_j)
+].
+
+The source combines these in (1.79), then proves an induction for the residual component cost kappa_j(Z); creation of a new large field supplies a new exp[-p_0(g_j)] factor. This yields, in particular, the local suppression (1.89).
+
+Status:
+DIRECT PRIMARY VERIFIED AS SOURCE MECHANISM.
+
+Meaning:
+History entropy is not an unaccounted combinatorial multiplicity in Balaban's proof. It is explicitly paid by large-field energy/smallness factors.
+
+Limitation:
+No single scalar p>s is extracted; the actual mechanism is multiscale and uses volume/tree costs plus p_0(g_j). Converting it to fixed history weights H_0,H_1 remains open.
