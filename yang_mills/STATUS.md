@@ -20,13 +20,14 @@ Verified:
 - DIRECT PRIMARY CMP119: raw decompositions (3.2),(3.3),(3.16) are exact hard partitions of unity; fixed P,Q choices determining the same Omega_{k+1} are subsequently resummed into zeta(Omega_{k+1}^c).
 - DIRECT PRIMARY CMP119: T_k is an ordered composition of integrations/characteristic factors/delta RG constraints/gauge fixing, factorizes on disjoint large-field components, and T^(k+1) explicitly contains the S_{k+1}-sum.
 - DIRECT PRIMARY CMP122-II: normalized local T'_k operator satisfies Eq. (1.75); admissible-sequence sums are bounded by explicit entropy factors before Eq. (1.79); large-field factors pay this entropy; Eq. (1.89) yields a uniform-form local T'_k(X)1 suppression under the source small-coupling hypotheses.
+- DIRECT PRIMARY CMP109: d_j(X) is the shortest tree-graph localization size for a connected union of pi_j-cubes. This gives the scale-uniform coercivity |X|<=16(d_j(X)+1) in d=4 and an explicit fixed-history shell count via bounded-degree DFS encoding (YM-BALABAN-TREE-COERCIVITY-1 / YM-BALABAN-TREE-SHELL-COUNT-1).
 - The final compressed chi_k(Omega_k) is NOT a complete-history partition function; writing sum_Sigma chi_Sigma=1 in Eq. (2.18) notation is incorrect.
 - YM-HISTORY-RECON-ABSTRACT-1 is proved: weighted operator summability H_0,H_1 implies absolute reconstruction and a quantitative local Lipschitz bound.
 - Primary CMP119 Eq. (2.24) shows the localized coupling profile is generated using phi_j attached to Lambda_j; phi_j is not summed/integrated. An arbitrary q should not be a physical independent coordinate. After fixing a deterministic cutoff-selection convention, q is derived from coupling constants and domain history.
 - A plain global sup norm of the unnormalized density cannot reasonably have a volume-independent C_rec because the source UV-stability bounds themselves contain extensive exp(E|T|) factors.
 
 Primary-source status:
-Upgraded in Iteration 5. The actual CMP119 and CMP122-II article PDFs were directly inspected page-by-page through accessible PDF mirrors. Source equations/pages used in history_reconstruction.md are direct primary verification, not secondary transcription. CMP109 d_j remains only source-extracted through the SHA-pinned audit ledger in this run.
+Upgraded in Iteration 5. The actual CMP109, CMP119 and CMP122-II article PDFs were directly inspected page-by-page through accessible PDF mirrors. The history equations/pages in CMP119/CMP122-II and the CMP109 localization-domain/tree-metric definition used here are DIRECT PRIMARY VERIFIED.
 
 Unverified:
 - a nonrecursive finite characterization of every admissible history after all R-operation modifications; the faithful current definition is recursive/generative;
@@ -34,10 +35,10 @@ Unverified:
 - a volume-independent local/relative density Banach target D suited to reconstruction and later RG calculus;
 - fixed history weights w_H translating (1.79)/(1.89) into finite H_0,H_1 independent of cutoff, volume and k;
 - an open neighborhood U in a single fixed B_amb on which the native RG is C^1/C^2 and whose physical subset is invariant;
-- direct primary CMP109 tree-coercivity constants.
+- no remaining fixed-history tree-counting constant blocker: CMP109 tree coercivity and an explicit shell count are now proved; only history/T reconstruction weights remain.
 
 Next action:
-Do NOT attack STEP_0 or K_0. Fix the density topology first. Factor out the extensive vacuum/classical reference contribution and define a local/relative D; then translate CMP122-II Eq. (1.79), the induction (1.80)-(1.88), and local bound (1.89) into explicit history weights w_H and finite H_0,H_1. In parallel, complete the normalized analytic-chart identification needed to make B_amb independent of historical scale.
+Do NOT attack STEP_0 or K_0. Fix the density topology first. Factor out the extensive vacuum/classical reference contribution and define a local/relative D; then translate CMP122-II Eq. (1.79), the induction (1.80)-(1.88), and local bound (1.89) into explicit history weights w_H and finite H_0,H_1. In parallel, complete the normalized analytic-chart identification needed to make B_amb independent of historical scale. Fixed-history tree counting is now closed and should not distract the next run.
 
 Iteration-5 verdict:
 STATUS: BLOCKED AT YM-HISTORY-RECON-1.
