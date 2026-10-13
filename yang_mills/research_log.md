@@ -229,3 +229,57 @@ Direct CMP109 printed p.257 was inspected. The source defines d_j(X) by a shorte
 # {X contains B: n<=d_j(X)<n+1}
 < (64^32/63) exp((96 log 2)n).
 This is crude but explicit, scale/cutoff/volume independent, and closes fixed-history polymer counting. It does not address history multiplicity; that is paid separately by CMP122-II's admissible-sequence entropy/large-field-energy mechanism.
+
+
+## 2026-10-13 — Iteration 6: local/relative history norm
+
+Scope:
+Only YM-HISTORY-NORM-1. No K_0 and no STEP_0.
+
+Adversarial result:
+The previous global complete-history target H_0=sum_H tau_H is too strong. A product toy model with N independent binary hard-partition choices has 2^N complete histories with unit sup norm, while a fixed local source ratio is independent of N. The divergence is an artifact of summing global history norms before remote partition cancellation/factorization.
+
+Target topology:
+Selected the connected relative log-density/activity space with anchored norm
+sup_Delta sum_{X contains Delta} exp(mu d_k(X)) ||K_X||.
+Vacuum energy density is separated; no uniform norm of the raw extensive unnormalized density is requested.
+
+Primary-source bridge:
+CMP109 (0.26) directly provides volume/scale-uniform anchored summability of exp[-lambda d_j(X)] for sufficiently large lambda. Hence a pointwise source activity bound A exp[-Lambda d_j(X)] gives
+||K||_{loc,mu} <= A C_geo(Lambda-mu).
+
+CMP122-II translation:
+- normalized local T' operator: (1.75);
+- scalar large-field suppression: (1.89), with the source's arbitrary-region improvement adding tree-distance decay;
+- connected R/history polymerization: (1.90)-(1.97);
+- exponentiation to connected log-activity: (1.98);
+- connected activity decay: (1.99);
+- regular-sector bound: (1.100).
+
+This yields explicit symbolic local H_0 bounds
+H_{0,T}^{loc}(mu)
+ <= exp[-a_T p_0(g_k)] C_geo(lambda_T-mu),
+and
+H_{0,R'}^{loc}(mu)
+ <= exp[-p_0(g_k)] C_geo(kappa-mu),
+under the source decay-reserve/small-coupling conditions.
+
+Remote history:
+At the connected log-activity level, disconnected remote components cancel exactly from the local projection. For a source ratio W(J_A), an abstract connected-cluster theorem gives termwise cancellation of source-independent remote clusters. Full Yang-Mills marked-source instantiation remains open.
+
+New theorem:
+YM-HISTORY-RECON-LOCAL-1:
+anchored connected activity bounds h_0,h_1 imply
+||Rec_A(F)||<=|A|h_0
+and
+||Rec_A(F)-Rec_A(G)||<=|A|h_1||F-G||,
+uniformly in total volume.
+
+Tree audit:
+Direct CMP109 normalization confirms no missing M in dimensionless d_j. Source Eq. (0.26), not the crude DFS estimate, is the preferred summability input.
+
+Result:
+STATUS: BLOCKED AT YM-HISTORY-NORM-1.
+
+Exact continuation:
+prove a uniform local Lipschitz/analytic bound for the complete compressed outer-history/T -> connected-activity map in fixed normalized analytic charts. Global history H_0 should not be revived.
