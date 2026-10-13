@@ -160,7 +160,7 @@ a_0=2/(1+beta_0).
 
 The paragraph immediately after (1.89) states that for an arbitrary large-field region one has the improved version with an additional source tree penalty
 
-exp[-kappa_1 d_k(X)].
+exp[-lambda_T d_k(X)].
 
 Hence, for the scalar history-component weight,
 
@@ -169,11 +169,11 @@ tau_k(X)
  |T'_k(X)1|
  <=
  exp[-a_0 p_0(g_k)]
- exp[-kappa_1 d_k(X)].                                  (L2)
+ exp[-lambda_T d_k(X)].                                  (L2)
 
 For the normalized operator acting on F, multiply the right-hand side by exp(3 sup|sigma|).
 
-Therefore, for any mu with kappa_1-mu in the CMP109 summability regime,
+Therefore, for any mu with lambda_T-mu in the CMP109 summability regime,
 
 H_{0,T}^{loc}(mu)
  :=
@@ -183,7 +183,7 @@ H_{0,T}^{loc}(mu)
 
  <=
  exp[-a_0 p_0(g_k)]
- C_geo(kappa_1-mu).                                      (L3)
+ C_geo(lambda_T-mu).                                      (L3)
 
 If all effective couplings lie in the source interval (0,gamma], set
 
@@ -194,7 +194,7 @@ Then
 H_{0,T}^{loc}(mu)
  <=
  exp[-a_0 p_min(gamma)]
- C_geo(kappa_1-mu),                                      (L4)
+ C_geo(lambda_T-mu),                                      (L4)
 
 uniformly in volume, UV cutoff and RG depth k.
 
