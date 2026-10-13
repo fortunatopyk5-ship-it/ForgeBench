@@ -237,3 +237,29 @@ The native recursion is for c_j(x)=1/g_j^2(x), not just a scalar. A faithful sta
 
 Result:
 STATUS: BLOCKED BEFORE K_0. No STEP_0 bounds were attempted.
+
+
+## Attempt M — Iteration 6: local/relative history reconstruction
+
+### M1. Falsify global complete-history H_0
+Independent binary hard partitions in N distant blocks give 2^N complete histories, each with unit sup norm, although every fixed local normalized source ratio is independent of N. Therefore sum over norms of complete histories is the wrong volume-independent target.
+
+### M2. Use source connected factorization
+CMP119 (2.19) factorizes T over disjoint large-field components. CMP122-II (1.90)-(1.100) resums the post-R history sector into connected localization activities and exponentiates them into a connected log-density.
+
+### M3. Choose D_rel
+Use connected local action/operator activities with anchored norm
+sup_Delta sum_{X contains Delta} exp(mu d_k(X)) ||K_X||.
+Separate vacuum energy density from the extensive total constant.
+
+### M4. Source summability
+CMP109 (0.26) gives direct anchored summability of exp[-lambda d_j(X)]. Combining with the improved post-R T bound and CMP122-II (1.100) yields explicit symbolic local H_0 bounds for T and regular R' sectors.
+
+### M5. Remote cancellation
+At the connected-log-density level, disconnected remote components drop out exactly from local projection. For normalized source ratios, remote source-independent connected clusters cancel termwise in an abstract connected expansion.
+
+### M6. Remaining failure
+A cutoff/depth-uniform local Lipschitz h_1 for the entire compressed CMP119 outer-history/T -> connected-activity map is not extracted. Fixed normalized analytic charts are still missing.
+
+Result:
+STATUS: BLOCKED AT YM-HISTORY-NORM-1.
