@@ -247,3 +247,31 @@ The Gibbs/effective density contains an extensive vacuum/free-energy factor; sou
 
 Can it be repaired?
 Quotient additive constants or retain only vacuum energy density, and norm the connected relative log-density/local activities. Use Z(J)/Z(0) or W(J) only as normalized downstream observables.
+
+
+---
+
+## Route: Treat the old coordinatewise h_1 as the full derivative norm
+Exact failure:
+A sum of coordinate Lipschitz constants does not automatically represent the operator norm between anchored polymer spaces, and the previous local reconstruction was not even typed when different output coordinates lived in different spaces.
+
+Repair:
+Use the direct-sum local target and the selector-based weighted Schur theorem YM-HISTORY-JACOBIAN-1.
+
+---
+
+## Route: Infer C^1 merely from the phrase "analytic extension"
+Exact failure:
+Source analyticity in field/source variables does not automatically mean analyticity of the history-resummation map with respect to arbitrary anchored activity coefficients, nor does it supply a cutoff-independent Cauchy radius.
+
+Repair:
+Separate field/source analyticity from coefficient analyticity. For coefficient C^1 require a strict cluster convergence ball; for source derivatives require a normalized inner/outer analytic-domain collar.
+
+---
+
+## Route: Demand one identical raw H^infinity field domain at every scale before any coefficient calculus
+Exact failure:
+A fixed Banach product may have different Banach spaces in different scale/polymer coordinates. Identical raw domains are not necessary for activity-coefficient C^1.
+
+Repair:
+Use a scale-graded anchored product. Retain the normalized-chart problem for field/source differentiation and RG chart transitions, where it is genuinely necessary.
