@@ -222,3 +222,10 @@ STATUS: BLOCKED AT YM-HISTORY-RECON-1.
 
 Exact continuation:
 Define D, extract fixed tau_H/w_H from (1.79)-(1.89), and prove H_0,H_1 uniform. Then establish an open ambient B_amb on which the native RG extends smoothly.
+
+
+Iteration 5 tree-side-task closure:
+Direct CMP109 printed p.257 was inspected. The source defines d_j(X) by a shortest tree graph along localization-cube edges. In d=4 every tree vertex belongs to at most 16 unit cubes, so |X|<=16(d_j(X)+1). Since the face-adjacency graph has degree 8, canonical DFS gives at most 64^{m-1} connected m-cube sets through an anchor. Therefore
+# {X contains B: n<=d_j(X)<n+1}
+< (64^32/63) exp((96 log 2)n).
+This is crude but explicit, scale/cutoff/volume independent, and closes fixed-history polymer counting. It does not address history multiplicity; that is paid separately by CMP122-II's admissible-sequence entropy/large-field-energy mechanism.
