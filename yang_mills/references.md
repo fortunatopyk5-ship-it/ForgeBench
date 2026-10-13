@@ -103,3 +103,9 @@ Iteration-5 source interpretation:
 - the final CMP119 Eq. (2.18) representation is compressed, so chi_k(Omega_k) is NOT a complete-history characteristic;
 - history entropy is explicitly counted in CMP122-II and paid by large-field energy factors inside the T/R construction;
 - the remaining YM-HISTORY-RECON-1 blocker is functional-analytic transport to a fixed volume-independent density/ambient Banach topology, not an unidentified source combinatorics mechanism.
+
+
+Iteration 5 DIRECT PRIMARY CMP109 upgrade:
+- T. Balaban, "Renormalization Group Approach to Lattice Gauge Field Theories. I", CMP 109 (1987) 249-301, printed p.257 / PDF p.8-9: a localization domain X is a connected finite union of pi_j-cubes and d_j(X) is the length (after the source normalization by M / unit-cube rescaling) of a shortest tree graph contained in X and intersecting every cube; the source notes the shortest tree can be taken along cube edges.
+- This direct definition implies the uniform geometric coercivity used here: in d dimensions |X|<=2^d(d_j(X)+1), hence in d=4 |X|<=16(d_j(X)+1). Combined with maximum cube-adjacency degree 8 and canonical DFS encoding, it gives the explicit fixed-history shell bound recorded as YM-BALABAN-TREE-SHELL-COUNT-1.
+- This closes polymer/tree entropy at fixed history. It does not replace the separate CMP122-II admissible-history entropy estimate.
