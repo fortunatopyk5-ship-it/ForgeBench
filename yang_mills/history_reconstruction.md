@@ -441,3 +441,133 @@ The blocker is no longer "we do not know where history entropy is paid".
 That part is source-verified.
 
 The blocker is the FUNCTIONAL-ANALYTIC TRANSPORT of Balaban's multiscale history estimate into one cutoff/volume-independent ambient Banach topology with absolute and Lipschitz reconstruction bounds.
+
+
+# Iteration 6 correction — global complete-history summability is not the target
+
+## 12. Global H_0 is rejected
+
+The Iteration-5 theorem
+H_0=sum_H tau_H
+is a valid abstract sufficient condition but is too strong when H denotes a COMPLETE GLOBAL history.
+
+Independent remote hard-partition choices already give a counterexample: the number of complete global histories can grow exponentially in volume while every fixed local normalized source ratio is volume-independent.
+
+Therefore YM-HISTORY-NORM-1 no longer seeks a volume-independent
+sum over all complete global histories.
+
+## 13. Local connected replacement
+
+The primary object is now the connected relative log-density/activity family
+
+K={K_X}_{X connected}
+
+with anchored norm
+
+||K||_{loc,mu}
+=
+sup_Delta
+sum_{X contains Delta}
+e^{mu d(X)} ||K_X||.
+
+CMP119 (2.19) supplies exact factorization of T over disjoint final large-field components. CMP122-II (1.90)-(1.100) performs the corresponding connected localization/resummation and exponentiation for the post-R sector.
+
+Thus remote disconnected components are not counted as independent local states.
+
+## 14. Source-native anchored summability
+
+Direct CMP109 Eq. (0.26) supplies the geometric estimate
+
+C_geo(lambda)
+=
+sup_{j,Delta}
+sum_{X contains Delta}
+e^{-lambda d_j(X)}
+<infinity
+
+for sufficiently large lambda, uniformly in scale and volume.
+
+Consequently a source pointwise activity bound
+
+||K_X||<=A e^{-Lambda d_j(X)}
+
+implies
+
+||K||_{loc,mu}
+<=
+A C_geo(Lambda-mu)
+
+whenever Lambda-mu is in that summability regime.
+
+This replaces the obsolete global-history H_0 target.
+
+## 15. Local T and R bounds
+
+Write a_T=2/(1+beta_0). Combining CMP122-II (1.89) and the source's stated improved arbitrary-region form with an additional tree-decay term gives schematically
+
+|T'_k(X)1|
+<=
+e^{-a_T p_0(g_k)} e^{-lambda_T d_k(X)}
+
+for the source tree-decay coefficient lambda_T>0.
+
+Therefore
+
+H_{0,T}^{loc}(mu)
+<=
+e^{-a_T p_0(g_k)}
+C_geo(lambda_T-mu).
+
+For regular connected post-R activities, CMP122-II (1.100) gives
+
+|R'^(k)(X)|
+<=
+e^{-p_0(g_k)}e^{-kappa d_k(X)},
+
+hence
+
+H_{0,R'}^{loc}(mu)
+<=
+e^{-p_0(g_k)}C_geo(kappa-mu).
+
+These are cutoff/volume independent under the source small-coupling hypotheses and a fixed decay reserve.
+
+## 16. Local reconstruction and continuity
+
+YM-HISTORY-RECON-LOCAL-1 replaces the global reconstruction theorem.
+
+If connected activities have anchored bounds h_0 and anchored Lipschitz bounds h_1, then for a finite support A,
+
+||Rec_A(F)||<=|A|h_0,
+
+||Rec_A(F)-Rec_A(G)||
+<=|A|h_1||F-G||.
+
+This is the desired volume-independent form.
+
+Current missing item:
+h_1 has NOT been extracted uniformly for the complete pre-resummed outer-history -> connected-activity map.
+
+## 17. Remote cancellation
+
+At the connected log-activity level, histories differing only by disconnected components outside the source-dependency collar A^+ have identical local projection Pi_A K.
+
+For normalized source ratios, an abstract connected-cluster theorem gives exact cancellation of source-independent remote clusters in
+
+W(J_A)=log Z(J_A)-log Z(0).
+
+A full Yang-Mills source-dependent implementation is not claimed here.
+
+## 18. Revised blocker
+
+STATUS: BLOCKED AT YM-HISTORY-NORM-1.
+
+What remains is not global history entropy. It is:
+
+(1) represent the ENTIRE compressed CMP119 outer-history/T output in one fixed connected activity/operator Banach chart;
+
+(2) prove the map from the source history data into that chart is uniformly locally Lipschitz (anchored h_1<infinity);
+
+(3) solve the fixed normalized analytic-chart problem across historical scales.
+
+No K_0 and no STEP_0.
