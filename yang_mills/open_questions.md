@@ -122,3 +122,23 @@ This is now the central continuity blocker.
 41. Instantiate the abstract source-ratio cancellation theorem for Balaban marked local sources: prove that source-independent connected clusters cancel in W(J_A)=log Z(J_A)-log Z(0), with anchored bounds uniform in volume.
 
 42. For the intermediate relative metric d_{k,Y} in CMP122-II (1.97)-(1.99), either prove an anchored relative-metric summability theorem or show rigorously that passage into the final B-sector is sufficient before entering D_rel.
+
+
+## Iteration 7 — C^1 history-resummation blockers
+
+43. Extract a source-exact support/collar theorem for every history-resummation submap:
+M_{gamma eta}=0 unless eta lies in a fixed enlargement of gamma (or a stronger connected-union relation). Record the enlargement in block units at each scale.
+
+44. Translate the CMP116/CMP122 "sufficiently small" activity conditions into a strict anchored input radius r_* and choose r<rho<r_* so that the Banach-Cauchy margin delta=rho-r is cutoff/volume/depth independent.
+
+45. For the R' cluster/log submap, verify that the source majorant proof is uniform for every complex activity family in the anchored ball, not only for the particular activity family constructed by the RG step. This is the last source-instantiation hypothesis in YM-RPRIME-CLUSTER-C1-1.
+
+46. Build the scale-graded activity coefficient Banach space explicitly using A_{j,X}=H^infinity(U_j^c(X,...)) and prove every source restriction/localization map used by history resummation is bounded between the relevant coordinates.
+
+47. Independently, extract an inner/outer normalized field/source analytic-domain pair with delta_ref>0 to justify Cauchy derivatives with respect to J/U. Different log powers in alpha_0,j and alpha_1,j must be handled, not hidden by a single scalar rescaling.
+
+48. Instantiate YM-HISTORY-JACOBIAN-1 for one complete source sector and verify the selector/off-diagonal kernel estimate directly. Preferred first target: the exact-union R' cluster/log submap.
+
+49. For T, identify the precise dependency collar X^+ and prove |X^+|<=C_col(1+d_k(X)) in the source geometry, completing the conditional hypothesis of YM-T-SECTOR-C1-1.
+
+50. Decide whether the full compressed outer-history -> connected-activity map should be differentiated coefficientwise on the graded space or only after one further source resummation that removes hard characteristic boundaries.
