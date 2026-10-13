@@ -1326,3 +1326,73 @@ History entropy is not an unaccounted combinatorial multiplicity in Balaban's pr
 
 Limitation:
 No single scalar p>s is extracted; the actual mechanism is multiscale and uses volume/tree costs plus p_0(g_j). Converting it to fixed history weights H_0,H_1 remains open.
+
+
+---
+
+## LEMMA ID: YM-BALABAN-TREE-COERCIVITY-1
+
+Statement:
+Let X be a CMP109 localization domain in dimension d, i.e. a connected finite union of pi_j-cubes. Let |X| denote the number of pi_j-cubes. With Balaban's metric d_j(X), directly defined as the shortest tree-graph length divided by M (equivalently after rescaling pi_j-cubes to unit cubes), one has
+
+|X| <= 2^d (d_j(X)+1).
+
+In d=4,
+
+|X| <= 16(d_j(X)+1).
+
+Status:
+PROVED from the direct primary definition.
+
+Proof:
+CMP109 directly states that a shortest tree graph may be chosen to be formed by edges of cubes in X. After the source rescaling, pi_j-cubes are unit cubes, so such a finite tree of normalized length L=d_j(X) has L unit edges and L+1 graph vertices.
+
+Every cube of X is intersected by the tree. If an intersection occurs along a cube edge, the cube contains an endpoint vertex of that edge; hence every cube of X contains at least one tree vertex. A lattice vertex belongs to at most 2^d unit cubes. Therefore the number of distinct cubes intersected by the tree is at most 2^d(L+1).
+
+Thus |X|<=2^d(d_j(X)+1).
+
+Uniformity:
+The constant depends only on dimension, not on j, volume, or cutoff, because the source definition rescales pi_j-cubes to unit cubes.
+
+---
+
+## LEMMA ID: YM-BALABAN-TREE-SHELL-COUNT-1
+
+Statement:
+For d=4 CMP109 localization domains containing a fixed pi_j-cube B,
+
+#{X contains B: n<=d_j(X)<n+1}
+<= C_tree exp(c_tree n)
+
+with explicit cutoff/scale/volume independent constants, for example
+
+c_tree = 16 log 64 = 96 log 2,
+
+C_tree = 64^32/63.
+
+Status:
+PROVED (very nonoptimal explicit constants).
+
+Proof:
+CMP109 connectivity is by common 3-dimensional wall, so the adjacency graph of 4D cubes has maximum degree Delta=8.
+
+By YM-BALABAN-TREE-COERCIVITY-1,
+if d_j(X)<n+1 then
+
+|X|<=16(n+2).
+
+For connected m-cube sets through B, the canonical spanning-tree depth-first encoding gives at most
+
+Delta^{2(m-1)}=64^{m-1}
+
+possibilities.
+
+Therefore
+
+#{X contains B: n<=d_j(X)<n+1}
+<= sum_{m=1}^{16(n+2)}64^{m-1}
+< 64^{16(n+2)}/63
+= (64^32/63) exp((16 log64)n).
+
+Purpose:
+The fixed-history polymer/tree counting side-task is now closed. It does NOT count domain histories; the latter is controlled by the separate CMP122-II admissible-sequence entropy mechanism.
