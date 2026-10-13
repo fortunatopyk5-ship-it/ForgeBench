@@ -532,21 +532,39 @@ e^{-p_0(g_k)}C_geo(kappa-mu).
 
 These are cutoff/volume independent under the source small-coupling hypotheses and a fixed decay reserve.
 
-## 16. Local reconstruction and continuity
+## 16. Local reconstruction and continuity — Iteration-7 typed form
 
 YM-HISTORY-RECON-LOCAL-1 replaces the global reconstruction theorem.
 
-If connected activities have anchored bounds h_0 and anchored Lipschitz bounds h_1, then for a finite support A,
+Because different connected activities live in different local spaces C_gamma, define
 
-||Rec_A(F)||<=|A|h_0,
+D_A^(mu)
+=
+l^1({C_gamma}_{supp(gamma) intersects A^+};e^{mu d(gamma)})
 
-||Rec_A(F)-Rec_A(G)||
-<=|A|h_1||F-G||.
+and use the canonical coordinate injections iota_{gamma,A}.
+
+Then
+
+Rec_A(F)
+=
+sum_{supp(gamma) intersects A^+}
+iota_{gamma,A} Phi_gamma(F)
+
+is well typed.
+
+If connected activities have anchored weighted bounds h_0^(mu) and anchored weighted Lipschitz bounds h_1^(mu), then
+
+||Rec_A(F)||_{D_A^(mu)}
+<=|A^+|h_0^(mu),
+
+||Rec_A(F)-Rec_A(G)||_{D_A^(mu)}
+<=|A^+|h_1^(mu)||F-G||.
 
 This is the desired volume-independent form.
 
 Current missing item:
-h_1 has NOT been extracted uniformly for the complete pre-resummed outer-history -> connected-activity map.
+the true h_1 must be obtained from the operator norm of the full history-resummation Jacobian, not merely coordinatewise Lipschitz constants. Iteration 7 supplies the weighted Schur framework for that step.
 
 ## 17. Remote cancellation
 
