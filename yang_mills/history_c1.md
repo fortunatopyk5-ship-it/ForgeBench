@@ -509,3 +509,109 @@ uniformly C^1 in one fixed Balaban-normalized Banach chart.
 
 STATUS:
 BLOCKED AT YM-HISTORY-NORM-1.
+
+
+## 17. Graded-space alternative to a common raw field domain
+
+A fixed Banach space of ACTIVITY COEFFICIENTS does not require all coordinates to be functions on the same raw field domain.
+
+Define a single graded space whose coordinates are
+
+F_{j,eta} in A_{j,eta}
+ :=
+ H^infinity(U^c_j(eta,alpha_0,j,alpha_1,j))
+
+with the anchored norm taken uniformly over scale j.
+
+YM-GRADED-ACTIVITY-BANACH-1 proves this is Banach even though the coordinate spaces differ.
+
+Therefore there are two distinct chart questions:
+
+(A) coefficient-space C^1:
+can be formulated on the graded product, provided all restriction/localization maps between coordinate spaces are bounded;
+
+(B) field/source C^1:
+still needs a uniform analytic collar in the complex field/source variables.
+
+This distinction prevents the shrinking raw alpha_j radii from being used as an automatic obstruction to coefficient-space history resummation.
+
+However future RG iteration on one homogeneous chart still benefits from an explicit normalized chart-transition theorem.
+
+## 18. Explicit R' loss-of-decay budget
+
+Let lambda_geo be any positive reserve for which CMP109 anchored geometric summability is valid.
+
+For the CMP122-II R' cluster step choose the activity norm exponents
+
+mu_in
+ =
+(1+beta)kappa-lambda_geo,
+
+mu_out
+ =
+(1+beta/2)kappa-lambda_geo.
+
+Then
+
+mu_in-mu_out
+ =
+(beta/2)kappa.
+
+Thus the same geometric summability reserve lambda_geo is retained before and after the cluster/log map, and the entire visible source decay loss is
+
+epsilon_R=(beta/2)kappa.
+
+This is the cleanest source-faithful interpretation of the R' loss.
+
+If additional support collars or polynomial factors have to be absorbed, reserve a further epsilon_col>0 and use
+mu_out=(1+beta/2)kappa-lambda_geo-epsilon_col.
+
+## 19. Quasi-local C^1 theorem specialized to exact-union cluster maps
+
+Suppose a connected cluster/log map satisfies:
+- output component bound A exp[-kappa_out d(gamma)] on a larger input ball;
+- derivative support M_{gamma eta}=0 unless supp(eta) subset supp(gamma);
+- a strict activity-ball margin delta>0.
+
+Then YM-CLUSTER-JACOBIAN-SCHUR-1 applies with r_col=0.
+
+For input anchor a in eta and output anchor b in gamma, nonzero derivative implies gamma contains both a and b. Hence
+
+d(gamma)>=dist(a,b)
+
+in the normalized source tree geometry.
+
+Choose nu>0 with
+kappa_out-mu_out-nu
+inside the CMP109 summability regime.
+
+Then
+
+||D Hscr_F||
+<=
+(A/delta)
+C_geo(kappa_out-mu_out-nu)
+C_lat(nu).
+
+This is a complete quasi-local C^1 theorem for an exact-union cluster map.
+
+CMP122-II application status:
+the cluster combinatorics has the needed connected-union architecture, but the exact source-to-our-polymer support/collar dictionary and strict anchored input radius delta are not yet fully extracted. Therefore the theorem is ready but the Yang-Mills R' instantiation remains PARTIAL.
+
+## 20. New blocker ranking
+
+After Iteration 7 the blockers are ranked:
+
+1. FULL HISTORY SUPPORT/COLLAR DICTIONARY:
+   identify exactly which pre-resummed input activities can influence each final E/R/B/T connected activity.
+
+2. STRICT ACTIVITY-BALL MARGIN:
+   translate source "sufficiently small" cluster assumptions into a larger anchored input ball with delta_hist>0 uniformly in scale/cutoff/volume.
+
+3. NORMALIZED SOURCE/FIELD COLLAR:
+   needed for derivatives with respect to J/U, not strictly for coefficient-space C^1 if the graded activity product is used.
+
+4. FIXED RG CHART TRANSITION:
+   needed before future iteration beyond the history map.
+
+Thus the immediate coefficient-C^1 blocker is now (1)+(2); normalized field charts remain the immediate source-mark blocker.
