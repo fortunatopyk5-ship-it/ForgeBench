@@ -98,3 +98,27 @@ with H_0=sum_H tau_H finite uniformly in cutoff, volume and k.
 35. Decide whether the deterministic cutoff assignment Lambda->phi_Lambda can be chosen Euclidean-covariantly and compatibly with restriction/RG transitions. This is the exact condition needed to make the derived coupling profile canonical.
 
 36. RESOLVED in Iteration 5: direct-primary CMP109 gives the shortest-tree metric; YM-BALABAN-TREE-COERCIVITY-1 proves |X|<=16(d_j(X)+1) in d=4 and YM-BALABAN-TREE-SHELL-COUNT-1 gives an explicit scale/volume-uniform fixed-history shell count. This does not count histories.
+
+
+## Iteration 6 — YM-HISTORY-NORM-1
+
+Resolved:
+- Global complete-history H_0=sum_H tau_H is rejected as a necessary target (YM-GLOBAL-H0-FAIL-1).
+- Preferred D is connected relative log-density / activity space with anchored norm.
+- CMP109 (0.26) supplies direct source geometric summability for exponential tree-decay activities.
+- Local H_0 is proved for the improved connected T-history components and regular post-R connected activities.
+- Tree normalization has no missing M factor.
+
+37. Can the ENTIRE compressed CMP119 Eq. (2.18) outer Omega/Lambda sum, including T/zeta data not already absorbed by the local R-operation, be represented as a bounded operator-polymer family in the same connected local activity topology?
+
+38. Prove a cutoff/volume/RG-depth-uniform local Lipschitz estimate h_1 for the map
+pre-resummed compressed history data -> connected local activities.
+This is now the central continuity blocker.
+
+39. Can the CMP116/CMP122 cluster-expansion extraction/localization maps be organized as analytic maps between the normalized fixed-reference activity Banach spaces, thereby supplying the required h_1 by Cauchy/Frechet estimates?
+
+40. Choose the exact treatment of field-independent vacuum terms: quotient by additive constants versus a separate vacuum-energy-density coordinate. The choice must be compatible with source ratios and the RG map.
+
+41. Instantiate the abstract source-ratio cancellation theorem for Balaban marked local sources: prove that source-independent connected clusters cancel in W(J_A)=log Z(J_A)-log Z(0), with anchored bounds uniform in volume.
+
+42. For the intermediate relative metric d_{k,Y} in CMP122-II (1.97)-(1.99), either prove an anchored relative-metric summability theorem or show rigorously that passage into the final B-sector is sufficient before entering D_rel.
