@@ -109,3 +109,12 @@ Iteration 5 DIRECT PRIMARY CMP109 upgrade:
 - T. Balaban, "Renormalization Group Approach to Lattice Gauge Field Theories. I", CMP 109 (1987) 249-301, printed p.257 / PDF p.8-9: a localization domain X is a connected finite union of pi_j-cubes and d_j(X) is the length (after the source normalization by M / unit-cube rescaling) of a shortest tree graph contained in X and intersecting every cube; the source notes the shortest tree can be taken along cube edges.
 - This direct definition implies the uniform geometric coercivity used here: in d dimensions |X|<=2^d(d_j(X)+1), hence in d=4 |X|<=16(d_j(X)+1). Combined with maximum cube-adjacency degree 8 and canonical DFS encoding, it gives the explicit fixed-history shell bound recorded as YM-BALABAN-TREE-SHELL-COUNT-1.
 - This closes polymer/tree entropy at fixed history. It does not replace the separate CMP122-II admissible-history entropy estimate.
+
+
+Iteration 6 direct-primary/local-norm extraction:
+- CMP109, printed p.257 around Eqs. (0.25)-(0.26): after defining the shortest-tree metric d_j(X), Balaban uses sufficiently large tree-decay exponent to obtain a scale/volume-uniform anchored sum over localization domains containing a fixed pi_j cube. This is the direct source for C_geo(lambda) used in YM-SOURCE-GEOMETRIC-SUM-1.
+- CMP116, "Renormalization group approach to lattice gauge field theories. II. Cluster expansions", Lemma 3 / Eq. (2.38): the exponentiated connected cluster activity has exponential tree decay with a reserve in the exponent; the following source argument states these estimates satisfy the convergence conditions for the cluster expansion. This independently supports the local connected-activity Banach topology.
+- CMP122-II, after Eq. (1.89): for an arbitrary large-field region the local T'_k bound is improved by an additional exponential tree-distance factor. Eqs. (1.90)-(1.100) then decompose the R-operation result into connected localization polymers, prove tree decay, exponentiate the polymer expansion, and obtain the regular-sector bound exp[-p_0(g_k)] exp[-kappa d_k(X)].
+
+Iteration 6 interpretation:
+The source architecture is local/connected. Global absolute summability over COMPLETE histories is not a source requirement and is mathematically too strong. The correct reconstruction target is an anchored connected relative log-density/activity norm. The remaining issue is a uniform Lipschitz map from the complete compressed outer-history/T representation into one fixed connected-activity Banach chart.
