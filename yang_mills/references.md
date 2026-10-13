@@ -63,3 +63,43 @@ Iteration 4 primary-source access audit:
 - CMP122-II bibliographic/paper-level metadata and abstract were verified through Rutgers/publisher-indexed metadata, but equation/Theorem-1 bodies remain secondary visual transcriptions from the SHA-pinned source-audit ledger.
 - The source-audit ledger marks CMP109 printed p.257 / PDF p.9 as source-extracted for the definition of d_j(X): shortest tree-graph length intersecting all localization cubes, divided by M. This is used only with that provenance label; it is not claimed as newly direct primary verification.
 - CMP119's abstract-level statement that complete effective densities include large-field domains and that the renormalization transformations preserve their form is independently corroborated by Rutgers/OpenAIRE metadata. This is paper-level support, not an equation-level dictionary.
+
+
+Iteration 5 DIRECT PRIMARY verification upgrade:
+The actual article PDFs for CMP119 and CMP122-II were inspected directly page-by-page through accessible PDF mirrors. The following history/reconstruction claims are therefore upgraded from secondary visual transcription to DIRECT PRIMARY VERIFIED.
+
+CMP119, T. Balaban, Commun. Math. Phys. 119 (1988) 243-285:
+- printed p.246 Eq. (1.1): first raw hard large/small-field partition over P_0;
+- printed p.246 Eq. (1.4): hard partition over P_1;
+- printed p.247 Eq. (1.8): hard partition over Q_1;
+- printed p.248 Eqs. (1.10)-(1.11): Omega_1 construction and resummation over admissible P_0,P_1,Q_1 into zeta(Omega_1^c);
+- printed p.254 Eq. (2.1): Omega/Lambda interleaving
+  Omega_1 superset Lambda_1 superset ... superset Omega_k superset Lambda_k;
+- printed p.254-p.255: S_j subset Omega_j intersect Lambda_j^c, cube structure, nonempty/collar requirement, characteristic chi(Omega_j intersect Lambda_j^c,S_j), and zeta;
+- printed p.255 Eqs. (2.2)-(2.3): determining strips and Z_j=Lambda_j^c;
+- printed p.257 Eqs. (2.17)-(2.18): terminal chi_k(Omega_k), effective-density sum over admissible Omega/Lambda sequences, with S_j summation included in T_k;
+- printed p.258 Eqs. (2.19)-(2.23): T_k component factorization, ordered one-step factorization, integral-operator structure, E/R/B action decomposition;
+- printed p.259 Eq. (2.24): localized coupling recursion and phi_j in C_0^infinity(Lambda_j), phi_j=1 on the stated interior;
+- printed p.265 Eqs. (3.2)-(3.5): exact hard P_{k+1},Q_{k+1} decompositions and Omega_{k+1} construction;
+- printed p.267 text after (3.14): fixed-Omega_{k+1} resummation over admissible P_{k+1},Q_{k+1} into zeta(Omega_{k+1}^c);
+- printed p.268 Eq. (3.16): exact hard R_{k+1} decomposition;
+- printed p.269 Eqs. (3.20)-(3.21): Lambda_{k+1},S_{k+1}, and associated characteristic structure;
+- printed p.270 Eqs. (3.23)-(3.24): explicit sum over S_{k+1} inside T^(k+1), and T_{k+1}=T^(k+1)T_k.
+
+CMP122-II, T. Balaban, Commun. Math. Phys. 122 (1989) 355-392:
+- printed p.380 Eq. (1.75): normalized local T'_k operator bound
+  |(T'_k 1)^(-1)T'_k F| <= exp(3 sup|sigma|) sup|F|;
+- printed pp.380-381: explicit negative large-field factors from P_j,Q_j,R_j and their componentwise combined p_0(g_j), p_0(g_j)^2 suppression;
+- printed p.381: source statement that these are the fundamental large-field factors controlling convergence of the effective-density expansion;
+- printed p.383 before Eq. (1.79): sums over admissible sequences are replaced by entropy factors exp{O(1)(MR_j)^(-d)|Z_j|};
+- printed p.383 Eq. (1.79): combined positive history/integration cost and negative large-field penalties;
+- printed pp.384-387 Eqs. (1.80)-(1.88): induction for component cost kappa_j(Z), including new exp[-p_0(g_j)] factors when new large fields are created;
+- printed p.387 Eq. (1.89): clean local bound T'_k(X)1 <= exp[-2(1+beta_0)^(-1)p_0(g_k)];
+- printed pp.390-391 Eqs. (1.100)-(1.102): post-R localized remainder and recovery of the CMP119 Sect.2 inductive density form;
+- printed p.355 Theorem 1: under sufficiently small effective couplings, the densities have the form and satisfy the conditions/bounds of CMP119 Sect.2.
+
+Iteration-5 source interpretation:
+- raw characteristic decompositions are exact hard partitions;
+- the final CMP119 Eq. (2.18) representation is compressed, so chi_k(Omega_k) is NOT a complete-history characteristic;
+- history entropy is explicitly counted in CMP122-II and paid by large-field energy factors inside the T/R construction;
+- the remaining YM-HISTORY-RECON-1 blocker is functional-analytic transport to a fixed volume-independent density/ambient Banach topology, not an unidentified source combinatorics mechanism.
