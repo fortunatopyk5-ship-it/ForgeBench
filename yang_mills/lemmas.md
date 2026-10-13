@@ -1396,3 +1396,276 @@ Therefore
 
 Purpose:
 The fixed-history polymer/tree counting side-task is now closed. It does NOT count domain histories; the latter is controlled by the separate CMP122-II admissible-sequence entropy mechanism.
+
+
+---
+
+## LEMMA ID: YM-GLOBAL-H0-FAIL-1
+
+Statement:
+A global absolute history norm
+H_0^global=sum_H tau_H
+can grow exponentially with volume even when the history decomposition is an exact partition and every fixed local normalized observable is volume-independent.
+
+Status:
+PROVED.
+
+Proof:
+Take N independent binary blocks u_b in {0,1}. Let histories h in {0,1}^N and
+chi_h(u)=prod_b 1_{u_b=h_b}.
+Then sum_h chi_h(u)=1 pointwise and ||chi_h||_infinity=1, so
+sum_h ||chi_h||_infinity=2^N.
+For a product reference measure and local source supported on fixed A,
+Z_N(J_A)/Z_N(0)=2^{-|A|} sum_{u_A} exp[J_A O(u_A)],
+independent of N.
+
+Consequence:
+GLOBAL-HISTORY H_0 is too strong and must not be a necessary target for YM-HISTORY-NORM-1.
+
+---
+
+## LEMMA ID: YM-LOCAL-ACTIVITY-BANACH-1
+
+Statement:
+Let P_k be connected localization domains at scale k and A_X Banach spaces. For mu>=0 define
+
+||K||_{loc,mu;k}
+=
+sup_{Delta in pi_k}
+sum_{X contains Delta}
+e^{mu d_k(X)} ||K_X||_{A_X}.
+
+Then the space of K with finite norm is Banach.
+
+Status:
+PROVED.
+
+Proof:
+A norm-Cauchy sequence is coordinatewise Cauchy because each coordinate appears in an anchored sum. Let K_X be the coordinatewise limit. For every anchor Delta, Fatou's lemma for nonnegative series gives the anchored norm bound. Applying the same argument to differences gives convergence in norm.
+
+---
+
+## LEMMA ID: YM-SOURCE-GEOMETRIC-SUM-1
+
+Statement:
+For the CMP109 localization domains and sufficiently large lambda, the primary-source argument in Eq. (0.26) gives a scale/volume-uniform constant C_geo(lambda) such that
+
+sup_{j,Delta in pi_j}
+sum_{X in D_j: X contains Delta}
+e^{-lambda d_j(X)}
+<= C_geo(lambda)<infinity.
+
+Consequently, if
+||K_X||<=A e^{-Lambda d_j(X)}
+and mu>=0 is such that Lambda-mu lies in the source summability regime, then
+
+||K||_{loc,mu;j}
+<= A C_geo(Lambda-mu).
+
+Status:
+DIRECT PRIMARY SOURCE + PROVED CONSEQUENCE.
+
+Purpose:
+This is the source-native bridge from pointwise exponential polymer decay to a local/relative volume-independent Banach activity norm. It supersedes the crude DFS constants when proving Banach summability.
+
+---
+
+## LEMMA ID: YM-T-HISTORY-LOCAL-H0-1
+
+Statement:
+Under the small-coupling hypotheses of CMP122-II, let a_0=2/(1+beta_0). The local post-R large-field operation satisfies the source bounds
+
+T'_k(X)1 <= exp[-a_0 p_0(g_k)]
+
+and, for an arbitrary large-field region, the source states the improved form with an additional tree penalty
+
+T'_k(X)1
+<= exp[-a_0 p_0(g_k)] exp[-kappa_1 d_k(X)].
+
+Hence for any mu such that kappa_1-mu lies in the CMP109 summability regime,
+
+H_{0,T}^{loc}(mu)
+:=
+sup_Delta
+sum_{X contains Delta}
+e^{mu d_k(X)} |T'_k(X)1|
+
+<= exp[-a_0 p_0(g_k)] C_geo(kappa_1-mu).
+
+If g_k in (0,gamma] and p_min(gamma)=inf_{0<g<=gamma}p_0(g), then
+
+H_{0,T}^{loc}(mu)
+<= exp[-a_0 p_min(gamma)] C_geo(kappa_1-mu),
+
+uniformly in volume, cutoff, and RG depth.
+
+Status:
+DIRECT PRIMARY SOURCE + PROVED SUMMATION CONSEQUENCE.
+
+Operator version:
+CMP122-II (1.75) multiplies the scalar bound by exp(3 sup|sigma|) for the normalized action on F.
+
+---
+
+## LEMMA ID: YM-R-HISTORY-LOCAL-H0-1
+
+Statement:
+For the regular second-group connected activities produced by the CMP122-II exponentiated R-operation, Eq. (1.100) gives
+
+|R'^(k)(X,(U,J))|
+<= exp[-p_0(g_k)] exp[-kappa d_k(X)].
+
+Therefore, if kappa-mu is in the CMP109 source summability regime,
+
+sup_Delta
+sum_{X contains Delta}
+e^{mu d_k(X)}
+sup_{(U,J)}|R'^(k)(X,(U,J))|
+
+<= exp[-p_0(g_k)] C_geo(kappa-mu).
+
+Status:
+DIRECT PRIMARY SOURCE + PROVED SUMMATION CONSEQUENCE.
+
+Limitation:
+The boundary/large-field-connected intermediate activities in (1.99) use a relative metric d_{k,Y}; their final source placement into the B-sector has standard d_j decay, but an independent anchored theorem for that intermediate relative metric is not asserted here.
+
+---
+
+## LEMMA ID: YM-HISTORY-RECON-LOCAL-1
+
+Statement:
+Let P be a countable family of connected polymers on a block lattice. Let Phi_gamma map an ambient radius-R ball into Banach spaces A_gamma. Assume
+
+h_0 =
+sup_B sum_{gamma contains B}
+sup_{||F||<=R} ||Phi_gamma(F)||
+<infinity,
+
+h_1 =
+sup_B sum_{gamma contains B}
+Lip_R(Phi_gamma)
+<infinity.
+
+For finite block region A define
+
+Rec_A(F)
+=
+sum_{gamma: supp(gamma) intersects A}
+Phi_gamma(F)
+
+as an absolutely summed local relative object.
+
+Then:
+1. Rec_A(F) converges absolutely;
+2.
+||Rec_A(F)|| <= |A| h_0;
+3.
+||Rec_A(F)-Rec_A(G)|| <= |A| h_1 ||F-G||.
+
+Status:
+PROVED.
+
+Proof:
+Every contributing polymer contains at least one anchor block B in A. Bound the sum by
+sum_{B in A} sum_{gamma contains B}.
+The h_0 and h_1 definitions give the claims.
+
+Weighted version:
+The same proof holds with exponential size weights included in h_0,h_1.
+
+Interpretation:
+This is the correct local replacement of YM-HISTORY-RECON-ABSTRACT-1 when global complete-history H_0 is volume-divergent.
+
+---
+
+## LEMMA ID: YM-REMOTE-HISTORY-CANCEL-1
+
+Statement:
+Let a post-resummation effective log-density be represented by connected activities K_X. For finite A define the local projection Pi_A K={K_X:X intersects A^+}, where A^+ is the source-dependency collar.
+
+If two global post-resummation history configurations induce identical connected activities for all X intersecting A^+, then
+
+Pi_A K = Pi_A K'.
+
+In particular, changes in disconnected remote connected-history components do not alter the local relative log-density projection.
+
+Status:
+PROVED.
+
+Proof:
+Immediate from the definition of Pi_A.
+
+Source-faithful basis:
+CMP119 (2.19) factorizes T over disjoint large-field components. CMP122-II (1.90)-(1.99) resums and exponentiates connected localization components.
+
+Limitation:
+This is exact at the connected effective-action/history representation level. It is not a theorem that fully integrated local marginals are exactly independent of arbitrary remote changes.
+
+---
+
+## LEMMA ID: YM-SOURCE-RATIO-CANCEL-ABSTRACT-1
+
+Statement:
+Suppose a convergent connected expansion of a partition function has
+
+log Z_Lambda(J)=C_Lambda(J)+sum_{C connected} phi_J(C).
+
+Let J_A be local and assume
+phi_{J_A}(C)=phi_0(C)
+for every connected cluster C not connected to A.
+
+Then
+
+W_Lambda(J_A)
+=
+log Z_Lambda(J_A)-log Z_Lambda(0)
+
+=
+Delta C_A+
+sum_{C connected to A}
+[phi_{J_A}(C)-phi_0(C)].
+
+Thus all completely remote connected clusters cancel exactly.
+
+If
+
+q_A=
+sup_B sum_{C contains B}
+|phi_{J_A}(C)-phi_0(C)|<infinity,
+
+then
+
+|W_Lambda(J_A)-Delta C_A|
+<= |A| q_A,
+
+uniformly in total volume.
+
+Status:
+PROVED ABSTRACTLY.
+
+Yang-Mills instantiation:
+NOT YET PROVED for the full source-dependent Balaban density. The selected connected-activity topology is designed so this theorem can be applied once marked/source activity bounds are available.
+
+---
+
+## LEMMA ID: YM-TREE-NORMALIZATION-AUDIT-1
+
+Statement:
+In CMP109 p.257 the pi_j cubes have side M in the lattice T_xi coordinates, xi=L^{-j}. The shortest tree length is divided by M; equivalently the source rescales the space so pi_j cubes become unit cubes and d_j is measured in that scale. Therefore no additional factor M is missing in d_j.
+
+A cube-edge segment has physical length M xi, while its rescaled length is one. Hence the earlier coercivity
+
+|X|<=2^d(d_j(X)+1)
+
+and in d=4
+
+|X|<=16(d_j(X)+1)
+
+has the correct normalization.
+
+Status:
+DIRECT PRIMARY VERIFIED / PROVED.
+
+Recommendation:
+For local Banach summability use CMP109 Eq. (0.26) directly rather than the crude explicit DFS shell constant.
