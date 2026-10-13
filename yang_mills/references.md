@@ -118,3 +118,11 @@ Iteration 6 direct-primary/local-norm extraction:
 
 Iteration 6 interpretation:
 The source architecture is local/connected. Global absolute summability over COMPLETE histories is not a source requirement and is mathematically too strong. The correct reconstruction target is an anchored connected relative log-density/activity norm. The remaining issue is a uniform Lipschitz map from the complete compressed outer-history/T representation into one fixed connected-activity Banach chart.
+
+
+Iteration 7 source/C1 audit:
+- CMP119 Sect.2 source records: E^(j) and B^(j) local terms have analytic extensions on multiscale domains U_j^c(X,alpha_0,j,alpha_1,j); alpha_0,j and alpha_1,j scale like g_j times possibly different powers of log(g_j^-2). This confirms that a naive single scalar field rescaling is not automatically a uniform chart.
+- CMP119 paragraph before Theorem 1: newly generated E^(k),R^(k),B^(k) terms are on slightly larger analytic spaces and have improved decay, with source examples such as kappa -> (1+4 beta)kappa. This is qualitative source evidence for an analytic/decay reserve; exact enlarged-domain coefficients remain unextracted and are not used as a numerical delta_ref.
+- CMP116 support/locality extraction: localized cluster terms are built from restricted fields on a connected component plus source-specific base-cube/collar enlargement. The exact support-enlargement dictionary is still an explicit open obligation; this is precisely the missing r_col input for YM-CLUSTER-JACOBIAN-SCHUR-1.
+- CMP122-II (1.97)-(1.99): the R' exponentiation step visibly changes the tree exponent from (1+beta)kappa for the connected pre-exponentiation activity to (1+beta/2)kappa for the post-exponentiation local log-activity. Iteration 7 records this as the source-visible decay loss beta*kappa/2.
+- CMP122-II (1.99) also records an analytic extension of the localized R' term in the source field/source variables. This is not by itself analyticity of the map with respect to arbitrary anchored input activity coefficients; the latter is obtained only after a strict cluster-expansion convergence-ball theorem is identified.
