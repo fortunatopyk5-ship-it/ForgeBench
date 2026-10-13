@@ -97,4 +97,4 @@ with H_0=sum_H tau_H finite uniformly in cutoff, volume and k.
 
 35. Decide whether the deterministic cutoff assignment Lambda->phi_Lambda can be chosen Euclidean-covariantly and compatibly with restriction/RG transitions. This is the exact condition needed to make the derived coupling profile canonical.
 
-36. Complete the CMP109 primary tree-metric/coercivity audit only after 31-34; history reconstruction remains higher priority.
+36. RESOLVED in Iteration 5: direct-primary CMP109 gives the shortest-tree metric; YM-BALABAN-TREE-COERCIVITY-1 proves |X|<=16(d_j(X)+1) in d=4 and YM-BALABAN-TREE-SHELL-COUNT-1 gives an explicit scale/volume-uniform fixed-history shell count. This does not count histories.
