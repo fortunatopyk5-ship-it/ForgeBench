@@ -288,57 +288,57 @@ The source estimates (L3),(L7) prove finite H_0^loc for important history-genera
 
 A cutoff/RG-depth-uniform H_1^loc for the full Balaban source map is not yet extracted.
 
-## 8. YM-HISTORY-RECON-LOCAL-1
+## 8. YM-HISTORY-RECON-LOCAL-1 — TYPED CORRECTION
 
-Statement:
-Let P be a countable family of connected polymers on a block lattice. For each gamma let A_gamma be a Banach space and let Phi_gamma be a map from an ambient radius-R ball to A_gamma.
+Iteration 6 wrote the formal sum
 
-Assume
+Rec_A(F)=sum_gamma Phi_gamma(F)
 
-h_0 =
- sup_B sum_{gamma contains B}
- sup_{||F||<=R} ||Phi_gamma(F)||
- < infinity,
+although Phi_gamma(F) may belong to different local spaces C_gamma. That formula is not intrinsically typed.
 
-h_1 =
- sup_B sum_{gamma contains B}
- Lip_R(Phi_gamma)
- < infinity.
+Iteration 7 replaces it by the direct-sum target
 
-For finite A define the local relative reconstruction
+D_A^(mu)
+=
+l^1({C_gamma}_{supp(gamma) intersects A^+};e^{mu d(gamma)})
+
+and canonical injections
+
+iota_{gamma,A}:C_gamma->D_A^(mu).
+
+The correct definition is
 
 Rec_A(F)
- =
- sum_{gamma: supp(gamma) intersects A}
- Phi_gamma(F),
+=
+sum_{supp(gamma) intersects A^+}
+iota_{gamma,A} Phi_gamma(F).
 
-with norm estimated by absolute sums.
+If
 
-Then:
-1. the sum converges absolutely;
-2.
-   ||Rec_A(F)|| <= |A| h_0;
-3.
-   ||Rec_A(F)-Rec_A(G)|| <= |A| h_1 ||F-G||.
+h_0^(mu)
+=
+sup_B sum_{gamma contains B}
+e^{mu d(gamma)}
+sup_{||F||<=R}||Phi_gamma(F)||,
 
-All constants are independent of total volume.
+h_1^(mu)
+=
+sup_B sum_{gamma contains B}
+e^{mu d(gamma)}
+Lip_R(Phi_gamma),
 
-Proof:
-Every polymer intersecting A contains at least one block B in A. Therefore
+then
 
-sum_{gamma:gamma intersects A} (...)
- <= sum_{B in A} sum_{gamma contains B} (...).
+||Rec_A(F)||_{D_A^(mu)}
+<=|A^+|h_0^(mu),
 
-Apply the definitions of h_0,h_1.
+||Rec_A(F)-Rec_A(G)||_{D_A^(mu)}
+<=|A^+|h_1^(mu)||F-G||.
 
 Status:
-PROVED.
+PROVED. This supersedes the untyped Iteration-6 statement.
 
-Weighted version:
-insert exp(mu size(gamma)) in h_0,h_1; the same proof gives the corresponding local weighted bound.
-
-Important:
-this theorem reconstructs the LOCAL RELATIVE CONNECTED object. It does not reconstruct the raw unnormalized global density.
+See history_c1.md and the corrected lemma in lemmas.md.
 
 ## 9. Stronger source/log-ratio version
 
