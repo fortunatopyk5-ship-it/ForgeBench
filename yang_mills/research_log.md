@@ -183,3 +183,42 @@ STATUS: BLOCKED BEFORE K_0.
 
 Exact continuation:
 Extract exact primary admissible-history/nesting/characteristic structure and history summation mechanism; prove Balaban-specific tree coercivity; construct normalized analytic charts with a positive fixed reference collar; then prove reconstruction continuity and native RG preservation.
+
+
+## 2026-10-13 — Iteration 5: exact Balaban history and history-sum mechanism
+
+Scope:
+Only YM-HISTORY-RECON-1. STEP_0 and K_0 construction were not attempted.
+
+Primary-source breakthrough:
+Direct article PDFs for CMP119 and CMP122-II became accessible and were inspected page-by-page. History-related claims previously carried as secondary transcriptions were upgraded to direct primary verification.
+
+History structure:
+CMP119 Eq. (2.1) gives nested/interleaved Omega/Lambda localization domains. S_j lies in Omega_j intersect Lambda_j^c with source cube/collar conditions. Eq. (2.18) sums only the outer Omega/Lambda histories; the S_j sum is explicitly inside T_k.
+
+Raw versus compressed history:
+CMP119 Eqs. (3.2),(3.3),(3.16) are exact hard {0,1} partitions of unity over raw P/Q/R sets. These raw choices are not retained as final history coordinates: fixed P,Q choices producing the same Omega are resummed into zeta(Omega^c), and S is summed in T. Therefore chi_k(Omega_k) in Eq. (2.17) is not a complete-history characteristic and sum_H chi_H=1 must not be asserted at the compressed level.
+
+T-operation:
+Directly verified as an integration/operator composition with characteristic factors, RG delta constraints, gauge fixing and internal S sums; it factorizes over disjoint large-field components and into ordered one-step operations.
+
+History entropy:
+CMP122-II directly states that summations over admissible sequences are replaced by exp{O(1)(MR_j)^(-d)|Z_j|} factors. Large-field characteristic functions yield negative p_0(g_j)^2/tree-size and p_0(g_j) penalties. Eq. (1.79) combines the positive entropy and negative energy terms; the induction (1.80)-(1.88) pays the cost across scales. Eq. (1.89) yields a clean local T'_k(X)1 suppression. Thus the source does pay history entropy.
+
+Operator majorant:
+CMP122-II (1.75) gives the normalized local T'_k operator estimate. Combining (1.75) with (1.89) yields a source-local tau-type bound.
+
+Coupling profile:
+CMP119 (2.24) shows phi_j is a localization cutoff attached to Lambda_j and is not summed over. Once a deterministic Lambda->phi_Lambda convention is fixed, the localized profile is derived; q is removed as an independent physical coordinate.
+
+New abstract theorem:
+YM-HISTORY-RECON-ABSTRACT-1 proves absolute and Lipschitz reconstruction from fixed kernel weights H_0=sum tau_H and H_1=sum tau_H/w_H.
+
+Remaining blocker:
+Balaban's multiscale source estimate has not yet been transported into a single volume-independent local/relative density Banach target D with fixed history weights and fixed normalized analytic charts. A plain global sup norm of the unnormalized density is structurally wrong because the density is volume-extensive.
+
+Result:
+STATUS: BLOCKED AT YM-HISTORY-RECON-1.
+
+Exact continuation:
+Define D, extract fixed tau_H/w_H from (1.79)-(1.89), and prove H_0,H_1 uniform. Then establish an open ambient B_amb on which the native RG extends smoothly.
