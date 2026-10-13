@@ -524,3 +524,22 @@ pre-resummed compressed outer-history data
 in one fixed normalized analytic chart.
 
 Thus K_0 remains prohibited/unconstructed.
+
+
+# Iteration 7 correction — C^1 ambient structure
+
+The current ambient history/activity space is no longer described by one untyped global family. Use explicit anchored input/output spaces with scale/polymer coordinate Banach spaces.
+
+A fixed coefficient Banach space may be SCALE-GRADED:
+coordinates at historical scale j may live in their native H^infinity(U_j^c) spaces. YM-GRADED-ACTIVITY-BANACH-1 shows that one fixed anchored product remains Banach even when the coordinate spaces differ.
+
+Therefore:
+- common normalized raw field domain is NOT required merely for coefficient-space C^1;
+- bounded restriction/localization maps between the graded coordinate spaces are required;
+- a uniform normalized field/source collar remains required for actual U/J source derivatives and future chart-homogeneous RG iteration.
+
+The full history map will be considered C^1 only after either:
+(1) the weighted Jacobian Schur bound is source-instantiated, or
+(2) a uniform larger activity-ball analytic bound is proved and Banach Cauchy applies.
+
+No K_0 follows from these observations.
