@@ -1,47 +1,44 @@
 # STATUS
 
 Current objective:
-Close YM-HISTORY-RECON-1: translate Balaban's source-level control of admissible domain histories into a fixed cutoff/volume/RG-depth independent Banach reconstruction theorem with both absolute and Lipschitz bounds. STEP_0 remains prohibited.
+Close YM-HISTORY-NORM-1: replace the impossible absolute sum over complete global histories by a local/relative connected-history/activity Banach reconstruction. K_0 and STEP_0 remain prohibited.
 
 Current strongest result:
-Direct primary CMP119/CMP122-II verification now resolves the conceptual history-entropy question. CMP119's raw P/Q/R large-field decompositions are exact hard {0,1} partitions of unity, but the final Eq. (2.18) representation is compressed: P,Q choices are resummed into zeta, the S_j-history is summed inside T_k, and chi_k(Omega_k) is only the terminal small-field indicator, NOT a characteristic function of the complete history. CMP122-II explicitly bounds sums over admissible sequences by entropy factors exp{O(1)(MR_j)^(-d)|Z_j|}; the large-field characteristic factors produce stronger negative p_0(g_j), p_0(g_j)^2/tree-size penalties. Eq. (1.75) gives a normalized local T-operator bound and Eq. (1.89) gives a clean local T'_k(X)1 suppression. Thus the source mechanism paying history entropy is verified. What remains is functional-analytic transport into one fixed ambient/history-weighted Banach topology.
+The old global target H_0=sum_{all complete histories}tau_H is PROVED TOO STRONG: an exact binary hard partition on N independent remote blocks has sum_H||chi_H||_infinity=2^N while every fixed local normalized source ratio is independent of N. The correct source-faithful target is the connected relative log-density/activity representation. CMP119 factorizes T_k over disjoint large-field components, and CMP122-II (1.90)-(1.100) directly resums/exponentiates history-dependent terms into connected localization activities. CMP109 Eq. (0.26) then converts their exponential tree decay into a volume/cutoff/scale-uniform anchored Banach norm.
 
 Current blocking lemma:
-YM-HISTORY-RECON-1: choose a volume-independent local/relative density target D and fixed reference analytic charts, and convert Balaban's multiscale source bounds into weights w_H and cutoff/volume/depth independent constants H_0,H_1 such that
-Rec(A)=sum_H K_H(e^{A_H})
-converges absolutely and is locally Lipschitz:
-||Rec(A)||_D <= e^R H_0,
-||Rec(A)-Rec(B)||_D <= e^R H_1 ||A-B||_amb.
-Only after this can a legitimate native K_0 be defined.
+The remaining blocker is no longer global history entropy. It is the FULL outer-history-to-connected-activity map: prove that the entire compressed CMP119 Eq. (2.18) history reconstruction can be represented in one fixed local/relative Banach chart, with cutoff/RG-depth-uniform Lipschitz control. Local absolute H_0 bounds are now proved for important T and regular R sectors; a uniform H_1 for the full pre-resummed history map is not yet extracted.
 
 Verified:
-- DIRECT PRIMARY CMP119: outer histories use Omega_j,Lambda_j in D_j with interleaving Omega_1 superset Lambda_1 superset ... superset Omega_k superset Lambda_k, and internal S_j subset Omega_j intersect Lambda_j^c with source cube/collar restrictions.
-- DIRECT PRIMARY CMP119: the sum over {S_j} is included in T_k in Eq. (2.18).
-- DIRECT PRIMARY CMP119: raw decompositions (3.2),(3.3),(3.16) are exact hard partitions of unity; fixed P,Q choices determining the same Omega_{k+1} are subsequently resummed into zeta(Omega_{k+1}^c).
-- DIRECT PRIMARY CMP119: T_k is an ordered composition of integrations/characteristic factors/delta RG constraints/gauge fixing, factorizes on disjoint large-field components, and T^(k+1) explicitly contains the S_{k+1}-sum.
-- DIRECT PRIMARY CMP122-II: normalized local T'_k operator satisfies Eq. (1.75); admissible-sequence sums are bounded by explicit entropy factors before Eq. (1.79); large-field factors pay this entropy; Eq. (1.89) yields a uniform-form local T'_k(X)1 suppression under the source small-coupling hypotheses.
-- DIRECT PRIMARY CMP109: d_j(X) is the shortest tree-graph localization size for a connected union of pi_j-cubes. This gives the scale-uniform coercivity |X|<=16(d_j(X)+1) in d=4 and an explicit fixed-history shell count via bounded-degree DFS encoding (YM-BALABAN-TREE-COERCIVITY-1 / YM-BALABAN-TREE-SHELL-COUNT-1).
-- The final compressed chi_k(Omega_k) is NOT a complete-history partition function; writing sum_Sigma chi_Sigma=1 in Eq. (2.18) notation is incorrect.
-- YM-HISTORY-RECON-ABSTRACT-1 is proved: weighted operator summability H_0,H_1 implies absolute reconstruction and a quantitative local Lipschitz bound.
-- Primary CMP119 Eq. (2.24) shows the localized coupling profile is generated using phi_j attached to Lambda_j; phi_j is not summed/integrated. An arbitrary q should not be a physical independent coordinate. After fixing a deterministic cutoff-selection convention, q is derived from coupling constants and domain history.
-- A plain global sup norm of the unnormalized density cannot reasonably have a volume-independent C_rec because the source UV-stability bounds themselves contain extensive exp(E|T|) factors.
-
-Primary-source status:
-Upgraded in Iteration 5. The actual CMP109, CMP119 and CMP122-II article PDFs were directly inspected page-by-page through accessible PDF mirrors. The history equations/pages in CMP119/CMP122-II and the CMP109 localization-domain/tree-metric definition used here are DIRECT PRIMARY VERIFIED.
+- YM-GLOBAL-H0-FAIL-1: global complete-history absolute summability can grow like exp(cV) even for an exact partition with perfectly controlled local physics.
+- DIRECT PRIMARY CMP119: T_k(Z_k)=product_i T_k(X_i) on disjoint large-field components.
+- DIRECT PRIMARY CMP122-II: Eqs. (1.90)-(1.99) turn the local R/history sector into connected polymer activities and exponentiate them into sum_X R'^(k)(X); Eq. (1.100) gives a sharp regular-sector bound.
+- DIRECT PRIMARY CMP109 Eq. (0.26): for sufficiently large decay rate lambda,
+  sup_{j,Delta} sum_{X contains Delta} exp[-lambda d_j(X)] <= C_geo(lambda)
+  with C_geo volume/scale independent.
+- Therefore any source bound A exp[-Lambda d_j(X)] gives the local anchored estimate
+  ||K||_{loc,mu} <= A C_geo(Lambda-mu)
+  whenever Lambda-mu remains in the source summability regime.
+- YM-T-HISTORY-LOCAL-H0-1: the improved CMP122-II (1.89) history-component bound gives a volume/cutoff/depth-uniform local H_0 for connected T-components.
+- YM-R-HISTORY-LOCAL-H0-1: CMP122-II (1.100) gives the corresponding anchored local H_0 for regular connected R'-activities.
+- YM-HISTORY-RECON-LOCAL-1: any connected activity family with finite anchored h_0,h_1 reconstructs a local relative object with bounds <=|A|h_0 and Lipschitz constant <=|A|h_1.
+- YM-REMOTE-HISTORY-CANCEL-1: disconnected remote connected-history components cancel exactly from the local connected-log-density projection.
+- For a connected source/log-partition expansion, all remote source-independent clusters cancel termwise in W(J_A)=log Z(J_A)-log Z(0) (YM-SOURCE-RATIO-CANCEL-ABSTRACT-1).
+- Preferred target D is the connected relative log-density/polymer activity space; local marginals/source ratios are downstream normalized outputs.
+- Tree normalization audit confirms no missing M factor in d_j; for Banach summability CMP109 (0.26) supersedes the crude DFS constant.
 
 Unverified:
-- a nonrecursive finite characterization of every admissible history after all R-operation modifications; the faithful current definition is recursive/generative;
-- a fixed normalized analytic reference chart with cutoff-uniform collar;
-- a volume-independent local/relative density Banach target D suited to reconstruction and later RG calculus;
-- fixed history weights w_H translating (1.79)/(1.89) into finite H_0,H_1 independent of cutoff, volume and k;
-- an open neighborhood U in a single fixed B_amb on which the native RG is C^1/C^2 and whose physical subset is invariant;
-- no remaining fixed-history tree-counting constant blocker: CMP109 tree coercivity and an explicit shell count are now proved; only history/T reconstruction weights remain.
+- a theorem converting the ENTIRE compressed outer-history sum in CMP119 (2.18), not just the local R-operation sector, into one connected polymer/operator representation in a fixed chart;
+- a cutoff/RG-depth-uniform Lipschitz bound for the map from pre-resummed history data to connected activity coordinates;
+- fixed normalized analytic reference charts across historical scales;
+- a fully source-dependent Yang-Mills W(J_A) theorem and marked two-source estimates;
+- the exact anchored norm for intermediate relative-metric boundary activities before they are reclassified into the final B-sector.
 
 Next action:
-Do NOT attack STEP_0 or K_0. Fix the density topology first. Factor out the extensive vacuum/classical reference contribution and define a local/relative D; then translate CMP122-II Eq. (1.79), the induction (1.80)-(1.88), and local bound (1.89) into explicit history weights w_H and finite H_0,H_1. In parallel, complete the normalized analytic-chart identification needed to make B_amb independent of historical scale. Fixed-history tree counting is now closed and should not distract the next run.
+Stay inside YM-HISTORY-NORM-1. Do not build K_0 or attack STEP_0. Extract the final CMP119/CMP122 source bounds for the complete T/B/E/R output class into one product local activity norm and prove that the remaining outer Omega/Lambda sum acts as a bounded map into that space. The first concrete subgoal is a source-faithful operator-polymer theorem for the outer T-components, using the improved (1.89) bound plus CMP109 (0.26), followed by a local Lipschitz estimate for perturbations of those component activities.
 
-Iteration-5 verdict:
-STATUS: BLOCKED AT YM-HISTORY-RECON-1.
+Iteration-6 verdict:
+STATUS: BLOCKED AT YM-HISTORY-NORM-1.
 
 
 ## Update — Iteration 2 (YM-CROSSOVER-1 only)
