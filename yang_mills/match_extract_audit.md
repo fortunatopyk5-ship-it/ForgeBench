@@ -390,3 +390,29 @@ Then YM-HISTORY-RECON-ABSTRACT-1 gives
 This translation is not done.
 
 STATUS: BLOCKED AT YM-HISTORY-RECON-1.
+
+
+# Iteration 6 addendum — local/relative history norm
+
+The previous requirement for a globally summable complete-history kernel has been dropped as unnecessarily strong.
+
+Direct conclusions now used:
+- CMP119 disjoint-component T-factorization;
+- CMP122-II connected R/history polymerization and exponentiation;
+- CMP109 anchored summability of e^{-lambda d_j(X)}.
+
+Preferred target:
+connected relative log-density/activity norm
+
+sup_Delta sum_{X contains Delta}
+ e^{mu d_j(X)} ||K_X||.
+
+For source bounds A e^{-Lambda d_j(X)}, the source geometric sum gives the uniform estimate
+A C_geo(Lambda-mu).
+
+Thus local H_0 is closed for the source sectors carrying the direct tree-decay estimates, including the improved T' large-field component and regular post-R activity.
+
+Not closed:
+the local Lipschitz constant h_1 for the entire compressed outer-history -> connected-activity map, and the fixed normalized analytic chart needed to state that map on one Banach space.
+
+No K_0 is defined in this iteration.
