@@ -416,3 +416,24 @@ Not closed:
 the local Lipschitz constant h_1 for the entire compressed outer-history -> connected-activity map, and the fixed normalized analytic chart needed to state that map on one Banach space.
 
 No K_0 is defined in this iteration.
+
+
+# Iteration 7 addendum — C^1 history map status
+
+The matching audit now uses the corrected typed local reconstruction and the explicit anchored Jacobian framework.
+
+Input/output norms:
+B_in(mu_in), B_out(mu_out) are anchored connected-activity spaces, and mu_out<mu_in is allowed.
+
+History derivative:
+M_{gamma eta}=D_eta Hscr_gamma is controlled by YM-HISTORY-JACOBIAN-1 if its support/locality kernel satisfies the source-weighted Schur bound.
+
+Cauchy-Schur route:
+A larger anchored input activity ball with uniform component bound A exp[-kappa d(gamma)] plus a fixed support collar implies a quasi-local C^1 bound by YM-CLUSTER-JACOBIAN-SCHUR-1.
+
+Source-sector status:
+- R' cluster/log: source decay reserve is explicit, (1+beta)kappa -> (1+beta/2)kappa; full source instantiation still needs strict anchored convergence radius and exact support/collar dictionary.
+- T: fixed local normalized component derivative is proved; full T-history C^1 still needs collar/restriction and chart data.
+- complete outer CMP119 history map: NOT C^1-proved.
+
+This iteration produces no K_0 and no STEP_0 data.
