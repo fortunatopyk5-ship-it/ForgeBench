@@ -298,3 +298,92 @@ These have not all been obtained cutoff- and volume-uniformly.
 STATUS: BLOCKED BEFORE K_0.
 
 STEP_0 was not attacked.
+
+
+# Iteration 5 addendum — history reconstruction is source-controlled but not yet Banach-transported
+
+## A. Direct-primary upgrade
+
+CMP119 and CMP122-II article PDFs were directly inspected. The history statements below are no longer secondary transcriptions.
+
+## B. Exact representation correction
+
+CMP119 Eq. (2.18) uses:
+- an outer sum over admissible Omega/Lambda domain sequences;
+- terminal chi_k(Omega_k);
+- T_k, which internally contains the S_j sums;
+- A_k depending on Omega/Lambda/S.
+
+Thus the previous schematic notation
+sum_Sigma chi_Sigma T_Sigma exp A_Sigma
+must be interpreted carefully. There is no independent source chi_Sigma for a complete compressed history.
+
+The correct schematic compressed notation is
+
+rho_k
+ =
+sum_{H=(Omega,Lambda) in Adm_k^out}
+ chi_k(Omega_k)
+ K_H[ exp A_H ],
+
+where K_H means the complete T/zeta operator including the internal S history.
+
+## C. Characteristic partition
+
+Raw characteristic decompositions over P,Q,R are exact {0,1} partitions of unity.
+
+But raw P,Q choices are resummed for fixed Omega into zeta(Omega^c), and S is summed in T. Hence compressed history multiplicity is not controlled by chi_k alone.
+
+Final verdict:
+- raw level: exact partition;
+- compressed Eq. (2.18) level: weighted/resummed T mechanism.
+
+## D. T/operator bound
+
+CMP122-II gives
+
+|(T'_k(X)1)^(-1) T'_k(X)F|
+<= e^{3 sup|sigma|} sup|F|,
+
+and later
+
+T'_k(X)1
+<= exp[-2(1+beta_0)^(-1)p_0(g_k)].
+
+This provides a genuine local tau-type operator majorant.
+
+## E. History entropy payment
+
+Before CMP122-II Eq. (1.79), the source states that sums over admissible sequences are replaced by
+
+exp{O(1)(MR_j)^(-d)|Z_j|}.
+
+The same estimate contains negative large-field factors; the component form includes p_0(g_j)^2 times linear/tree size and -2p_0(g_j). The subsequent induction proves these costs dominate the history/integration growth, yielding Eq. (1.89).
+
+Therefore:
+HISTORY ENTROPY PAYMENT MECHANISM = SOURCE VERIFIED.
+
+No fake scalar p>s is introduced; the source mechanism is genuinely multiscale.
+
+## F. q-profile correction
+
+Primary CMP119 Eq. (2.24) attaches phi_j to Lambda_j and does not sum over phi_j. Once a deterministic cutoff selection is fixed, the localized coupling profile is derived from the bulk couplings and history. It is not an independent physical coordinate.
+
+## G. Remaining reconstruction blocker
+
+The remaining problem is to define a volume-independent local/relative density Banach target D and translate source multiscale suppression into fixed compressed-history weights w_H with
+
+H_0=sum_H tau_H<infinity,
+H_1=sum_H tau_H/w_H<infinity
+
+uniform in cutoff, volume and RG depth.
+
+Then YM-HISTORY-RECON-ABSTRACT-1 gives
+
+||Rec(A)||_D<=e^R H_0,
+
+||Rec(A)-Rec(B)||_D<=e^R H_1||A-B||_amb.
+
+This translation is not done.
+
+STATUS: BLOCKED AT YM-HISTORY-RECON-1.
