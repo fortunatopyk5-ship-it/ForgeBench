@@ -1,55 +1,46 @@
 # STATUS
 
 Current objective:
-Determine whether the new Balaban-native matching object can be made a mathematically legitimate SPACE OF ACTUAL EFFECTIVE DENSITIES. This iteration is restricted to admissibility/gluing, domain-history summability, the native tree metric, common analytic charts, and the separate c=1/g^2 coupling coordinate. STEP_0 is prohibited.
+Close YM-HISTORY-RECON-1: translate Balaban's source-level control of admissible domain histories into a fixed cutoff/volume/RG-depth independent Banach reconstruction theorem with both absolute and Lipschitz bounds. STEP_0 remains prohibited.
 
 Current strongest result:
-The previous weighted l^infinity H^infinity coefficient product B_pt is only a component space, not a state space of effective densities. The actual Balaban state must be represented by a nonlinear reconstruction graph
-rho=Rec(c,q,F)
-over source-admissible domain histories, with a separate localized coupling-profile coordinate q. A second history-summability/overlap norm is mandatory unless exact history disjointness or cutoff-uniform finite overlap is proved. Polymer/tree entropy and domain-history entropy are distinct certificates.
+Direct primary CMP119/CMP122-II verification now resolves the conceptual history-entropy question. CMP119's raw P/Q/R large-field decompositions are exact hard {0,1} partitions of unity, but the final Eq. (2.18) representation is compressed: P,Q choices are resummed into zeta, the S_j-history is summed inside T_k, and chi_k(Omega_k) is only the terminal small-field indicator, NOT a characteristic function of the complete history. CMP122-II explicitly bounds sums over admissible sequences by entropy factors exp{O(1)(MR_j)^(-d)|Z_j|}; the large-field characteristic factors produce stronger negative p_0(g_j), p_0(g_j)^2/tree-size penalties. Eq. (1.75) gives a normalized local T-operator bound and Eq. (1.89) gives a clean local T'_k(X)1 suppression. Thus the source mechanism paying history entropy is verified. What remains is functional-analytic transport into one fixed ambient/history-weighted Banach topology.
 
 Current blocking lemma:
-YM-MATCH-EXTRACT-1 now blocks BEFORE K_0. To construct K_0 one must prove simultaneously:
-(1) exact source admissibility/nesting and reconstruction compatibility;
-(2) cutoff/volume-uniform convergence/continuity of the history sum;
-(3) the Balaban tree-metric coercivity/counting constants;
-(4) a fixed normalized analytic chart with positive uniform reference collar;
-(5) a scalar bulk c=1/g^2 plus localized coupling-profile state;
-(6) native RG preservation in this topology.
+YM-HISTORY-RECON-1: choose a volume-independent local/relative density target D and fixed reference analytic charts, and convert Balaban's multiscale source bounds into weights w_H and cutoff/volume/depth independent constants H_0,H_1 such that
+Rec(A)=sum_H K_H(e^{A_H})
+converges absolutely and is locally Lipschitz:
+||Rec(A)||_D <= e^R H_0,
+||Rec(A)-Rec(B)||_D <= e^R H_1 ||A-B||_amb.
+Only after this can a legitimate native K_0 be defined.
 
 Verified:
-- B_pt is Banach but arbitrary coefficient families need not reconstruct a density.
-- Verified bounded linear compatibility equations define a closed Banach subspace C_lin (YM-COMPAT-CLOSED-1).
-- The state of actual densities is generally a nonlinear closed graph, conditional on continuity of Rec; it is not naturally a linear Banach subspace (YM-RECON-GRAPH-1, YM-NATIVE-STATE-GRAPH-1).
-- l^infinity over histories does not control the history sum (YM-HISTORY-SUP-FAIL-1).
-- Exact disjointness, finite overlap, or weighted history summability would each suffice; none has been source-verified yet.
-- The Balaban metric tracked by the source ledger is a shortest-tree localization size, not diameter. A diameter-only metric would not support the required exp(c n) polymer counting (YM-DIAMETER-COUNT-FAIL-1).
-- Tree-shell counting follows from bounded-degree lattice-animal counting plus a uniform coercivity |X|<=a_0+a_1 d_tree(X) (YM-TREE-COUNT-1).
-- Counting X at fixed history does not count pairs (Sigma,X); history entropy is separate (YM-HISTORY-POLYMER-SEPARATION-1).
-- A naive common raw analytic core can collapse if historical analytic radii tend to zero; normalized analytic charts are the correct repair target.
-- CMP119's native coupling is localized c_j(x)=1/g_j^2(x). A single scalar c does not encode the boundary/profile part; a profile coordinate q is required (YM-LOCAL-COUPLING-PROFILE-1).
-- No STEP_0 bound was attempted.
+- DIRECT PRIMARY CMP119: outer histories use Omega_j,Lambda_j in D_j with interleaving Omega_1 superset Lambda_1 superset ... superset Omega_k superset Lambda_k, and internal S_j subset Omega_j intersect Lambda_j^c with source cube/collar restrictions.
+- DIRECT PRIMARY CMP119: the sum over {S_j} is included in T_k in Eq. (2.18).
+- DIRECT PRIMARY CMP119: raw decompositions (3.2),(3.3),(3.16) are exact hard partitions of unity; fixed P,Q choices determining the same Omega_{k+1} are subsequently resummed into zeta(Omega_{k+1}^c).
+- DIRECT PRIMARY CMP119: T_k is an ordered composition of integrations/characteristic factors/delta RG constraints/gauge fixing, factorizes on disjoint large-field components, and T^(k+1) explicitly contains the S_{k+1}-sum.
+- DIRECT PRIMARY CMP122-II: normalized local T'_k operator satisfies Eq. (1.75); admissible-sequence sums are bounded by explicit entropy factors before Eq. (1.79); large-field factors pay this entropy; Eq. (1.89) yields a uniform-form local T'_k(X)1 suppression under the source small-coupling hypotheses.
+- The final compressed chi_k(Omega_k) is NOT a complete-history partition function; writing sum_Sigma chi_Sigma=1 in Eq. (2.18) notation is incorrect.
+- YM-HISTORY-RECON-ABSTRACT-1 is proved: weighted operator summability H_0,H_1 implies absolute reconstruction and a quantitative local Lipschitz bound.
+- Primary CMP119 Eq. (2.24) shows the localized coupling profile is generated using phi_j attached to Lambda_j; phi_j is not summed/integrated. An arbitrary q should not be a physical independent coordinate. After fixing a deterministic cutoff-selection convention, q is derived from coupling constants and domain history.
+- A plain global sup norm of the unnormalized density cannot reasonably have a volume-independent C_rec because the source UV-stability bounds themselves contain extensive exp(E|T|) factors.
 
 Primary-source status:
-Direct equation-level primary verification for CMP119/CMP122 was NOT achieved in this run. Rutgers marks CMP109/CMP119 version-of-record links as open, but the DOI redirects to Springer endpoints inaccessible to the available browser. Therefore CMP119/CMP122 formulas remain secondary visual transcriptions pinned to primary-PDF hashes in the source-audit repository. Paper-level publisher/repository metadata are verified. The CMP109 d_j definition remains source-extracted through that audit ledger, not newly direct-primary-verified here.
+Upgraded in Iteration 5. The actual CMP119 and CMP122-II article PDFs were directly inspected page-by-page through accessible PDF mirrors. Source equations/pages used in history_reconstruction.md are direct primary verification, not secondary transcription. CMP109 d_j remains only source-extracted through the SHA-pinned audit ledger in this run.
 
 Unverified:
-- exact primary definition of the complete admissible history set Adm_k and all nesting/overlap rules;
-- whether characteristic sectors are disjoint, finite-overlap, or require a nontrivial history weight;
-- a cutoff-uniform history reconstruction constant H_hist;
-- source-geometric coercivity |X|<=a_0+a_1 d_j(X) in the exact Balaban cube convention;
-- a pair-count/history-weight analogue for (Sigma,X);
-- a fixed normalized analytic reference chart and delta_*>0;
-- exact chart-transition bounds under native RG;
-- a cutoff-uniform coupling-profile norm/radius;
-- continuity of the reconstruction map and topology-level RG preservation;
-- component/history constants sufficient to define actual K_0.
+- a nonrecursive finite characterization of every admissible history after all R-operation modifications; the faithful current definition is recursive/generative;
+- a fixed normalized analytic reference chart with cutoff-uniform collar;
+- a volume-independent local/relative density Banach target D suited to reconstruction and later RG calculus;
+- fixed history weights w_H translating (1.79)/(1.89) into finite H_0,H_1 independent of cutoff, volume and k;
+- an open neighborhood U in a single fixed B_amb on which the native RG is C^1/C^2 and whose physical subset is invariant;
+- direct primary CMP109 tree-coercivity constants.
 
 Next action:
-Stay inside YM-MATCH-EXTRACT-1. Extract the exact admissible-history definition and characteristic/T-operation summation mechanism from primary CMP119/CMP122 source material. In parallel, prove the source-geometric tree coercivity/counting lemma in the exact pi_j cube convention and construct normalized analytic charts for shrinking alpha_{r,j}. Only after a cutoff-uniform history reconstruction bound and chart collar are available can a legitimate K_0 be defined.
+Do NOT attack STEP_0 or K_0. Fix the density topology first. Factor out the extensive vacuum/classical reference contribution and define a local/relative D; then translate CMP122-II Eq. (1.79), the induction (1.80)-(1.88), and local bound (1.89) into explicit history weights w_H and finite H_0,H_1. In parallel, complete the normalized analytic-chart identification needed to make B_amb independent of historical scale.
 
-Iteration-4 verdict:
-STATUS: BLOCKED BEFORE K_0.
+Iteration-5 verdict:
+STATUS: BLOCKED AT YM-HISTORY-RECON-1.
 
 
 ## Update — Iteration 2 (YM-CROSSOVER-1 only)
