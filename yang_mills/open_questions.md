@@ -75,3 +75,26 @@ be bounded directly by beta and r, producing an explicit beta_sc,R threshold for
 29. Prove continuity of Rec_k in a history-weighted topology and use it to close the actual-density graph M_adm,k.
 
 30. Upgrade native RT/R class preservation to R(M_adm,k) subset M_adm,k+1 in the same fixed reference topology.
+
+
+## Iteration 5 — resolved history questions and remaining functional-analytic blockers
+
+Resolved/source-verified:
+- Q21 core history geometry: Omega/Lambda interleaving, S_j structure, and recursive generation are now direct-primary verified. A nonrecursive finite characterization after all R modifications is still unnecessary/unavailable; use the generative definition.
+- Q22: raw P/Q/R characteristic decompositions are exact hard partitions, but compressed Eq. (2.18) histories are not indexed by a complete chi_Sigma. Raw choices are resummed into zeta/T.
+- Q23 source mechanism: admissible-sequence entropy is explicitly bounded before CMP122-II (1.79) and paid by large-field p_0(g), p_0(g)^2/tree-size penalties; local T operator bounds (1.75),(1.89) are direct-primary verified.
+- Q27 correction: localized coupling profile is derived after fixing the phi_Lambda cutoff convention; it is not an independent physical coordinate.
+
+31. Choose the correct volume-independent density target D. A global sup norm of the unnormalized rho_k is unsuitable because UV-stability bounds carry extensive exp(E|T|) factors. Should D be a relative density, log-density/local interaction, or projective local-density norm?
+
+32. Convert CMP122-II Eq. (1.79) and induction (1.80)-(1.88) into a fixed compressed-history kernel bound
+||K_H||<=tau_H
+with H_0=sum_H tau_H finite uniformly in cutoff, volume and k.
+
+33. Choose source-faithful weights w_H>=1 such that H_1=sum_H tau_H/w_H is uniformly finite and compatible with the normalized analytic reference charts.
+
+34. Prove that the fixed-reference-chart native RG extends from the physical source class to an open U subset B_amb and is C^1/C^2 there.
+
+35. Decide whether the deterministic cutoff assignment Lambda->phi_Lambda can be chosen Euclidean-covariantly and compatibly with restriction/RG transitions. This is the exact condition needed to make the derived coupling profile canonical.
+
+36. Complete the CMP109 primary tree-metric/coercivity audit only after 31-34; history reconstruction remains higher priority.
