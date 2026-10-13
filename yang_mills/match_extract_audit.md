@@ -231,9 +231,12 @@ For the tree metric, exponential shell counting follows from
 
 plus a standard exponential lattice-animal bound.
 
-The coercivity constants a_0,a_1 in Balaban's exact cube convention remain unproved.
+Iteration-5 direct CMP109 verification closes this fixed-history geometry:
+in d=4,
+|X|<=16(d_j(X)+1),
+so one may take a_0=a_1=16 in the coarse coercive form. Together with degree-8 face adjacency, DFS counting yields the explicit shell constants recorded in YM-BALABAN-TREE-SHELL-COUNT-1.
 
-History-pair counting remains separate and unresolved.
+History-pair counting remains separate; its source control is the CMP122-II admissible-sequence entropy/large-field-energy mechanism, not this polymer count.
 
 ## V. Analytic-domain audit
 
