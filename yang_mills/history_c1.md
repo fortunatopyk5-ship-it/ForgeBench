@@ -7,7 +7,7 @@ Determine whether the history-resummation/local-cluster map is bounded C^1 betwe
 
 The Iteration-6 formula
 
-Rec_A(F)=sum_gamma Phi_gamma(F)
+Act_A(F)=sum_gamma Phi_gamma(F)
 
 was not well typed when Phi_gamma(F) belongs to different local Banach spaces C_gamma.
 
@@ -36,18 +36,24 @@ is the coordinate injection and has
 
 ||iota_{gamma,A}||=e^{mu d(gamma)}.
 
-The corrected reconstruction is
+The corrected LOCAL ACTIVITY VECTOR is
 
-Rec_A(F)
+Act_A(F)
  =
  sum_{gamma in Gamma_A}
  iota_{gamma,A} Phi_gamma(F).
 
+This is NOT yet a physical reconstruction. A future synthesis/evaluation map must be introduced separately,
+
+S_A:D_A^(mu) -> F_A,
+
+and no boundedness claim for S_A is made here.
+
 Under the anchored h_0^(mu),h_1^(mu) hypotheses,
 
-||Rec_A(F)||<=|A^+|h_0^(mu),
+||Act_A(F)||<=|A^+|h_0^(mu),
 
-||Rec_A(F)-Rec_A(G)||
+||Act_A(F)-Act_A(G)||
 <=|A^+|h_1^(mu)||F-G||.
 
 This is now a genuinely typed Banach-valued theorem.
@@ -421,23 +427,26 @@ FULL compressed-history/T resummation in one fixed normalized chart = NOT PROVED
 
 Hard history characteristic functions are not differentiated here; history labels are fixed while analytic action/activity coefficients vary.
 
-## 13. Source-mark tangent
+## 13. Source tangent versus activity tangent
 
-A local marked source J_A represented by finitely many input activity coordinates is a legitimate tangent vector of B_in.
+A physical/source insertion is NOT automatically an element of B_in.
 
-Whenever Hscr is C^1,
+Introduce a source Banach space J_A and an insertion/linearization map
 
-D Hscr_F[J_A]
+jmath_A:J_A -> B_in.
 
-is a well-defined marked output activity.
+Only if jmath_A is bounded does a source vector J_A define a legitimate activity tangent, and only then is
 
-If the Jacobian satisfies the quasi-local Schur estimate, the marked activity decays away from A.
+D Hscr_F[jmath_A(J_A)]
 
-Therefore:
-TOPOLOGY SUPPORTS FIRST SOURCE MARKS = PROVED ABSTRACTLY.
-BALABAN FULL SOURCE-MARK JACOBIAN = NOT PROVED.
+well typed.
 
-No two-source decay is attempted.
+Status:
+- source space J_A: TO BE CHOSEN for the observable/source class;
+- insertion map jmath_A: DEFINED AS A REQUIRED INTERFACE, but boundedness is UNKNOWN;
+- activity-coefficient C^1 of R' does not require solving jmath_A.
+
+No source-mark locality theorem is claimed in Iteration 8.
 
 ## 14. Full C^1 status
 
