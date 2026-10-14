@@ -1,3 +1,5 @@
+> **2026-10-14 correction:** upstream source applications and composition are GAP; their abstract conditional lemmas survive. See rprime_upstream_c1.md. The accepted downstream native theorem is unchanged.
+
 # Lemmas
 
 ## LEMMA ID: YM-BRIDGE-1
@@ -2848,76 +2850,26 @@ This proves the local exponential/integration submap is not the current upstream
 
 ## LEMMA ID: YM-RPRIME-191-C1-1
 
-Statement:
-Fix one frozen source sector Sigma.
+Corrected conditional statement:
+Fix compatible Banach coefficient algebras and local operator domains on a frozen Sigma fiber. Suppose the exact regular (1.91) series is normally convergent in B_F(mu_in) on B_Rred(B_red), R_red>1, with a uniform whole-ball bound Q_red<r_*^native.
 
-Let B_red,k^(Sigma)=T_k^(Sigma) direct-sum V_k^(Sigma), with the mixed source-majorant + anchored norms defined in rprime_upstream_c1.md. The weighted-sup part preserves the exact pointwise source majorants and the anchored part gives volume-independent local summability.
+Then the sum is Banach-holomorphic and
+sup_{||z||<=1}||DM_1.91^reg(z)||<=Q_red/(R_red-1).
 
-Assume the fixed source threshold is chosen with strict slack in every smallness inequality used in the absolute-value proof of CMP122-II (1.92)-(1.97). Then there exists
+Status: ABSTRACT IMPLICATION PROVED; SOURCE APPLICATION GAP.
 
-R_src>1
-
-independent of volume, cutoff and k such that the same proof converges uniformly for every coefficient family in
-
-B_{R_src}(B_red,k^(Sigma)).
-
-Choose the threshold still smaller so that the resulting inflated regular output satisfies
-
-||F||_{B_F(mu_F)}
-<=rho_F<r_*^native
-
-on that whole ball.
-
-Let Pi_reg project to localization components X' in the regular lane. Then the exact regular Eq. (1.91) map
-
-M_1.91^reg
-=
-Pi_reg M_1.91:
-B_{R_src}(B_red,k^(Sigma))
-->
-B_F(mu_F)
-
-is Banach-holomorphic and, on the inner unit ball,
-
-sup ||D M_1.91||
-<=
-C_1.91
-:=
-rho_F/(R_src-1).
-
-Status:
-PROVED UNDER THE EXPLICIT "STRICT SOURCE-MAJORANT SLACK" HYPOTHESIS.
-
-Why the hypothesis is source-available:
-the source permits alpha to be made arbitrarily small by shrinking the coupling threshold and p_0(gamma) -> infinity; all inequalities used in (1.92)-(1.97) are strict sufficient smallness inequalities. Therefore the threshold can be chosen inside, rather than on the boundary of, the allowed majorant region.
-
-No physical U/J analytic collar is used.
+The old "strict source-majorant slack" argument did not prove these hypotheses for all independent complex T' operators/V families. Physical-field analyticity and a source-generated (1.97) bound do not establish them. See YM-191-COMPLEX-MAJORANT-1 below.
 
 ---
 
 ## LEMMA ID: YM-RPRIME-191-SUPPORT-1
 
 Statement:
-For the reduced Eq. (1.91) coefficient map,
+Each finite (1.91) term has coefficient derivative zero in a T'/V coordinate eta unless eta subset X'.
 
-D_eta F(X')=0
+Status: PROVED FOR FINITE TERMS; CONDITIONAL FOR THE INFINITE COEFFICIENT MAP.
 
-unless
-
-eta subset X',
-
-for both T'-coordinates and V-coordinates.
-
-Status:
-PROVED.
-
-Proof:
-The source sentence after (1.91) says a term is summed into F(X') exactly when its localization-domain constituents determine the connected localization domain X'. Hence every constituent domain occurring in that term belongs to X'. A coordinate derivative can be nonzero only when that coordinate occurs in the term.
-
-Corollary:
-The reduced coefficient-map collar is
-
-r_col=0.
+If normal convergence on an open Banach domain is established, termwise differentiation gives the same support theorem, with r_col=0. This support observation cannot prove that convergence or bounded C1 by itself.
 
 ---
 
@@ -2950,7 +2902,7 @@ OPEN / BLOCKER.
 What is already proved:
 - fixed restriction/pullback is linear in a coefficient function;
 - the local exponential/integration map producing T' from an already-localized exponent insertion is C^1 (YM-T-LOCAL-COEFF-C1-1);
-- the exact (T',V)->F map is C^1 (YM-RPRIME-191-C1-1).
+- the finite-term (T',V)->F formulas are analytic; uniform C^1 of the full series is conditional (YM-RPRIME-191-C1-1).
 
 First missing operator:
 the coefficient-space map
@@ -2968,33 +2920,7 @@ The source proves output analyticity in physical fields and pointwise bounds, bu
 
 ## LEMMA ID: YM-RPRIME-UPSTREAM-C1-1 — HISTORICAL INTERMEDIATE VERSION, SUPERSEDED
 
-This block records an earlier pre-renormalized/raw-chart audit and is superseded by the final source-native theorem with the same base ID later in this file.
-
-Former status:
-PARTIAL / BLOCKED AT YM-RPRIME-UPSTREAM-PRODUCER-1.
-
-Proved reduced theorem:
-(T',V)->F_reg is uniformly bounded C^1 on the frozen-history reduced coefficient chart. No boundary B' output is included.
-
-Downstream composition:
-Since audited F->R'_Bal has
-
-sup||D H_R'||<=C_R',
-
-one has for the reduced coordinates
-
-||D(H_R' circ M_1.91)||
-<=
-C_R' C_1.91.
-
-For the full raw map the analogous bound requires
-
-C_P
-=
-sup||D P_Sigma||<infinity,
-
-which is not yet proved.
-
+Historical intermediate claims in this block, including "reduced theorem proved" and its composition, are superseded by the 2026-10-14 audit. The current source application is GAP even for reduced independent (T',V) coordinates. See the corrected theorem with the base ID below.
 
 ---
 
@@ -3064,7 +2990,7 @@ Source facts:
 - (3.67) is the resulting renormalized local combination.
 
 Status:
-OPEN / CURRENT RAW-UPSTREAM BLOCKER.
+OPEN / LOWER-LEVEL E_raw CHART ONLY; not the current source-native composition blocker.
 
 Adversarial issue:
 The native physical analytic radii alpha_0,j,alpha_1,j depend on g_j. A naive unweighted Cauchy estimate for a second derivative can grow like an inverse power of a shrinking radius. Therefore physical-field analyticity alone does not establish the desired scale-uniform coefficient operator norm.
@@ -3099,169 +3025,57 @@ The source absolute summation yields (1.68)-(1.69), strongly suggesting a bounde
 
 ## LEMMA ID: YM-V-PRODUCER-BOUND-1
 
-Statement:
-Freeze one CMP119/CMP122 hard history sector Sigma and use the SOURCE-NATIVE current-state coordinates:
-- fully-renormalized local E atoms;
-- vacuum-renormalized local R atoms;
-- already-localized B atoms;
-- any remaining already-localized auxiliary atoms.
+Required source statement:
+On the source-native renormalized atom chart and fixed Sigma, specify the actual linear maps
+L_{Sigma,Y,lambda}:A_lambda->A_Y
+including all restrictions/pullbacks/localizations, and prove
 
-Then the CMP122-II pp.376-377 producer of the V(Y) family is a signed linear incidence operator
+sum_lambda ||L_{Sigma,Y,lambda}|| M_lambda
+<= C_res M_V(Y)
 
-(P_V K)(Y)
-=
-sum_lambda A_Sigma(Y,lambda)K_lambda.
+with a constant uniform in volume, cutoff, k AND admissible Sigma. Any fixed action additions require an explicit affine offset or auxiliary coordinates.
 
-Let M_lambda be the source pointwise majorant of the corresponding local atom and M_V(Y) the decaying V-majorant used in (1.68).
+Status: GAP / SOURCE INSTANTIATION NOT ESTABLISHED.
 
-The direct source resummation proof yields a uniform finite C_res such that
+Given this estimate, YM-V-PRODUCER-MIXED-NORM-1 is applicable and proves bounded linearity. The physical output bound (1.68) and algebraic resummation description do not replace the exact dictionary for arbitrary independent coefficients. A row estimate is sufficient; no marked Schur estimate is demanded here.
 
-sum_lambda
-|A_Sigma(Y,lambda)|M_lambda
-<=
-C_res M_V(Y).
-
-After absorbing C_res into the harmless normalization of M_V, one has
-
-||P_V K||_V
-<=
-||K||_up
-
-for the mixed source-majorant + anchored norms of rprime_upstream_c1.md.
-
-Status:
-PROVED IN THE SOURCE-NATIVE RENORMALIZED COEFFICIENT CHART.
-
-Why this is not the forbidden boundary B' theorem:
-terms whose localization domain equals a component of the large-field region obey the worse (1.69), but CMP122-II immediately after (1.72) says these terms are included in T'_k and omitted from the V exponential. The V-family entering Eq. (1.91) is therefore the decaying (1.68) class.
-
-Important chart point:
-CMP119 explicitly defines E_k as already fully renormalized, R_k as already vacuum-renormalized, and B_k as needing no renormalization. The lower-level map from an unrenormalized E_raw coefficient to these source-native coordinates is not part of this lemma.
+The intended coordinates remain E_ren/R_ren/B_loc. E_raw extraction is a separate earlier chart problem. Enlarging M_V by C_res changes the amplitude in the nonlinear majorant and must be tracked.
 
 ---
 
 ## LEMMA ID: YM-RPRIME-UPSTREAM-C1-1
 
-Statement:
-Fix a hard history/domain sector Sigma. Let
+Conditional statement:
+On a fixed Sigma fiber let U_Sigma=M_1.91^reg o P_Sigma be a well-typed holomorphic map on B_Rup(B_up), R_up>1. Suppose
 
-B_up,k^(Sigma)
-=
-T_k
-direct-sum E_ren,k
-direct-sum R_ren,k
-direct-sum B_loc,k
-direct-sum K_aux,k
+sup_{volume,cutoff,k,Sigma} sup_{||K||<R_up}
+||U_Sigma(K)||_{B_F(mu_in)}<=r_image<r_*^native.
 
-carry the mixed source-majorant + anchored product norm of rprime_upstream_c1.md.
+Then on ||K||<=1,
+||DU_Sigma(K)||<=r_image/(R_up-1).
 
-Let
+Status: ABSTRACT IMPLICATION PROVED; SOURCE APPLICATION GAP.
 
-P_Sigma:
-B_up,k^(Sigma)
-->
-B_red,k^(Sigma)=T_k direct-sum V_k
+The former unconditional PROVED claim is withdrawn. Neither R_up>1 nor the uniform complex-ball majorant/image bound has been established. Raw-coordinate Cauchy bounds are likewise conditional on this domain. Formal incidence support is conditional on the specified producer kernel and normally convergent reduced map.
 
-be
-
-P_Sigma(T',E_ren,R_ren,B_loc,K_aux)
-=
-(T',P_V(E_ren,R_ren,B_loc,K_aux)).
-
-Normalize the harmless source majorant constants so that
-
-||P_Sigma||<=1.
-
-Let
-
-M_1.91^reg:
-B_red,k^(Sigma)->B_F(mu_F)
-
-be the regular Eq. (1.91) map of YM-RPRIME-191-C1-1.
-
-Then
-
-U_Sigma
-=
-M_1.91^reg circ P_Sigma
-
-is Banach-holomorphic on a cutoff/volume/RG-depth-uniform open coefficient neighborhood of the source unit ball and
-
-sup_{||K||_up<=1}
-||D U_Sigma(K)||
-<=
-C_U
-<=
-C_1.91
-=
-rho_F/(R_src-1).
-
-Status:
-PROVED IN THE SOURCE-NATIVE RENORMALIZED COEFFICIENT CHART.
-
-Raw-coordinate component Cauchy:
-For coordinate lambda in sector s, with injection weight
-
-w_up(lambda)
-=
-max{
-M_s(lambda)^(-1),
-C_s^(-1)e^{mu_s d(X_lambda)}
-},
-
-one has on the inner source ball
-
-||D_lambda U_Sigma(K)_{X'}[h]||
-<=
-(A_F/delta_up)
-w_up(lambda)
-e^{-kappa_F d_k(X')}
-||h||.
-
-Exact raw support:
-- for T' coordinate eta, derivative vanishes unless eta subset X';
-- for E_ren/R_ren/B_loc/auxiliary lambda, derivative vanishes unless there exists
-  Y in Out_Sigma(lambda)
-  with
-  Y subset X'.
-
-Stronger off-diagonal Schur:
-OPEN. A marked two-anchor bound for the incidence kernel A_Sigma is still required.
-
-Non-claim:
-The lower-level chart transition
-E_raw -> E_ren
-(including relevant/coupling extraction) is not proved here and is not part of the current CMP119 inductive-state upstream map.
+See YM-191-COMPLEX-MAJORANT-1 and YM-UPSTREAM-IMAGE-RESERVE-1. No E_raw chart, physical source derivative or boundary sector is included.
 
 ---
 
 ## LEMMA ID: YM-RPRIME-UPSTREAM-COMPOSED-C1-1
 
-Statement:
-Combine YM-RPRIME-UPSTREAM-C1-1 with the accepted audited native regular R' theorem
+Conditional statement:
+Assume the preceding upstream whole-ball/image theorem with EXACT downstream input exponent mu_F=mu_in. Set rho=(r_image+r_*^native)/2 and q_native(rho)=e^{16a+sqrt(7)theta}rho.
 
-H_R':B_F->B_R',
+Then the accepted downstream holomorphic map can be evaluated at every U_Sigma(K), and
+D(H_R' o U_Sigma)_K=DH_R'_{U_Sigma(K)} o DU_{Sigma,K}.
 
-sup||D H_R'||<=C_R'.
+On ||K||<=1 the uniform bound is
+[q_native(rho)/(rho-r_image)] [r_image/(R_up-1)].
 
-Then on every frozen history fiber,
+Status: ABSTRACT CHAIN RULE PROVED UNDER THESE HYPOTHESES; SOURCE COMPOSED C1 GAP.
 
-H_R' circ U_Sigma
-
-is uniformly C^1 and
-
-sup
-||D(H_R' circ U_Sigma)||
-<=
-C_R' C_U
-<=
-C_R' C_1.91.
-
-Status:
-PROVED.
-
-No D^2 claim and no boundary B' claim.
-
+The former unqualified PROVED label is withdrawn. B_F is not an unrestricted domain: H_R' is defined on its radius-r_*^native ball. A physical source input inside that ball does not prove image inclusion or coefficient differentiability on an ambient upstream neighborhood.
 
 ---
 
@@ -3339,4 +3153,30 @@ Important:
 This is a ROW-majorant theorem. It proves the Banach operator bound because the input topology contains the source-majorant regulator. It does not imply a two-anchor/off-diagonal Schur estimate for A_Sigma.
 
 Application:
-CMP122-II pp.376--377 provide exactly the required absolute resummation structure for the decaying (1.68) V-class after source-native E/R/B atoms are supplied.
+NOT VERIFIED. The pp.376--377 source proof motivates the row hypothesis, but its operator/kernel dictionary and uniformity over arbitrary independent coefficients and Sigma have not been extracted. The abstract theorem remains proved under the stated row and geometric-summability hypotheses. Replace scalar |A| by operator ||L|| when coefficient domains differ.
+
+## LEMMA ID: YM-191-COMPLEX-MAJORANT-1
+
+Required certificate (OPEN):
+For compatible local operator/algebra domains define the absolute term majorant
+M_{F,Sigma}^{abs}(X';R_T,R_V)
+=sum_{I in I_Sigma^reg(X')}
+ product_h [R_T M_T(X_h)]
+ product_{Y in D}[R_V M_V(Y)]
+ exp[sum_{Y in D} R_V M_V(Y)].
+
+Include noncontractive restriction/pullback factors where present. Prove radii R_T,R_V>1, normal convergence on smaller balls, and a uniform anchored sum in exactly B_F(mu_in), independent of volume, cutoff, k and Sigma. Source (1.97) is not this certificate.
+
+Status: OPEN / FIRST REDUCED UPSTREAM BLOCKER.
+
+## LEMMA ID: YM-UPSTREAM-IMAGE-RESERVE-1
+
+Required certificate (OPEN):
+For the original source-native normalization, prove
+R_up>1 and sup_{||K||_up<R_up}||U_Sigma(K)||_{B_F(mu_in)}
+<=r_image< (a/9)e^{-16a-sqrt(7)theta},
+uniformly in volume, cutoff, k and Sigma.
+
+The producer norm and possible affine offset must fit inside the reduced holomorphy radius; renormalizing ||P|| to one does not prove this. After this certificate the corrected conditional upstream/composed lemmas apply.
+
+Status: OPEN / EXACT COMPOSITION BLOCKER.

@@ -1,3 +1,5 @@
+> **Authoritative correction — 2026-10-14 adversarial composition audit:** the former source-native upstream and composed bounded C^1 claims are withdrawn (GAP). Physical source bounds do not establish a uniform independent complex coefficient ball or strict image inclusion. See [rprime_upstream_c1.md](rprime_upstream_c1.md). The accepted downstream theorem is unchanged.
+
 # References / source ledger
 
 Primary/classical:
@@ -327,3 +329,23 @@ Iteration 10 adversarial revalidation — exact primary pages:
 
 Revalidation conclusion:
 The exact (1.91) map is (T',V)->F on a frozen history fiber. The source-native E_ren/R_ren/B_loc->V step is a signed linear resummation. The absolute row-majorant plus the mixed input source-regulator gives a genuine bounded coefficient-space operator P_V. This does not by itself give an off-diagonal two-anchor Schur kernel.
+
+
+## 2026-10-14 — provenance correction for upstream composition
+
+Primary article: T. Balaban, CMP 122 (1989), 355--392,
+[DOI/publisher](https://doi.org/10.1007/BF01238433),
+[accessible primary PDF mirror](https://scispace.com/pdf/large-field-renormalization-ii-localization-exponentiation-h8b7ih93xo.pdf).
+
+The article text at printed pp.376--377, 379--380 and 387--390 was consulted during this audit. PDF text extraction is imperfect; the existing exact (1.91) transcription is retained, not a new OCR reconstruction of every intermediate equation.
+
+Primary facts retained:
+- p.379: the history sum in T' acts also on the V exponential; whole-component V terms are inside T'.
+- p.380: the T' comparison/normalization bounds use positive real density plus a controlled complex exponent sigma.
+- pp.387--390: (1.92) uses source V/T estimates and relative geometry; (1.97) bounds source-generated regular F.
+- pp.376--377: localizations and resummations precede the V output bound and reference earlier renormalization arguments.
+
+Correction to the preceding Iteration-10 ledger:
+those passages were overinterpreted as supplying an ambient arbitrary-coefficient operator theorem. The explicit operator kernel on the advertised independently variable renormalized atom chart, uniform row norm over Sigma, full complex-ball majorant and strict downstream image radius have NOT been extracted. The old sentences "closes ... bounded-C1 theorem" and "PROVED" are superseded by the correction above.
+
+Already-renormalized coordinates avoid silently including E_raw extraction; that chart choice does not prove all remaining coefficient resummation bounds. No new claim about the source's physical theorem is made by this downgrade.

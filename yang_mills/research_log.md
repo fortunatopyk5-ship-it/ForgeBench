@@ -577,3 +577,18 @@ Thus the final source-native bounded-C1 theorem is unchanged.
 
 Still open:
 the row bound does not imply a marked two-anchor/off-diagonal Schur estimate for A(Y,lambda). That stronger locality theorem remains the first unresolved refinement.
+
+
+## 2026-10-14 — adversarial upstream composition correction
+
+Audited base cb0193b3bfe91c3c309b9431650d4785e15cd0a8 and the six requested current documents.
+
+WITHDRAWN: unconditional source-instantiated upstream/reduced/composed bounded C1 claims of Iteration 10. The physical source majorant was promoted to an independent complex coefficient-ball bound without proving all operator/domain/geometric hypotheses survive perturbations. The producer row theorem is correct abstractly; its claimed source instantiation lacked the exact kernel and uniformity dictionary.
+
+Preserved: exact recorded (1.91), frozen-label convention, finite-term algebra, accepted downstream native radius and theorem, and source-generated F anchored summability with the identical downstream exponent.
+
+New explicit certificates: YM-191-COMPLEX-MAJORANT-1 and YM-UPSTREAM-IMAGE-RESERVE-1, plus the V operator row source instantiation. Source uniformity of physical inputs does not verify uniformity over arbitrary coefficient families and histories.
+
+Verdict: UPSTREAM C1 GAP; COMPLEX BALL GAP; WHOLE-BALL IMAGE NO (not proved); COMPOSED C1 GAP; Sigma UNIFORMITY UNKNOWN. Conditional chain-rule domains/constants are now stated without applying them prematurely.
+
+No downstream proof was redone. No K0, STEP0, boundary B' or other RG-sector work.

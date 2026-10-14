@@ -1,3 +1,5 @@
+> **Authoritative correction — 2026-10-14 adversarial composition audit:** the former source-native upstream and composed bounded C^1 claims are withdrawn (GAP). Physical source bounds do not establish a uniform independent complex coefficient ball or strict image inclusion. See [rprime_upstream_c1.md](rprime_upstream_c1.md). The accepted downstream theorem is unchanged.
+
 # Open questions
 
 1. Can YM-CUTOFF-BRIDGE-1 be written as a clean theorem about weak convergence of positive spectral measures on varying OS Hilbert spaces with no uniform correlator prefactor assumption?
@@ -177,11 +179,11 @@ The old C_inc=1,c_stitch=2 specialization is only the stricter cube-overlap toy 
 
 ## Iteration 10 — CMP122-II Eq. (1.91) upstream audit
 
-60. RESOLVED for the already-localized coordinates: Eq. (1.91) defines a Banach-holomorphic/C^1 map (T',V)->F on a frozen-history mixed source-majorant/anchored coefficient ball with uniform radius.
+60. REOPENED — whole complex-ball majorant not proved. Former claim: Eq. (1.91) defines a Banach-holomorphic/C^1 map (T',V)->F on a frozen-history mixed source-majorant/anchored coefficient ball with uniform radius.
 
 61. RESOLVED: hard domain/history labels are not tangent coordinates. On each fixed history fiber Sigma, the condition "determines exactly X'" is coefficient-independent, so coefficient variations do not differentiate characteristic thresholds.
 
-62. RESOLVED: exact reduced Jacobian support is
+62. FORMAL SUPPORT / CONDITIONAL FOR THE INFINITE MAP: exact reduced Jacobian support is
 D_eta F(X')=0 unless eta subset X'
 for T' and V coordinates.
 
@@ -204,15 +206,15 @@ and the already audited downstream C_R' to get
 
 ## Iteration 10 final — after source-native upstream C1 closure
 
-67. RESOLVED in the source-native current-state chart:
+67. REOPENED — operator/domain row dictionary not established. Former claim:
 the pp.376-377 V-producer is a bounded linear incidence map from already-renormalized E/R/B local atoms to the decaying V(Y) family, using the direct source absolute row-majorant.
 
-68. RESOLVED:
+68. REOPENED — upstream C1 GAP. Former claim:
 the full regular source-native upstream map
 (T',E_ren,R_ren,B_loc,K_aux)->F_reg
 is uniformly bounded C1 on frozen-history anchored coefficient fibers.
 
-69. RESOLVED:
+69. REOPENED — strict whole-ball image inclusion missing. Former claim:
 composition with audited downstream F->R'_Bal gives
 ||D(R'_Bal o U_Sigma)||<=C_R' C_U.
 
@@ -224,4 +226,12 @@ strong enough to obtain a quantitative off-diagonal Schur kernel for the upstrea
 71. OPEN / LOWER-LEVEL CHART ONLY:
 construct a scale-uniform coefficient theorem for the pre-renormalization E_raw -> E_ren chart transition, including the relevant extraction in CMP119 (3.64). This is not required by the current source-native inductive-state upstream theorem.
 
-72. Do not confuse Q71 with the current Eq. (1.91) blocker: there is no remaining bounded-C1 blocker for the regular source-native Eq. (1.91) chain.
+72. Q71 remains an earlier chart problem. The current bounded-C1 blockers are reopened below.
+
+73. YM-191-COMPLEX-MAJORANT-1: prove a uniform anchored absolute majorant on independent complex T'/V coefficient radii >1. Specify their compatible operator/history/integration domains and preserve every source geometric hypothesis.
+
+74. Extract the V producer operator kernel and prove sum_lambda ||L_{Sigma,Y,lambda}||M_lambda<=C_res M_V(Y) uniformly over admissible Sigma, cutoff, volume and k. Count label multiplicity and retain C_res in the amplitude entering the reduced nonlinear map.
+
+75. YM-UPSTREAM-IMAGE-RESERVE-1: with exactly mu_F=mu_in, prove R_up>1 and sup_{||K||<R_up}||U_Sigma(K)||_F<=r_image<r_*^native. Until then the composed C1 theorem is GAP.
+
+The source-generated subfamily has the surviving bound C_geo(lambda_in)e^{-p_0(gamma)}; this does not solve Q73--75.
