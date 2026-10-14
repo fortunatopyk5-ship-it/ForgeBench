@@ -262,3 +262,30 @@ Printed pp.376-377:
 
 Iteration-10 interpretation:
 Eq. (1.91) itself is an analytic Mayer/operator resummation in the already-localized coordinates (T',V). The raw E/R/B -> V producer precedes (1.91) and is a separate coefficient-space boundedness obligation.
+
+
+Iteration 10 producer refinement — DIRECT PRIMARY CMP119:
+
+Printed p.259 / Eqs. (2.25)-(2.28):
+- E_k is explicitly the fully renormalized regular action;
+- it is assembled from E^(j)(Lambda_j,U)-E^(j)(Lambda_j,1)-beta_j A(phi_j,U);
+- E^(j)(Lambda_j,U,z) is decomposed into localization-domain terms E^(j)(X,U,z);
+- the local analytic radii alpha_0,j,alpha_1,j carry explicit g_j-dependent scales.
+
+Printed p.260 / Eqs. (2.30)-(2.33):
+- R_k is sum_j [R^(j)(Lambda_j,U)-R^(j)(Lambda_j,1)];
+- only vacuum-energy renormalization is required for R;
+- localized R terms satisfy the stronger exponential localization bound (2.31);
+- B_k needs no renormalization and is a sum of already-localized bounded/small analytic terms.
+
+Printed p.283 / Eqs. (3.64)-(3.67):
+- beta_j is identified by a second-order derivative/extraction from the localized quadratic coefficient;
+- A(phi_j,U) is decomposed into localized action atoms A(h_z phi_j,U);
+- the local renormalized E combination is
+  E^(j)(Lambda_j,U,z)-E^(j)(Lambda_j,1,z)-beta_j A(h_z phi_j,U);
+- this cancellation leaves the irrelevant remainder estimated in (3.67).
+
+Iteration-10 functional-analytic consequence:
+R-renormalization is bounded linear (vacuum subtraction, norm <=2 in H-infinity).
+B requires no renormalization.
+The first nontrivial uniform coefficient operator is the E-sector second-order relevant extraction. Because native analytic radii depend on g_j, a scale-uniform bound for this extraction must be proved in a normalized/derivative-weighted graded topology rather than inferred from unweighted H-infinity analyticity.
