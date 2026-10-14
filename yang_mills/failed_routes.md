@@ -324,3 +324,28 @@ Balaban further says that native R'^(k)(X) is given by series (7.13) [I]. Until 
 
 Correction:
 Use YM-RPRIME-CANONICAL-C1-1 for the canonical chart and keep YM-RPRIME-NATIVE-COORD-1 open.
+
+
+---
+
+## Iteration 9 correction: stopping at UNKNOWN after failing to find CMP109 (7.13)
+Temporary dead end:
+The published CMP109 PDF has no visible Sect. 7 / Eq. (7.13), so a literal search could not recover the formula cited by CMP122-II.
+
+Resolution:
+Do not stop at the numbering mismatch. CMP109 explicitly defers localization/cluster expansion to the next paper. Published CMP116 is that continuation. CMP122-II's additional anchor "(7.1) [I]" = first Mayer step matches CMP116 (2.1), and CMP116 (2.13) is the exact-union local connected coefficient. This resolves the legacy manuscript numbering and closes the coordinate dictionary.
+
+---
+
+## Corrected failed assumption: native incompatibility = cube overlap
+FALSE.
+
+Published CMP116 Eq. (2.11) makes polymers incompatible when their intersection contains either a cube OR a full wall of a cube.
+
+Consequences:
+C_inc=1 is not a valid native anchor factor.
+c_stitch=2 is not a valid worst-case native stitching constant.
+
+Correct native sufficient constants in d=4:
+C_inc=9,
+c_stitch=sqrt(7).
