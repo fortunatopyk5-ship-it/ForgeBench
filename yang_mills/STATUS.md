@@ -1,46 +1,71 @@
 # STATUS
 
 Current objective:
-Determine whether the Balaban history-resummation/local-cluster map is uniformly C^1 between connected anchored Banach spaces, allowing a controlled loss of tree-decay exponent. K_0 and STEP_0 remain prohibited.
+Iteration 8 is restricted to the regular/second-group CMP122-II R' cluster/log COEFFICIENT map. K_0 and STEP_0 remain prohibited. The regular R' bounded C^1 theorem is now closed; the full YM-HISTORY-NORM-1 problem remains open upstream and in the boundary lane.
 
 Current strongest result:
-The functional-analytic C^1 problem is now decomposed sharply. The local reconstruction theorem has been repaired by introducing a common direct-sum target D_A and canonical injections. A correct weighted Schur theorem (YM-HISTORY-JACOBIAN-1) now gives the exact sufficient condition for an anchored polymer Jacobian. Independently, Banach-valued Cauchy shows that a uniformly analytic resummation on a slightly larger input ball is automatically bounded C^1. For source submaps: the fixed local T-component derivative is explicitly controlled, and CMP122-II's R' cluster step visibly spends the decay reserve (1+beta)kappa -> (1+beta/2)kappa. The remaining obstruction is not exp/log algebra; it is the lack of one fixed normalized analytic chart plus a complete source support/collar dictionary for the full outer-history Jacobian.
+YM-RPRIME-C1-1 is PROVED for the regular R' cluster/log coefficient sector with an explicit anchored input norm and an explicit sufficient KP convergence radius. No unnamed "sufficiently small" cluster radius is used. For
+mu_in=(1+beta)kappa-lambda_in>0
+with lambda_in in the CMP109 geometric-summability regime, choose a,theta>0 with 16a+theta<=mu_in and
+r_*=a exp[-16a-2theta].
+The Balaban-generated regular pre-exponentiation activity obeys
+||F^src||_in <= C_geo(lambda_in) exp[-p_0(g_k)].
+Since primary CMP119 has p_0(g)->infinity as g->0, shrink the fixed source coupling threshold gamma_R' so that
+r=C_geo(lambda_in)exp[-p_0(gamma_R')]<r_*,
+and set rho=(r+r_*)/2.
+Generalized KP gives a volume/scale-uniform Banach-holomorphic canonical cluster logarithm on the r_*-ball, and Banach Cauchy gives
+sup_{||F||<=r} ||D H_R',k^reg(F)||
+<= q(rho)/(rho-r),
+q(rho)=exp(16a+2theta)rho,
+uniformly in volume, UV cutoff and RG depth.
 
-Current blocking lemma:
-YM-HISTORY-C1-CHART-1 (new working name inside YM-HISTORY-NORM-1):
-construct normalized local complex charts for CMP119/CMP122 activity spaces with a scale/cutoff/volume-uniform collar delta_ref>0, and prove that the full history-resummation map in those charts has either
-(a) the quasi-local Jacobian Schur bound of YM-HISTORY-JACOBIAN-QUASILOCAL-1, or
-(b) a uniformly bounded holomorphic extension to a larger anchored input ball.
-Only then can one state a cutoff/volume/depth-uniform full-history C^1 theorem.
+Run status:
+REGULAR R' BOUNDED C^1 PROVED.
+The stronger quasi-local Schur Jacobian is PROVED UNDER the additional explicit decay-budget condition
+lambda_res=theta-mu_out-nu
+lying in the CMP109 summability regime. No numerical source threshold for this extra reserve is claimed.
 
 Verified:
-- YM-HISTORY-RECON-LOCAL-1 is corrected and PROVED in a common target D_A^(mu)=weighted l^1 direct sum of local activity spaces; the old untyped sum is superseded.
-- Explicit input/output spaces are B_in(mu_in), B_out(mu_out), anchored l^1-in-polymer / l^infinity-in-anchor Banach spaces. mu_out<mu_in is allowed.
-- YM-HISTORY-JACOBIAN-1: a selector-based weighted Schur test is PROVED with the correct orientation for these norms.
-- YM-HISTORY-JACOBIAN-QUASILOCAL-1: off-diagonal e^{-nu dist(a,b)} control of the anchored Jacobian kernel implies a bounded operator norm.
-- YM-BANACH-CAUCHY-C1-1: a Banach-valued holomorphic map uniformly bounded on a radius-(R+delta) ball has derivative norm <=M/delta on radius R.
-- YM-EXP-LOG-BANACH-1 gives exact derivative bounds in a genuine Banach algebra; applying it to polymer activities still requires a product/convolution theorem.
-- DIRECT/SOURCE-VERIFIED CMP122-II R' exponent ledger: pre-exponentiation connected activity carries (1+beta)kappa decay and post-exponentiation R' carries (1+beta/2)kappa decay. Thus the visible decay expenditure is beta*kappa/2.
-- R' cluster/log submap is uniformly C^1 CONDITIONALLY on a strict source-to-our-norm convergence margin; the exact fixed anchored convergence radius has not been extracted.
-- YM-T-NORMALIZED-DERIV-1: for a fixed local T component, D Tbar[h](F)=Tbar(hF)-Tbar(h)Tbar(F), with explicit norm bound from CMP122-II (1.75).
-- YM-T-SECTOR-C1-1: the fixed/local T derivative lifts to an anchored derivative bound conditionally on the source collar/restriction dictionary and a positive decay reserve.
-- A local source mark J_A is a legitimate tangent vector; if the full history map is C^1, D Hscr[J_A] is a marked connected activity.
-- The source indicates slightly larger analytic spaces/improved decay for newly generated E/R/B terms, but exact enlarged-domain coefficients needed for a normalized collar have not been extracted.
+- Activity-vector naming correction: the typed direct-sum object is Act_A(F), not a physical reconstruction. A future synthesis map S_A:D_A^(mu)->F_A is separate and its boundedness is UNKNOWN.
+- Source/activity tangent correction: physical source space J_A and insertion map jmath_A:J_A->B_in are separate. Boundedness of jmath_A is UNKNOWN; J_A is not automatically an activity tangent.
+- DIRECT PRIMARY CMP122-II (1.90)-(1.97): the pre-exponentiation R-operation output is a hard-core connected-component polymer gas with local activities F(X'); for the regular lane X' disjoint from the large-field set, c_1=exp[-p_0(g_k)] and the relative metric reduces to ordinary d_k.
+- DIRECT PRIMARY CMP122-II (1.98)-(1.100): exponentiation produces connected R' activities; the second/regular output has ordinary d_k decay and amplitude exp[-p_0(g_k)].
+- DIRECT PRIMARY CMP119: p_0(g)=A_0(log g^{-2})^{p_*} with positive p_*, hence p_0(gamma)->infinity as gamma->0.
+- Exact regular input norm:
+  ||F||_in=sup_B sum_{eta contains B} exp(mu_in d_k(eta))||F_eta||,
+  with actual source input bounded by C_geo(lambda_in)exp[-p_0(g_k)].
+- YM-OVERLAP-TREE-STITCH-1: for overlap-connected inputs, d_k(union eta_i)<=sum_i d_k(eta_i)+2(n-1) in d=4.
+- YM-RPRIME-TREE-KP-BALL-1: explicit sufficient convergence radius r_*=a exp[-16a-2theta].
+- YM-RPRIME-EXACT-UNION-1: for the canonical connected logarithm,
+  D_eta H_R',gamma=0 unless eta subset gamma. The deterministic selector may be chosen inside eta, hence coefficient-map collar r_col=0.
+- YM-RPRIME-UNIFORM-HOLOMORPHY-1: uniform absolute rooted-KP convergence on every rho<r_* ball gives Banach-valued holomorphy uniform in finite volume and scale.
+- YM-RPRIME-C1-1: bounded C^1 into B_out(theta) with derivative constant q(rho)/(rho-r), independent of volume/cutoff/depth.
+- Source-visible exponent change (1+beta)kappa -> (1+beta/2)kappa is recorded only as SOURCE-VISIBLE DECAY RESERVE beta*kappa/2; it is not identified with the actual Banach norm loss mu_in-mu_out.
+- Stronger weighted Schur/quasi-local Jacobian follows if theta-mu_out-nu retains a CMP109 summability reserve.
 
-Unverified:
-- a fixed normalized reference chart for U_j^c(X,alpha_0,j,alpha_1,j) with delta_ref>0 independent of historical scale/cutoff/volume;
-- uniform chart-transition bounds under RT/R;
-- exact full Jacobian support/collar rule M_{gamma eta}=0 outside a controlled connected neighborhood for every E/R/B/T coordinate;
-- a source-to-our-norm strict convergence radius for the complete R' cluster map;
-- full T-history resummation C^1, beyond a fixed local component;
-- a full-history quasi-local Schur bound or larger-ball Cauchy bound;
-- source-specific first-mark quasi-locality for YM-UV-SOURCE-MATCH-1.
+Unverified / deliberately not attacked:
+- first/boundary B' lane with modified metric d_{k,Y};
+- bounded C^1 of the upstream map that constructs F(X') from preceding T/E/R/B/history data;
+- full compressed outer-history map;
+- bounded physical source insertion jmath_A;
+- bounded physical synthesis S_A;
+- any numerical source threshold guaranteeing the extra quasi-local Schur reserve;
+- K_0 and STEP_0.
+
+Current blocking lemma after the regular-sector closure:
+Within the broader YM-HISTORY-NORM-1 program, the nearest blocker is now the UPSTREAM PRE-ACTIVITY MAP:
+localized T/E/R/B/history data -> CMP122-II pre-exponentiation F(X').
+The separate boundary B' lane is also open.
+Neither is attacked in Iteration 8.
 
 Next action:
-Stay inside YM-HISTORY-NORM-1. Do not build K_0 or attack STEP_0. Extract the exact enlarged analytic-domain margins around CMP119 Sect.2 / the pre-Theorem-1 reserve and express them as normalized local Banach charts. In parallel extract the support/enlargement rule for CMP116/CMP122 cluster outputs so that the Jacobian kernel M_{gamma eta} has a source-verified zero/collar condition. Then test the weighted Schur condition. If the fixed chart fails because alpha_0,j and alpha_1,j cannot be normalized uniformly, record that as the blocker rather than hiding it.
+Do not revisit regular R' cluster/log convergence. In a future run, pick exactly one of:
+(A) prove bounded C^1/locality for the upstream map producing F(X'), or
+(B) build the relative-metric anchored space for the boundary B' lane.
+Before physical source differentiation, separately prove a bounded insertion map jmath_A.
 
-Iteration-7 verdict:
-STATUS: BLOCKED AT YM-HISTORY-NORM-1.
+Iteration-8 verdict:
+STATUS: REGULAR R' BOUNDED C^1 PROVED; QUASI-LOCAL JACOBIAN CONDITIONAL ON AN EXPLICIT ADDITIONAL DECAY-BUDGET.
 
 
 ## Update — Iteration 2 (YM-CROSSOVER-1 only)
