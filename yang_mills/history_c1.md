@@ -3,7 +3,7 @@
 Scope:
 Determine whether the history-resummation/local-cluster map is bounded C^1 between connected anchored Banach spaces. No K_0 and no STEP_0.
 
-## 1. Typed local reconstruction correction
+## 1. Typed local activity-vector correction
 
 The Iteration-6 formula
 
@@ -504,7 +504,7 @@ If this succeeds, YM-HISTORY-JACOBIAN-QUASILOCAL-1 immediately gives a cutoff/vo
 
 Best achieved result:
 
-- corrected typed local reconstruction;
+- corrected typed local activity vector;
 - exact weighted Schur theorem;
 - Banach Cauchy C^1 theorem;
 - explicit decay-loss ledger, including beta*kappa/2 for R' exponentiation;
