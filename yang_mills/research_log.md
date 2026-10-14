@@ -379,3 +379,60 @@ Result:
 REGULAR R' BOUNDED C^1 PROVED.
 QUASI-LOCAL SCHUR JACOBIAN PROVED UNDER AN EXPLICIT ADDITIONAL DECAY-BUDGET CONDITION.
 Broader YM-HISTORY-NORM-1 remains open upstream and in the boundary lane.
+
+
+## 2026-10-14 — Iteration 9: audit of (1.90) incompatibility and R' coordinates
+
+Scope obeyed:
+No upstream Eq. (1.91), no boundary B' estimates, no source marks, no K_0, no STEP_0.
+
+A. PRIME AUDIT
+Primary CMP122-II pp.387-388:
+- raw data determine X'_0;
+- Balaban defines a special component decomposition of X'_0;
+- X'_0=union_p X'_p;
+- the expression factorizes in those components;
+- resummation at fixed components gives the primed polymer expansion (1.90).
+
+Verified consequence:
+members of each actual primed family have pairwise disjoint pi_k-cube carriers.
+
+Not verified:
+the converse that every pairwise carrier-disjoint family is allowed by the prime.
+Therefore native incompatibility may be stronger than literal carrier overlap.
+
+Native C_inc: UNKNOWN.
+Native c_stitch: UNKNOWN.
+
+Canonical carrier-overlap model:
+C_inc=1,
+c_stitch=2.
+
+General corrected radius:
+r_*^corr=(a/C_inc)exp[-16a-c_stitch theta].
+
+B. COORDINATE AUDIT
+Primary CMP122-II p.390:
+exp R'^(k)=exp sum_X R'^(k)(X),
+and native R'^(k)(X) is stated to be given by convergent series (7.13) [I].
+
+Reference [I] is CMP109 (1987). The accessible published CMP109 has sections 0-5 and no searchable Eq. (7.13). The coordinate formula has therefore not been recovered.
+
+Logical correction:
+equality of the total logarithm does not imply equality of localization coordinates.
+
+Verdict:
+R' COORDINATE IDENTIFICATION = UNKNOWN (CASE 3).
+
+The Iteration-8 native theorem claim is withdrawn and renamed:
+YM-RPRIME-CANONICAL-C1-1.
+
+What survives:
+the canonical carrier-overlap exact-union log map is uniformly holomorphic/C^1 with the old explicit radius.
+
+What does not survive:
+the assertion that Balaban's native R'^(k)(X) coefficient map has already been proved C^1 in our coefficient topology.
+
+New exact blockers:
+YM-RPRIME-NATIVE-COMPAT-1;
+YM-RPRIME-NATIVE-COORD-1.
