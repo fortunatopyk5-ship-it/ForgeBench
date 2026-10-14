@@ -351,39 +351,56 @@ source cluster expansion + strict convergence reserve
  -> Banach-valued holomorphic cluster map
  -> Cauchy derivative bound.
 
-## 11. R' sector C^1 audit
+## 11. R' sector C^1 audit — Iteration 8 closure
 
-CMP122-II supplies:
-- a pre-exponentiation connected activity F(X') with decay
-  c_1 exp[-(1+beta)kappa d(...)]
-  in the source formulation;
-- convergent exponentiation to R'^(k);
-- R' analytic extension;
-- output decay
-  O(1)c_1 exp[-(1+beta/2)kappa d(...)].
+The regular/second-group R' cluster/log coefficient sector is now source-instantiated in rprime_c1.md.
 
-At finite volume the cluster/log output is an analytic polynomial/power-series function of the input activities.
+Key improvements over the provisional Iteration-7 formulation:
 
-If the source smallness condition c_1<c_* is strengthened to a strict uniform margin
+1. The pre-exponentiation source object is the CMP122-II Eq. (1.90)-(1.97) hard-core polymer activity F(X').
 
-c_1 <= r < r+delta_cl < c_*
+2. No unnamed source convergence radius c_* is used. An explicit sufficient anchored radius is constructed from generalized KP:
 
-with c_* the source convergence threshold, then the same absolute majorant proof applies on the larger input ball and YM-CLUSTER-CAUCHY-C1-1 yields a uniform derivative bound into the weaker-decay output space.
+r_*=a exp[-16a-2theta]
 
-What is source-verified:
-- existence of a sufficiently-small c_1 regime and a convergent exponentiated cluster expansion;
-- source decay reserve from (1+beta)kappa to (1+beta/2)kappa;
-- analytic extension of the output local activity in the field/source variables.
+for 16a+theta<=mu_in.
 
-What is not extracted:
-- one explicit anchored activity convergence radius c_* in our B_in norm;
-- the exact fixed-chart delta_cl after translating all source constants.
+3. The actual source input satisfies
+
+||F^src||_in
+<=
+C_geo(lambda_in)e^{-p_0(g_k)},
+
+so the primary p_0(g)->infinity profile lets one choose a fixed gamma_R' with a strict radius
+
+r<rho<r_*.
+
+4. The cluster logarithm is grouped by exact polymer union. Hence
+
+D_eta H_R',gamma=0 unless eta subset gamma,
+
+so the coefficient-map collar is r_col=0.
+
+5. Uniform absolute KP convergence on every closed rho-ball proves Banach-valued holomorphy uniformly in finite volume and scale.
+
+6. Banach Cauchy gives the uniform bounded derivative
+
+sup_{||F||<=r}||D H_R'(F)||
+<=
+q(rho)/(rho-r)
+
+as a map into B_out(theta).
 
 R'-SECTOR VERDICT:
-CLUSTER-EXPONENTIATION SUBMAP = C^1 CONDITIONAL ON A STRICT SOURCE-TO-OUR-NORM CONVERGENCE MARGIN.
-FULL compressed-history -> R' map = NOT PROVED.
+REGULAR R' CLUSTER/LOG COEFFICIENT MAP = BOUNDED HOLOMORPHIC / C^1 PROVED under the explicit input decay-budget mu_in>0.
 
-This is meaningful partial progress: the failure is before/around the source-to-fixed-Banach dictionary, not in the log/exponentiation algebra itself.
+The stronger spatially quasi-local Schur kernel is proved only under the additional explicit reserve
+
+theta-mu_out-nu
+
+lying in the CMP109 geometric-summability regime. No numerical source threshold for that extra reserve is invented.
+
+Boundary B' outputs and the upstream T/E/R/B -> F construction remain outside this theorem.
 
 ## 12. T sector C^1 audit
 
@@ -509,7 +526,7 @@ Best achieved result:
 - Banach Cauchy C^1 theorem;
 - explicit decay-loss ledger, including beta*kappa/2 for R' exponentiation;
 - fixed T-component derivative theorem;
-- R' cluster/log C^1 reduced to a strict source convergence margin.
+- regular R' cluster/log bounded C^1 CLOSED via an explicit KP ball; quasi-local Schur bound requires one additional explicit decay reserve.
 
 Not achieved:
 
@@ -605,7 +622,7 @@ C_lat(nu).
 This is a complete quasi-local C^1 theorem for an exact-union cluster map.
 
 CMP122-II application status:
-the cluster combinatorics has the needed connected-union architecture, but the exact source-to-our-polymer support/collar dictionary and strict anchored input radius delta are not yet fully extracted. Therefore the theorem is ready but the Yang-Mills R' instantiation remains PARTIAL.
+Iteration 8 closes the regular source instantiation by using the canonical exact-union logarithm of Eq. (1.90) and an explicit KP ball. The boundary lane and upstream construction of F remain separate.
 
 ## 20. New blocker ranking
 
