@@ -546,19 +546,21 @@ and use the canonical coordinate injections iota_{gamma,A}.
 
 Then
 
-Rec_A(F)
+Act_A(F)
 =
 sum_{supp(gamma) intersects A^+}
 iota_{gamma,A} Phi_gamma(F)
 
-is well typed.
+is well typed as a LOCAL ACTIVITY VECTOR.
+
+It is not yet a physical reconstruction. The latter would require a separate synthesis/evaluation map S_A:D_A^(mu)->F_A, whose boundedness is UNKNOWN.
 
 If connected activities have anchored weighted bounds h_0^(mu) and anchored weighted Lipschitz bounds h_1^(mu), then
 
-||Rec_A(F)||_{D_A^(mu)}
+||Act_A(F)||_{D_A^(mu)}
 <=|A^+|h_0^(mu),
 
-||Rec_A(F)-Rec_A(G)||_{D_A^(mu)}
+||Act_A(F)-Act_A(G)||_{D_A^(mu)}
 <=|A^+|h_1^(mu)||F-G||.
 
 This is the desired volume-independent form.
