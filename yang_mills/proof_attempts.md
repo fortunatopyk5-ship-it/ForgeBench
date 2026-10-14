@@ -299,3 +299,19 @@ A graded activity Banach product avoids the need to identify all H^infinity fiel
 
 Result:
 No full history C^1 theorem. Blocked at source instantiation of support/collar and strict convergence margin.
+
+
+## Attempt O — Iteration 8: close regular R' coefficient C^1
+
+1. Do not identify Balaban's phrase "sufficiently small" with a Banach radius.
+2. Use primary (1.97) only to bound the actual source input.
+3. Build an independent explicit generalized-KP ball:
+   r_*=a exp[-16a-2theta].
+4. Use p_0(g)->infinity to place the actual source activity strictly inside this ball.
+5. Define the cluster logarithm by exact union. This proves the derivative support theorem eta subset gamma and r_col=0.
+6. Use rooted KP + overlap-tree stitching for volume/scale-uniform output norm and normal convergence.
+7. Use Banach Cauchy directly for the bounded C^1 operator norm.
+8. Only afterwards apply weighted Schur for spatial quasi-locality; keep its extra decay reserve explicit.
+
+Outcome:
+Regular R' bounded C^1 closes. The quasi-local kernel needs one additional source decay-budget inequality. No fake source radius or numerical kappa threshold was introduced.
