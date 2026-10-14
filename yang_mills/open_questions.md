@@ -163,12 +163,12 @@ and rho=(r+r_*)/2.
 
 ## Iteration 9 — R' closure audit
 
-56. YM-RPRIME-NATIVE-COMPAT-1: what exactly does the prime in CMP122-II (1.90) permit? The source proves actual families are component families with pairwise disjoint cube carriers, but the converse admissibility statement has not been extracted. Find an exact iff, or construct a source-faithful support enlargement Supp_* with finite C_inc and c_stitch.
+56. RESOLVED in Iteration 9. Published CMP116 (2.11), the cluster construction underlying CMP122-II's legacy reference, gives the exact incompatibility: cube-or-wall contact. Thus Supp_*=N_wall[Car], C_inc=9 in d=4, and c_stitch=sqrt(7).
 
-57. YM-RPRIME-NATIVE-COORD-1: recover the cited series (7.13) [I] defining native R'^(k)(X). Determine whether X is literally the exact union of constituent (1.90) polymers. If not, identify the localization map L and prove it bounded between anchored spaces.
+57. RESOLVED by source crosswalk in Iteration 9. CMP122-II's legacy (7.1)[I] Mayer reference maps to published CMP116 (2.1), while legacy (7.13)[I] maps to published CMP116 (2.13). The latter defines the local connected coefficient with exact union union_i Z_i=X. Hence R'_Bal(X)=H_X^can(F) coordinatewise; no extra localization map L is present in this route.
 
-58. Until 56-57 close, keep the theorem name YM-RPRIME-CANONICAL-C1-1 and do not restore the claim that native Balaban R' coefficients are C^1 in our input activity coordinates.
+58. RESOLVED. The native theorem name YM-RPRIME-C1-1 is restored with corrected native compatibility constants and corrected radius.
 
-59. General native KP correction: once C_inc,c_stitch are known, use
-r_*^corr=(a/C_inc)exp[-16a-c_stitch theta].
-Do not reuse C_inc=1,c_stitch=2 unless literal carrier-overlap compatibility is source-verified.
+59. RESOLVED for d=4 native R': C_inc=9 and c_stitch=sqrt(7), hence
+r_*^native=(a/9)exp[-16a-sqrt(7)theta].
+The old C_inc=1,c_stitch=2 specialization is only the stricter cube-overlap toy chart.
