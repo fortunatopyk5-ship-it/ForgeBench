@@ -2668,3 +2668,328 @@ No numerical Balaban kappa threshold is claimed.
 
 Non-claims:
 No upstream Eq. (1.91) derivative theorem, no boundary B' theorem, no full history map, no physical source insertion, no K_0, and no STEP_0.
+
+
+---
+
+## LEMMA ID: YM-RPRIME-191-TRANSCRIPTION-1
+
+Statement:
+On a fixed CMP122-II history/domain sector, the pre-exponentiation activity of Eq. (1.91) is
+
+F(X')
+=
+sum_q
+sum'_{ {X_{j_1},...,X_{j_q}} }
+sum'_D
+[
+ product_{Y in D} int_0^1 dt(Y)
+]
+[
+ product_{h=1}^q T'_k(X_{j_h})
+]
+[
+ product_{Y in D}V(Y)
+]
+exp[
+ sum_{Y in D}t(Y)V(Y)
+].
+
+The primed sums are exactly over those frozen localization-domain data whose special connected component, defined immediately before (1.90), is X'.
+
+Status:
+DIRECT PRIMARY SOURCE VERIFIED.
+
+Source:
+CMP122-II printed pp.387-388, Eqs. (1.90)-(1.91).
+
+Consequences:
+- Eq. (1.91) sees only the already-formed local T'_k operators and V(Y) activities.
+- raw E/R/B coordinates do not occur explicitly;
+- all constituents of a term contributing to F(X') lie in the component X'.
+
+---
+
+## LEMMA ID: YM-RPRIME-191-FROZEN-CHART-1
+
+Statement:
+Fix all hard determining-set/history/characteristic data Sigma used in the CMP122-II construction around (1.90)-(1.91). Vary only the analytic coefficient functions/operators T'_X,V_Y while keeping their localization labels fixed.
+
+Then the index fiber
+
+I_Sigma(X')
+=
+{(q,Xvec,D): these frozen localization domains determine exactly X'}
+
+is independent of the coefficient values.
+
+Thus Eq. (1.91) defines an analytic coefficient map on an open Banach fiber over Sigma without differentiating hard characteristic boundaries.
+
+Status:
+PROVED FROM THE SOURCE DEFINITION.
+
+Reason:
+CMP122-II says Omega_k and the determining domains are defined by the field/determining set, while after (1.91) the prime is a condition on the localization domains themselves. It is not a condition on the numerical values of T'_X or V_Y.
+
+Important:
+No Frechet derivative across two different hard history sectors is claimed. The full state is a disjoint union of Banach fibers, not one linear history space.
+
+---
+
+## LEMMA ID: YM-RPRIME-191-ELEMENTARY-DERIV-1
+
+Statement:
+For one frozen raw index I=(q,Xvec,D), define
+
+W_D(V,t)=sum_{Y in D}t(Y)V_Y,
+
+P_D(V)=product_{Y in D}V_Y,
+
+G_D(V;t)=P_D(V)exp W_D(V,t),
+
+T_Xvec=product_{h=1}^q T'_{X_{j_h}},
+
+Phi_I(T',V)
+=
+int_{[0,1]^D}
+T_Xvec[G_D(V;t)]dt.
+
+Then:
+
+1. if eta not in D,
+   D_eta G_D=0;
+
+2. if eta in D,
+
+D_eta G_D[h]
+=
+exp(W_D)
+[
+ h product_{Y in D\{eta}}V_Y
+ +
+ t(eta)h product_{Y in D}V_Y
+];
+
+3. for a T'-coordinate eta,
+
+D_eta T_Xvec[H]
+=
+sum_{r:X_{j_r}=eta}
+T'_{X_{j_1}}...T'_{X_{j_{r-1}}}
+H
+T'_{X_{j_{r+1}}}...T'_{X_{j_q}};
+
+4.
+
+D Phi_I
+=
+int
+[
+ (D T_Xvec)G_D
+ +
+ T_Xvec(D G_D)
+].
+
+Status:
+PROVED.
+
+No derivative of the frozen index set occurs.
+
+---
+
+## LEMMA ID: YM-T-LOCAL-COEFF-C1-1
+
+Statement:
+Let a local T-operation be written
+
+T_X(K)F=int e^K F dmu_X,
+
+tau_X(K)=T_X(K)1,
+
+bar T_X(K)=tau_X(K)^{-1}T_X(K).
+
+On an open local coefficient domain where tau_X is nonzero,
+
+D tau_X(K)[h]=T_X(K)h,
+
+D bar T_X(K)[h]F
+=
+bar T_X(K)(hF)
+-
+bar T_X(K)(h)bar T_X(K)(F).
+
+If
+
+||bar T_X||_op<=C_T,
+
+then
+
+||D bar T_X(K)[h]||_op
+<=
+(C_T+C_T^2)||h||.
+
+Also
+
+D T_X(K)[h]F=T_X(K)(hF).
+
+Status:
+PROVED.
+
+CMP122-II instantiation:
+(1.74) gives nonvanishing in the source analytic regime and (1.75) gives
+
+C_T<=exp(3 sup|sigma|).
+
+The later proof bounds |sigma| by 1, so e^3 is a valid crude local source constant.
+
+This proves the local exponential/integration submap is not the current upstream blocker.
+
+---
+
+## LEMMA ID: YM-RPRIME-191-C1-1
+
+Statement:
+Fix one frozen source sector Sigma.
+
+Let B_red,k^(Sigma)=T_k^(Sigma) direct-sum V_k^(Sigma), with the mixed source-majorant + anchored norms defined in rprime_upstream_c1.md. The weighted-sup part preserves the exact pointwise source majorants and the anchored part gives volume-independent local summability.
+
+Assume the fixed source threshold is chosen with strict slack in every smallness inequality used in the absolute-value proof of CMP122-II (1.92)-(1.97). Then there exists
+
+R_src>1
+
+independent of volume, cutoff and k such that the same proof converges uniformly for every coefficient family in
+
+B_{R_src}(B_red,k^(Sigma)).
+
+Choose the threshold still smaller so that the resulting inflated regular output satisfies
+
+||F||_{B_F(mu_F)}
+<=rho_F<r_*^native
+
+on that whole ball.
+
+Then the exact Eq. (1.91) map
+
+M_1.91:
+B_{R_src}(B_red,k^(Sigma))
+->
+B_F(mu_F)
+
+is Banach-holomorphic and, on the inner unit ball,
+
+sup ||D M_1.91||
+<=
+C_1.91
+:=
+rho_F/(R_src-1).
+
+Status:
+PROVED UNDER THE EXPLICIT "STRICT SOURCE-MAJORANT SLACK" HYPOTHESIS.
+
+Why the hypothesis is source-available:
+the source permits alpha to be made arbitrarily small by shrinking the coupling threshold and p_0(gamma) -> infinity; all inequalities used in (1.92)-(1.97) are strict sufficient smallness inequalities. Therefore the threshold can be chosen inside, rather than on the boundary of, the allowed majorant region.
+
+No physical U/J analytic collar is used.
+
+---
+
+## LEMMA ID: YM-RPRIME-191-SUPPORT-1
+
+Statement:
+For the reduced Eq. (1.91) coefficient map,
+
+D_eta F(X')=0
+
+unless
+
+eta subset X',
+
+for both T'-coordinates and V-coordinates.
+
+Status:
+PROVED.
+
+Proof:
+The source sentence after (1.91) says a term is summed into F(X') exactly when its localization-domain constituents determine the connected localization domain X'. Hence every constituent domain occurring in that term belongs to X'. A coordinate derivative can be nonzero only when that coordinate occurs in the term.
+
+Corollary:
+The reduced coefficient-map collar is
+
+r_col=0.
+
+---
+
+## LEMMA ID: YM-RPRIME-UPSTREAM-PRODUCER-1
+
+Desired statement:
+On each frozen history sector Sigma, construct a product anchored Banach space
+
+B_up
+=
+Tpot
+direct-sum K_E
+direct-sum K_R
+direct-sum K_B
+direct-sum K_old
+direct-sum ...
+
+and prove a uniform bounded C^1 producer
+
+P_Sigma:
+B_up
+->
+B_red,
+
+P_Sigma(raw)=(T'(raw),V(raw)).
+
+Current status:
+OPEN / BLOCKER.
+
+What is already proved:
+- fixed restriction/pullback is linear in a coefficient function;
+- the local exponential/integration map producing T' from an already-localized exponent insertion is C^1 (YM-T-LOCAL-COEFF-C1-1);
+- the exact (T',V)->F map is C^1 (YM-RPRIME-191-C1-1).
+
+First missing operator:
+the coefficient-space map
+
+P_V:
+(K_E,K_R,K_B,K_old,...)
+->
+(V(Y))_Y,
+
+where CMP122-II pp.376-377 perform localization, E/R renormalization, resummation, and addition/subtraction before obtaining the local bounds (1.68),(1.69).
+
+The source proves output analyticity in physical fields and pointwise bounds, but this notebook has not yet extracted a bounded difference/Frechet estimate for P_V in an anchored coefficient norm.
+
+---
+
+## LEMMA ID: YM-RPRIME-UPSTREAM-C1-1
+
+Desired raw theorem:
+(T,E,R,B,local history coefficients)->F is uniformly bounded C^1.
+
+Status:
+PARTIAL / BLOCKED AT YM-RPRIME-UPSTREAM-PRODUCER-1.
+
+Proved reduced theorem:
+(T',V)->F is uniformly bounded C^1 on the frozen-history reduced coefficient chart.
+
+Downstream composition:
+Since audited F->R'_Bal has
+
+sup||D H_R'||<=C_R',
+
+one has for the reduced coordinates
+
+||D(H_R' circ M_1.91)||
+<=
+C_R' C_1.91.
+
+For the full raw map the analogous bound requires
+
+C_P
+=
+sup||D P_Sigma||<infinity,
+
+which is not yet proved.
