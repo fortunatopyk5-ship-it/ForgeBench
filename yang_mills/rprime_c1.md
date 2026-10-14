@@ -140,7 +140,29 @@ as gamma->0.
 
 This is the only small-coupling fact needed below to place the actual source activity strictly inside an explicit activity ball.
 
-The detailed CMP122-II derivation of (1.97) itself uses its own source restrictions (small alpha_LF, large kappa/K, and g_k sufficiently small); those restrictions remain part of the source hypotheses and are not replaced by our KP condition.
+The detailed CMP122-II derivation of (1.97) itself uses its own source restrictions; these are logically PRIOR to our activity-ball argument and are not replaced by it.
+
+Direct-primary conditions visible in the derivation around (1.92)-(1.97) include sufficient inequalities of the source shapes
+
+alpha_LF^(1/3)
+<=
+exp[-(1+beta)kappa*2d],
+
+O(1) alpha_LF^(1/3)
+<=
+(6*2^d)^(-1) beta kappa,
+
+and, after taking g_k sufficiently small,
+
+exp[-p_0(g_k)/2]
+<=
+(6*2^d)^(-1) beta kappa.
+
+The source also imposes its other stated large-K / localization restrictions needed for (1.97).
+
+These conditions establish the concrete RG-generated F and its pointwise decay. They are NOT the radius of the coefficient-space cluster map.
+
+Our separate generalized-KP condition in Section 6 establishes holomorphy for every activity family in an explicit anchored Banach ball.
 
 ## 5. Tree stitching for connected hard-core clusters
 
