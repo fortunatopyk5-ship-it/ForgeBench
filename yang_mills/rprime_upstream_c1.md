@@ -1206,6 +1206,50 @@ Thus:
 - uniform bounded derivative: PROVED;
 - quantitative off-diagonal Schur kernel: still OPEN.
 
+## 23.1 Raw-coordinate pointwise Cauchy bound
+
+For a source-native raw coordinate lambda in sector s, let
+
+I_{s,lambda}:A_{s,lambda}->B_up
+
+be its coordinate injection and define
+
+w_up(lambda)
+=
+||I_{s,lambda}||.
+
+From the mixed norm (U45),
+
+w_up(lambda)
+=
+max{
+ M_s(lambda)^(-1),
+ C_s^(-1)e^{mu_s d(X_lambda)}
+}.                                                       (U55a)
+
+On the outer source-native coefficient ball, the same inflated absolute majorant used for (1.97) gives a component estimate
+
+||U_Sigma(K)_{X'}||
+<=
+A_F e^{-kappa_F d_k(X')}.                               (U55b)
+
+Let delta_up>0 be the distance from the inner source ball to the chosen outer holomorphy ball. Full Banach-space Cauchy gives
+
+||D_{s,lambda}U_Sigma(K)_{X'}[h]||
+<=
+(A_F/delta_up)
+w_up(lambda)
+e^{-kappa_F d_k(X')}
+||h||.                                                   (U55c)
+
+This is the requested source-faithful multi-sector pointwise derivative bound.
+
+Together with (U55), it has both:
+- an analytic amplitude estimate;
+- the exact frozen-incidence zero rule.
+
+It still does NOT by itself yield a two-anchor Schur sum, because w_up(lambda) must be combined with the geometry of Out_Sigma(lambda).
+
 ## 24. Composition with audited native R'
 
 The accepted downstream theorem gives
