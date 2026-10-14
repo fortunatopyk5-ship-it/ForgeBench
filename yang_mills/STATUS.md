@@ -1,94 +1,114 @@
 # STATUS
 
 Current objective:
-Iteration 9 audits ONLY two already-claimed ingredients of the regular R' closure:
-(A) the exact incompatibility encoded by the prime in CMP122-II (1.90);
-(B) the coordinate identification between the canonical exact-union logarithm and Balaban's native R'^(k)(X).
-No upstream Eq. (1.91), boundary B' analysis, K_0, or STEP_0 is attacked.
+Iteration 9 audits ONLY two ingredients of the already-claimed regular R' closure:
+(A) the exact polymer incompatibility behind CMP122-II (1.90);
+(B) the coordinate identification between the connected cluster logarithm and Balaban's native R'^(k)(X).
+No upstream Eq. (1.91), boundary B' theorem, source-mark work, K_0, or STEP_0 is attacked.
 
-Current strongest result after audit:
-The CANONICAL carrier-overlap exact-union cluster/log map remains uniformly holomorphic/C^1 with explicit radius
+Current strongest result:
+Both audit targets are now closed at the source/formula level.
 
-r_*^can = a exp[-16a-2theta],
+A. Native compatibility:
+Published CMP116 Eq. (2.11), which is the published cluster-expansion continuation used by CMP122-II's legacy references, defines the incompatibility function zeta to vanish exactly when two localization domains have an intersection containing a cube OR a full wall of a cube.
 
-because in that explicitly defined model
+Define
+Car(eta)=pi_k-cube carrier of eta,
+Supp_*(eta)=closed one-step wall-neighborhood N_wall[Car(eta)].
 
-C_inc^can=1,
-c_stitch^can=2.
+Then
+eta not~ eta'
+iff
+Car(eta') cap Supp_*(eta) != empty.
 
-However the previous source-instantiated claim about BALABAN NATIVE R' coordinates was too strong and is withdrawn.
+In d=4,
+#Supp_*(eta)<=9|eta|,
+so
+C_inc=9.
 
-Primary-source audit:
-- CMP122-II pp.387-388 defines X'_0, a special component relation, writes X'_0=union_p X'_p, proves factorization in those components, and obtains the primed polymer expansion (1.90).
-- Therefore every actual primed family has pairwise disjoint pi_k-cube carriers.
-- The accessible primary passage does NOT explicitly establish the converse that every pairwise carrier-disjoint family is admissible under the prime. Thus native incompatibility is not proved to be iff carrier overlap.
-- CMP122-II p.390 Eq. (1.98) writes exp R'^(k)=exp sum_X R'^(k)(X), but the text defines each native R'^(k)(X) through convergent series (7.13) [I].
-- Reference [I] is CMP109. The cited formula (7.13) has not been recovered under that numbering in the accessible published CMP109 version. Equality of total logarithms therefore does NOT justify coordinatewise R'_Bal(X)=H_X^can.
+For one incompatibility edge, the worst case is two unit 4-cubes sharing a wall. Their union has diameter sqrt(7), hence
+c_stitch=sqrt(7).
 
-Current theorem names/status:
-- YM-RPRIME-CANONICAL-C1-1: PROVED for the explicitly defined carrier-overlap exact-union chart, under the stated input decay budget.
-- YM-RPRIME-NATIVE-COMPAT-1: OPEN.
-- YM-RPRIME-NATIVE-COORD-1: OPEN.
-- Native Balaban regular R' coefficient C^1: NOT PROVED after this audit.
+Therefore for an incompatibility-connected family,
+d_k(union_i eta_i)
+<=
+sum_i d_k(eta_i)+sqrt(7)(n-1).
 
-Corrected general KP geometry:
-If a future native support theorem gives
+The corrected native KP weight/radius are
+g_theta(eta)=theta d_k(eta)+sqrt(7)theta,
+q_native(rho)=exp(16a+sqrt(7)theta)rho,
+r_*^native=(a/9)exp[-16a-sqrt(7)theta],
+assuming 16a+theta<=mu_in.
 
-#Supp_*(eta) <= C_inc |eta|
+B. Native coordinate identification:
+CMP122-II says:
+- the first operation is the Mayer expansion, "the same as in (7.1) [I]";
+- native R'^(k)(X) is given by convergent series "(7.13) [I]" with proper notational changes.
 
-and every incompatibility edge can be stitched with cost c_stitch, then with
+The bibliography identifies [I] as CMP109. The published CMP109 ends before the cluster-localization construction and explicitly says it will be done in the next paper. The published continuation CMP116 Sect. 2 starts with the Mayer expansion (2.1), defines cube-or-wall compatibility in (2.11), exponentiates in (2.12), and defines the local coefficient in (2.13) by the exact-union condition union_i Z_i=X.
 
-g_theta(eta)=theta d(eta)+c_stitch theta
+Thus the legacy manuscript numbering is source-crosswalked:
+(7.1)[I] <-> published CMP116 (2.1),
+(7.13)[I] <-> published CMP116 (2.13).
 
-the sufficient radius is
+Therefore, after the proper notational replacement,
+R'^(k)_Bal(X)=H_X^can(F)
+coordinatewise.
 
-r_*^corr
-=
-(a/C_inc) exp[-16a-c_stitch theta].
+This is CASE 1: EXACT, with provenance label SOURCE-CROSSWALK VERIFIED.
 
-For the canonical carrier-overlap chart only:
+Revalidated theorem:
+YM-RPRIME-C1-1 is again a NATIVE Balaban theorem, but with corrected constants.
 
-C_inc=1,
-c_stitch=2,
+Let
+mu_in=(1+beta)kappa-lambda_in>0,
+C_geo(lambda_in)<infinity,
+16a+theta<=mu_in,
 
-hence the old radius is recovered.
+r_*=(a/9)exp[-16a-sqrt(7)theta].
 
-Quasi-local Schur status:
-Canonical chart: still PROVED under the explicit extra reserve
+Shrink the fixed small-coupling threshold gamma_R' so that
+r=C_geo(lambda_in)exp[-p_0(gamma_R')]<r_*,
+and set
+rho=(r+r_*)/2.
 
+Then the native regular R' coefficient map is Banach-holomorphic/C^1 and
+sup_{||F||<=r}||D R'^(k)_Bal(F)||
+<=
+q_native(rho)/(rho-r),
+q_native(rho)=exp(16a+sqrt(7)theta)rho,
+uniformly in finite volume, UV cutoff and RG depth.
+
+Quasi-local Schur:
+Still conditional only on the explicit residual decay reserve
 C_geo(theta-mu_out-nu)<infinity.
+The corrected q_native and r_* are used; no numerical Balaban kappa threshold is invented.
 
-Native Balaban coordinates: additionally conditional on resolving YM-RPRIME-NATIVE-COMPAT-1 and YM-RPRIME-NATIVE-COORD-1.
+Verified this iteration:
+- exact native cube-or-wall incompatibility convention;
+- Supp_*=closed wall-neighborhood of cube carrier;
+- C_inc=9;
+- c_stitch=sqrt(7);
+- corrected native KP radius;
+- exact-union local log formula through the legacy-to-published source crosswalk;
+- coordinatewise native R'_Bal=H^can;
+- revalidated native bounded C^1 theorem;
+- exact derivative support eta subset X and r_col=0 remain valid.
 
-Verified:
-- CMP109: localization domains are unions of wall-connected pi_j cubes; d_j(X) is the shortest continuous-space tree meeting all cubes after unit-cube rescaling.
-- Actual (1.90) component families are pairwise disjoint at the cube-carrier level.
-- For the canonical carrier-overlap model, C_inc=1.
-- For canonical carrier overlap in d=4, tree stitching cost is c_stitch=2.
-- General corrected radius formula with C_inc,c_stitch is proved.
-- Canonical exact-union derivative support D_eta H_gamma^can=0 unless eta subset gamma is proved by definition of the canonical chart.
+Not attacked:
+- upstream construction Eq. (1.91);
+- boundary B' lane;
+- full T/E/R/B history map;
+- source marks;
+- K_0;
+- STEP_0.
 
-Unverified:
-- exact iff definition of the prime in (1.90);
-- a native Supp_* and finite source-certified C_inc;
-- native c_stitch if source incompatibility is stronger than carrier overlap;
-- the actual formula of cited series (7.13) [I];
-- exact or bounded-change identification of native R'^(k)(X) with canonical coordinates.
-
-Current blocker:
-This run stops at the audit. The immediate certificates are exactly:
-
-YM-RPRIME-NATIVE-COMPAT-1
-and
-YM-RPRIME-NATIVE-COORD-1.
-
-No upstream Eq. (1.91) work is started.
-
-Next action:
-Recover/verify the notation behind the prime in (1.90) from the exact source lineage and locate the cited cluster series (7.13) [I] or a version/cross-reference containing it. Only after those certificates may native Balaban R' bounded C^1 be restored.
+Current blocker after this audit:
+This run stops here as requested. The audited R' closure survives with corrected constants.
+The next blocker for a future run is again upstream Eq. (1.91), but it was NOT attacked here.
 
 Iteration-9 verdict:
-STATUS: CANONICAL R' C^1 SURVIVES; NATIVE BALABAN R' C^1 CLAIM WITHDRAWN PENDING TWO SOURCE CERTIFICATES.
+STATUS: BALABAN REGULAR R' BOUNDED C^1 REVALIDATED WITH CORRECTED NATIVE COMPATIBILITY CONSTANTS.
 
 
 ## Update — Iteration 2 (YM-CROSSOVER-1 only)
