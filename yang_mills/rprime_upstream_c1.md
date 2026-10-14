@@ -572,9 +572,17 @@ A deterministic selector may be chosen inside eta, so the reduced (1.91) map has
 
 r_col=0.                                                  (U33)
 
-Consequently, combining (U31) with the anchored derivative-support theorem gives a bounded anchored derivative.
+Consequently, (U31) already gives the desired bounded derivative in the anchored MIXED input topology.
 
-A stronger off-diagonal Schur estimate can be obtained by spending output decay reserve exactly as in YM-HISTORY-JACOBIAN-QUASILOCAL-1. No new numerical decay threshold is asserted here.
+A stronger off-diagonal Schur estimate is NOT claimed here.
+
+Reason:
+the coordinate Cauchy kernel carries the mixed-norm injection factor w_s(eta). Exact support eta subset X' gives perfect geometric locality, but converting w_s(eta) into the orientation required by the anchored Schur test needs a marked version of the source (1.92)-(1.97) majorant. This marked two-anchor summation has not been extracted.
+
+Thus:
+- anchored operator bound: PROVED by full-Banach Cauchy;
+- exact zero-collar support: PROVED;
+- quantitative off-diagonal Schur kernel for the upstream map: OPEN.
 
 ## 12. Raw upstream product space
 
@@ -722,7 +730,9 @@ Together with the exact support rule eta subset X', this is the source-faithful 
 No unspecified polynomial factor is hidden here: any source combinatorial/polynomial loss is already included in the choice of the outer-ball pointwise majorant (U40c), obtained by rerunning the absolute source estimate with strict slack.
 
 Status:
-PROVED for the reduced coordinates T',V.
+PROVED as a pointwise Cauchy kernel bound for the reduced coordinates T',V.
+
+It is sufficient for the global mixed-Banach operator estimate (U31), but a separate marked summation is still required for an off-diagonal Schur theorem.
 
 For raw E/R/B coordinates the corresponding bound is CONDITIONAL on the missing producer estimate (U39).
 
