@@ -480,21 +480,11 @@ STATUS:
 BLOCKED AT YM-HISTORY-NORM-1, but the blocker has narrowed to the outer-history-to-connected-activity map / uniform Lipschitz chart. Global history summability itself is no longer the right problem.
 
 
-## Iteration 9 correction — canonical versus native R' chart
+## Iteration 9 temporary downgrade — SUPERSEDED
 
-The anchored Banach-space machinery itself is unchanged.
+A temporary audit state separated a carrier-overlap canonical chart from native Balaban coordinates because the legacy source reference (7.13)[I] had not yet been resolved.
 
-However, whenever an R' cluster/log submap is used, distinguish:
-
-1. CANONICAL chart:
-   explicitly defined carrier-overlap hard-core gas plus exact-union connected logarithm. Here the geometry is proved:
-   C_inc=1, c_stitch=2, and D_eta H_gamma=0 unless eta subset gamma.
-
-2. BALABAN NATIVE chart:
-   CMP122-II (1.90) has a primed component-family sum, but the extracted primary passage has not supplied an iff characterization of that prime. Native C_inc and c_stitch are therefore not fixed.
-   After (1.98), native R'^(k)(X) is defined through cited series (7.13) [I], whose target-localization formula has not been recovered.
-
-Consequently the anchored canonical C^1 theorem cannot be transported to native R' coordinates without YM-RPRIME-NATIVE-COMPAT-1 and YM-RPRIME-NATIVE-COORD-1.
+This temporary state is superseded by the final source crosswalk below. Do not use its provisional C_inc=1 or c_stitch=2 as native constants.
 
 
 ## Iteration 9 final — native R' chart restored with corrected geometry
