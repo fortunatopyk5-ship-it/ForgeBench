@@ -310,3 +310,20 @@ Immediately after CMP122-II (1.72), terms V(Y) whose localization domain equals 
 
 Functional-analytic consequence:
 after normalizing sector source majorants, the V-producer is a bounded linear incidence map in the mixed source-majorant/anchored coefficient norm. This closes the source-native upstream bounded-C1 theorem. The pre-renormalization E_raw -> E_ren chart transition remains a separate lower-level problem.
+
+
+Iteration 10 adversarial revalidation — exact primary pages:
+- CMP122-II printed p.388, Eq. (1.91): F(X') is exactly the q / selected-X_j / D sum of
+  [product_{Y in D} int_0^1 dt(Y)]
+  [product_h T'_k(X_{j_h})]
+  [product_{Y in D}V(Y)]
+  exp[sum_{Y in D}t(Y)V(Y)].
+  The sentence immediately following says the sums are restricted to data determining exactly X'.
+- Printed p.389: if X' is disjoint from union_iY_i, q begins at 1; if X' contains one of the Y_i, q may begin at 0.
+- Printed p.376: after fixing the output localization domain Y, Balaban resums over admissible auxiliary domains, then localization domains, j and term types; for E/R terms this includes the earlier renormalization; the sum is bounded by a constant times the same extracted exponential factor.
+- Printed p.377: the last resummation gives V(Y,U_k), analytic in the local fields, with (1.68) in the decaying class. Missing action terms are added/subtracted and the resulting terms continue to satisfy (1.68),(1.69).
+- Printed p.379, Eq. (1.72): the exponential contains sum_Y V(Y,U_k); localization domains equal to full components of Z^c are not in that exponential and are included in T'_k instead.
+- Printed p.380, Eqs. (1.73)-(1.75): T'_k(X,(U,J)) is nonzero in the source analytic regime and its normalized action has the stated local operator bound.
+
+Revalidation conclusion:
+The exact (1.91) map is (T',V)->F on a frozen history fiber. The source-native E_ren/R_ren/B_loc->V step is a signed linear resummation. The absolute row-majorant plus the mixed input source-regulator gives a genuine bounded coefficient-space operator P_V. This does not by itself give an off-diagonal two-anchor Schur kernel.
