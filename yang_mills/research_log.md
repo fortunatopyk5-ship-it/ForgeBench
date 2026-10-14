@@ -518,3 +518,38 @@ for reduced coordinates,
 C_R' C_1.91.
 
 Full raw composition remains conditional on a producer constant C_P.
+
+
+### Iteration 10 final correction — source-native chart closes raw upstream C1
+
+The intermediate verdict "blocked at P_V / E relevant extraction" was too low-level for the current inductive state.
+
+CMP119 explicitly defines the current E_k as fully renormalized. Therefore the natural coefficient input to the current R-operation is E_ren, not E_raw. Likewise R is already vacuum-renormalized and B is already localized.
+
+With these source-native coordinates:
+- pp.376-377 V-production is a signed linear incidence resummation;
+- the primary absolute summation gives a uniform row-majorant;
+- after source-majorant normalization, ||P_V||<=1;
+- P_Sigma:(T',E_ren,R_ren,B_loc,K_aux)->(T',V) is bounded linear;
+- the already-proved holomorphic Eq. (1.91) map composes with P_Sigma.
+
+Final source-native result:
+
+YM-RPRIME-UPSTREAM-C1-1 = PROVED.
+
+For the regular source-native chain,
+
+||D U_Sigma||<=C_1.91,
+
+and with downstream R',
+
+||D(R'_Bal o U_Sigma)||<=C_R' C_1.91.
+
+Exact raw support is expressed through the frozen incidence relation Out_Sigma(lambda):
+a non-T input lambda can affect F(X') only if some Y in Out_Sigma(lambda) satisfies Y subset X'.
+
+Still open:
+the marked two-anchor incidence estimate needed for a quantitative upstream Schur kernel.
+
+Separate lower-level issue:
+E_raw -> E_ren, including relevant extraction (3.64), remains open but is not part of the current inductive-state upstream theorem.
