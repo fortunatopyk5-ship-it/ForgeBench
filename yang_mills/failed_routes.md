@@ -349,3 +349,42 @@ c_stitch=2 is not a valid worst-case native stitching constant.
 Correct native sufficient constants in d=4:
 C_inc=9,
 c_stitch=sqrt(7).
+
+
+---
+
+## Route: Treat Eq. (1.91) as a direct map from raw E/R/B coefficients
+FALSE AS A SOURCE TRANSCRIPTION.
+
+Eq. (1.91) directly contains only T'_k(X) and V(Y). The E/R/B/history terms have already been localized/resummed into these objects before p.388.
+
+Correct factorization:
+
+raw coefficients
+ -> (T',V)
+ -> F.
+
+Therefore proving (T',V)->F C^1 does not by itself prove the raw upstream theorem.
+
+---
+
+## Route: Put Eq. (1.91) on a pure anchored l1 input ball
+Insufficient.
+
+A pure anchored norm controls local summability but does not preserve the pointwise source majorants used term-by-term in (1.92)-(1.97): a rare large polymer can be too large pointwise while the anchored sum remains finite.
+
+Repair:
+use a mixed Banach norm:
+(1) weighted pointwise/source-majorant regulator;
+(2) anchored l1 summability.
+
+---
+
+## Route: Exact support eta subset X' automatically gives an upstream Schur kernel
+Not proved.
+
+Exact support gives r_col=0, but coordinate Cauchy in the mixed input norm introduces sector-dependent injection weights. A quantitative two-anchor Schur sum requires a marked version of the source majorant, not support alone.
+
+Current status:
+global anchored/mixed C^1 operator bound proved;
+off-diagonal upstream Schur kernel open.
