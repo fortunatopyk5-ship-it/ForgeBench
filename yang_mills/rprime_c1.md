@@ -255,11 +255,11 @@ exp[a_KP(eta)+g_theta(eta)]
 exp(16a+sqrt(7)theta)||F||_in.                                  (R12)
 
 Indeed,
-a|eta|+theta d(eta)+2theta
+a|eta|+theta d(eta)+sqrt(7)theta
 <=
-(16a+theta)d(eta)+16a+2theta
+(16a+theta)d(eta)+16a+sqrt(7)theta
 <=
-mu_in d(eta)+16a+2theta.
+mu_in d(eta)+16a+sqrt(7)theta.
 
 Set
 
@@ -305,7 +305,7 @@ rho<r_*,
 
 r_*=(a/9)e^{-16a-sqrt(7)theta}.                           (R15)
 
-Thus the generalized Kotecky-Preiss criterion holds uniformly in finite volume, cutoff, and scale for the CANONICAL carrier-overlap system.
+Thus the generalized Kotecky-Preiss criterion holds uniformly in finite volume, cutoff, and scale for the NATIVE cube-or-wall hard-core system.
 
 No hidden "sufficiently small" activity radius is used: the native sufficient radius is explicitly
 
