@@ -2290,3 +2290,382 @@ epsilon_R=(beta/2)kappa.
 What remains unverified is the precise translation of the source "sufficiently small c_1" regime into one anchored input radius r_* and the exact source collar/union dictionary required by (iii).
 
 Therefore the cluster/log SUBMAP theorem is ready; the full source instantiation remains PARTIAL.
+
+
+---
+
+## LEMMA ID: YM-OVERLAP-TREE-STITCH-1
+
+Statement:
+In the d=4 rescaled pi_k-cube geometry, let eta_1,...,eta_n be connected localization polymers whose overlap graph is connected, and let
+
+gamma=union_i eta_i.
+
+Then
+
+d_k(gamma)
+<=
+sum_i d_k(eta_i)+2(n-1).
+
+Status:
+PROVED.
+
+Proof:
+Choose a shortest tree T_i inside each eta_i. Choose a spanning tree of the overlap graph. If eta_i and eta_j overlap, they share a unit pi_k cube Q. Both T_i and T_j meet Q. Join their meeting points by a line segment inside Q. The segment lies in eta_i union eta_j and has length at most the Euclidean diameter of a four-dimensional unit cube, sqrt(4)=2. Add one such segment for each of the n-1 spanning-tree edges. The resulting connected graph lies in gamma and intersects every cube of every eta_i.
+
+Purpose:
+This is the exact geometric bridge from a generalized KP cluster weight to the Balaban output tree weight.
+
+---
+
+## LEMMA ID: YM-RPRIME-TREE-KP-BALL-1
+
+Statement:
+Let P_k be the hard-core connected-polymer family occurring in CMP122-II Eq. (1.90), with incompatibility by overlap of localization supports. Let A be a commutative unital Banach algebra and let F_eta in A.
+
+Define
+
+||F||_{mu_in}
+=
+sup_B
+sum_{eta contains B}
+e^{mu_in d_k(eta)}||F_eta||_A.
+
+Fix a>0 and theta>0 satisfying
+
+16a+theta<=mu_in.
+
+Define
+
+r_*=a exp[-16a-2theta].
+
+Then on every ball ||F||_{mu_in}<r_*:
+
+1. the generalized Kotecky-Preiss criterion holds with
+
+a_KP(eta)=a|eta|,
+g_theta(eta)=theta d_k(eta)+2theta;
+
+2. the canonical connected logarithm
+
+H(F)_gamma
+=
+sum_{n>=1}1/n!
+sum_{eta_1,...,eta_n:
+     incompatibility graph connected,
+     union_i eta_i=gamma}
+phi^T(eta_1,...,eta_n)
+product_i F_eta_i
+
+converges absolutely;
+
+3. H(F) belongs to the output anchored space
+
+||K||_theta
+=
+sup_B sum_{gamma contains B}
+e^{theta d_k(gamma)}||K_gamma||_A;
+
+4. for every rho<r_* and ||F||<=rho,
+
+||H(F)||_theta
+<=
+q(rho):=e^{16a+2theta}rho<a;
+
+5. H:B_{r_*}(B_in(mu_in))->B_out(theta) is holomorphic, uniformly in finite volume and scale.
+
+Status:
+PROVED.
+
+Proof:
+By YM-BALABAN-TREE-COERCIVITY-1,
+
+|eta|<=16(d_k(eta)+1).
+
+Hence
+
+a|eta|+theta d_k(eta)+2theta
+<=
+mu_in d_k(eta)+16a+2theta,
+
+and therefore
+
+sup_B sum_{eta contains B}
+||F_eta||e^{a|eta|+g_theta(eta)}
+<=
+e^{16a+2theta}||F||_{mu_in}
+=q.
+
+For a polymer eta_0,
+
+sum_{eta incompatible with eta_0}
+||F_eta||e^{a|eta|+g_theta(eta)}
+<=
+|eta_0|q
+<
+a|eta_0|,
+
+which is the generalized KP hypothesis.
+
+For a connected cluster, YM-OVERLAP-TREE-STITCH-1 gives
+
+e^{theta d_k(union_i eta_i)}
+<=
+product_i e^{theta d_k(eta_i)+2theta}
+=
+product_i e^{g_theta(eta_i)}.
+
+If the cluster union contains an anchor B, mark one constituent polymer containing B. The rooted generalized KP estimate bounds the remaining connected cluster sum by exp[a|eta_root|]. Summing the root therefore gives at most q. This proves the output anchored bound.
+
+The same absolute majorant is uniform on every closed ball rho<r_*. The finite-volume cluster series consists of Banach-algebra-valued holomorphic polynomials, so normal convergence plus the Banach-valued Weierstrass theorem gives holomorphy.
+
+Remark:
+r_* is a sufficient explicit radius, not an optimal reconstruction of Balaban's unnamed convergence threshold.
+
+---
+
+## LEMMA ID: YM-RPRIME-SOURCE-INPUT-1
+
+Statement:
+Fix the CMP122-II exponentiation step and the frozen domains Y_1,...,Y_m. Let
+
+Ycal=union_i Y_i.
+
+For a pre-exponentiation activity eta=X' disjoint from Ycal, Eq. (1.97) and the relative-size definition (1.67) imply
+
+||F_eta^src||
+<=
+e^{-p_0(g_k)}
+e^{-(1+beta)kappa d_k(eta)}.
+
+Choose lambda_in in the CMP109 geometric-summability regime and set
+
+mu_in=(1+beta)kappa-lambda_in>0.
+
+Then
+
+||F^src||_{mu_in}
+<=
+C_geo(lambda_in)e^{-p_0(g_k)}.
+
+Primary CMP119 defines
+
+p_0(g)=A_0(log g^{-2})^{p_*}
+
+with p_*>0 an integer. Therefore for 0<g<=gamma<1,
+
+p_0(g)>=p_0(gamma)
+
+and
+
+C_geo(lambda_in)e^{-p_0(gamma)} ->0
+
+as gamma->0.
+
+Consequently, for every fixed positive target radius r_*, there exists gamma_*>0 such that all source couplings g_k<=gamma_* give
+
+||F^src||_{mu_in}
+<=
+r:=C_geo(lambda_in)e^{-p_0(gamma_*)}
+<
+r_*.
+
+Status:
+DIRECT PRIMARY SOURCE + PROVED SUMMATION/SMALL-COUPLING CONSEQUENCE.
+
+Use:
+With r_* from YM-RPRIME-TREE-KP-BALL-1, set
+
+rho=(r+r_*)/2.
+
+Then
+
+r<rho<r_*
+
+with a cutoff/volume/depth-independent Cauchy margin.
+
+---
+
+## LEMMA ID: YM-RPRIME-EXACT-UNION-1
+
+Statement:
+For the canonical connected logarithm of the CMP122-II polymer expansion (1.90), grouped by exact union,
+
+M_{gamma eta}(F)
+=
+D_eta H(F)_gamma
+
+vanishes unless
+
+eta subset gamma.
+
+Status:
+PROVED.
+
+Proof:
+Every monomial contributing to H(F)_gamma is indexed by a connected input family with union exactly gamma. A derivative with respect to F_eta is nonzero only when eta is one of those inputs.
+
+Selector:
+Fix a total ordering of pi_k cubes and, for every nonzero pair, let
+
+s(gamma,eta)
+
+be the least cube of eta. Then
+
+s(gamma,eta) in eta subset gamma.
+
+Thus the polymer-support collar is exactly
+
+r_col=0.
+
+Regular-lane consequence:
+If gamma belongs to the CMP122-II second/regular group and is disjoint from the source boundary/large-field set, every constituent eta subset gamma is also disjoint from that set. Hence first-group/boundary input activities cannot contribute to a regular output coefficient.
+
+This is the exact support theorem required by the weighted Schur test.
+
+---
+
+## LEMMA ID: YM-RPRIME-UNIFORM-HOLOMORPHY-1
+
+Statement:
+Under the hypotheses of YM-RPRIME-TREE-KP-BALL-1, let rho<r_*. Then the finite-volume canonical logarithms converge normally, uniformly in volume and scale, as maps
+
+H:
+B_rho(B_in(mu_in))
+->
+B_out(theta),
+
+and
+
+sup_{||F||<=rho}
+||H(F)||_theta
+<=
+q(rho).
+
+Therefore the uniform/infinite-volume local coefficient map is Banach-holomorphic.
+
+Status:
+PROVED.
+
+Reason:
+The generalized KP rooted majorant is volume independent and bounds the complete absolute output activity norm. It therefore supplies a common normally convergent majorant on every closed ball rho<r_*. Banach-valued Weierstrass applies.
+
+Important:
+This is analyticity with respect to ACTIVITY COEFFICIENTS. It does not use, and does not prove, a normalized complex collar in the physical field/source variables (U,J).
+
+---
+
+## LEMMA ID: YM-RPRIME-C1-1
+
+Statement:
+Fix source constants beta,kappa and choose:
+
+- lambda_in in the CMP109 summability regime with
+  mu_in=(1+beta)kappa-lambda_in>0;
+
+- a,theta>0 with
+  16a+theta<=mu_in;
+
+- r_*=a exp[-16a-2theta];
+
+- gamma_R'>0 small enough that
+  r=C_geo(lambda_in)e^{-p_0(gamma_R')}<r_*;
+
+- rho=(r+r_*)/2;
+
+- nu>0 and mu_out>=0 such that
+  lambda_res=theta-mu_out-nu
+  lies in the CMP109 summability regime.
+
+Let H_R',k^reg be the second/regular-group cluster/log map defined by CMP122-II (1.90)-(1.100), expressed as the canonical connected logarithm of its regular pre-exponentiation activities.
+
+Then, for every k with g_k<=gamma_R',
+
+H_R',k^reg:
+B_r(B_in,k(mu_in))
+->
+B_out,k(mu_out)
+
+is holomorphic and hence C^1.
+
+Set
+
+q_rho=e^{16a+2theta}rho.
+
+For every ||F||_in<=r,
+
+||D H_R',k^reg(F)||
+<=
+C_R',
+
+where
+
+C_R'
+=
+[q_rho/(rho-r)]
+C_geo(lambda_res)
+C_lat(nu),
+
+and
+
+C_lat(nu)
+=
+sup_b sum_a e^{-nu dist_k(a,b)}<infinity
+
+for the rescaled unit-block anchor distance.
+
+Moreover the Jacobian kernel is quasi-local:
+
+sup_{eta contains a}
+[
+e^{-mu_in d_k(eta)}
+sum_{gamma contains b:s(gamma,eta)=a}
+e^{mu_out d_k(gamma)}
+||D_eta H_R',gamma(F)||
+]
+
+<=
+[q_rho/(rho-r)]
+C_geo(lambda_res)
+e^{-nu dist_k(a,b)}.
+
+Status:
+PROVED for the REGULAR R' CLUSTER/LOG COEFFICIENT SECTOR.
+
+Proof:
+YM-RPRIME-SOURCE-INPUT-1 gives the strict source radius. YM-RPRIME-TREE-KP-BALL-1 and YM-RPRIME-UNIFORM-HOLOMORPHY-1 give a holomorphic larger ball and
+
+||H(F)||_theta<=q_rho.
+
+For a unit eta-coordinate vector h,
+
+||I_eta h||_in=e^{mu_in d_k(eta)}.
+
+Cauchy on the radius-rho ball around an F with ||F||<=r gives
+
+||D_eta H_gamma(F)||
+<=
+[q_rho/(rho-r)]
+e^{mu_in d_k(eta)}
+e^{-theta d_k(gamma)}.
+
+YM-RPRIME-EXACT-UNION-1 gives eta subset gamma and r_col=0. If a=s(gamma,eta) and b in gamma, then the source shortest-tree geometry gives
+
+d_k(gamma)>=dist_k(a,b).
+
+Split
+
+theta-mu_out
+=
+nu+lambda_res
+
+and sum the residual e^{-lambda_res d_k(gamma)} by CMP109 C_geo. Apply YM-HISTORY-JACOBIAN-QUASILOCAL-1.
+
+Uniformity:
+All constants depend only on fixed source/KP parameters, not on total volume, UV cutoff, or RG depth.
+
+Non-claims:
+This theorem does not cover the first/boundary B' group, the upstream construction of F from T/E/R/B data, the full compressed history map, or physical source differentiation.
+
+Decay wording:
+The printed exponents (1+beta)kappa and (1+beta/2)kappa differ by beta*kappa/2. This is only the SOURCE-VISIBLE DECAY RESERVE. The actual Banach norm loss in this theorem is mu_in-mu_out.
