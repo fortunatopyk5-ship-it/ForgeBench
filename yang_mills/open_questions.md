@@ -129,11 +129,12 @@ This is now the central continuity blocker.
 43. Extract a source-exact support/collar theorem for every history-resummation submap:
 M_{gamma eta}=0 unless eta lies in a fixed enlargement of gamma (or a stronger connected-union relation). Record the enlargement in block units at each scale.
 
-44. RESOLVED for the regular R' coefficient sector in Iteration 8: do not identify a hidden source threshold with a Banach radius. Instead use the explicit sufficient KP radius
-r_*=a exp[-16a-2theta],
+44. RESOLVED and CORRECTED in Iteration 9. Do not identify a hidden source threshold with a Banach radius. For native Balaban compatibility use
+r_*=(a/9)exp[-16a-sqrt(7)theta],
 then choose gamma_R' so that
 r=C_geo(lambda_in)e^{-p_0(gamma_R')}<r_*
 and rho=(r+r_*)/2.
+The older a exp[-16a-2theta] radius was only the cube-overlap-only provisional chart.
 
 45. RESOLVED for the regular R' coefficient sector in Iteration 8: generalized KP provides a volume/scale-uniform majorant for every Banach-algebra-valued activity family in the explicit anchored ball, so the canonical cluster logarithm is normally convergent and Banach-holomorphic.
 
