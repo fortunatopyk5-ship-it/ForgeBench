@@ -1,71 +1,94 @@
 # STATUS
 
 Current objective:
-Iteration 8 is restricted to the regular/second-group CMP122-II R' cluster/log COEFFICIENT map. K_0 and STEP_0 remain prohibited. The regular R' bounded C^1 theorem is now closed; the full YM-HISTORY-NORM-1 problem remains open upstream and in the boundary lane.
+Iteration 9 audits ONLY two already-claimed ingredients of the regular R' closure:
+(A) the exact incompatibility encoded by the prime in CMP122-II (1.90);
+(B) the coordinate identification between the canonical exact-union logarithm and Balaban's native R'^(k)(X).
+No upstream Eq. (1.91), boundary B' analysis, K_0, or STEP_0 is attacked.
 
-Current strongest result:
-YM-RPRIME-C1-1 is PROVED for the regular R' cluster/log coefficient sector with an explicit anchored input norm and an explicit sufficient KP convergence radius. No unnamed "sufficiently small" cluster radius is used. For
-mu_in=(1+beta)kappa-lambda_in>0
-with lambda_in in the CMP109 geometric-summability regime, choose a,theta>0 with 16a+theta<=mu_in and
-r_*=a exp[-16a-2theta].
-The Balaban-generated regular pre-exponentiation activity obeys
-||F^src||_in <= C_geo(lambda_in) exp[-p_0(g_k)].
-Since primary CMP119 has p_0(g)->infinity as g->0, shrink the fixed source coupling threshold gamma_R' so that
-r=C_geo(lambda_in)exp[-p_0(gamma_R')]<r_*,
-and set rho=(r+r_*)/2.
-Generalized KP gives a volume/scale-uniform Banach-holomorphic canonical cluster logarithm on the r_*-ball, and Banach Cauchy gives
-sup_{||F||<=r} ||D H_R',k^reg(F)||
-<= q(rho)/(rho-r),
-q(rho)=exp(16a+2theta)rho,
-uniformly in volume, UV cutoff and RG depth.
+Current strongest result after audit:
+The CANONICAL carrier-overlap exact-union cluster/log map remains uniformly holomorphic/C^1 with explicit radius
 
-Run status:
-REGULAR R' BOUNDED C^1 PROVED.
-The stronger quasi-local Schur Jacobian is PROVED UNDER the additional explicit decay-budget condition
-lambda_res=theta-mu_out-nu
-lying in the CMP109 summability regime. No numerical source threshold for this extra reserve is claimed.
+r_*^can = a exp[-16a-2theta],
+
+because in that explicitly defined model
+
+C_inc^can=1,
+c_stitch^can=2.
+
+However the previous source-instantiated claim about BALABAN NATIVE R' coordinates was too strong and is withdrawn.
+
+Primary-source audit:
+- CMP122-II pp.387-388 defines X'_0, a special component relation, writes X'_0=union_p X'_p, proves factorization in those components, and obtains the primed polymer expansion (1.90).
+- Therefore every actual primed family has pairwise disjoint pi_k-cube carriers.
+- The accessible primary passage does NOT explicitly establish the converse that every pairwise carrier-disjoint family is admissible under the prime. Thus native incompatibility is not proved to be iff carrier overlap.
+- CMP122-II p.390 Eq. (1.98) writes exp R'^(k)=exp sum_X R'^(k)(X), but the text defines each native R'^(k)(X) through convergent series (7.13) [I].
+- Reference [I] is CMP109. The cited formula (7.13) has not been recovered under that numbering in the accessible published CMP109 version. Equality of total logarithms therefore does NOT justify coordinatewise R'_Bal(X)=H_X^can.
+
+Current theorem names/status:
+- YM-RPRIME-CANONICAL-C1-1: PROVED for the explicitly defined carrier-overlap exact-union chart, under the stated input decay budget.
+- YM-RPRIME-NATIVE-COMPAT-1: OPEN.
+- YM-RPRIME-NATIVE-COORD-1: OPEN.
+- Native Balaban regular R' coefficient C^1: NOT PROVED after this audit.
+
+Corrected general KP geometry:
+If a future native support theorem gives
+
+#Supp_*(eta) <= C_inc |eta|
+
+and every incompatibility edge can be stitched with cost c_stitch, then with
+
+g_theta(eta)=theta d(eta)+c_stitch theta
+
+the sufficient radius is
+
+r_*^corr
+=
+(a/C_inc) exp[-16a-c_stitch theta].
+
+For the canonical carrier-overlap chart only:
+
+C_inc=1,
+c_stitch=2,
+
+hence the old radius is recovered.
+
+Quasi-local Schur status:
+Canonical chart: still PROVED under the explicit extra reserve
+
+C_geo(theta-mu_out-nu)<infinity.
+
+Native Balaban coordinates: additionally conditional on resolving YM-RPRIME-NATIVE-COMPAT-1 and YM-RPRIME-NATIVE-COORD-1.
 
 Verified:
-- Activity-vector naming correction: the typed direct-sum object is Act_A(F), not a physical reconstruction. A future synthesis map S_A:D_A^(mu)->F_A is separate and its boundedness is UNKNOWN.
-- Source/activity tangent correction: physical source space J_A and insertion map jmath_A:J_A->B_in are separate. Boundedness of jmath_A is UNKNOWN; J_A is not automatically an activity tangent.
-- DIRECT PRIMARY CMP122-II (1.90)-(1.97): the pre-exponentiation R-operation output is a hard-core connected-component polymer gas with local activities F(X'); for the regular lane X' disjoint from the large-field set, c_1=exp[-p_0(g_k)] and the relative metric reduces to ordinary d_k.
-- DIRECT PRIMARY CMP122-II (1.98)-(1.100): exponentiation produces connected R' activities; the second/regular output has ordinary d_k decay and amplitude exp[-p_0(g_k)].
-- DIRECT PRIMARY CMP119: p_0(g)=A_0(log g^{-2})^{p_*} with positive p_*, hence p_0(gamma)->infinity as gamma->0.
-- Exact regular input norm:
-  ||F||_in=sup_B sum_{eta contains B} exp(mu_in d_k(eta))||F_eta||,
-  with actual source input bounded by C_geo(lambda_in)exp[-p_0(g_k)].
-- YM-OVERLAP-TREE-STITCH-1: for overlap-connected inputs, d_k(union eta_i)<=sum_i d_k(eta_i)+2(n-1) in d=4.
-- YM-RPRIME-TREE-KP-BALL-1: explicit sufficient convergence radius r_*=a exp[-16a-2theta].
-- YM-RPRIME-EXACT-UNION-1: for the canonical connected logarithm,
-  D_eta H_R',gamma=0 unless eta subset gamma. The deterministic selector may be chosen inside eta, hence coefficient-map collar r_col=0.
-- YM-RPRIME-UNIFORM-HOLOMORPHY-1: uniform absolute rooted-KP convergence on every rho<r_* ball gives Banach-valued holomorphy uniform in finite volume and scale.
-- YM-RPRIME-C1-1: bounded C^1 into B_out(theta) with derivative constant q(rho)/(rho-r), independent of volume/cutoff/depth.
-- Source-visible exponent change (1+beta)kappa -> (1+beta/2)kappa is recorded only as SOURCE-VISIBLE DECAY RESERVE beta*kappa/2; it is not identified with the actual Banach norm loss mu_in-mu_out.
-- Stronger weighted Schur/quasi-local Jacobian follows if theta-mu_out-nu retains a CMP109 summability reserve.
+- CMP109: localization domains are unions of wall-connected pi_j cubes; d_j(X) is the shortest continuous-space tree meeting all cubes after unit-cube rescaling.
+- Actual (1.90) component families are pairwise disjoint at the cube-carrier level.
+- For the canonical carrier-overlap model, C_inc=1.
+- For canonical carrier overlap in d=4, tree stitching cost is c_stitch=2.
+- General corrected radius formula with C_inc,c_stitch is proved.
+- Canonical exact-union derivative support D_eta H_gamma^can=0 unless eta subset gamma is proved by definition of the canonical chart.
 
-Unverified / deliberately not attacked:
-- first/boundary B' lane with modified metric d_{k,Y};
-- bounded C^1 of the upstream map that constructs F(X') from preceding T/E/R/B/history data;
-- full compressed outer-history map;
-- bounded physical source insertion jmath_A;
-- bounded physical synthesis S_A;
-- any numerical source threshold guaranteeing the extra quasi-local Schur reserve;
-- K_0 and STEP_0.
+Unverified:
+- exact iff definition of the prime in (1.90);
+- a native Supp_* and finite source-certified C_inc;
+- native c_stitch if source incompatibility is stronger than carrier overlap;
+- the actual formula of cited series (7.13) [I];
+- exact or bounded-change identification of native R'^(k)(X) with canonical coordinates.
 
-Current blocking lemma after the regular-sector closure:
-Within the broader YM-HISTORY-NORM-1 program, the nearest blocker is now the UPSTREAM PRE-ACTIVITY MAP:
-localized T/E/R/B/history data -> CMP122-II pre-exponentiation F(X').
-The separate boundary B' lane is also open.
-Neither is attacked in Iteration 8.
+Current blocker:
+This run stops at the audit. The immediate certificates are exactly:
+
+YM-RPRIME-NATIVE-COMPAT-1
+and
+YM-RPRIME-NATIVE-COORD-1.
+
+No upstream Eq. (1.91) work is started.
 
 Next action:
-Do not revisit regular R' cluster/log convergence. In a future run, pick exactly one of:
-(A) prove bounded C^1/locality for the upstream map producing F(X'), or
-(B) build the relative-metric anchored space for the boundary B' lane.
-Before physical source differentiation, separately prove a bounded insertion map jmath_A.
+Recover/verify the notation behind the prime in (1.90) from the exact source lineage and locate the cited cluster series (7.13) [I] or a version/cross-reference containing it. Only after those certificates may native Balaban R' bounded C^1 be restored.
 
-Iteration-8 verdict:
-STATUS: REGULAR R' BOUNDED C^1 PROVED; QUASI-LOCAL JACOBIAN CONDITIONAL ON AN EXPLICIT ADDITIONAL DECAY-BUDGET.
+Iteration-9 verdict:
+STATUS: CANONICAL R' C^1 SURVIVES; NATIVE BALABAN R' C^1 CLAIM WITHDRAWN PENDING TWO SOURCE CERTIFICATES.
 
 
 ## Update — Iteration 2 (YM-CROSSOVER-1 only)
