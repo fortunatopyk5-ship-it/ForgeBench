@@ -2318,7 +2318,7 @@ This is the exact geometric bridge from a generalized KP cluster weight to the B
 
 ---
 
-## LEMMA ID: YM-RPRIME-TREE-KP-BALL-1
+## LEMMA ID: YM-RPRIME-CANONICAL-TREE-KP-BALL-1
 
 Statement:
 Let P_k be the hard-core connected-polymer family occurring in CMP122-II Eq. (1.90), with incompatibility by overlap of localization supports. Let A be a commutative unital Banach algebra and let F_eta in A.
@@ -2474,7 +2474,7 @@ Status:
 DIRECT PRIMARY SOURCE + PROVED SUMMATION/SMALL-COUPLING CONSEQUENCE.
 
 Use:
-With r_* from YM-RPRIME-TREE-KP-BALL-1, set
+With r_* from YM-RPRIME-CANONICAL-TREE-KP-BALL-1, set
 
 rho=(r+r_*)/2.
 
@@ -2486,7 +2486,7 @@ with a cutoff/volume/depth-independent Cauchy margin.
 
 ---
 
-## LEMMA ID: YM-RPRIME-EXACT-UNION-1
+## LEMMA ID: YM-RPRIME-CANONICAL-EXACT-UNION-1
 
 Statement:
 For the canonical connected logarithm of the CMP122-II polymer gas (1.90), localized by exact union,
@@ -2525,10 +2525,10 @@ This is the exact support theorem required by the weighted Schur test for the ca
 
 ---
 
-## LEMMA ID: YM-RPRIME-UNIFORM-HOLOMORPHY-1
+## LEMMA ID: YM-RPRIME-CANONICAL-UNIFORM-HOLOMORPHY-1
 
 Statement:
-Under the hypotheses of YM-RPRIME-TREE-KP-BALL-1, let rho<r_*. Then the finite-volume canonical logarithms converge normally, uniformly in volume and scale, as maps
+Under the hypotheses of YM-RPRIME-CANONICAL-TREE-KP-BALL-1, let rho<r_*. Then the finite-volume canonical logarithms converge normally, uniformly in volume and scale, as maps
 
 H:
 B_rho(B_in(mu_in))
@@ -2617,7 +2617,7 @@ C_geo(lambda_in)e^{-p_0(g_k)}
 Status:
 PROVED FOR THE REGULAR R' CLUSTER/LOG COEFFICIENT SECTOR, under the explicit source decay-budget condition mu_in>0.
 
-No unnamed or fake cluster-convergence radius is used: r_* is the explicit sufficient radius from YM-RPRIME-TREE-KP-BALL-1.
+No unnamed or fake cluster-convergence radius is used: r_* is the explicit sufficient radius from YM-RPRIME-CANONICAL-TREE-KP-BALL-1.
 
 Stronger quasi-local Jacobian:
 If there also exist mu_out>=0 and nu>0 such that
@@ -2656,9 +2656,9 @@ No numerical Balaban threshold guaranteeing this extra reserve is claimed.
 
 Dependencies:
 YM-RPRIME-SOURCE-INPUT-1,
-YM-RPRIME-TREE-KP-BALL-1,
-YM-RPRIME-EXACT-UNION-1,
-YM-RPRIME-UNIFORM-HOLOMORPHY-1,
+YM-RPRIME-CANONICAL-TREE-KP-BALL-1,
+YM-RPRIME-CANONICAL-EXACT-UNION-1,
+YM-RPRIME-CANONICAL-UNIFORM-HOLOMORPHY-1,
 YM-BANACH-CAUCHY-C1-1,
 and, for the stronger statement, YM-HISTORY-JACOBIAN-QUASILOCAL-1.
 
