@@ -481,7 +481,23 @@ This delta_up is cutoff/volume/RG-depth independent.
 
 No physical U/J analytic collar is used.
 
-## 9. Output F space
+## 9. Regular output projection and F space
+
+Let Z_LF denote the frozen large-field region whose intersection defines the boundary/first-group lane at this stage.
+
+Define
+
+Pi_reg F
+=
+(F(X'): X' cap Z_LF=empty).
+
+The C^1 theorem below is for
+
+M_1.91^reg
+:=
+Pi_reg M_1.91.
+
+If X' is regular, every constituent domain in a term determining exactly X' is contained in X', hence is also disjoint from Z_LF. Therefore this projection does not require any estimate for the forbidden boundary B' lane.
 
 Use exactly the downstream audited regular F space:
 
@@ -516,7 +532,7 @@ The exact value rho_F is not fabricated; it is the anchored sum of the inflated 
 
 Let
 
-M_1.91:
+M_1.91^reg:
 B_red,k^(Sigma)
 ->
 B_F(mu_F)
@@ -542,7 +558,7 @@ is holomorphic.                                                  (U30)
 On the inner unit ball, Banach Cauchy gives
 
 sup_{||(T',V)||<=1}
-||D M_1.91(T',V)||
+||D M_1.91^reg(T',V)||
 <=
 C_1.91,
 
@@ -763,7 +779,7 @@ Therefore, for reduced upstream coordinates,
 
 H_R'
 circ
-M_1.91
+M_1.91^reg
 
 is bounded C^1 and
 
@@ -782,7 +798,7 @@ U_Sigma
 =
 H_R'
 circ
-M_1.91
+M_1.91^reg
 circ
 P_Sigma,
 
