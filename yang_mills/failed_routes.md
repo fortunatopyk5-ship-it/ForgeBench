@@ -388,3 +388,16 @@ Exact support gives r_col=0, but coordinate Cauchy in the mixed input norm intro
 Current status:
 global anchored/mixed C^1 operator bound proved;
 off-diagonal upstream Schur kernel open.
+
+
+---
+
+## Route: Require E_raw -> E_ren relevant extraction before proving the current Eq. (1.91) upstream map
+TOO STRONG FOR THE CURRENT SOURCE STATE.
+
+CMP119's inductive state already takes E_k to be fully renormalized. The relevant extraction in (3.64) belongs to a lower-level chart transition, not to the current R-operation map from source-native state coordinates.
+
+Repair:
+Use E_ren as the current E-sector coordinate, R_ren as the current R coordinate, B_loc as the B coordinate, and keep hard histories frozen. Then pp.376-377 is a bounded linear resummation before the holomorphic Eq. (1.91) map.
+
+The lower-level E_raw -> E_ren problem remains legitimate, but must not be inserted as a fake blocker into YM-RPRIME-UPSTREAM-C1-1.
