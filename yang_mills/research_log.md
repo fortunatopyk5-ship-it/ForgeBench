@@ -553,3 +553,27 @@ the marked two-anchor incidence estimate needed for a quantitative upstream Schu
 
 Separate lower-level issue:
 E_raw -> E_ren, including relevant extraction (3.64), remains open but is not part of the current inductive-state upstream theorem.
+
+
+### Iteration 10 adversarial revalidation
+
+A fresh primary-PDF check was performed on CMP122-II printed pp.376-380 and 387-389.
+
+Confirmed:
+- Eq. (1.91) is exactly a frozen-index analytic map in the already-localized variables (T',V).
+- For regular X' disjoint from the current large-field domains, the q-sum starts at q=1.
+- The V-construction on pp.376-377 is a succession of resummations/sums once current renormalized local atoms are supplied.
+- Whole-component V terms are diverted into T'_k and do not enter the regular V exponential.
+- The T'_k normalization and normalized-operator bounds used in the local calculus are source-supported by (1.74)-(1.75).
+
+Functional-analytic check:
+The potentially weak step "source row bound => bounded producer" was made explicit as YM-V-PRODUCER-MIXED-NORM-1. Because the input norm contains a pointwise source-majorant regulator, the row estimate
+
+sum_lambda |A(Y,lambda)|M_lambda <= C_res M_V(Y)
+
+does imply a true Banach operator bound P_V:B_up->V, and the anchored output term follows by summing M_V(Y).
+
+Thus the final source-native bounded-C1 theorem is unchanged.
+
+Still open:
+the row bound does not imply a marked two-anchor/off-diagonal Schur estimate for A(Y,lambda). That stronger locality theorem remains the first unresolved refinement.
