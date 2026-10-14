@@ -155,3 +155,34 @@ Iteration-8 derived theorem discipline:
   is NOT quoted as Balaban's hidden threshold. It is a new sufficient radius derived from generalized Kotecky-Preiss plus the already-proved d=4 tree coercivity.
 - The regular cluster/log bounded C^1 theorem uses only this explicit ball and the primary source input bound.
 - The stronger quasi-local Schur estimate additionally assumes theta-mu_out-nu remains in the CMP109 geometric-summability regime; no numerical Balaban kappa threshold is inferred from qualitative "sufficiently large" language.
+
+
+Iteration 9 — exact (1.90)/(1.98) audit:
+
+DIRECT PRIMARY CMP122-II printed pp.387-388:
+- Before (1.90), each raw term determines X'_0 = (union_{Y in D}Y) union (union_j X_j).
+- Balaban defines a special component decomposition: first components of X'_0\Ycal are taken; two are considered connected if they are contained in one localization domain Y of a term in the product.
+- He then writes X'_0=union_p X'_p and states that the expression factorizes in these components.
+- Resumming expressions determining the same components yields the primed polymer expansion (1.90).
+- Consequence verified here: members of each actual primed family have pairwise disjoint pi_k-cube carriers.
+- Missing source certificate: the displayed passage does not define the prime by an iff saying that every pairwise carrier-disjoint family is admissible. Therefore native incompatibility is not yet identified exactly with carrier overlap.
+
+DIRECT PRIMARY CMP109 printed p.257:
+- localization domains are unions of wall-connected pi_j cubes;
+- connectivity is by common (d-1)-walls;
+- d_j(X) is a shortest continuous-space tree meeting all cubes after unit-cube rescaling.
+This is why Iteration 9 uses cube carriers rather than naive intersection of closed continuous cube unions.
+
+DIRECT PRIMARY CMP122-II printed p.390:
+- (1.98) gives exp R'^(k)=exp sum_X R'^(k)(X);
+- the following text says native R'^(k)(X) depends on U_k restricted to X, is analytically extendible, and is given by the convergent series (7.13) [I] with notational changes;
+- (1.99) gives its local bound;
+- the following split defines boundary/first-group and regular/second-group terms, with (1.100) for the regular group.
+
+REFERENCE CHECK:
+- CMP122-II reference [I] is Balaban CMP109 (1987).
+- The accessible published CMP109 PDF does not expose the cited formula under numbering (7.13); searches for 7.13 and for an explicit prime-definition did not recover it.
+- Therefore this notebook does not claim coordinatewise R'_Bal(X)=H_X^can merely from (1.98).
+
+Iteration-9 provenance rule:
+Canonical exact-union grouping is OUR explicit chart for the (1.90) polymer gas. Its derivative-support theorem is rigorous in that chart. Native Balaban coordinate identification remains a separate source obligation.
