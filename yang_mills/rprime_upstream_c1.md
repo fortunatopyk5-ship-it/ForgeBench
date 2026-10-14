@@ -105,7 +105,15 @@ The source estimates |sigma| by 1 in the later (1.92) bound, so a crude source-u
 
 C_T=e^3.                                                  (U3)
 
-Primary (1.89), together with the sentence following it, supplies a small scalar factor for tau_X and an additional positive tree-decay factor for arbitrary large-field-region T-operations. We denote its coefficient by kappa_T below rather than identifying it silently with the downstream kappa.
+Primary (1.89), together with the sentence following it, supplies a small scalar factor for tau_X. The source then states explicitly that the improved bound has the additional term
+
+-kappa d_k(X)
+
+in the exponent for an arbitrary large-field-region T-operation.
+
+Therefore in the present source normalization we may take
+
+kappa_T=kappa.
 
 ### 2.2 V(Y)
 
@@ -128,6 +136,8 @@ exp[-(1+2 beta)kappa d_{k,Z}(Y)],                         (U4)
 with alpha arbitrarily small when the source coupling threshold gamma is sufficiently small.
 
 For a regular component disjoint from the relevant large-field set, the relative metric reduces to the ordinary d_k metric.
+
+The worse source bound (1.69) applies when Y itself is a component of the large-field region. These component terms do not appear as V-coordinates in the exponential used by Eq. (1.91): immediately after (1.72), the source states that terms whose localization domain equals a component of the large-field region are included into T'_k instead. Hence the V-sector entering the present regular Eq. (1.91) map is legitimately controlled by the decaying class (1.68).
 
 Important:
 CMP122-II proves the output V(Y) bounds and analyticity in the physical field variables. It does NOT, in the extracted source passage, formulate the resummation
@@ -364,14 +374,14 @@ where M_T(X) is the direct-primary source majorant obtained by combining:
 - the small scalar factor (1.89);
 - the additional positive tree-decay exponent stated immediately after (1.89).
 
-Write that source tree exponent as kappa_T>0 rather than silently identifying it with kappa.
+Write that source tree exponent as kappa rather than silently identifying it with kappa.
 
 Thus M_T(X) has the source form
 
 M_T(X)
 =
 A_T(gamma)
-e^{-kappa_T d_k(X)},                                     (U20a)
+e^{-kappa d_k(X)},                                     (U20a)
 
 with
 
@@ -383,7 +393,7 @@ up to the fixed harmless source constants already present in the local T estimat
 
 Choose
 
-0<=mu_T<kappa_T
+0<=mu_T<kappa
 
 and define, not merely name,
 
@@ -394,7 +404,7 @@ sum_{X contains B}
 e^{mu_T d_k(X)}M_T(X)
 <infinity.                                               (U20b)
 
-The finiteness is the direct anchored geometric summability consequence of the residual exponent kappa_T-mu_T>0.
+The finiteness is the direct anchored geometric summability consequence of the residual exponent kappa-mu_T>0.
 
 For V define
 
@@ -435,7 +445,7 @@ For the regular lane this follows from CMP109 geometric summability with residua
 
 Thus the sector choices are
 
-0<=mu_T<kappa_T,
+0<=mu_T<kappa,
 
 0<=mu_V<(1+2beta)kappa.                                  (U23)
 
