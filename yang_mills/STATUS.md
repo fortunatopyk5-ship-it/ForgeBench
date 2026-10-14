@@ -1,114 +1,106 @@
 # STATUS
 
 Current objective:
-Iteration 9 audits ONLY two ingredients of the already-claimed regular R' closure:
-(A) the exact polymer incompatibility behind CMP122-II (1.90);
-(B) the coordinate identification between the connected cluster logarithm and Balaban's native R'^(k)(X).
-No upstream Eq. (1.91), boundary B' theorem, source-mark work, K_0, or STEP_0 is attacked.
+Iteration 10 is restricted to the upstream CMP122-II Eq. (1.91) map that constructs the regular pre-exponentiation activity F(X'). The audited downstream F -> R'_Bal theorem is accepted and not reopened. Boundary B', source marks, K_0 and STEP_0 are not attacked.
 
-Current strongest result:
-Both audit targets are now closed at the source/formula level.
+Current strongest new result:
+Eq. (1.91) itself has been separated from the earlier localization machinery.
 
-A. Native compatibility:
-Published CMP116 Eq. (2.11), which is the published cluster-expansion continuation used by CMP122-II's legacy references, defines the incompatibility function zeta to vanish exactly when two localization domains have an intersection containing a cube OR a full wall of a cube.
+DIRECT PRIMARY TRANSCRIPTION:
+For fixed hard history/domain data Sigma,
 
-Define
-Car(eta)=pi_k-cube carrier of eta,
-Supp_*(eta)=closed one-step wall-neighborhood N_wall[Car(eta)].
+F(X')
+=
+sum_q
+sum'_{ {X_{j_1},...,X_{j_q}} }
+sum'_D
+[
+ product_{Y in D} int_0^1 dt(Y)
+]
+[
+ product_{h=1}^q T'_k(X_{j_h})
+]
+[
+ product_{Y in D}V(Y)
+]
+exp[
+ sum_{Y in D}t(Y)V(Y)
+].
 
-Then
-eta not~ eta'
-iff
-Car(eta') cap Supp_*(eta) != empty.
+The primed sums contain exactly the frozen localization-domain data whose special connected component is X'.
 
-In d=4,
-#Supp_*(eta)<=9|eta|,
-so
-C_inc=9.
+Thus Eq. (1.91) directly depends only on two ALREADY-LOCALIZED coefficient families:
+T'_k(X) and V(Y).
+Raw E/R/B coordinates have already been absorbed before this formula.
 
-For one incompatibility edge, the worst case is two unit 4-cubes sharing a wall. Their union has diameter sqrt(7), hence
-c_stitch=sqrt(7).
-
-Therefore for an incompatibility-connected family,
-d_k(union_i eta_i)
-<=
-sum_i d_k(eta_i)+sqrt(7)(n-1).
-
-The corrected native KP weight/radius are
-g_theta(eta)=theta d_k(eta)+sqrt(7)theta,
-q_native(rho)=exp(16a+sqrt(7)theta)rho,
-r_*^native=(a/9)exp[-16a-sqrt(7)theta],
-assuming 16a+theta<=mu_in.
-
-B. Native coordinate identification:
-CMP122-II says:
-- the first operation is the Mayer expansion, "the same as in (7.1) [I]";
-- native R'^(k)(X) is given by convergent series "(7.13) [I]" with proper notational changes.
-
-The bibliography identifies [I] as CMP109. The published CMP109 ends before the cluster-localization construction and explicitly says it will be done in the next paper. The published continuation CMP116 Sect. 2 starts with the Mayer expansion (2.1), defines cube-or-wall compatibility in (2.11), exponentiates in (2.12), and defines the local coefficient in (2.13) by the exact-union condition union_i Z_i=X.
-
-Thus the legacy manuscript numbering is source-crosswalked:
-(7.1)[I] <-> published CMP116 (2.1),
-(7.13)[I] <-> published CMP116 (2.13).
-
-Therefore, after the proper notational replacement,
-R'^(k)_Bal(X)=H_X^can(F)
-coordinatewise.
-
-This is CASE 1: EXACT, with provenance label SOURCE-CROSSWALK VERIFIED.
-
-Revalidated theorem:
-YM-RPRIME-C1-1 is again a NATIVE Balaban theorem, but with corrected constants.
-
-Let
-mu_in=(1+beta)kappa-lambda_in>0,
-C_geo(lambda_in)<infinity,
-16a+theta<=mu_in,
-
-r_*=(a/9)exp[-16a-sqrt(7)theta].
-
-Shrink the fixed small-coupling threshold gamma_R' so that
-r=C_geo(lambda_in)exp[-p_0(gamma_R')]<r_*,
-and set
-rho=(r+r_*)/2.
-
-Then the native regular R' coefficient map is Banach-holomorphic/C^1 and
-sup_{||F||<=r}||D R'^(k)_Bal(F)||
-<=
-q_native(rho)/(rho-r),
-q_native(rho)=exp(16a+sqrt(7)theta)rho,
-uniformly in finite volume, UV cutoff and RG depth.
-
-Quasi-local Schur:
-Still conditional only on the explicit residual decay reserve
-C_geo(theta-mu_out-nu)<infinity.
-The corrected q_native and r_* are used; no numerical Balaban kappa threshold is invented.
+Factorization:
+raw E/R/B/T/history coefficients
+ --P_Sigma-->
+(T',V)
+ --M_1.91-->
+F
+ --H_R'-->
+R'_Bal.
 
 Verified this iteration:
-- exact native cube-or-wall incompatibility convention;
-- Supp_*=closed wall-neighborhood of cube carrier;
-- C_inc=9;
-- c_stitch=sqrt(7);
-- corrected native KP radius;
-- exact-union local log formula through the legacy-to-published source crosswalk;
-- coordinatewise native R'_Bal=H^can;
-- revalidated native bounded C^1 theorem;
-- exact derivative support eta subset X and r_col=0 remain valid.
+- hard determining/history labels are frozen base data, not Banach tangent coordinates;
+- within one fixed Sigma, the index condition "determines exactly X'" is coefficient-independent;
+- the Eq. (1.91) elementary maps are restriction, multilinear products, exponential, bounded t-integration, local T-operator products and normally convergent resummation;
+- exact termwise first derivative formulas are recorded in YM-RPRIME-191-ELEMENTARY-DERIV-1;
+- local normalized T integration is C^1 with
+  D barT[h]F=barT(hF)-barT(h)barT(F);
+- a mixed source-majorant + anchored input topology is required; anchored norm alone is too weak to preserve the pointwise source majorants;
+- after choosing the source small-coupling threshold with strict slack, there is a cutoff/volume/depth-independent open coefficient radius R_src>1;
+- the absolute proof of (1.92)-(1.97) supplies normal convergence on that coefficient ball;
+- therefore
+  M_1.91:(T',V)->F
+  is Banach-holomorphic and uniformly C^1;
+- on the inner unit ball,
+  ||D M_1.91|| <= C_1.91 = rho_F/(R_src-1);
+- exact reduced Jacobian support:
+  D_eta F(X')=0 unless eta subset X';
+  hence reduced collar r_col=0;
+- composition with the accepted downstream theorem gives
+  ||D(H_R' o M_1.91)|| <= C_R' C_1.91
+  for the reduced coordinates (T',V).
 
-Not attacked:
-- upstream construction Eq. (1.91);
-- boundary B' lane;
-- full T/E/R/B history map;
-- source marks;
-- K_0;
-- STEP_0.
+Important limitation:
+The desired RAW theorem
+(T,E,R,B,local history coefficients)->F
+is NOT yet proved.
 
-Current blocker after this audit:
-This run stops here as requested. The audited R' closure survives with corrected constants.
-The next blocker for a future run is again upstream Eq. (1.91), but it was NOT attacked here.
+FIRST FAILED SUBMAP:
+the producer
 
-Iteration-9 verdict:
-STATUS: BALABAN REGULAR R' BOUNDED C^1 REVALIDATED WITH CORRECTED NATIVE COMPATIBILITY CONSTANTS.
+P_V:
+(K_E,K_R,K_B,K_old,...)
+->
+(V(Y))_Y.
+
+CMP122-II pp.376-377 describe this producer as localization + E/R renormalization + resummation + addition/subtraction before establishing (1.68),(1.69). The source proves physical-field analyticity and output bounds, but a bounded difference/Frechet theorem for P_V in a fixed anchored coefficient Banach space has not yet been extracted.
+
+The local exponential/integration map producing T' from an already-localized exponent insertion is NOT the blocker; it is C^1. However the same unresolved raw-to-local-potential producer feeds the V(X~) term inside T'.
+
+Schur status for the upstream map:
+- bounded anchored/mixed operator norm: PROVED by full Banach Cauchy;
+- exact support eta subset X': PROVED;
+- stronger quantitative off-diagonal Schur kernel: OPEN, because a marked two-anchor version of the source (1.92)-(1.97) summation is still needed. Exact support alone does not sum the mixed coordinate regulator.
+
+Current theorem status:
+YM-RPRIME-191-C1-1:
+PROVED for already-localized (T',V) coordinates under strict source-majorant slack.
+
+YM-RPRIME-UPSTREAM-C1-1:
+PARTIAL / BLOCKED AT YM-RPRIME-UPSTREAM-PRODUCER-1.
+
+Current blocker:
+extract the coefficient-space localization/renormalization/resummation operator producing V(Y), including its exact support kernel and anchored operator norm. Do not redo Eq. (1.91) itself.
+
+Next action:
+In a future run, trace the pp.376-377 V(Y) producer back into CMP119 Sect. 2 and isolate the E/R localization-renormalization maps as explicit bounded linear/analytic coefficient operators. This run stops before that next source extraction.
+
+Iteration-10 verdict:
+STATUS: EQ. (1.91) REDUCED MAP (T',V)->F BOUNDED C1 PROVED; RAW (T,E,R,B,...)->F BLOCKED AT THE V-PRODUCER.
 
 
 ## Update — Iteration 2 (YM-CROSSOVER-1 only)
