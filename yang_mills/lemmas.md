@@ -2557,64 +2557,72 @@ This is analyticity with respect to ACTIVITY COEFFICIENTS. It does not use, and 
 
 ## LEMMA ID: YM-RPRIME-C1-1
 
-Statement:
-Fix source constants beta,kappa and choose:
+Statement — bounded C^1:
+Fix source parameters beta,kappa. Choose lambda_in in the CMP109 summability regime such that
 
-- lambda_in in the CMP109 summability regime with
-  mu_in=(1+beta)kappa-lambda_in>0;
+mu_in=(1+beta)kappa-lambda_in>0.
 
-- a,theta>0 with
-  16a+theta<=mu_in;
+Choose a,theta>0 with
 
-- r_*=a exp[-16a-2theta];
+16a+theta<=mu_in,
 
-- gamma_R'>0 small enough that
-  r=C_geo(lambda_in)e^{-p_0(gamma_R')}<r_*;
+and define
 
-- rho=(r+r_*)/2;
+r_*=a exp[-16a-2theta].
 
-- nu>0 and mu_out>=0 such that
-  lambda_res=theta-mu_out-nu
-  lies in the CMP109 summability regime.
+Choose gamma_R'>0 so small that
 
-Let H_R',k^reg be the second/regular-group cluster/log map defined by CMP122-II (1.90)-(1.100), expressed as the canonical connected logarithm of its regular pre-exponentiation activities.
+r=C_geo(lambda_in)e^{-p_0(gamma_R')}<r_*,
 
-Then, for every k with g_k<=gamma_R',
+and set
+
+rho=(r+r_*)/2.
+
+Then for every scale k with 0<g_k<=gamma_R', the regular second-group CMP122-II R' cluster/log coefficient map
 
 H_R',k^reg:
 B_r(B_in,k(mu_in))
 ->
-B_out,k(mu_out)
+B_out,k(theta)
 
-is holomorphic and hence C^1.
+is the restriction of a holomorphic map on the r_*-ball and hence is C^1. Moreover
 
-Set
-
-q_rho=e^{16a+2theta}rho.
-
-For every ||F||_in<=r,
-
+sup_{||F||_in<=r}
 ||D H_R',k^reg(F)||
 <=
-C_R',
+C_R'^C1,
 
 where
 
-C_R'
+C_R'^C1
 =
-[q_rho/(rho-r)]
-C_geo(lambda_res)
-C_lat(nu),
+q(rho)/(rho-r),
 
-and
+q(rho)=e^{16a+2theta}rho.
 
-C_lat(nu)
+The constant is independent of volume, UV cutoff, and RG depth.
+
+Source input:
+The actual Balaban regular pre-exponentiation activity satisfies
+
+||F^src||_in
+<=
+C_geo(lambda_in)e^{-p_0(g_k)}
+<=r.
+
+Status:
+PROVED FOR THE REGULAR R' CLUSTER/LOG COEFFICIENT SECTOR, under the explicit source decay-budget condition mu_in>0.
+
+No unnamed or fake cluster-convergence radius is used: r_* is the explicit sufficient radius from YM-RPRIME-TREE-KP-BALL-1.
+
+Stronger quasi-local Jacobian:
+If there also exist mu_out>=0 and nu>0 such that
+
+lambda_res
 =
-sup_b sum_a e^{-nu dist_k(a,b)}<infinity
+theta-mu_out-nu
 
-for the rescaled unit-block anchor distance.
-
-Moreover the Jacobian kernel is quasi-local:
+lies in the CMP109 summability regime, then
 
 sup_{eta contains a}
 [
@@ -2625,47 +2633,31 @@ e^{mu_out d_k(gamma)}
 ]
 
 <=
-[q_rho/(rho-r)]
+[q(rho)/(rho-r)]
 C_geo(lambda_res)
-e^{-nu dist_k(a,b)}.
+e^{-nu dist_k(a,b)},
 
-Status:
-PROVED for the REGULAR R' CLUSTER/LOG COEFFICIENT SECTOR.
+and therefore
 
-Proof:
-YM-RPRIME-SOURCE-INPUT-1 gives the strict source radius. YM-RPRIME-TREE-KP-BALL-1 and YM-RPRIME-UNIFORM-HOLOMORPHY-1 give a holomorphic larger ball and
-
-||H(F)||_theta<=q_rho.
-
-For a unit eta-coordinate vector h,
-
-||I_eta h||_in=e^{mu_in d_k(eta)}.
-
-Cauchy on the radius-rho ball around an F with ||F||<=r gives
-
-||D_eta H_gamma(F)||
+||D H_R',k^reg(F)||_{B_in(mu_in)->B_out(mu_out)}
 <=
-[q_rho/(rho-r)]
-e^{mu_in d_k(eta)}
-e^{-theta d_k(gamma)}.
+[q(rho)/(rho-r)]
+C_geo(lambda_res)
+C_lat(nu).
 
-YM-RPRIME-EXACT-UNION-1 gives eta subset gamma and r_col=0. If a=s(gamma,eta) and b in gamma, then the source shortest-tree geometry gives
+Status of this stronger statement:
+PROVED UNDER THE EXPLICIT ADDITIONAL DECAY-BUDGET CONDITION lambda_res in the CMP109 summability regime.
 
-d_k(gamma)>=dist_k(a,b).
+No numerical Balaban threshold guaranteeing this extra reserve is claimed.
 
-Split
-
-theta-mu_out
-=
-nu+lambda_res
-
-and sum the residual e^{-lambda_res d_k(gamma)} by CMP109 C_geo. Apply YM-HISTORY-JACOBIAN-QUASILOCAL-1.
-
-Uniformity:
-All constants depend only on fixed source/KP parameters, not on total volume, UV cutoff, or RG depth.
+Dependencies:
+YM-RPRIME-SOURCE-INPUT-1,
+YM-RPRIME-TREE-KP-BALL-1,
+YM-RPRIME-EXACT-UNION-1,
+YM-RPRIME-UNIFORM-HOLOMORPHY-1,
+YM-BANACH-CAUCHY-C1-1,
+and, for the stronger statement, YM-HISTORY-JACOBIAN-QUASILOCAL-1.
 
 Non-claims:
-This theorem does not cover the first/boundary B' group, the upstream construction of F from T/E/R/B data, the full compressed history map, or physical source differentiation.
+No boundary B' lane, no upstream T/E/R/B -> F map, no full compressed history map, and no physical source derivative.
 
-Decay wording:
-The printed exponents (1+beta)kappa and (1+beta/2)kappa differ by beta*kappa/2. This is only the SOURCE-VISIBLE DECAY RESERVE. The actual Banach norm loss in this theorem is mu_in-mu_out.
