@@ -691,3 +691,65 @@ After Iteration 7 the blockers are ranked:
    needed before future iteration beyond the history map.
 
 Thus the immediate coefficient-C^1 blocker is now (1)+(2); normalized field charts remain the immediate source-mark blocker.
+
+
+## 20. Iteration 10 — upstream Eq. (1.91) coefficient map
+
+The next regular R' submap has now been split correctly:
+
+raw E/R/B/T/history coefficient data
+ ->
+(T'_k,V)
+ ->
+F
+ ->
+R'_Bal.
+
+Direct primary Eq. (1.91) proves that the middle map sees only already-localized T'_k(X) operators and V(Y) activities.
+
+On each fixed hard-history sector Sigma:
+- the index set of terms determining exactly X' is coefficient-independent;
+- hard characteristics are not differentiated;
+- Eq. (1.91) is a normally convergent sum of multilinear products, exponentials, t-integrals and local T-operator products.
+
+A source-faithful reduced input topology must be MIXED:
+weighted pointwise source regulator plus anchored l1 summability.
+A pure anchored norm is insufficient because it does not preserve the pointwise source majorants used in (1.92)-(1.97).
+
+With strict slack in the source smallness conditions, the reduced regular map
+
+M_1.91^reg:
+(T',V) -> F_reg
+
+is Banach-holomorphic on a uniform open coefficient ball and
+
+sup ||D M_1.91^reg||
+<=
+C_1.91
+=
+rho_F/(R_src-1).
+
+Exact reduced derivative support:
+
+D_eta F(X')=0 unless eta subset X'.
+
+This proves bounded anchored C^1 but does NOT yet prove a quantitative upstream off-diagonal Schur kernel; the latter needs a marked two-anchor version of the source majorant.
+
+The raw theorem remains blocked at
+
+P_V:
+(E,R,B,old local-history coefficients)->V(Y).
+
+The source pp.376-377 establish local output bounds and physical-field analyticity for V(Y), but not yet a bounded coefficient-space Frechet operator in the chosen anchored topology.
+
+Thus the current hierarchy is:
+
+LOCAL T EXPONENTIAL/INTEGRATION C^1: PROVED.
+
+EXACT (T',V)->F_reg C^1: PROVED.
+
+RAW (E,R,B,T,...)->(T',V): PARTIAL.
+
+RAW -> F_reg: BLOCKED.
+
+(T',V)->F_reg->R'_Bal: C^1 PROVED with derivative bound C_R' C_1.91.
