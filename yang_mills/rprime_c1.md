@@ -277,7 +277,9 @@ If
 
 ||F||_in <= rho < r_*,
 
-then q(rho)<a.
+then
+
+9q(rho)<a.
 
 Define Car(eta) as the pi_k-cube carrier and
 
@@ -324,13 +326,19 @@ H_R'(F)_gamma
  phi^T(eta_1,...,eta_n)
  product_i F_{eta_i}.                                     (R16)
 
-Here phi^T is the standard Ursell coefficient of the hard-core overlap graph.
+Here phi^T is the standard Ursell coefficient built from the native cube-or-wall incompatibility function zeta of CMP116 (2.11).
 
-Eq. (1.98) identifies the source expression as an exponentiated convergent connected cluster logarithm. We use the canonical exact-union localization of that logarithm:
+Eq. (1.98) identifies the source expression as an exponentiated convergent connected cluster logarithm:
 
 Xi(F)=exp[sum_gamma H_R'(F)_gamma].
 
-The exact-union grouping in (R16) is our canonical connected-log localization of the source polymer gas (1.90). It reconstructs the same cluster logarithm/exponentiation (1.98). The support rule below is therefore a theorem of this canonical source-faithful chart; it is not quoted as a verbatim support formula from Balaban's printed reference to series (7.13) [I].
+CMP122-II then says each native R'^(k)(X) is given by the legacy series (7.13) [I] with proper notational changes. The source-crosswalk established in Iteration 9 identifies that legacy formula with published CMP116 (2.13), whose defining constraint is exact union of the constituent polymers.
+
+Therefore (R16) is not merely an auxiliary localization choice:
+
+R'^(k)_Bal(gamma)=H_R'(F)_gamma
+
+coordinatewise.
 
 ### Exact support theorem
 
