@@ -275,11 +275,11 @@ H_R'(F)_gamma
 
 Here phi^T is the standard Ursell coefficient of the hard-core overlap graph.
 
-Eq. (1.98) identifies the source exponentiation with this connected logarithm:
+Eq. (1.98) identifies the source expression as an exponentiated convergent connected cluster logarithm. We use the canonical exact-union localization of that logarithm:
 
 Xi(F)=exp[sum_gamma H_R'(F)_gamma].
 
-The exact-union grouping in (R16) removes the need to rely on the suspicious printed reference "(7.13) [I]" for the support rule.
+The exact-union grouping in (R16) is our canonical connected-log localization of the source polymer gas (1.90). It reconstructs the same cluster logarithm/exponentiation (1.98). The support rule below is therefore a theorem of this canonical source-faithful chart; it is not quoted as a verbatim support formula from Balaban's printed reference to series (7.13) [I].
 
 ### Exact support theorem
 
@@ -346,9 +346,9 @@ product_i e^{g_theta(eta_i)}.
 
 If gamma contains B, mark one constituent eta_1 containing B. The 1/n! cluster coefficient and the sum over the possible mark are bounded by the standard rooted KP estimate. Summing the marked root gives exactly the left side of (R12), hence at most q(rho).
 
-The cluster series is absolutely normally convergent in B_out,k(theta) on every closed input ball of radius rho<r_*.
+The cluster series is absolutely normally convergent in B_out,k(theta) on every closed input ball of radius rho<r_*. This statement is made directly on the countable anchored polymer Banach space; finite tori are restrictions of the same majorant.
 
-Finite-volume partial sums are Banach-valued holomorphic polynomials in F. Uniform normal convergence therefore implies, by the Banach-valued Weierstrass theorem,
+Partial sums by cluster size/support are Banach-valued holomorphic polynomials in F. Normal convergence in the B_out norm therefore implies, by the Banach-valued Weierstrass theorem,
 
 H_R':
 B_{r_*}(B_in,k(mu_in))
