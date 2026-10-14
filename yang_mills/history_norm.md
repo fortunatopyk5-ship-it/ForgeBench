@@ -495,3 +495,26 @@ However, whenever an R' cluster/log submap is used, distinguish:
    After (1.98), native R'^(k)(X) is defined through cited series (7.13) [I], whose target-localization formula has not been recovered.
 
 Consequently the anchored canonical C^1 theorem cannot be transported to native R' coordinates without YM-RPRIME-NATIVE-COMPAT-1 and YM-RPRIME-NATIVE-COORD-1.
+
+
+## Iteration 9 final — native R' chart restored with corrected geometry
+
+The temporary canonical/native uncertainty is resolved for the regular R' cluster/log step.
+
+Native incompatibility is cube-or-wall contact, not literal carrier overlap.
+
+Use
+
+Supp_*(eta)=N_wall[Car(eta)],
+C_inc=9,
+c_stitch=sqrt(7),
+
+and therefore
+
+r_*^native
+=
+(a/9)exp[-16a-sqrt(7)theta].
+
+The legacy source citation for R'^(k)(X) is cross-version identified with published CMP116 Eq. (2.13), which groups connected clusters by exact target union. Hence the exact-union derivative support theorem applies to native R' coordinates.
+
+The broader history Banach-space blockers outside this sector are unchanged.
