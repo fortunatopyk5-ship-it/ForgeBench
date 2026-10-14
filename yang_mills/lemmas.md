@@ -1536,7 +1536,7 @@ The boundary/large-field-connected intermediate activities in (1.99) use a relat
 
 ---
 
-## LEMMA ID: YM-HISTORY-RECON-LOCAL-1
+## LEMMA ID: YM-LOCAL-ACTIVITY-VECTOR-1
 
 Iteration-7 corrected typed statement:
 Let P be a countable family of connected polymers. For each gamma let C_gamma be a Banach space. For a finite block region A with dependency collar A^+, define
@@ -1566,7 +1566,7 @@ whose only nonzero coordinate is gamma. Then
  =
  e^{mu d(gamma)}.
 
-Let Phi_gamma map an ambient radius-R ball U_R into C_gamma. Define the TYPED local reconstruction
+Let Phi_gamma map an ambient radius-R ball U_R into C_gamma. Define the TYPED local activity vector
 
 Act_A(F)
  =
