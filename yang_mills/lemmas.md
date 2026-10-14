@@ -2868,9 +2868,11 @@ Choose the threshold still smaller so that the resulting inflated regular output
 
 on that whole ball.
 
-Then the exact Eq. (1.91) map
+Let Pi_reg project to localization components X' in the regular lane. Then the exact regular Eq. (1.91) map
 
-M_1.91:
+M_1.91^reg
+=
+Pi_reg M_1.91:
 B_{R_src}(B_red,k^(Sigma))
 ->
 B_F(mu_F)
@@ -2973,7 +2975,7 @@ Status:
 PARTIAL / BLOCKED AT YM-RPRIME-UPSTREAM-PRODUCER-1.
 
 Proved reduced theorem:
-(T',V)->F is uniformly bounded C^1 on the frozen-history reduced coefficient chart.
+(T',V)->F_reg is uniformly bounded C^1 on the frozen-history reduced coefficient chart. No boundary B' output is included.
 
 Downstream composition:
 Since audited F->R'_Bal has
