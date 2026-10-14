@@ -200,3 +200,28 @@ the local T exponential/integration map is C^1 once its local exponent insertion
 C_1.91
 and the already audited downstream C_R' to get
 ||D R'_Bal(raw)|| <= C_R' C_1.91 C_P.
+
+
+## Iteration 10 final — after source-native upstream C1 closure
+
+67. RESOLVED in the source-native current-state chart:
+the pp.376-377 V-producer is a bounded linear incidence map from already-renormalized E/R/B local atoms to the decaying V(Y) family, using the direct source absolute row-majorant.
+
+68. RESOLVED:
+the full regular source-native upstream map
+(T',E_ren,R_ren,B_loc,K_aux)->F_reg
+is uniformly bounded C1 on frozen-history anchored coefficient fibers.
+
+69. RESOLVED:
+composition with audited downstream F->R'_Bal gives
+||D(R'_Bal o U_Sigma)||<=C_R' C_U.
+
+70. OPEN:
+prove a marked two-anchor bound for the pp.376-377 incidence kernel
+A_Sigma(Y,lambda)
+strong enough to obtain a quantitative off-diagonal Schur kernel for the upstream derivative. Exact incidence support alone is insufficient.
+
+71. OPEN / LOWER-LEVEL CHART ONLY:
+construct a scale-uniform coefficient theorem for the pre-renormalization E_raw -> E_ren chart transition, including the relevant extraction in CMP119 (3.64). This is not required by the current source-native inductive-state upstream theorem.
+
+72. Do not confuse Q71 with the current Eq. (1.91) blocker: there is no remaining bounded-C1 blocker for the regular source-native Eq. (1.91) chain.
