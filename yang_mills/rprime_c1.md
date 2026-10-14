@@ -714,7 +714,7 @@ is made automatically.
 
 The present theorem is a coefficient-space C^1 result only.
 
-## 16. Final Iteration-8 verdict
+## 16. Final Iteration-9 verdict
 
 The native Balaban regular R' cluster/log coefficient map is uniformly bounded C^1 after the exact compatibility and coordinate audits. The correct native constants are C_inc=9 and c_stitch=sqrt(7), so the explicit radius is smaller than in Iteration 8. The stronger quasi-local Schur estimate remains conditional on one additional explicit decay reserve.
 
