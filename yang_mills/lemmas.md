@@ -2297,7 +2297,7 @@ Therefore the cluster/log SUBMAP theorem is ready; the full source instantiation
 ## LEMMA ID: YM-OVERLAP-TREE-STITCH-1
 
 Statement:
-In the d=4 rescaled pi_k-cube geometry, let eta_1,...,eta_n be connected localization polymers whose overlap graph is connected, and let
+In the d=4 rescaled pi_k-cube geometry, let eta_1,...,eta_n be connected localization polymers whose CANONICAL CUBE-CARRIER overlap graph is connected, and let
 
 gamma=union_i eta_i.
 
@@ -2308,7 +2308,7 @@ d_k(gamma)
 sum_i d_k(eta_i)+2(n-1).
 
 Status:
-PROVED.
+PROVED FOR CARRIER-OVERLAP CONNECTIVITY.
 
 Proof:
 Choose a shortest tree T_i inside each eta_i. Choose a spanning tree of the overlap graph. If eta_i and eta_j overlap, they share a unit pi_k cube Q. Both T_i and T_j meet Q. Join their meeting points by a line segment inside Q. The segment lies in eta_i union eta_j and has length at most the Euclidean diameter of a four-dimensional unit cube, sqrt(4)=2. Add one such segment for each of the n-1 spanning-tree edges. The resulting connected graph lies in gamma and intersects every cube of every eta_i.
@@ -2555,7 +2555,11 @@ This is analyticity with respect to ACTIVITY COEFFICIENTS. It does not use, and 
 
 ---
 
-## LEMMA ID: YM-RPRIME-C1-1
+## LEMMA ID: YM-RPRIME-CANONICAL-C1-1
+
+
+Iteration-9 source audit:
+This lemma is about the explicitly defined CANONICAL carrier-overlap exact-union chart. It is no longer claimed as a theorem about Balaban's native R'^(k)(X) coordinates. The source prime in (1.90) is only partially characterized, and native R' is defined through a cited series (7.13) [I] whose coordinate localization formula has not been recovered.
 
 Statement — bounded C^1:
 Fix source parameters beta,kappa. Choose lambda_in in the CMP109 summability regime such that
@@ -2660,4 +2664,71 @@ and, for the stronger statement, YM-HISTORY-JACOBIAN-QUASILOCAL-1.
 
 Non-claims:
 No boundary B' lane, no upstream T/E/R/B -> F map, no full compressed history map, and no physical source derivative.
+
+
+
+---
+
+## LEMMA ID: YM-RPRIME-NATIVE-COMPAT-1
+
+Statement needed:
+Extract from CMP122-II (1.90) an exact native incompatibility relation not~_src and a support map Supp_* such that
+
+eta not~_src eta'
+iff
+Supp_*(eta) cap Supp_*(eta') != empty,
+
+with
+
+#Supp_*(eta)<=C_inc |eta|
+
+for a cutoff/volume/scale-uniform C_inc<infinity, and prove a per-edge tree connection cost c_stitch<infinity.
+
+Direct-primary progress:
+Every actual primed family consists of distinct components of Balaban's special component decomposition, hence the pi_k-cube carriers of its members are pairwise disjoint.
+
+Missing:
+The converse that every pairwise cube-carrier-disjoint family is admissible under the prime, or an alternative exact support enlargement describing any additional incompatibilities.
+
+Status:
+OPEN.
+
+Consequence:
+The native KP radius is only conditional:
+
+r_*^corr
+=
+(a/C_inc) exp[-16a-c_stitch theta].
+
+The canonical carrier-overlap specialization has C_inc=1, c_stitch=2.
+
+---
+
+## LEMMA ID: YM-RPRIME-NATIVE-COORD-1
+
+Statement needed:
+Identify Balaban's native localization coordinates after (1.98).
+
+Either prove
+
+R'^(k)_Bal(X)=H_X^can(F)
+
+for the canonical exact-union logarithm of the (1.90) polymer gas, or construct a bounded localization/change-of-coordinate map L with
+
+R'_Bal=L(H^can).
+
+Source fact:
+CMP122-II after (1.98) states that R'^(k)(X) is given by convergent series (7.13) [I], with proper notational changes.
+
+Audit:
+The accessible published CMP109 [I] does not expose/recover this cited formula under that numbering. Equality of the total logarithm does not imply coordinatewise equality.
+
+Status:
+OPEN.
+
+If a bounded linear L:B_theta->B_theta' is found, then
+
+||D R'_Bal||
+<=
+||L|| ||D H^can||.
 
