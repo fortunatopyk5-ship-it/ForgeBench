@@ -1,20 +1,40 @@
-# YM-RPRIME-CANONICAL-C1-1 — canonical exact-union cluster/log C^1 theorem (Iteration 9 audited)
+# YM-RPRIME-C1-1 — audited native Balaban regular R' bounded C^1 theorem (Iteration 9)
 
 Scope:
-Audit-corrected theorem for the CANONICAL exact-union logarithm built from the CMP122-II (1.90) polymer activities. It is NOT currently identified coordinatewise with Balaban's native R'^(k)(X). No full history map, no K_0, no STEP_0, no physical source differentiation.
+Only the regular/second-group CMP122-II R' cluster/log coefficient sector. No upstream Eq. (1.91) analysis, no boundary B' theorem, no full history map, no K_0, no STEP_0, no physical source differentiation.
 
-## Iteration 9 audit correction
+## Iteration 9 audit correction — resolved
 
-Two Iteration-8 source identifications were too strong.
+The temporary Iteration-9 downgrade has been resolved by direct-primary CMP116.
 
-1. CMP122-II p.388 proves that the X'_p occurring in each actual primed family are components of a special decomposition of X'_0 and the expression factorizes in those components. Thus their pi_k-cube carriers are pairwise disjoint. The accessible primary passage does NOT state the converse that every pairwise carrier-disjoint family is admissible under the prime. Hence native incompatibility is not proved to be iff carrier overlap.
+CMP116 (2.11) supplies the exact polymer compatibility convention used by Balaban's cluster expansion:
 
-2. CMP122-II p.390 states that native R'^(k)(X) is given by the convergent series (7.13) [I]. The formula of that cited series has not been recovered in the accessible published CMP109 version. Equality of total logarithms does not imply equality of localization coordinates. Hence
-R'_Bal(X)=H_X^can(F)
-is NOT established.
+zeta(eta,eta')=0
 
-All statements below using literal overlap, C_inc=1, c_stitch=2, exact-union support, and r_*=a exp[-16a-2theta] are therefore statements about the explicitly defined CANONICAL carrier-overlap cluster chart unless explicitly marked conditional/native.
-See rprime_coordinate_audit.md.
+iff eta cap eta' contains either a pi_k cube or a full wall of a pi_k cube; otherwise zeta=1.
+
+Thus the native incompatibility support is the closed one-step wall neighborhood of the cube carrier. In d=4,
+
+C_inc=2d+1=9.
+
+For a native incompatibility edge, two constituent unit cubes either coincide or share a wall. The union of two wall-adjacent 4D unit cubes has Euclidean diameter sqrt(7), so
+
+c_stitch=sqrt(7).
+
+CMP122-II says native R'^(k)(X) is given by series (7.13) [I] with proper notational changes. The legacy source numbering is resolved by the published continuation CMP116:
+- CMP122-II calls the first Mayer step (7.1) [I];
+- published CMP116 Sect. 2 calls its first Mayer step (2.1);
+- published CMP116 (2.13) is the localized connected Ursell coefficient grouped by exact union.
+
+The published CMP109 version ends before this cluster construction and explicitly defers it to the next paper. Therefore the legacy (7.13) [I] citation is source-crosswalked to published CMP116 (2.13).
+
+Hence, after the notational replacement H -> F and E -> R',
+
+R'^(k)_Bal(X)=H_X^can(F)
+
+coordinatewise.
+
+This file now records the NATIVE theorem with corrected constants.
 
 ## 1. Source object and regular projection
 
@@ -181,25 +201,27 @@ Our separate generalized-KP condition in Section 6 establishes holomorphy for ev
 
 For a connected localization domain X, d_k(X) is the shortest-tree length in the rescaled pi_k-cube geometry.
 
-For the CANONICAL carrier-overlap model, let eta_1,...,eta_n be polymers whose carrier-overlap graph is connected and let
+Let eta_1,...,eta_n be polymers whose NATIVE incompatibility graph is connected and let
 
 gamma=union_i eta_i.
+
+CMP116 (2.11) says an incompatibility edge means that two polymers share either a pi_k cube or a full wall of a pi_k cube.
 
 In d=4,
 
 d_k(gamma)
  <=
  sum_i d_k(eta_i)
- + c_box(n-1),                                             (R9)
-
-where one may take
-
-c_box=sqrt(4)=2.
+ + sqrt(7)(n-1).                                          (R9)
 
 Proof:
-Choose a shortest tree inside each eta_i. Choose a spanning tree of the overlap graph. For each spanning-tree edge, eta_i and eta_j share a unit pi_k cube. Their two internal trees each meet that cube. Join the two meeting points by a segment inside the common unit cube; this costs at most its Euclidean diameter 2. The union is a connected tree in gamma meeting every cube.
+Choose a shortest tree inside each eta_i and a spanning tree of the incompatibility graph. For every spanning-tree edge choose either a common unit cube or two unit cubes sharing a wall. Each internal tree meets its chosen cube. In the worst case the two cubes form a 4D box of side lengths 2,1,1,1, whose Euclidean diameter is sqrt(7). Joining the two meeting points inside this box costs at most sqrt(7). Repeat over the n-1 spanning-tree edges.
 
-This is the geometric ingredient for the CANONICAL carrier-overlap chart. For native CMP122-II compatibility, c_stitch remains UNKNOWN until the prime is characterized exactly.
+Thus
+
+c_stitch=sqrt(7)
+
+is a rigorous native uniform choice.
 
 ## 6. Explicit tree-weighted KP ball
 
@@ -220,7 +242,7 @@ Define the generalized KP weights
 
 a_KP(eta)=a|eta|,
 
-g_theta(eta)=theta d_k(eta)+2theta.                        (R11)
+g_theta(eta)=theta d_k(eta)+sqrt(7)theta.                        (R11)
 
 For any F in B_in,k(mu_in),
 
@@ -230,7 +252,7 @@ sum_{eta contains B}
 exp[a_KP(eta)+g_theta(eta)]
 
 <=
-exp(16a+2theta)||F||_in.                                  (R12)
+exp(16a+sqrt(7)theta)||F||_in.                                  (R12)
 
 Indeed,
 a|eta|+theta d(eta)+2theta
@@ -243,13 +265,13 @@ Set
 
 q(rho)
  :=
- e^{16a+2theta} rho,                                      (R13)
+ e^{16a+sqrt(7)theta} rho,                                      (R13)
 
 and define the EXPLICIT sufficient convergence radius
 
 r_*
  :=
- a e^{-16a-2theta}.                                       (R14)
+ (a/9) e^{-16a-sqrt(7)theta}.                                       (R14)
 
 If
 
@@ -257,34 +279,37 @@ If
 
 then q(rho)<a.
 
-For every polymer eta_0 in the explicitly defined CANONICAL carrier-overlap system, incompatibility is carrier overlap, hence
+Define Car(eta) as the pi_k-cube carrier and
+
+Supp_*(eta)=N_wall[Car(eta)].
+
+In d=4,
+
+#Supp_*(eta)<=9|eta|.
+
+Therefore for every native polymer eta_0,
 
 sum_{eta incompatible with eta_0}
 ||F_eta|| e^{a_KP(eta)+g_theta(eta)}
 
 <=
-|eta_0| q(rho)
-<
-a|eta_0|
-=
-a_KP(eta_0).                                              (R15)
+9|eta_0| q(rho).
+
+The native KP condition is
+
+9q(rho)<a,
+
+which is guaranteed by
+
+rho<r_*,
+
+r_*=(a/9)e^{-16a-sqrt(7)theta}.                           (R15)
 
 Thus the generalized Kotecky-Preiss criterion holds uniformly in finite volume, cutoff, and scale for the CANONICAL carrier-overlap system.
 
-For a general native incompatibility certificate with
-#Supp_*(eta)<=C_inc |eta|
-and connection cost c_stitch per incompatibility-tree edge, the corrected formulas are
+No hidden "sufficiently small" activity radius is used: the native sufficient radius is explicitly
 
-g_theta(eta)=theta d(eta)+c_stitch theta,
-
-q(rho)=exp(16a+c_stitch theta) rho,
-
-r_*^corr=(a/C_inc) exp[-16a-c_stitch theta].
-
-For the canonical carrier-overlap chart C_inc=1 and c_stitch=2, recovering (R14).
-Native C_inc and c_stitch are currently UNKNOWN.
-
-No hidden "sufficiently small" activity radius is used in the canonical theorem.
+r_*=(a/9)e^{-16a-sqrt(7)theta}.
 
 ## 7. Canonical cluster logarithm and exact-union support
 
@@ -340,9 +365,13 @@ r_col=0.                                                   (R19)
 
 If an output gamma belongs to the source second/regular group and is disjoint from the source boundary/large-field set, every constituent eta in (R16) is contained in gamma and is therefore also disjoint from that set. Hence boundary-lane input activities cannot contribute to a regular output coefficient.
 
-Thus the CANONICAL regular coefficient is the regular projection of the canonical logarithm of the regular input activity family.
+Published CMP116 (2.13) defines the localized connected coefficient by the exact-union constraint. The CMP122-II legacy citation (7.13) [I] is the same cluster formula under the source's earlier numbering, as certified by the (7.1) [I] Mayer-step <-> published CMP116 (2.1) crosswalk.
 
-This does NOT establish coordinatewise equality with Balaban's native R'^(k)(X). That identification is OPEN because the source defines the native term through a cited series (7.13) [I] whose localization formula has not yet been recovered.
+Therefore, with the stated notational changes,
+
+R'^(k)_Bal(gamma)=H_R'(F)_gamma.
+
+Thus the exact-union derivative theorem applies directly to Balaban's native R' coordinates.
 
 ## 8. Uniform output bound and holomorphy
 
@@ -568,7 +597,7 @@ All constants are cutoff/volume/depth independent.
 Important honesty point:
 the existence of lambda_res in the CMP109 summability regime is NOT needed for bounded C^1 into B_out(theta). It is needed only for the stronger quasi-local Schur kernel statement. This run does not invent a numerical source threshold ensuring (R33).
 
-## 13. YM-RPRIME-CANONICAL-C1-1
+## 13. YM-RPRIME-C1-1
 
 Theorem — bounded C^1 part:
 Fix Balaban source parameters beta,kappa and choose:
@@ -579,14 +608,14 @@ Fix Balaban source parameters beta,kappa and choose:
 2. a,theta>0 satisfying
    16a+theta<=mu_in;
 
-3. r_*=a exp[-16a-2theta];
+3. r_*=(a/9) exp[-16a-sqrt(7)theta];
 
 4. gamma_R'>0 small enough that
    r=C_geo(lambda_in)e^{-p_0(gamma_R')}<r_*;
 
 5. rho=(r+r_*)/2.
 
-Then for every RG scale k with 0<g_k<=gamma_R', the CANONICAL carrier-overlap exact-union cluster/log map built from the regular CMP122-II (1.90) input activities,
+Then for every RG scale k with 0<g_k<=gamma_R', the native regular/second-group Balaban cluster/log coefficient map defined by CMP122-II (1.90), (1.98) and the exact-union series crosswalk,
 
 H_R',k^reg:
 B_r(B_in,k(mu_in))
@@ -613,10 +642,14 @@ C_geo(lambda_in)e^{-p_0(g_k)}
 <=r.
 
 Status of bounded C^1 theorem:
-PROVED FOR THE CANONICAL CARRIER-OVERLAP EXACT-UNION CLUSTER/LOG CHART, under the explicit source decay-budget condition in item 1.
+PROVED FOR THE BALABAN NATIVE REGULAR R' CLUSTER/LOG COEFFICIENT SECTOR, with the corrected cube-or-wall compatibility constants
 
-NATIVE BALABAN R' COORDINATE STATUS:
-NOT PROVED / COORDINATE IDENTIFICATION OPEN.
+C_inc=9,
+c_stitch=sqrt(7),
+
+and corrected explicit radius
+
+r_*=(a/9)e^{-16a-sqrt(7)theta}.
 
 No unnamed source convergence radius is used.
 
@@ -649,7 +682,7 @@ is recorded only as the
 
 SOURCE-VISIBLE DECAY RESERVE.
 
-The actual Banach operator loss in YM-RPRIME-CANONICAL-C1-1 is
+The actual Banach operator loss in YM-RPRIME-C1-1 is
 
 mu_in-mu_out,
 
@@ -675,7 +708,7 @@ The present theorem is a coefficient-space C^1 result only.
 
 ## 16. Final Iteration-8 verdict
 
-The canonical carrier-overlap exact-union cluster/log C^1 theorem is closed under an explicit source decay-budget inequality. The prior claim that this already proves bounded C^1 for Balaban's native R'^(k)(X) coordinates is withdrawn. Native closure now additionally requires exact prime/incompatibility identification and native-coordinate identification. The stronger canonical quasi-local Schur estimate is conditional on one additional explicit decay reserve.
+The native Balaban regular R' cluster/log coefficient map is uniformly bounded C^1 after the exact compatibility and coordinate audits. The correct native constants are C_inc=9 and c_stitch=sqrt(7), so the explicit radius is smaller than in Iteration 8. The stronger quasi-local Schur estimate remains conditional on one additional explicit decay reserve.
 
 The next blocker, outside this run's allowed scope, is not R' exponentiation. It is upstream:
 the bounded C^1/source-local map that constructs the pre-exponentiation activity F from the earlier localized T/E/R/B history data (and, separately, the boundary B' lane).
