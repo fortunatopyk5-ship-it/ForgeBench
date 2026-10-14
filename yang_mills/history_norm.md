@@ -292,7 +292,7 @@ A cutoff/RG-depth-uniform H_1^loc for the full Balaban source map is not yet ext
 
 Iteration 6 wrote the formal sum
 
-Rec_A(F)=sum_gamma Phi_gamma(F)
+Act_A(F)=sum_gamma Phi_gamma(F)
 
 although Phi_gamma(F) may belong to different local spaces C_gamma. That formula is not intrinsically typed.
 
@@ -306,12 +306,18 @@ and canonical injections
 
 iota_{gamma,A}:C_gamma->D_A^(mu).
 
-The correct definition is
+The correct ACTIVITY-VECTOR definition is
 
-Rec_A(F)
+Act_A(F)
 =
 sum_{supp(gamma) intersects A^+}
 iota_{gamma,A} Phi_gamma(F).
+
+Act_A is not a physical local density/marginal reconstruction. A future synthesis map
+
+S_A:D_A^(mu)->F_A
+
+must be handled separately; its boundedness is currently UNKNOWN.
 
 If
 
@@ -329,10 +335,10 @@ Lip_R(Phi_gamma),
 
 then
 
-||Rec_A(F)||_{D_A^(mu)}
+||Act_A(F)||_{D_A^(mu)}
 <=|A^+|h_0^(mu),
 
-||Rec_A(F)-Rec_A(G)||_{D_A^(mu)}
+||Act_A(F)-Act_A(G)||_{D_A^(mu)}
 <=|A^+|h_1^(mu)||F-G||.
 
 Status:
