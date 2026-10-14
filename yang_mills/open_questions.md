@@ -173,3 +173,30 @@ The older a exp[-16a-2theta] radius was only the cube-overlap-only provisional c
 59. RESOLVED for d=4 native R': C_inc=9 and c_stitch=sqrt(7), hence
 r_*^native=(a/9)exp[-16a-sqrt(7)theta].
 The old C_inc=1,c_stitch=2 specialization is only the stricter cube-overlap toy chart.
+
+
+## Iteration 10 — CMP122-II Eq. (1.91) upstream audit
+
+60. RESOLVED for the already-localized coordinates: Eq. (1.91) defines a Banach-holomorphic/C^1 map (T',V)->F on a frozen-history mixed source-majorant/anchored coefficient ball with uniform radius.
+
+61. RESOLVED: hard domain/history labels are not tangent coordinates. On each fixed history fiber Sigma, the condition "determines exactly X'" is coefficient-independent, so coefficient variations do not differentiate characteristic thresholds.
+
+62. RESOLVED: exact reduced Jacobian support is
+D_eta F(X')=0 unless eta subset X'
+for T' and V coordinates.
+
+63. OPEN / CURRENT BLOCKER:
+extract
+P_V:(K_E,K_R,K_B,K_old,...)->(V(Y))_Y
+as a bounded coefficient-space map in the anchored topology. The pp.376-377 source proof gives output bounds but has not yet been translated into a difference/Frechet operator estimate.
+
+64. OPEN:
+for the stronger upstream quasi-local Schur theorem, derive a marked two-anchor version of the absolute majorant behind (1.92)-(1.97). Exact support alone is insufficient because the mixed source-regulator coordinate injection must also be summed.
+
+65. PARTIAL:
+the local T exponential/integration map is C^1 once its local exponent insertion is a coefficient coordinate. What remains for the raw T producer is the bounded map from raw E/R/B/history coefficients into that local exponent insertion, especially the V(X~) contribution.
+
+66. Once P_V and the analogous raw-to-T-exponent producer are bounded, compose their constant C_P with
+C_1.91
+and the already audited downstream C_R' to get
+||D R'_Bal(raw)|| <= C_R' C_1.91 C_P.
