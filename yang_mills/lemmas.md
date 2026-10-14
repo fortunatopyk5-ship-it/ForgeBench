@@ -2966,12 +2966,11 @@ The source proves output analyticity in physical fields and pointwise bounds, bu
 
 ---
 
-## LEMMA ID: YM-RPRIME-UPSTREAM-C1-1
+## LEMMA ID: YM-RPRIME-UPSTREAM-C1-1 — HISTORICAL INTERMEDIATE VERSION, SUPERSEDED
 
-Desired raw theorem:
-(T,E,R,B,local history coefficients)->F is uniformly bounded C^1.
+This block records an earlier pre-renormalized/raw-chart audit and is superseded by the final source-native theorem with the same base ID later in this file.
 
-Status:
+Former status:
 PARTIAL / BLOCKED AT YM-RPRIME-UPSTREAM-PRODUCER-1.
 
 Proved reduced theorem:
@@ -3262,3 +3261,82 @@ Status:
 PROVED.
 
 No D^2 claim and no boundary B' claim.
+
+
+---
+
+## LEMMA ID: YM-V-PRODUCER-MIXED-NORM-1
+
+Statement:
+Fix a frozen source/history sector Sigma. Suppose the source-native renormalized local atoms K_lambda have positive majorants M_lambda, and the V-resummation is the coefficient-independent signed incidence map
+
+(P_VK)(Y)
+=
+sum_lambda A_Sigma(Y,lambda)K_lambda.
+
+Assume the direct source absolute resummation estimate
+
+sum_lambda
+|A_Sigma(Y,lambda)|M_lambda
+<=
+C_res M_V(Y)
+
+with C_res uniform in volume, cutoff and k.
+
+Equip the input with a mixed norm containing
+
+sup_lambda ||K_lambda||/M_lambda,
+
+and equip the output with
+
+||V||_V
+=
+max{
+ sup_Y ||V_Y||/(C_res M_V(Y)),
+ [C_res C_MV(mu_V)]^{-1}
+ sup_B sum_{Y contains B}
+ e^{mu_V d(Y)}||V_Y||
+},
+
+where
+
+C_MV(mu_V)
+=
+sup_B sum_{Y contains B}
+e^{mu_V d(Y)}M_V(Y)
+<infinity.
+
+Then
+
+||P_VK||_V
+<=
+||K||_up.
+
+In particular P_V is bounded linear and entire.
+
+Status:
+PROVED.
+
+Proof:
+From the pointwise part of the input norm,
+
+||K_lambda||
+<=
+||K||_up M_lambda.
+
+Hence
+
+||(P_VK)(Y)||
+<=
+||K||_up
+sum_lambda|A_Sigma(Y,lambda)|M_lambda
+<=
+C_res||K||_upM_V(Y).
+
+This gives the output weighted-sup term. Multiply by e^{mu_Vd(Y)}, sum over Y containing a fixed anchor B, and use C_MV(mu_V) for the anchored term.
+
+Important:
+This is a ROW-majorant theorem. It proves the Banach operator bound because the input topology contains the source-majorant regulator. It does not imply a two-anchor/off-diagonal Schur estimate for A_Sigma.
+
+Application:
+CMP122-II pp.376--377 provide exactly the required absolute resummation structure for the decaying (1.68) V-class after source-native E/R/B atoms are supplied.
