@@ -351,9 +351,9 @@ source cluster expansion + strict convergence reserve
  -> Banach-valued holomorphic cluster map
  -> Cauchy derivative bound.
 
-## 11. R' sector C^1 audit — Iteration 8 closure
+## 11. R' canonical cluster/log C^1 audit — Iteration 9 correction
 
-The regular/second-group R' cluster/log coefficient sector is now source-instantiated in rprime_c1.md.
+The canonical carrier-overlap exact-union cluster/log coefficient map built from the (1.90) activities is proved C^1 in rprime_c1.md. Iteration 9 withdraws the stronger claim that these coordinates have already been identified with Balaban's native R'^(k)(X).
 
 Key improvements over the provisional Iteration-7 formulation:
 
@@ -392,7 +392,8 @@ q(rho)/(rho-r)
 as a map into B_out(theta).
 
 R'-SECTOR VERDICT:
-REGULAR R' CLUSTER/LOG COEFFICIENT MAP = BOUNDED HOLOMORPHIC / C^1 PROVED under the explicit input decay-budget mu_in>0.
+CANONICAL CARRIER-OVERLAP EXACT-UNION MAP = BOUNDED HOLOMORPHIC / C^1 PROVED under the explicit input decay-budget mu_in>0.
+BALABAN NATIVE R' COORDINATE MAP = NOT PROVED; native prime compatibility and native coordinate localization are OPEN.
 
 The stronger spatially quasi-local Schur kernel is proved only under the additional explicit reserve
 
@@ -622,7 +623,7 @@ C_lat(nu).
 This is a complete quasi-local C^1 theorem for an exact-union cluster map.
 
 CMP122-II application status:
-Iteration 8 closes the regular source instantiation by using the canonical exact-union logarithm of Eq. (1.90) and an explicit KP ball. The boundary lane and upstream construction of F remain separate.
+Iteration 9 correction: the canonical exact-union theorem is closed, but source-to-native coordinate identification is not. Equality of total logarithms cannot substitute for a localization-coordinate theorem.
 
 ## 20. New blocker ranking
 
