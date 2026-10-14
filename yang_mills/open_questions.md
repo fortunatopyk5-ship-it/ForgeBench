@@ -141,7 +141,7 @@ and rho=(r+r_*)/2.
 
 47. Independently, extract an inner/outer normalized field/source analytic-domain pair with delta_ref>0 to justify Cauchy derivatives with respect to J/U. Different log powers in alpha_0,j and alpha_1,j must be handled, not hidden by a single scalar rescaling.
 
-48. Instantiate YM-HISTORY-JACOBIAN-1 for one complete source sector and verify the selector/off-diagonal kernel estimate directly. Preferred first target: the exact-union R' cluster/log submap.
+48. RESOLVED/PARTIAL split in Iteration 8: for the regular R' canonical exact-union cluster/log chart, D_eta H_gamma=0 unless eta subset gamma and r_col=0. Bounded C^1 is closed. The off-diagonal Schur estimate is proved under the explicit additional reserve theta-mu_out-nu in the CMP109 summability regime; verifying that extra reserve for a concrete numerical Balaban parameter choice remains open.
 
 49. For T, identify the precise dependency collar X^+ and prove |X^+|<=C_col(1+d_k(X)) in the source geometry, completing the conditional hypothesis of YM-T-SECTOR-C1-1.
 
