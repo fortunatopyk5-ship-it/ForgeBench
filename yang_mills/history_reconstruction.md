@@ -532,9 +532,9 @@ e^{-p_0(g_k)}C_geo(kappa-mu).
 
 These are cutoff/volume independent under the source small-coupling hypotheses and a fixed decay reserve.
 
-## 16. Local reconstruction and continuity — Iteration-7 typed form
+## 16. Local activity vector and continuity — Iteration-8 naming correction
 
-YM-HISTORY-RECON-LOCAL-1 replaces the global reconstruction theorem.
+YM-LOCAL-ACTIVITY-VECTOR-1 controls only the local direct-sum activity vector; it does not replace a physical reconstruction/synthesis theorem.
 
 Because different connected activities live in different local spaces C_gamma, define
 
