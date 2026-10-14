@@ -129,9 +129,13 @@ This is now the central continuity blocker.
 43. Extract a source-exact support/collar theorem for every history-resummation submap:
 M_{gamma eta}=0 unless eta lies in a fixed enlargement of gamma (or a stronger connected-union relation). Record the enlargement in block units at each scale.
 
-44. Translate the CMP116/CMP122 "sufficiently small" activity conditions into a strict anchored input radius r_* and choose r<rho<r_* so that the Banach-Cauchy margin delta=rho-r is cutoff/volume/depth independent.
+44. RESOLVED for the regular R' coefficient sector in Iteration 8: do not identify a hidden source threshold with a Banach radius. Instead use the explicit sufficient KP radius
+r_*=a exp[-16a-2theta],
+then choose gamma_R' so that
+r=C_geo(lambda_in)e^{-p_0(gamma_R')}<r_*
+and rho=(r+r_*)/2.
 
-45. For the R' cluster/log submap, verify that the source majorant proof is uniform for every complex activity family in the anchored ball, not only for the particular activity family constructed by the RG step. This is the last source-instantiation hypothesis in YM-RPRIME-CLUSTER-C1-1.
+45. RESOLVED for the regular R' coefficient sector in Iteration 8: generalized KP provides a volume/scale-uniform majorant for every Banach-algebra-valued activity family in the explicit anchored ball, so the canonical cluster logarithm is normally convergent and Banach-holomorphic.
 
 46. Build the scale-graded activity coefficient Banach space explicitly using A_{j,X}=H^infinity(U_j^c(X,...)) and prove every source restriction/localization map used by history resummation is bounded between the relevant coordinates.
 
@@ -142,3 +146,16 @@ M_{gamma eta}=0 unless eta lies in a fixed enlargement of gamma (or a stronger c
 49. For T, identify the precise dependency collar X^+ and prove |X^+|<=C_col(1+d_k(X)) in the source geometry, completing the conditional hypothesis of YM-T-SECTOR-C1-1.
 
 50. Decide whether the full compressed outer-history -> connected-activity map should be differentiated coefficientwise on the graded space or only after one further source resummation that removes hard characteristic boundaries.
+
+
+## Iteration 8 — after regular R' C^1 closure
+
+51. Upstream R' input construction: prove bounded C^1/locality for the map that constructs the pre-exponentiation F(X') of CMP122-II (1.91) from the preceding localized T/E/R/B/history data. This is now the nearest history-resummation blocker but was out of scope in Iteration 8.
+
+52. Boundary R' / B' lane: instantiate an anchored Banach norm for the relative metric d_{k,Y} and prove the corresponding coefficient C^1 theorem for outputs intersecting the large-field boundary set.
+
+53. Quasi-local regular R' Jacobian: extract enough source decay-budget information to verify existence of mu_out,nu>0 with theta-mu_out-nu in the CMP109 summability regime, or keep the Schur estimate explicitly conditional. Do not invent a numerical kappa threshold.
+
+54. Source insertion interface: choose J_A and prove a bounded jmath_A:J_A->B_in before using physical sources as activity tangents.
+
+55. Synthesis: define S_A:D_A^(mu)->F_A and prove any desired boundedness separately. Act_A is only a direct-sum activity vector.
