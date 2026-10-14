@@ -351,57 +351,106 @@ source cluster expansion + strict convergence reserve
  -> Banach-valued holomorphic cluster map
  -> Cauchy derivative bound.
 
-## 11. R' canonical cluster/log C^1 audit — Iteration 9 correction
+## 11. Native R' cluster/log C^1 audit — Iteration 9 final
 
-The canonical carrier-overlap exact-union cluster/log coefficient map built from the (1.90) activities is proved C^1 in rprime_c1.md. Iteration 9 withdraws the stronger claim that these coordinates have already been identified with Balaban's native R'^(k)(X).
+Iteration 9 resolves the temporary canonical/native split.
 
-Key improvements over the provisional Iteration-7 formulation:
+### Exact compatibility
 
-1. The pre-exponentiation source object is the CMP122-II Eq. (1.90)-(1.97) hard-core polymer activity F(X').
+The published Balaban cluster construction CMP116 Eq. (2.11) uses
 
-2. No unnamed source convergence radius c_* is used. An explicit sufficient anchored radius is constructed from generalized KP:
+zeta(eta,eta')=0
 
-r_*=a exp[-16a-2theta]
+iff the intersection contains either a cube or a full wall of a cube.
 
-for 16a+theta<=mu_in.
+Hence the exact incompatibility support is the closed one-step wall-neighborhood of the cube carrier,
 
-3. The actual source input satisfies
+Supp_*(eta)=N_wall[Car(eta)],
 
-||F^src||_in
+with the d=4 bound
+
+#Supp_*(eta)<=9|eta|.
+
+Thus
+
+C_inc=9.
+
+The corresponding per-edge tree-stitching cost is
+
+c_stitch=sqrt(7),
+
+because two wall-adjacent rescaled unit 4-cubes have union diameter sqrt(7).
+
+### Corrected radius
+
+With
+
+g_theta(eta)=theta d(eta)+sqrt(7)theta,
+
+16a+theta<=mu_in,
+
+the rooted activity bound is
+
+q_native(rho)=exp(16a+sqrt(7)theta)rho.
+
+The KP criterion is
+
+9q_native(rho)<a,
+
+so the native sufficient radius is
+
+r_*^native
+=
+(a/9)exp[-16a-sqrt(7)theta].
+
+The older
+a exp[-16a-2theta]
+radius applies only to the stricter cube-overlap-only toy chart.
+
+### Coordinate identification
+
+CMP122-II uses legacy references (7.1)[I] for the Mayer step and (7.13)[I] for R'^(k)(X). Published CMP109 ends before the cluster localization and explicitly defers it to the next paper. Published CMP116 Sect. 2 is that cluster-expansion continuation:
+- (2.1) is the Mayer step;
+- (2.11) defines zeta;
+- (2.12) is the connected logarithm;
+- (2.13) defines the localized coefficient by exact union.
+
+Therefore the legacy/published source crosswalk gives
+
+R'^(k)_Bal(X)=H_X^can(F)
+
+coordinatewise.
+
+COORDINATE IDENTIFICATION: EXACT (SOURCE-CROSSWALK VERIFIED).
+
+### C^1 status
+
+With the corrected r_*^native and strict source radius r<rho<r_*^native,
+
+R'^(k)_Bal:
+B_r(B_in(mu_in))
+->
+B_out(theta)
+
+is Banach-holomorphic and
+
+sup_{||F||<=r}||D R'^(k)_Bal(F)||
 <=
-C_geo(lambda_in)e^{-p_0(g_k)},
+q_native(rho)/(rho-r).
 
-so the primary p_0(g)->infinity profile lets one choose a fixed gamma_R' with a strict radius
+NATIVE REGULAR R' BOUNDED C^1 = PROVED.
 
-r<rho<r_*.
+The exact-union definition still gives
 
-4. The cluster logarithm is grouped by exact polymer union. Hence
+D_eta R'_Bal,X=0 unless eta subset X,
 
-D_eta H_R',gamma=0 unless eta subset gamma,
+so r_col=0.
 
-so the coefficient-map collar is r_col=0.
+The stronger off-diagonal Schur estimate remains conditional on
 
-5. Uniform absolute KP convergence on every closed rho-ball proves Banach-valued holomorphy uniformly in finite volume and scale.
+C_geo(theta-mu_out-nu)<infinity.
 
-6. Banach Cauchy gives the uniform bounded derivative
-
-sup_{||F||<=r}||D H_R'(F)||
-<=
-q(rho)/(rho-r)
-
-as a map into B_out(theta).
-
-R'-SECTOR VERDICT:
-CANONICAL CARRIER-OVERLAP EXACT-UNION MAP = BOUNDED HOLOMORPHIC / C^1 PROVED under the explicit input decay-budget mu_in>0.
-BALABAN NATIVE R' COORDINATE MAP = NOT PROVED; native prime compatibility and native coordinate localization are OPEN.
-
-The stronger spatially quasi-local Schur kernel is proved only under the additional explicit reserve
-
-theta-mu_out-nu
-
-lying in the CMP109 geometric-summability regime. No numerical source threshold for that extra reserve is invented.
-
-Boundary B' outputs and the upstream T/E/R/B -> F construction remain outside this theorem.
+No numerical source threshold for that extra reserve is asserted.
 
 ## 12. T sector C^1 audit
 
