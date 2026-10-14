@@ -2679,7 +2679,7 @@ On a fixed CMP122-II history/domain sector, the pre-exponentiation activity of E
 
 F(X')
 =
-sum_q
+sum_{q>=0}
 sum'_{ {X_{j_1},...,X_{j_q}} }
 sum'_D
 [
