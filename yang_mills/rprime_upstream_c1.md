@@ -709,6 +709,113 @@ The same unresolved producer enters the V(X~) term inside T'_k(X).
 
 Therefore the local T exponential is not the blocker; the raw-to-local-potential producer is.
 
+## 13.3 CMP119 renormalization audit — first genuinely difficult raw submap
+
+Direct primary CMP119 sharpens the producer audit.
+
+### E sector
+
+CMP119 (2.25) writes the regular action as a sum of renormalized contributions of the form
+
+E^(j)(Lambda_j,U)
+-
+E^(j)(Lambda_j,1)
+-
+beta_j A(phi_j,U).
+
+CMP119 (2.26)-(2.27) then localizes E^(j) into point/localization-domain coefficients
+
+E^(j)(X,U,z).
+
+CMP119 (3.65) localizes the action counterterm,
+
+A(phi_j,U)
+=
+sum_z A(h_z phi_j,U),
+
+and (3.67) displays the local renormalized combination
+
+E^(j)(Lambda_j,U,z)
+-
+E^(j)(Lambda_j,1,z)
+-
+beta_j A(h_z phi_j,U).
+
+Vacuum subtraction
+
+f -> f-f(1)
+
+is bounded linear in the local H-infinity coefficient norm, with operator norm at most 2.
+
+The nontrivial operation is the relevant/coupling extraction producing beta_j.
+
+CMP119 (3.64) identifies beta_j with a second-derivative coefficient of the localized quadratic kernel (equivalently a second derivative of its Fourier transform at zero). Thus, at coefficient level, the E-renormalization is a LINEAR projection of the schematic form
+
+P_E f
+=
+f-f(1)-ell_beta,j(f) A_j,                                (U39a)
+
+where ell_beta,j is a linear second-order extraction functional.
+
+To prove a cutoff/scale-uniform bound for P_E one needs
+
+sup_j ||ell_beta,j||_{A_{E,j}->C}<infinity               (U39b)
+
+in the chosen scale-graded coefficient norm, together with a uniform bound for the corresponding localized action atom A_j.
+
+The native H-infinity domains have scale-dependent radii alpha_0,j,alpha_1,j. A naive unweighted Cauchy estimate for ell_beta,j may therefore lose powers of those shrinking radii. This is precisely where a normalized/derivative-weighted coefficient chart is required.
+
+No uniform bound (U39b) has yet been extracted.
+
+### R sector
+
+CMP119 (2.30) gives
+
+R_k(U)
+=
+sum_j
+[
+ R^(j)(Lambda_j,U)
+ -
+ R^(j)(Lambda_j,1)
+].
+
+No coupling counterterm is needed; the source explicitly says only vacuum-energy renormalization is performed.
+
+Thus the local coefficient renormalization
+
+P_R f=f-f(1)
+
+is bounded linear with norm <=2 in H-infinity.
+
+The localized R coefficients have the strong exponential bound (2.31), with arbitrarily large source localization exponent after fixing parameters.
+
+### B sector
+
+CMP119 states immediately after (2.33) that B_k needs no renormalization. It is already a sum of bounded/small localized analytic terms, represented in (2.40)-(2.42).
+
+Thus, after freezing the history/domain labels, the B contribution to the pp.376-377 producer consists only of restriction/reindexing/resummation, not a relevant-part extraction.
+
+### Consequence
+
+The broad blocker P_V can now be sharpened.
+
+The FIRST genuinely unproved analytic submap is
+
+ell_beta,j:
+E-local coefficient -> coupling/relevant coefficient,
+
+uniformly in the scale-graded native analytic topology.
+
+If beta_j is treated as an already-extracted separate source coordinate, then the subsequent local E renormalization is bounded linear, just like R and B. However this run does NOT use that convention to claim the raw theorem: the requested raw E-coordinate map must justify the extraction rather than freeze it silently.
+
+So the exact blocker is
+
+YM-E-RELEVANT-EXTRACT-1:
+prove a scale-uniform bounded extraction/projection theorem for (3.64)-(3.67).
+
+Only after that should the remaining linear pp.376-377 resummation be packaged as a bounded anchored incidence operator.
+
 ## 14. Pointwise derivative status
 
 For a reduced input sector s in {T,V}, let I_{s,eta} be the coordinate injection. In the mixed norm,
@@ -830,12 +937,11 @@ the producer map from raw E/R/B/history coefficient families into the local resi
 
 FIRST FAILED SUBMAP:
 
-P_V:
-(E,R,B,old-history coefficients)
-->
-V(Y),
+YM-E-RELEVANT-EXTRACT-1,
 
-more precisely the bounded coefficient-space localization/renormalization/resummation operator hidden in the prose leading to (1.68).
+the scale-uniform bounded relevant/coupling extraction inside the E-sector renormalization (CMP119 (3.64)-(3.67)).
+
+The R vacuum subtraction is bounded linear, and B needs no renormalization. The remaining pp.376-377 resummation is linear at frozen labels once its renormalized local atoms are supplied, but its anchored incidence constant should still be written explicitly after YM-E-RELEVANT-EXTRACT-1 is closed.
 
 This is now the exact blocker.
 
