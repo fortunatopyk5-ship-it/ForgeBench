@@ -349,7 +349,42 @@ max{
  ||T'_X||_op
 },                                                       (U20)
 
-where M_T(X) is the direct-primary source majorant from (1.75),(1.89), including its small p_0(gamma) factor and exp[-kappa d_k(X)], and C_T,sum is the corresponding anchored geometric sum at the fixed coupling threshold.
+where M_T(X) is the direct-primary source majorant obtained by combining:
+- the normalized-operator bound (1.75);
+- the small scalar factor (1.89);
+- the additional positive tree-decay exponent stated immediately after (1.89).
+
+Write that source tree exponent as kappa_T>0 rather than silently identifying it with kappa.
+
+Thus M_T(X) has the source form
+
+M_T(X)
+=
+A_T(gamma)
+e^{-kappa_T d_k(X)},                                     (U20a)
+
+with
+
+A_T(gamma)
+<=
+e^3 exp[-2(1+beta_0)^{-1}p_0(gamma)]
+
+up to the fixed harmless source constants already present in the local T estimate.
+
+Choose
+
+0<=mu_T<kappa_T
+
+and define, not merely name,
+
+C_T,sum
+:=
+sup_B
+sum_{X contains B}
+e^{mu_T d_k(X)}M_T(X)
+<infinity.                                               (U20b)
+
+The finiteness is the direct anchored geometric summability consequence of the residual exponent kappa_T-mu_T>0.
 
 For V define
 
@@ -369,21 +404,38 @@ with the regular-lane source majorant
 M_V(Y)
 =
 alpha_gamma
-e^{-(1+2beta)kappa d_k(Y)},                              (U22)
-
-and C_V,sum the corresponding anchored geometric sum.
+e^{-(1+2beta)kappa d_k(Y)}.                              (U22)
 
 Choose
 
-mu_T<kappa,
+0<=mu_V<(1+2beta)kappa
 
-mu_V<(1+2beta)kappa.                                     (U23)
+and define
+
+C_V,sum
+:=
+sup_B
+sum_{Y contains B}
+e^{mu_V d_k(Y)}M_V(Y)
+<infinity.                                               (U22a)
+
+For the regular lane this follows from CMP109 geometric summability with residual exponent
+
+(1+2beta)kappa-mu_V>0.
+
+Thus the sector choices are
+
+0<=mu_T<kappa_T,
+
+0<=mu_V<(1+2beta)kappa.                                  (U23)
 
 The mixed norms serve two purposes simultaneously:
 - the first term preserves the pointwise source majorants needed in the proof of (1.92)-(1.97);
 - the second term supplies the requested volume-independent anchored topology.
 
-Actual source-generated (T',V) have norm <=1 after the harmless normalization of C_T,sum,C_V,sum.
+Actual source-generated (T',V) have norm <=1 by construction of M_T,M_V,C_T,sum,C_V,sum.
+
+The weighted-sup part is essential: an anchored ball alone would allow rare very large polymers to violate the pointwise source majorant even while retaining a finite anchored norm. The mixed norm prevents that failure.
 
 ## 8. Uniform open coefficient radius for Eq. (1.91)
 
@@ -625,23 +677,54 @@ Therefore the local T exponential is not the blocker; the raw-to-local-potential
 
 ## 14. Pointwise derivative status
 
-For the reduced Eq. (1.91) map, exact support (U32), normal holomorphy and Cauchy imply component bounds of the form
+For a reduced input sector s in {T,V}, let I_{s,eta} be the coordinate injection. In the mixed norm,
 
-||D_eta F(X')||
+w_s(eta)
+:=
+||I_{s,eta}||_{A_eta -> B_red}
+
+is explicit:
+
+w_T(eta)
+=
+max{
+ M_T(eta)^{-1},
+ C_T,sum^{-1}e^{mu_T d_k(eta)}
+},                                                       (U40a)
+
+w_V(eta)
+=
+max{
+ M_V(eta)^{-1},
+ C_V,sum^{-1}e^{mu_V d_k(eta)}
+}.                                                       (U40b)
+
+Let the inflated source-majorant proof give the component estimate on the outer ball
+
+||F_{X'}||
 <=
-C_comp
-e^{+mu_up d_k(eta)}
-e^{-kappa_F d_k(X')},                                   (U40)
+A_F
+e^{-kappa_F d_k(X')}                                    (U40c)
 
-after choosing the usual output decay reserve
-kappa_F>mu_F.
+with kappa_F>mu_F.
 
-Polynomial/rooting factors are absorbed by reducing the output exponent by an arbitrarily fixed positive reserve already available in the inflated source majorant.
+Cauchy in the FULL reduced Banach space, with margin delta_up=R_src-1, gives
+
+||D_{s,eta}F_{X'}[h]||
+<=
+(A_F/delta_up)
+w_s(eta)
+e^{-kappa_F d_k(X')}
+||h||.                                                   (U40)
+
+Together with the exact support rule eta subset X', this is the source-faithful multi-sector version of the requested pointwise Jacobian estimate.
+
+No unspecified polynomial factor is hidden here: any source combinatorial/polynomial loss is already included in the choice of the outer-ball pointwise majorant (U40c), obtained by rerunning the absolute source estimate with strict slack.
 
 Status:
-PROVED SYMBOLICALLY for reduced coordinates T',V.
+PROVED for the reduced coordinates T',V.
 
-For raw E/R/B coordinates the corresponding statement is CONDITIONAL on (U39).
+For raw E/R/B coordinates the corresponding bound is CONDITIONAL on the missing producer estimate (U39).
 
 ## 15. Composition with the audited downstream R' map
 
