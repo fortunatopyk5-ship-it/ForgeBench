@@ -719,7 +719,7 @@ The same unresolved producer enters the V(X~) term inside T'_k(X).
 
 Therefore the local T exponential is not the blocker; the raw-to-local-potential producer is.
 
-## 13.3 CMP119 renormalization audit — first genuinely difficult raw submap
+## 13.3 CMP119 renormalization audit — lower-level chart issue, NOT current source-native blocker
 
 Direct primary CMP119 sharpens the producer audit.
 
@@ -927,7 +927,7 @@ C_R' C_1.91 C_P,                                         (U43)
 
 but C_P has not been proved.
 
-## 16. YM-RPRIME-UPSTREAM-C1-1 verdict
+## 16. YM-RPRIME-UPSTREAM-C1-1 verdict — INTERMEDIATE / SUPERSEDED BY SECTS. 18-25
 
 Desired raw theorem:
 (T,E,R,B,local history coefficients) -> F is uniformly bounded C^1.
@@ -963,3 +963,301 @@ No physical source derivative.
 No D^2 theorem.
 No K_0.
 No STEP_0.
+
+
+## 18. Final correction: use the source-native RENORMALIZED E/R/B coordinates
+
+The temporary blocker YM-E-RELEVANT-EXTRACT-1 arose only if one insists on using a pre-renormalization E coefficient as the upstream Banach coordinate.
+
+That is not the source-native state coordinate at this stage.
+
+CMP119 printed p.259 states explicitly:
+- E_k is the fully renormalized regular part of the current effective action;
+- vacuum-energy and coupling-constant counterterms are already included in it;
+- R_k has already undergone vacuum-energy renormalization;
+- B_k requires no renormalization.
+
+Therefore the coefficient chart immediately upstream of CMP122-II p.376 should use:
+
+E_ren = already-renormalized local E atoms,
+R_ren = already vacuum-renormalized local R atoms,
+B_loc = already-localized B atoms.
+
+The extraction (3.64) belongs to the EARLIER chart transition that constructs E_ren. It is not part of the current map from the source inductive state to Eq. (1.91).
+
+Thus YM-E-RELEVANT-EXTRACT-1 remains a legitimate question about a lower-level UNRENORMALIZED chart, but it is NOT a blocker for the source-native upstream theorem requested here.
+
+## 19. Source-native raw input Banach space
+
+For one frozen history sector Sigma define
+
+B_up,k^(Sigma)
+=
+T_k
+direct-sum E_ren,k
+direct-sum R_ren,k
+direct-sum B_loc,k
+direct-sum K_aux,k.                                      (U44)
+
+K_aux contains any remaining already-localized source atoms entering the p.376-377 resummation; it does not contain hard characteristic labels.
+
+Each local atom lambda has:
+- a localization support X_lambda;
+- a source pointwise majorant M_s(lambda) from the corresponding CMP119/CMP122 inductive bound.
+
+For each sector s define the mixed norm
+
+||K_s||_s
+=
+max{
+ sup_lambda ||K_{s,lambda}||/M_s(lambda),
+
+ (1/C_s)
+ sup_B
+ sum_{lambda: B in X_lambda}
+ e^{mu_s d(X_lambda)}
+ ||K_{s,lambda}||
+}.                                                       (U45)
+
+Here C_s is the finite anchored sum of the source majorant at the chosen residual decay exponent.
+
+For the T sector this is the audited T' norm of Sect. 7, with the exact source tree exponent kappa after (1.89).
+
+For E_ren, R_ren and B_loc, choose mu_s strictly below the source localization exponent of that sector. CMP119 gives:
+- exponential localization for local E coefficients;
+- arbitrarily strong exponential localization for R in (2.31);
+- exponential localization for B in (2.42).
+
+Use the max product norm on B_up.
+
+Actual source-native coefficient families have norm <=1 after fixing the harmless sector normalization constants C_s.
+
+This is an anchored coefficient topology; it is not the physical-field H-infinity topology alone.
+
+## 20. The p.376-377 V-producer is a bounded linear incidence map in this chart
+
+Freeze Sigma.
+
+Every operation used on pp.376-377 after the local atoms have been renormalized is linear in their coefficient values:
+- restriction to an admissible localization domain;
+- summation over auxiliary domains Y'_i;
+- summation over localization domains X;
+- summation over j;
+- summation over term types;
+- exceptional-term resummation;
+- addition of missing action terms and subtraction from the residual.
+
+Thus there is a signed incidence kernel
+
+A_Sigma(Y,lambda)
+
+such that
+
+V(Y)
+=
+sum_lambda
+A_Sigma(Y,lambda)K_lambda.                               (U46)
+
+The kernel is combinatorial/geometric and coefficient-independent on the frozen history fiber.
+
+The absolute-value proof on p.376 states that the resummations are bounded by a constant times the same extracted exponential factor; p.377 completes the remaining resummations and obtains (1.68).
+
+Therefore, if M_lambda denotes the exact source majorant assigned before the resummation, the proof yields a cutoff/volume/k-uniform finite constant C_res with
+
+sum_lambda
+|A_Sigma(Y,lambda)| M_lambda
+<=
+C_res M_V(Y),                                            (U47)
+
+for the decaying V-class entering the exponential in (1.72).
+
+Absorb C_res into the harmless normalization of M_V. Then
+
+||P_V K||_V
+<=
+||K||_up.                                                (U48)
+
+The anchored part follows by summing M_V(Y) with CMP109 geometric summability.
+
+Important source separation:
+terms whose localization domain is exactly a component of the large-field region obey the worse (1.69), but immediately after (1.72) the source states that these terms are INCLUDED INTO T'_k and omitted from the V exponential. Hence (U47)-(U48) use only the (1.68) V-class and do not invoke the forbidden boundary B' theorem.
+
+Status:
+
+P_V:
+E_ren direct-sum R_ren direct-sum B_loc direct-sum K_aux
+->
+V
+
+is BOUNDED LINEAR on the frozen-history source-native coefficient space.
+
+## 21. Source-native producer P_Sigma
+
+Define
+
+P_Sigma:
+B_up,k^(Sigma)
+->
+B_red,k^(Sigma)=T_k direct-sum V_k
+
+by
+
+P_Sigma(T',E_ren,R_ren,B_loc,K_aux)
+=
+(T', P_V(E_ren,R_ren,B_loc,K_aux)).                      (U49)
+
+With the normalized max product norms,
+
+||P_Sigma||<=1.                                          (U50)
+
+Thus P_Sigma is entire and its derivative is itself.
+
+The physical source subset may impose additional compatibility identities between T', E_ren, V and the hard history data. Those identities do not obstruct the existence of this ambient coefficient map.
+
+No derivative across hard history sectors is taken.
+
+## 22. Final YM-RPRIME-UPSTREAM-C1-1 theorem
+
+Let
+
+U_Sigma
+=
+M_1.91^reg
+circ
+P_Sigma.                                                 (U51)
+
+By YM-RPRIME-191-C1-1 and (U50),
+
+U_Sigma:
+B_1(B_up,k^(Sigma))
+->
+B_F(mu_F)
+
+is uniformly C^1; in fact it is the restriction of a holomorphic map to the source-native open neighborhood inherited from R_src.
+
+Moreover
+
+sup_{||K||_up<=1}
+||D U_Sigma(K)||
+<=
+C_U,
+
+with
+
+C_U
+<=
+C_1.91 ||P_Sigma||
+<=
+C_1.91
+=
+rho_F/(R_src-1).                                         (U52)
+
+All constants are independent of:
+- total volume;
+- UV cutoff;
+- RG depth k.
+
+Status:
+
+YM-RPRIME-UPSTREAM-C1-1:
+PROVED IN THE SOURCE-NATIVE RENORMALIZED COEFFICIENT CHART.
+
+This is exactly the chart of the current CMP119 inductive state:
+T' plus fully-renormalized E, vacuum-renormalized R, and localized B/auxiliary atoms.
+
+Non-claim:
+C^1 of the LOWER-LEVEL chart transition from unrenormalized E_raw to E_ren is not proved here and is not part of Eq. (1.91) upstream map.
+
+## 23. Raw-source Jacobian support
+
+For a T' coordinate eta,
+
+D_eta U_Sigma,X'=0
+
+unless
+
+eta subset X'.                                           (U53)
+
+For an E_ren/R_ren/B_loc/auxiliary atom lambda, define the frozen source incidence set
+
+Out_Sigma(lambda)
+=
+{Y:
+ A_Sigma(Y,lambda) !=0}.                                  (U54)
+
+Then exactly
+
+D_lambda U_Sigma,X'=0
+
+unless there exists
+
+Y in Out_Sigma(lambda)
+
+with
+
+Y subset X'.                                             (U55)
+
+This is the correct source-faithful raw support rule.
+
+No fixed metric collar for lambda relative to X' is inferred from (U55). Extracting a two-anchor decay estimate for A_Sigma is the separate marked-Schur problem.
+
+Thus:
+- exact combinatorial support: PROVED in incidence form;
+- uniform bounded derivative: PROVED;
+- quantitative off-diagonal Schur kernel: still OPEN.
+
+## 24. Composition with audited native R'
+
+The accepted downstream theorem gives
+
+H_R':
+B_F
+->
+B_R',
+
+sup||D H_R'||<=C_R'.
+
+Therefore
+
+H_R'
+circ
+U_Sigma
+
+is uniformly C^1 and
+
+boxed:
+sup
+||D(H_R' circ U_Sigma)||
+<=
+C_R' C_U
+<=
+C_R' C_1.91.                                             (U56)
+
+This closes the requested regular source-native chain
+
+(T',E_ren,R_ren,B_loc,local frozen history data)
+->
+F_reg
+->
+R'_Bal.
+
+No D^2 statement is made.
+
+## 25. Final Iteration-10 status
+
+PROVED:
+- exact Eq. (1.91) transcription;
+- frozen-history open coefficient chart;
+- source-native product Banach space;
+- bounded linear V-producer after using the already-renormalized CMP119 state coordinates;
+- regular (T',V)->F holomorphy/C^1;
+- full source-native upstream bounded C^1;
+- composition with audited R'_Bal bounded C^1.
+
+OPEN:
+- off-diagonal/marked Schur kernel for the upstream producer;
+- lower-level unrenormalized E_raw -> E_ren chart transition;
+- any boundary B' theorem;
+- physical source insertion;
+- K_0;
+- STEP_0.
