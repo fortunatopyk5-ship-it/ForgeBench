@@ -289,3 +289,24 @@ Iteration-10 functional-analytic consequence:
 R-renormalization is bounded linear (vacuum subtraction, norm <=2 in H-infinity).
 B requires no renormalization.
 The first nontrivial uniform coefficient operator is the E-sector second-order relevant extraction. Because native analytic radii depend on g_j, a scale-uniform bound for this extraction must be proved in a normalized/derivative-weighted graded topology rather than inferred from unweighted H-infinity analyticity.
+
+
+Iteration 10 FINAL chart correction:
+
+The earlier producer-refinement note identified CMP119 (3.64) as an extraction issue. That is a real issue only for a LOWER-LEVEL pre-renormalization E_raw chart.
+
+For the current CMP119 inductive state, direct primary printed p.259 says E_k is already "fully renormalized", with vacuum-energy and coupling-constant counterterms included. Printed p.260 says R needs vacuum renormalization only and B needs none.
+
+Therefore the source-native upstream state immediately before CMP122-II pp.376-388 uses:
+- E_ren local atoms;
+- R_ren local atoms;
+- B_loc atoms;
+- local T' operators;
+with hard history data frozen.
+
+On these current-state coordinates, the pp.376-377 construction of V(Y) is a signed linear resummation. The text explicitly performs successive sums over admissible Y'_i, localization domains X, j and term types, then final exceptional-term resummations and add/subtract completion. Its absolute proof states that the resummed sum is bounded by a constant times the extracted exponential and culminates in (1.68).
+
+Immediately after CMP122-II (1.72), terms V(Y) whose localization domain equals a whole component of the large-field region are stated to be included in T'_k and excluded from the V exponential. Thus the V-input to Eq. (1.91) belongs to the decaying (1.68) class, not the worse (1.69) whole-component class.
+
+Functional-analytic consequence:
+after normalizing sector source majorants, the V-producer is a bounded linear incidence map in the mixed source-majorant/anchored coefficient norm. This closes the source-native upstream bounded-C1 theorem. The pre-renormalization E_raw -> E_ren chart transition remains a separate lower-level problem.
