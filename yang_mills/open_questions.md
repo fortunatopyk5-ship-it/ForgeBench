@@ -228,10 +228,21 @@ construct a scale-uniform coefficient theorem for the pre-renormalization E_raw 
 
 72. Q71 remains an earlier chart problem. The current bounded-C1 blockers are reopened below.
 
-73. YM-191-COMPLEX-MAJORANT-1: prove a uniform anchored absolute majorant on independent complex T'/V coefficient radii >1. Specify their compatible operator/history/integration domains and preserve every source geometric hypothesis.
+73. YM-191-COMPLEX-MAJORANT-1: the old unrestricted independent chart is REFUTED as an unqualified theorem when mu_F>=kappa. For its exact indexed T-family the V=0 criterion is C_Tgeo(lambda_in-beta kappa)<infinity. Prove the replacement majorant in a stronger stable-operator or structured relative-kernel chart, with every source geometric hypothesis retained.
 
-74. Extract the V producer operator kernel and prove sum_lambda ||L_{Sigma,Y,lambda}||M_lambda<=C_res M_V(Y) uniformly over admissible Sigma, cutoff, volume and k. Count label multiplicity and retain C_res in the amplitude entering the reduced nonlinear map.
+74. DEFERRED UNTIL REDUCED CLOSURE: extract the V producer operator kernel and prove its uniform weighted row estimate. This continuation does not attack the producer.
 
 75. YM-UPSTREAM-IMAGE-RESERVE-1: with exactly mu_F=mu_in, prove R_up>1 and sup_{||K||<R_up}||U_Sigma(K)||_F<=r_image<r_*^native. Until then the composed C1 theorem is GAP.
 
 The source-generated subfamily has the surviving bound C_geo(lambda_in)e^{-p_0(gamma)}; this does not solve Q73--75.
+
+
+76. YM-191-T-STABLE-DOMAIN-1: complete the actual inherited-variable/history/gauge and stable conditional-kernel extension dictionary. Do not replace T' by scalar weights or by a field-only operator.
+
+77. YM-191-T-SIZE-EMBED-1: instantiate the exact native T size/coupling bound D_k and prove the strong-envelope payment sup_{g_k<=gamma}exp[s_0-c_0p_0(g_k)+nu_TD_k] is uniformly sufficiently small.
+
+78. YM-191-RELATIVE-GEOMETRY-1: first bound q=1,D={Y} with source relative V weights on the same hidden-variable chart. Disjointness from Ycal does not eliminate first-class T cores from Z_loc(h).
+
+79. PROVED LOCAL CHART ONLY: relative density b_X in the full hidden-fiber B_b spaces gives a genuine open parameter ball of fixed radius epsilon=e^{-2}/2 when |sigma|<=1, with uniform local TV/normalization control. The physical operators are centers, not an open physical family. Close the global anchored majorant separately.
+
+80. OLD CHART CASE SPLIT: extra geometric reserve at lambda_in-beta kappa, or mu_F<=mu_T, proves only the V=0 necessary test. Do not report a universal counterexample in these passing regimes, or infer full reduced C1 from the passing test.

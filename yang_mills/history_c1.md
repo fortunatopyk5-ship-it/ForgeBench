@@ -714,3 +714,20 @@ Exact blockers: YM-191-COMPLEX-MAJORANT-1, V row/operator source instantiation, 
 The regular downstream theorem and its explicit native radius are accepted unchanged. Hard labels stay frozen. E_raw extraction, field/source collars and marked Schur bounds are separate problems; none substitutes for the missing unmarked whole-ball certificate.
 
 Full audit and conditional chain rule: [rprime_upstream_c1.md](rprime_upstream_c1.md).
+
+
+## 22. V=0 attack on the old upstream chart — 2026-10-14
+
+The unqualified all-connected independent-operator claim is now REFUTED, not just unproved: for mu_F>=kappa, nested-chain evaluation kernels lie strictly inside the old mixed norm ball while the q=1,D=empty target sum diverges.
+
+The exact necessary-test criterion for the chart's own index family is
+C_Tgeo(lambda_in-beta kappa)<infinity.
+Thus do not call the old chart invalid for every exponent choice: extra geometric reserve or mu_F<=mu_T proves the V=0 test. Native size/history restrictions may also change the conclusion and still require their uniform dictionary.
+
+A relative-kernel chart is locally open with a fixed positive radius, preserving every hidden history/integration variable. It gives local operator/normalization stability, not a full reduced anchored C1 theorem.
+
+The stronger independent chart controls the necessary sum but has unproved physical embedding. In particular the source V metric is relative to a region that may still contain first-class T cores in the regular F lane. The q=1,D={Y} attached-domain sum is the next explicit uncontrolled reduced subsum.
+
+Reduced C1: GAP. Strict image: NOT PROVED. Global Sigma uniformity: UNKNOWN.
+V-producer is deferred until the reduced analysis closes.
+Proofs and exact next inequalities: [rprime_191_vzero_attack.md](rprime_191_vzero_attack.md).

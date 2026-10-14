@@ -1,41 +1,69 @@
 # STATUS
 
-Current objective completed: adversarial audit of CMP122-II (1.91) upstream -> regular R' composition. No K_0, STEP_0, boundary B' or new RG sectors.
+Current task: adversarial attack on YM-191-COMPLEX-MAJORANT-1, starting at V=0. The reduced analysis is complete to the failure/candidate results below; it does not close the global reduced map.
 
-Current rigorous verdict:
-- UPSTREAM C^1: GAP.
-- COMPLEX BALL: GAP.
-- OUTPUT IMAGE STRICTLY INSIDE R' BALL: NO (whole-ball inclusion not proved).
-- COMPOSED C^1: GAP.
-- UNIFORMITY IN Sigma: UNKNOWN for independent coefficient perturbations.
+STATUS:
+OLD UNRESTRICTED INDEPENDENT CHART REFUTED AS AN UNQUALIFIED THEOREM.
+SOURCE-COMPATIBLE REDUCED C^1: GAP.
+STRICT WHOLE-BALL IMAGE INCLUSION: NOT PROVED.
+GLOBAL UNIFORMITY OVER Sigma: UNKNOWN.
 
-The Iteration-10 PROVED labels for YM-RPRIME-191-C1-1, YM-V-PRODUCER-BOUND-1, YM-RPRIME-UPSTREAM-C1-1 and YM-RPRIME-UPSTREAM-COMPOSED-C1-1 are withdrawn as source-instantiated theorems. Conditional abstract implications remain valid.
+V=0 necessary test:
+mu_F=(1+beta)kappa-lambda_in.
+For the precise indexed T-domain family P_T, the old mixed envelope yields the sharp test
+C_Tgeo(lambda_in-beta kappa)<infinity,
+provided its old anchored envelope normalizer is finite.
+The old theorem did not assume this.
 
-Accepted unchanged:
-F -> native regular R'_Bal is bounded C^1 on the audited anchored ball with
-C_inc=9, c_stitch=sqrt(7),
-r_*=(a/9)exp[-16a-sqrt(7)theta].
-The stronger downstream Schur result remains conditional on its explicit decay reserve.
+Counterexample:
+On all connected polymers, take nested cube chains X_n containing B_0 and local evaluation operators E_n with ||E_n||=1,E_n1=1.
+T_{X_n}=c A_T e^{-kappa d(X_n)}E_n, T_X=0 otherwise, V=0.
+A fixed c>0 makes ||T||_old<=1/2, while
+sum_n e^{mu_F d(X_n)}|T_{X_n}1|
+=c A_T sum_n e^{(mu_F-kappa)d(X_n)}=infinity
+for mu_F>=kappa. Finite-volume truncations have uniformly bounded inputs and unbounded outputs. Shrinking any positive scalar radius does not fix the exponent/entropy mismatch.
 
-Surviving source-family norm certificate:
-M_F^src(X')=exp[-p_0(g_k)]exp[-(1+beta)kappa d_k(X')],
-mu_F MUST equal downstream mu_in=(1+beta)kappa-lambda_in,
-C_geo(lambda_in)<infinity.
-Therefore ||F^src||_F<=C_geo(lambda_in)exp[-p_0(gamma)], which can be made <r_*. This does not prove image inclusion for an entire complex coefficient ball.
+Qualification:
+The test passes if lambda_in-beta kappa lies in a verified geometric-summability regime; it also passes directly if mu_F<=mu_T. A source-restricted family with additional size/coupling rules needs its own uniform certificate. The unrestricted counterexample is NOT claimed to be a realizable Balaban history or a criticism of the physical theory.
 
-First failed inference:
-strict slack in physical source estimates was taken to imply normal convergence and the same decay for arbitrary independently perturbed T' operators and V coefficients. The source T bounds use positive integral density, controlled complex exponent and history/geometric restrictions. The old chart has not been shown to preserve all inequalities of (1.92)--(1.97).
+T operator:
+conditional integration/history kernels on the full hidden-variable feasible fiber -> retained external configurations; use the stable conditional TV/operator norm.
+Real positivity makes mass T^0_X1 control the real operator. The source complex comparison/normalized bound controls its admitted continuation. A scalar T_X1 bound alone never controls an arbitrary complex operator.
+The exact inherited-variable/extension dictionary remains unextracted.
+
+New charts:
+A. Independent stable-operator/TV weights at nu_T=mu_F+lambda_T, C_geo(lambda_T)<infinity; likewise a stronger ordinary V weight. V=0 is controlled. Physical source embedding and the full majorant are UNKNOWN.
+B. Relative density parameters b_X in B_b(full history/integration fiber), with kernels (e^{sigma_X}+b_X)nu_X^0. For |sigma_X|<=1, a fixed epsilon=e^{-2}/2 gives an open complex parameter ball and uniform local normalization stability. Physical operators are its centers. This is not an open set of physical histories and does not create missing spatial decay.
+
+Full majorant:
+A labelled positive iterated-kernel series is written in rprime_191_vzero_attack.md, including all restrictions, history/orientation weights and operator extensions. Its native uniform anchored bound at EXACTLY mu_F is NOT PROVED.
+
+Concrete remaining reduced subsum:
+q=1,D={Y}, V-domain attached to a T-component. The V bound is relative to Z_loc(h); avoiding the second-class Ycal does not remove first-class T cores from that relative geometry. Size/energy payment and the attached-Y entropy have not been certified on the new complex chart.
 
 Exact new blockers:
-1. YM-191-COMPLEX-MAJORANT-1: explicit compatible operator domains and uniform anchored absolute majorant for all independent (T',V) on radii >1, with the SAME downstream exponent.
-2. V producer source instantiation: explicit restriction/localization kernel L_{Sigma,Y,lambda} and uniform operator row estimate over volume, cutoff, k and Sigma. The abstract mixed-norm row implication is correct; its claimed application was not established.
-3. YM-UPSTREAM-IMAGE-RESERVE-1: prove R_up>1 and r_image<r_* uniformly on the whole complex input ball, tracking producer normalization constants in the nonlinear majorant.
+YM-191-T-STABLE-DOMAIN-1;
+YM-191-RELATIVE-GEOMETRY-1;
+then YM-191-COMPLEX-MAJORANT-1 and YM-UPSTREAM-IMAGE-RESERVE-1.
 
-Only after these are proved may DH_R'(U(K)) o DU(K) be used with the correct radii. See rprime_upstream_c1.md for the conditional constants, source inequality audit, formal support statements and necessary V=0 check.
+Exact next step:
+instantiate the native T support/size/coupling bound and the conditional embedding inequality
+sup_{g_k<=gamma} exp[s_0-c_0 p_0(g_k)+nu_T D_k]<infinity/sufficiently small,
+then bound the q=1,D={Y} attached-domain sum in that SAME hidden-variable chart.
 
-The intended chart remains (T',E_ren,R_ren,B_loc,K_aux) over frozen Sigma. E_raw relevant extraction is a separate earlier chart problem, not the new blocker. Hard characteristics are not differentiated.
+V-producer: DEFERRED; not attacked in this continuation because the reduced map is still open.
 
-The unrelated earlier crossover records below are historical and outside this audit; their suggested STEP_0 work was not undertaken.
+Accepted unchanged:
+F -> native regular R'_Bal bounded C^1;
+C_inc=9, c_stitch=sqrt(7);
+r_*=(a/9)exp[-16a-sqrt(7)theta].
+The physical source F norm certificate C_geo(lambda_in)e^{-p_0(gamma)} remains valid under its accepted assumptions. It is not a whole complex-ball inclusion. The stronger downstream Schur result remains conditional on its explicit reserve.
+
+Detailed proofs, counterexample and status table: rprime_191_vzero_attack.md.
+Prior audit/radius discipline: rprime_upstream_c1.md.
+No K_0, STEP_0, boundary B', physical source derivatives or other RG sectors.
+
+The unrelated historical crossover records below were not worked on.
 
 ## Update — Iteration 2 (YM-CROSSOVER-1 only)
 

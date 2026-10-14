@@ -4,6 +4,25 @@ Current verdict (2026-10-14): **GAP — the claimed uniform upstream and compose
 
 This replaces Iteration-10 claims U24, U29, U47--U52, U56 and the former "revalidation". No assertion here disproves the physical Balaban construction.
 
+## 2026-10-14 continuation: V=0 attack
+
+**The old unrestricted independent operator chart is INVALID as an unqualified uniform theorem.** With mu_F>=kappa, the rank-one family
+T_{X_n}=c A_T e^{-kappa d(X_n)}E_n, E_n1=1,
+on nested long connected cube chains has ||T||_old<=1/2 and an infinite downstream necessary sum. Every positive scalar radius still contains a rescaled counterexample.
+
+This conclusion has a precise scope: for the exact chart index family P_T the V=0 criterion is
+C_Tgeo(lambda_in-beta kappa)<infinity.
+The test passes under an additional verified reserve, or direct anchored embedding when mu_F<=mu_T. The actual native restricted-family certificate is UNKNOWN; the all-connected counterexample is not asserted to be a physical history.
+
+The strengthened analysis is [rprime_191_vzero_attack.md](rprime_191_vzero_attack.md):
+- full hidden-variable conditional operator/TV norm;
+- stronger independent ordinary-decay chart (physical embedding UNKNOWN);
+- a genuine open relative-kernel Banach chart with uniform positive radius (local theorem PROVED);
+- labelled positive majorant with all kernel/index data retained;
+- the q=1,D={Y} relative-V/attached-domain sum remains UNCONTROLLED.
+
+Reduced upstream C^1 and strict whole-ball image inclusion remain GAP. Uniform local kernel radius does not prove uniform output over Sigma. The V-producer is DEFERRED until the reduced map is closed. The accepted downstream theorem is unchanged.
+
 ## 1. Exact map and frozen data
 
 For a fixed admissible history/domain fiber Sigma, the recorded primary (1.91), printed p.388, is
@@ -44,7 +63,7 @@ Normalization of a T integral is analytic where its denominator is nonzero. Norm
 The old reduced mixed norm used
 M_T(X)=A_T(gamma) exp[-kappa d_k(X)],
 M_V(Y)=alpha_gamma exp[-(1+2 beta)kappa d_k(Y)]
-on the regular restricted domains, plus normalized anchored terms.
+as the OLD claimed ordinary-metric V regulator, plus normalized anchored terms. Its source embedding was not established: (1.68) uses a relative region Z_loc, and regular disjointness from Ycal alone does not make every V metric ordinary.
 
 The pointwise regulator gives ||T_X||<=R M_T(X), ||V_Y||<=R M_V(Y) on a radius-R ball. It does NOT prove that every intermediate inequality in the physical source derivation holds there.
 

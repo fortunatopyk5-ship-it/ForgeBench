@@ -349,3 +349,21 @@ Correction to the preceding Iteration-10 ledger:
 those passages were overinterpreted as supplying an ambient arbitrary-coefficient operator theorem. The explicit operator kernel on the advertised independently variable renormalized atom chart, uniform row norm over Sigma, full complex-ball majorant and strict downstream image radius have NOT been extracted. The old sentences "closes ... bounded-C1 theorem" and "PROVED" are superseded by the correction above.
 
 Already-renormalized coordinates avoid silently including E_raw extraction; that chart choice does not prove all remaining coefficient resummation bounds. No new claim about the source's physical theorem is made by this downgrade.
+
+
+## 2026-10-14 continuation — V=0 and operator-kernel attack
+
+Primary consulted again: CMP122-II pp.378--380 and 387--390, using the linked article PDF text. The screenshot service did not expose inspectable page images in this session, and the local download was empty; no new visual-confirmation claim is made.
+
+The new document rprime_191_vzero_attack.md distinguishes:
+- recorded source integration/history operations and their positive-reference comparison;
+- our B_b feasible-fiber/conditional-kernel Banach completion;
+- proved counterexamples and relative-density chart lemmas;
+- unextracted native support/size and inherited-variable dictionaries.
+
+The nested-chain counterexample is our mathematical construction for the unrestricted old ambient chart, not a source-generated physical family.
+
+Correction:
+(1.68) is a relative-metric V bound. The region defining that metric is not automatically identical to the second-class Ycal excluded by the regular F bound. Ordinary V decay for a stronger independent chart requires an additional source embedding proof.
+
+The size/energy absorption on p.389 motivates the conditional T embedding inequality recorded as YM-191-T-SIZE-EMBED-1. Its exact native domain and coupling constants are still open.

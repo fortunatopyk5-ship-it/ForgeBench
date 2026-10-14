@@ -2725,7 +2725,7 @@ I_Sigma(X')
 
 is independent of the coefficient values.
 
-Thus Eq. (1.91) defines an analytic coefficient map on an open Banach fiber over Sigma without differentiating hard characteristic boundaries.
+Thus the combinatorial index fiber is coefficient-independent. Once compatible coefficient/operator spaces are specified, coefficient balls in that fiber are open and finite terms are analytic. Analyticity of the full (1.91) sum still requires the separate convergence theorem; freezing labels does not prove it.
 
 Status:
 PROVED FROM THE SOURCE DEFINITION.
@@ -3167,7 +3167,8 @@ M_{F,Sigma}^{abs}(X';R_T,R_V)
 
 Include noncontractive restriction/pullback factors where present. Prove radii R_T,R_V>1, normal convergence on smaller balls, and a uniform anchored sum in exactly B_F(mu_in), independent of volume, cutoff, k and Sigma. Source (1.97) is not this certificate.
 
-Status: OPEN / FIRST REDUCED UPSTREAM BLOCKER.
+Status: OPEN FOR A REPLACEMENT SOURCE-COMPATIBLE CHART.
+The old unrestricted independent chart is REFUTED as an unqualified theorem by YM-191-VZERO-COUNTEREXAMPLE-1 when mu_F>=kappa. For its exact indexed family the necessary criterion is YM-191-VZERO-EMBED-1. Stronger independent and relative-kernel candidates remain open at the full majorant; see rprime_191_vzero_attack.md.
 
 ## LEMMA ID: YM-UPSTREAM-IMAGE-RESERVE-1
 
@@ -3180,3 +3181,139 @@ uniformly in volume, cutoff, k and Sigma.
 The producer norm and possible affine offset must fit inside the reduced holomorphy radius; renormalizing ||P|| to one does not prove this. After this certificate the corrected conditional upstream/composed lemmas apply.
 
 Status: OPEN / EXACT COMPOSITION BLOCKER.
+
+
+---
+
+## LEMMA ID: YM-191-VZERO-EMBED-1
+
+Statement:
+Let S(T)_X=T_X1. The old operator envelope is M_T(X)=A_T e^{-kappa d(X)} and its mixed anchored term uses mu_T<kappa with finite uniform envelope normalizer C_T,sum.
+
+Define, for the SAME indexed admissible T-family including any independent label multiplicity,
+C_Tgeo(t)=sup_{Sigma,k,Lambda,B} sum_{X contains B}e^{-t d(X)}.
+
+If C_T,sum>=A_T C_Tgeo(kappa-mu_T), then the radius-R old ball satisfies
+||S(T)||_{B_F(mu_F)}<=R A_T C_Tgeo(kappa-mu_F).
+
+This condition is sharp for independently variable local evaluation kernels with E_X1=1: the family T_X=c M_T(X)E_X, c<R, attains the envelope sum. Hence finiteness of C_Tgeo(kappa-mu_F) is necessary and sufficient for this linear necessary test in that chart.
+
+Status: PROVED under the stated normalizer and independent-kernel hypotheses.
+For native source-restricted families the uniform index/size dictionary is not yet instantiated.
+
+Proof:
+Use ||T_X1||<=||T_X||<=R M_T(X) for the upper bound. The displayed positive evaluation family has old norm<=c and realizes the lower bound. Alternatively mu_F<=mu_T gives direct anchored embedding with norm<=C_T,sum.
+
+This does not prove the full nonlinear (1.91) map.
+
+---
+
+## LEMMA ID: YM-191-VZERO-COUNTEREXAMPLE-1
+
+Statement:
+On the old unrestricted connected-polymer operator chart, if
+mu_F=(1+beta)kappa-lambda_in>=kappa,
+the necessary map T->(T_X1)_X is not bounded into the downstream anchored space on ANY positive-radius ball.
+
+Proof:
+Take nested straight cube chains X_n containing B_0, d_n growing linearly, n>=3.
+Let E_n evaluate a nonempty hidden-variable fiber, preserve retained variables, ||E_n||=1 and E_n1=1.
+Set T_{X_n}=c A_T e^{-kappa d_n}E_n, zero elsewhere, and V=0.
+For S_T=sum_{n>=3}e^{-(kappa-mu_T)d_n}<infinity, choose
+c=(1/2)min{1,C_T,sum/(A_T S_T)}>0.
+Then ||T||_old<=1/2, while the target necessary sum is
+c A_T sum_{n>=3}e^{(mu_F-kappa)d_n}=infinity.
+Finite truncations have input norm<=1/2 and target norm at least c A_T N.
+Scaling c proves failure at every positive radius.
+
+Status: PROVED / OLD UNQUALIFIED ALL-CONNECTED CHART INVALID.
+
+Qualification:
+This is an ambient coefficient-chart counterexample. It does not assert that all nested chains are components of a single native history. The native restricted-family case and the mu_F<kappa extra-reserve case are governed by YM-191-VZERO-EMBED-1. The physical Balaban construction is not refuted.
+
+---
+
+## LEMMA ID: YM-191-T-TV-DOMINATION-1
+
+Statement:
+For a local conditional complex kernel K_X(z;h,dxi), keep all history labels h and integration variables xi. Let E_X=B_b(full feasible joint fiber), O_X=B_b(retained external configurations). With
+tau_X^TV=sup_z sum_h ||K_X(z;h,.)||_TV,
+one has ||T_X f||<=tau_X^TV||f||.
+Retaining additional unintegrated parameters in the conditional kernel has the same bound, so this controls its stable operator extension norm.
+
+For a positive real reference measure nu_X^0, mass m_X(z)=int dnu_X^0, and kernel e^{sigma_X}nu_X^0, |sigma_X|<=s,
+||T_X||_st<=e^s sup_z m_X(z).
+
+Status: PROVED FOR THE STATED MEASURABLE KERNEL TYPE.
+
+The source scalar mass bound alone does not control arbitrary complex operators: L(ev_a-ev_b) annihilates 1 but has norm 2|L|. The source normalized comparison is an additional structural hypothesis, not a property of all independent operators.
+
+Source dictionary:
+CMP122-II (1.71)--(1.75) motivates this completion. Every inherited variable/conditional extension must still be explicitly identified for a full source instantiation. No identification with a field-only A_k endomorphism is made.
+
+---
+
+## LEMMA ID: YM-191-T-RELATIVE-KERNEL-OPEN-1
+
+Statement:
+Fix positive conditional reference measures nu_X^0 of mass m_X(z) and source exponent densities e^{sigma_X}, with |sigma_X|<=s_0<=1.
+Let b_X belong to the full hidden-fiber B_b spaces, with norm sup_X||b_X||.
+The kernels
+K_X(b)=(e^{sigma_X}+b_X)nu_X^0
+define an affine holomorphic map on every open parameter ball.
+
+For ||b||<epsilon=e^{-2}/2,
+||T_X(b)||_st<=(e^{s_0}+epsilon)sup_z m_X(z),
+and on positive-mass fibers
+|T_X(b)1(z)|>=[e^{-s_0}cos(s_0)-epsilon]m_X(z)>0.
+
+Proof:
+The TV estimate is the triangle inequality.
+Re(e^sigma)>=e^{-s_0}cos(s_0).
+Subtract the perturbation mass epsilon m_X.
+Since e^{-s_0}cos(s_0)>=e^{-1}cos(1)>e^{-2}/2, the denominator is nonzero.
+The normalized operator is analytic and uniformly bounded on a smaller relative ball, even if the positive mass is arbitrarily small.
+
+In the normalized norm ||b||/epsilon, the radius-2 ball is also nonzero because 2epsilon=e^{-2}<e^{-1}cos(1).
+
+Status: PROVED LOCAL OPEN KERNEL CHART, uniform parameter radius. The normalized local outer radius >1 is not a whole-ball F image bound.
+No global anchored F majorant, open set of physical histories, raw coefficient producer or physical-source derivative is claimed.
+
+---
+
+## LEMMA ID: YM-191-T-SIZE-EMBED-1
+
+Conditional statement:
+Suppose the exact native T index dictionary gives d(X)<=D_k,
+m_X<=e^{-c_0 p_0(g_k)}, c_0=2/(1+beta_0),
+and the stable source comparison has exponent bound s_0.
+For nu_T=mu_F+lambda_T,
+||T_X||_st<=e^{s_0-c_0p_0(g_k)+nu_T D_k}e^{-nu_T d(X)}.
+
+Thus a uniform embedding into the stronger independent T envelope follows from a uniform sufficiently small bound on
+sup_{0<g_k<=gamma}e^{s_0-c_0p_0(g_k)+nu_T D_k}.
+
+Status: ABSTRACT INEQUALITY PROVED; EXACT NATIVE SIZE/COUPLING INSTANTIATION OPEN.
+The p.389 size payment suggests this route; it is not a license to discard its actual support and coupling conditions.
+
+---
+
+## LEMMA ID: YM-191-T-STABLE-DOMAIN-1
+
+Required certificate:
+Enumerate the inherited restricted histories, constrained integration variables, retained external variables and conditional extension maps of every regular T'_X entering (1.91), including the inherited operations referenced by (1.71). Prove their stable TV/operator bounds on the selected coefficient completion.
+
+Status: OPEN / SOURCE DICTIONARY BLOCKER.
+A precise feasible-fiber construction is recorded in rprime_191_vzero_attack.md; a fully enumerated inherited-variable certificate is not yet extracted.
+
+---
+
+## LEMMA ID: YM-191-RELATIVE-GEOMETRY-1
+
+Required certificate:
+Distinguish the source V relative region Z_loc(h) from the second-class Ycal excluded by regular F. Bound the q=1,D={Y} attached-V-domain positive sum, including native T size/coupling payment and inner history multiplicities, at EXACT downstream exponent mu_F.
+
+Status: OPEN / NEXT REDUCED SUBSUM BLOCKER.
+Regular X' disjoint from Ycal alone does not prove d_{k,Z_loc(h)}(Y)=d_k(Y); first-class T cores can remain in Z_loc(h). The stronger ordinary V chart's physical embedding is unproved for the same reason.
+
+No V-producer work should be substituted for this reduced estimate.

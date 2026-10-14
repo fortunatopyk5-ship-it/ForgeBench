@@ -592,3 +592,24 @@ New explicit certificates: YM-191-COMPLEX-MAJORANT-1 and YM-UPSTREAM-IMAGE-RESER
 Verdict: UPSTREAM C1 GAP; COMPLEX BALL GAP; WHOLE-BALL IMAGE NO (not proved); COMPOSED C1 GAP; Sigma UNIFORMITY UNKNOWN. Conditional chain-rule domains/constants are now stated without applying them prematurely.
 
 No downstream proof was redone. No K0, STEP0, boundary B' or other RG-sector work.
+
+
+## 2026-10-14 — YM-191-COMPLEX-MAJORANT-1 continuation, V=0 first
+
+Base: 33605c14555735826ad4d120c9b07db0a79c7886. Read all seven requested current files.
+
+New proved results:
+- sharp old-chart V=0 envelope criterion C_Tgeo(lambda_in-beta kappa)<infinity;
+- explicit local evaluation-kernel counterexample, old mixed norm<=1/2 and divergent target sum for mu_F>=kappa on all connected polymers;
+- stable conditional total-variation domination preserving hidden histories/integrations;
+- genuinely open relative-density Banach balls with uniform local radius and normalization stability;
+- conditional size/coupling-to-strong-decay embedding inequality.
+
+Qualifications:
+The old unqualified all-connected theorem is INVALID. The exact native restricted family and passing extra-reserve regimes are distinguished. The counterexample is not a physical Balaban history.
+
+Stronger independent ordinary-decay weights pass V=0, but physical source embedding is unknown. Relative-kernel charts include source centers and are locally open, but do not supply missing decay/entropy. The full labelled positive majorant is specified with kernel/index data retained; its native uniform anchored bound is not established.
+
+Concrete next blocker: q=1,D={Y}, source relative V geometry attached to first-class T cores, plus the exact native support/size and stable-domain dictionary.
+
+Reduced C1 GAP; global Sigma uniformity UNKNOWN; strict image NOT PROVED. V-producer DEFERRED according to the reduced-first gate. Accepted downstream file unchanged; no forbidden-sector work.
