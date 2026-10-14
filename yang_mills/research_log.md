@@ -464,3 +464,57 @@ r_*: a e^{-16a-2theta}
 The native regular R' bounded C1 theorem survives after this stricter audit with the corrected radius.
 
 No upstream Eq. (1.91) analysis was performed.
+
+
+## 2026-10-14 — Iteration 10: upstream CMP122-II Eq. (1.91)
+
+Scope obeyed:
+No re-proof of F->R', no boundary B', no source marks, no K_0, no STEP_0.
+
+Direct-primary p.388 transcription:
+F(X') is the q / selected-T-domains / D sum of
+[product_D int_0^1 dt(Y)]
+[product_h T'_k(X_{j_h})]
+[product_D V(Y)]
+exp[sum_D t(Y)V(Y)],
+with the primed index fiber consisting exactly of frozen localization data determining the component X'.
+
+Primary p.389:
+for X' disjoint from union_iY_i the q-sum begins at q=1; if X' contains a Y_i it may begin at q=0.
+
+Functional-analytic result:
+Eq. (1.91) itself is not where E/R/B extraction occurs. It is an analytic resummation map in two already-localized coordinates:
+(T',V)->F.
+
+A frozen-history Banach fiber was defined. Hard characteristics/history labels are discrete base data, not tangent variables.
+
+A mixed norm was necessary:
+- weighted sup/source regulator to preserve the source pointwise majorants;
+- anchored l1 term to retain volume-independent locality.
+
+Because the proof of (1.92)-(1.97) is an absolute-value majorant proof and its smallness inequalities can be imposed with strict slack, a uniform open coefficient radius R_src>1 exists after shrinking the fixed source coupling threshold.
+
+Therefore the regular projected Eq. (1.91) map is Banach-holomorphic/C^1, with
+
+||D M_1.91^reg||
+<=
+rho_F/(R_src-1).
+
+Exact support:
+D_eta F(X')=0 unless eta subset X'.
+
+Adversarial correction:
+this exact support is not yet enough for a quantitative upstream off-diagonal Schur bound in the mixed norm; a marked two-anchor majorant is still missing.
+
+Raw-map blocker:
+the first unproved submap is the earlier producer
+(E,R,B,old-history local terms)->V(Y)
+described on pp.376-377. Its output bounds (1.68),(1.69) are known, but a bounded coefficient-space difference/Frechet theorem has not yet been extracted.
+
+Composition:
+for reduced coordinates,
+||D(R'_Bal o M_1.91^reg)||
+<=
+C_R' C_1.91.
+
+Full raw composition remains conditional on a producer constant C_P.
