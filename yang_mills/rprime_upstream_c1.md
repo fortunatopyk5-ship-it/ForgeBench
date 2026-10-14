@@ -20,7 +20,7 @@ For one connected component X', Eq. (1.91) is
 
 F(X')
 =
-sum_q
+sum_{q>=0}
 sum'_{ {X_{j_1},...,X_{j_q}} }
 sum'_D
 [
@@ -39,8 +39,18 @@ exp[
 Operator convention:
 the product of T'_k operations acts on the coefficient/function to its right.
 
+Here D is a subfamily of the source Mayer-localization family D_k used immediately before (1.90).
+
 The primes on the second and third sums mean:
-sum only over the chosen T-domains {X_{j_1},...,X_{j_q}} and subfamily D of the Mayer-localization family such that, under the special component rule described immediately before (1.90), the connected localization domain determined by these data is exactly X'.
+sum only over the chosen T-domains {X_{j_1},...,X_{j_q}} and subfamily D such that, under the special component rule described immediately before (1.90), the connected localization domain determined by these data is exactly X'.
+
+The empty D subfamily can be admissible.
+
+Primary p.389 further separates two cases:
+- if X' contains one of the fixed large-field domains Y_i, q can start at 0;
+- if X' is disjoint from union_iY_i, q starts at 1.
+
+The present regular-lane theorem uses the second case, hence every regular contribution contains at least one T'_k factor.
 
 The source states this explicitly in the sentence immediately after (1.91).
 
