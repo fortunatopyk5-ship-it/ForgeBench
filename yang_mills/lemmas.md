@@ -2287,9 +2287,13 @@ Thus the source-visible decay loss is
 
 epsilon_R=(beta/2)kappa.
 
-What remains unverified is the precise translation of the source "sufficiently small c_1" regime into one anchored input radius r_* and the exact source collar/union dictionary required by (iii).
+Iteration-9 update:
+The regular R' source instantiation is now resolved in YM-RPRIME-C1-1 by:
+- the exact cube-or-wall compatibility from CMP116 (2.11);
+- the explicit native KP radius r_*=(a/9)exp[-16a-sqrt(7)theta];
+- the source-crosswalk identifying legacy (7.13)[I] with published CMP116 (2.13), hence exact-union native coordinates.
 
-Therefore the cluster/log SUBMAP theorem is ready; the full source instantiation remains PARTIAL.
+This abstract lemma remains useful as a generic template, but its former regular-R' source-instantiation gap is superseded.
 
 
 ---
