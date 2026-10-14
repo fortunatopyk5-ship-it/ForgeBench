@@ -275,3 +275,26 @@ A fixed Banach product may have different Banach spaces in different scale/polym
 
 Repair:
 Use a scale-graded anchored product. Retain the normalized-chart problem for field/source differentiation and RG chart transitions, where it is genuinely necessary.
+
+
+---
+
+## Route: Read Balaban's "sufficiently small" as the Banach convergence radius r_*
+Exact failure:
+The source smallness conditions are used to construct and bound the particular RG-generated pre-exponentiation activity F. They do not directly state a ball theorem for arbitrary complex activity families in our anchored norm.
+
+Repair:
+Construct an independent explicit generalized-KP radius
+r_*=a exp[-16a-2theta],
+then use the source F bound and p_0(g)->infinity only to place the actual Yang-Mills activity strictly inside this ball.
+
+---
+
+## Route: Require the extra spatial Schur reserve to claim any C^1 result
+Exact failure:
+The off-diagonal Schur estimate is stronger than bounded C^1. Banach-valued holomorphy on a larger input ball already yields a uniform derivative operator norm into B_out(theta).
+
+Repair:
+Separate:
+- bounded C^1: closed by KP normal convergence + Banach Cauchy;
+- quasi-local Jacobian: requires the additional reserve theta-mu_out-nu in the geometric-summability regime.
