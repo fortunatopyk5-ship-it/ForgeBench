@@ -170,6 +170,12 @@ Verified direct-primary source facts this iteration:
 - CMP119 pp.259-260: E fully renormalized; R vacuum-renormalized; B unrenormalized/already localized.
 - CMP119 p.283: relevant E extraction/counterterm structure (3.64)-(3.67), used only to identify the lower-level chart issue.
 
+Adversarial revalidation:
+- direct-primary CMP122-II p.388 confirms Eq. (1.91) depends explicitly only on T'_k and V, with hard determining labels appearing only in the frozen primed index fiber;
+- pp.376-377 confirm that, once source-native renormalized/localized atoms are used, V-production is a signed resummation with an absolute row-majorant;
+- YM-V-PRODUCER-MIXED-NORM-1 now writes the missing functional-analytic step explicitly: the row-majorant is enough for a genuine bounded operator because the mixed input norm contains the source pointwise regulator;
+- this does NOT close the stronger two-anchor/off-diagonal Schur kernel.
+
 Current theorem status:
 YM-RPRIME-191-C1-1: PROVED.
 YM-V-PRODUCER-BOUND-1: PROVED in source-native renormalized coordinates.
