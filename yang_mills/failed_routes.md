@@ -298,3 +298,29 @@ Repair:
 Separate:
 - bounded C^1: closed by KP normal convergence + Banach Cauchy;
 - quasi-local Jacobian: requires the additional reserve theta-mu_out-nu in the geometric-summability regime.
+
+
+---
+
+## Route: Infer native incompatibility iff from the word "polymer expansion"
+Failure:
+CMP122-II p.388 shows that actual X'_p are components of a special decomposition and hence have disjoint cube carriers, but the extracted primary text does not state the converse that every pairwise carrier-disjoint family is admissible under the prime.
+
+Consequence:
+C_inc=1 and c_stitch=2 are proved only for the explicitly defined canonical carrier-overlap gas, not yet for native (1.90).
+
+---
+
+## Route: Equality of total logarithms implies R'_Bal(X)=H_X^can
+FALSE.
+
+From
+
+exp(sum_X R'_Bal(X))=Xi(F)=exp(sum_gamma H_gamma^can(F))
+
+one may identify the total local function/logarithm under suitable branch/convergence conditions, but a localization-domain decomposition is not unique.
+
+Balaban further says that native R'^(k)(X) is given by series (7.13) [I]. Until that localization formula is recovered, coordinatewise equality is unsupported.
+
+Correction:
+Use YM-RPRIME-CANONICAL-C1-1 for the canonical chart and keep YM-RPRIME-NATIVE-COORD-1 open.
