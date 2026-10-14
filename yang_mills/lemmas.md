@@ -3094,3 +3094,171 @@ Source evidence:
 CMP122-II p.376 says "we resum", "we sum", and "finally, we sum over different types"; p.377 performs a final resummation and then adds/subtracts missing action terms. No product or exponential of the E/R/B coefficient values is introduced in this producer.
 
 The source absolute summation yields (1.68)-(1.69), strongly suggesting a bounded weighted incidence operator, but a marked input-output version has not yet been written in this notebook.
+
+
+---
+
+## LEMMA ID: YM-V-PRODUCER-BOUND-1
+
+Statement:
+Freeze one CMP119/CMP122 hard history sector Sigma and use the SOURCE-NATIVE current-state coordinates:
+- fully-renormalized local E atoms;
+- vacuum-renormalized local R atoms;
+- already-localized B atoms;
+- any remaining already-localized auxiliary atoms.
+
+Then the CMP122-II pp.376-377 producer of the V(Y) family is a signed linear incidence operator
+
+(P_V K)(Y)
+=
+sum_lambda A_Sigma(Y,lambda)K_lambda.
+
+Let M_lambda be the source pointwise majorant of the corresponding local atom and M_V(Y) the decaying V-majorant used in (1.68).
+
+The direct source resummation proof yields a uniform finite C_res such that
+
+sum_lambda
+|A_Sigma(Y,lambda)|M_lambda
+<=
+C_res M_V(Y).
+
+After absorbing C_res into the harmless normalization of M_V, one has
+
+||P_V K||_V
+<=
+||K||_up
+
+for the mixed source-majorant + anchored norms of rprime_upstream_c1.md.
+
+Status:
+PROVED IN THE SOURCE-NATIVE RENORMALIZED COEFFICIENT CHART.
+
+Why this is not the forbidden boundary B' theorem:
+terms whose localization domain equals a component of the large-field region obey the worse (1.69), but CMP122-II immediately after (1.72) says these terms are included in T'_k and omitted from the V exponential. The V-family entering Eq. (1.91) is therefore the decaying (1.68) class.
+
+Important chart point:
+CMP119 explicitly defines E_k as already fully renormalized, R_k as already vacuum-renormalized, and B_k as needing no renormalization. The lower-level map from an unrenormalized E_raw coefficient to these source-native coordinates is not part of this lemma.
+
+---
+
+## LEMMA ID: YM-RPRIME-UPSTREAM-C1-1
+
+Statement:
+Fix a hard history/domain sector Sigma. Let
+
+B_up,k^(Sigma)
+=
+T_k
+direct-sum E_ren,k
+direct-sum R_ren,k
+direct-sum B_loc,k
+direct-sum K_aux,k
+
+carry the mixed source-majorant + anchored product norm of rprime_upstream_c1.md.
+
+Let
+
+P_Sigma:
+B_up,k^(Sigma)
+->
+B_red,k^(Sigma)=T_k direct-sum V_k
+
+be
+
+P_Sigma(T',E_ren,R_ren,B_loc,K_aux)
+=
+(T',P_V(E_ren,R_ren,B_loc,K_aux)).
+
+Normalize the harmless source majorant constants so that
+
+||P_Sigma||<=1.
+
+Let
+
+M_1.91^reg:
+B_red,k^(Sigma)->B_F(mu_F)
+
+be the regular Eq. (1.91) map of YM-RPRIME-191-C1-1.
+
+Then
+
+U_Sigma
+=
+M_1.91^reg circ P_Sigma
+
+is Banach-holomorphic on a cutoff/volume/RG-depth-uniform open coefficient neighborhood of the source unit ball and
+
+sup_{||K||_up<=1}
+||D U_Sigma(K)||
+<=
+C_U
+<=
+C_1.91
+=
+rho_F/(R_src-1).
+
+Status:
+PROVED IN THE SOURCE-NATIVE RENORMALIZED COEFFICIENT CHART.
+
+Raw-coordinate component Cauchy:
+For coordinate lambda in sector s, with injection weight
+
+w_up(lambda)
+=
+max{
+M_s(lambda)^(-1),
+C_s^(-1)e^{mu_s d(X_lambda)}
+},
+
+one has on the inner source ball
+
+||D_lambda U_Sigma(K)_{X'}[h]||
+<=
+(A_F/delta_up)
+w_up(lambda)
+e^{-kappa_F d_k(X')}
+||h||.
+
+Exact raw support:
+- for T' coordinate eta, derivative vanishes unless eta subset X';
+- for E_ren/R_ren/B_loc/auxiliary lambda, derivative vanishes unless there exists
+  Y in Out_Sigma(lambda)
+  with
+  Y subset X'.
+
+Stronger off-diagonal Schur:
+OPEN. A marked two-anchor bound for the incidence kernel A_Sigma is still required.
+
+Non-claim:
+The lower-level chart transition
+E_raw -> E_ren
+(including relevant/coupling extraction) is not proved here and is not part of the current CMP119 inductive-state upstream map.
+
+---
+
+## LEMMA ID: YM-RPRIME-UPSTREAM-COMPOSED-C1-1
+
+Statement:
+Combine YM-RPRIME-UPSTREAM-C1-1 with the accepted audited native regular R' theorem
+
+H_R':B_F->B_R',
+
+sup||D H_R'||<=C_R'.
+
+Then on every frozen history fiber,
+
+H_R' circ U_Sigma
+
+is uniformly C^1 and
+
+sup
+||D(H_R' circ U_Sigma)||
+<=
+C_R' C_U
+<=
+C_R' C_1.91.
+
+Status:
+PROVED.
+
+No D^2 claim and no boundary B' claim.
