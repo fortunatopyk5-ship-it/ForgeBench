@@ -686,7 +686,7 @@ P_Sigma.                                                 (U37)
 - normalization of T:
   C^1 by (U16) wherever tau_X !=0, with source bound (1.75).
 
-### 13.2 First unresolved source-level operator
+### 13.2 Historical intermediate audit — SUPERSEDED by Sects. 18--26
 
 The construction
 
@@ -927,7 +927,7 @@ C_R' C_1.91 C_P,                                         (U43)
 
 but C_P has not been proved.
 
-## 16. YM-RPRIME-UPSTREAM-C1-1 verdict — INTERMEDIATE / SUPERSEDED BY SECTS. 18-25
+## 16. Historical intermediate verdict — SUPERSEDED BY SECTS. 18--26
 
 Desired raw theorem:
 (T,E,R,B,local history coefficients) -> F is uniformly bounded C^1.
@@ -1305,3 +1305,115 @@ OPEN:
 - physical source insertion;
 - K_0;
 - STEP_0.
+
+
+## 26. Adversarial revalidation of the final source-native theorem
+
+This section rechecks the final Sects. 18--25 against the direct-primary printed pages 376--380 and 387--389.
+
+### 26.1 Exact Eq. (1.91) type
+
+The direct-primary formula contains only:
+- selected local operators T'_k(X_{j_h});
+- selected local activities V(Y);
+- t(Y)-integrations;
+- finite products;
+- exp(sum_Y t(Y)V(Y));
+- the frozen primed index condition selecting data that determine exactly X'.
+
+No E/R/B coefficient occurs explicitly in (1.91).
+
+Therefore the exact Eq. (1.91) coefficient map is
+
+M_1.91:(T',V)->F,
+
+not directly (E,R,B)->F.
+
+The latter is the composition with the earlier source-native producer P_Sigma.
+
+### 26.2 Frozen labels really define an open coefficient fiber
+
+The sets X_j, Y, the fixed large-field domains Y_i, the special component relation before (1.90), and the condition "determines exactly X'" are combinatorial/domain data.
+
+On a fixed history fiber Sigma they do not depend on the numerical values of T', E_ren, R_ren, B_loc or V.
+
+Hence coefficient perturbations in B_up^(Sigma) do not move threshold boundaries and do not change the primed index fiber.
+
+FROZEN-HISTORY OPEN-CHART STATUS: YES.
+
+### 26.3 Explicit boundedness proof for the V producer
+
+On the source-native renormalized atom chart,
+
+(P_V K)(Y)=sum_lambda A_Sigma(Y,lambda)K_lambda.
+
+The source absolute resummation proof gives
+
+sum_lambda |A_Sigma(Y,lambda)| M_lambda
+<=
+C_res M_V(Y).
+
+For arbitrary K in the mixed input norm,
+
+||K_lambda||
+<=
+||K||_up M_lambda.
+
+Therefore, pointwise,
+
+||(P_VK)(Y)||
+<=
+C_res ||K||_up M_V(Y).
+
+Consequently,
+
+sup_Y ||(P_VK)(Y)||/(C_res M_V(Y))
+<=
+||K||_up.
+
+For the anchored output part,
+
+sup_B sum_{Y contains B}
+e^{mu_V d(Y)}||(P_VK)(Y)||
+<=
+C_res ||K||_up
+sup_B sum_{Y contains B}
+e^{mu_V d(Y)}M_V(Y).
+
+Thus, after defining
+
+C_V,sum
+=
+C_res sup_B sum_{Y contains B} e^{mu_V d(Y)}M_V(Y),
+
+the complete mixed output norm obeys
+
+||P_VK||_V<=||K||_up.
+
+This is the precise operator-norm proof. No unproved column/Schur estimate is being smuggled into boundedness.
+
+### 26.4 What boundedness does NOT give
+
+The preceding proof uses a row/source-majorant estimate and is sufficient for a Banach operator norm because the INPUT norm contains the weighted pointwise source regulator.
+
+It does NOT imply a quantitative two-anchor kernel bound for A_Sigma(Y,lambda).
+
+Therefore:
+
+P_V bounded linear: PROVED.
+
+U_Sigma=M_1.91^reg o P_Sigma bounded C^1: PROVED.
+
+Upstream off-diagonal Schur kernel: OPEN.
+
+### 26.5 Final scope
+
+The theorem is for the source-native current-state coordinates
+
+(T', E_ren, R_ren, B_loc, K_aux),
+
+where T' is the local T-operation coordinate entering (1.91).
+
+If one instead asks for a LOWER-LEVEL map in which T' itself and E_ren are regenerated from unrenormalized predecessor variables, that is a different chart-transition problem and is not claimed here.
+
+No boundary B' estimate, K_0, STEP_0, source insertion, or D^2 statement is introduced by this revalidation.
