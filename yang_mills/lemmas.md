@@ -1568,7 +1568,7 @@ whose only nonzero coordinate is gamma. Then
 
 Let Phi_gamma map an ambient radius-R ball U_R into C_gamma. Define the TYPED local reconstruction
 
-Rec_A(F)
+Act_A(F)
  =
  sum_{gamma in Gamma_A}
  iota_{gamma,A} Phi_gamma(F).
@@ -1594,12 +1594,12 @@ h_1^(mu)
  < infinity.
 
 Then:
-1. Rec_A(F) converges absolutely in D_A^(mu);
+1. Act_A(F) converges absolutely in D_A^(mu);
 2.
-   ||Rec_A(F)||_{D_A^(mu)}
+   ||Act_A(F)||_{D_A^(mu)}
    <= |A^+| h_0^(mu);
 3.
-   ||Rec_A(F)-Rec_A(G)||_{D_A^(mu)}
+   ||Act_A(F)-Act_A(G)||_{D_A^(mu)}
    <= |A^+| h_1^(mu) ||F-G||.
 
 Status:
@@ -2069,23 +2069,30 @@ A positive loss of decay is natural and should be budgeted explicitly. No numeri
 
 ## LEMMA ID: YM-SOURCE-MARK-TANGENT-1
 
-Statement:
-Let B_in be an anchored activity Banach space. A bounded local source insertion J_A represented by finitely many input activity coordinates supported in A^+ is an element of B_in.
+Corrected statement:
+Let J_A be a Banach source space and B_in an anchored activity Banach space. Let
 
-If H:U subset B_in->B_out is C^1, then
+jmath_A:J_A -> B_in
 
-D H_F[J_A] in B_out
+be a linear insertion map.
 
-is a well-defined marked connected activity.
+If jmath_A is bounded and Hscr:U subset B_in->B_out is C^1, then for every source vector J in J_A,
 
-If, in addition, the Jacobian satisfies the quasi-local Schur hypothesis of YM-HISTORY-JACOBIAN-QUASILOCAL-1, the marked output obeys the corresponding spatial quasi-locality bound away from A.
+D Hscr_F[jmath_A(J)]
+
+is a well-defined activity tangent and
+
+||D Hscr_F[jmath_A(J)]||
+<=
+||D Hscr_F|| ||jmath_A|| ||J||_{J_A}.
+
+If, additionally, the history Jacobian satisfies a quasi-local Schur bound and jmath_A has a local/quasi-local support bound, the marked output inherits the corresponding locality estimate.
 
 Status:
 PROVED ABSTRACTLY.
 
 Yang-Mills status:
-The topology admits first source marks. The source-specific Jacobian/quasi-locality estimate for the full Balaban history map is still open.
-
+The source space and insertion map needed for a physical gauge-invariant observable have not been source-instantiated here. In particular, the boundedness of jmath_A is UNKNOWN. A physical source J_A must not be identified with an activity tangent without this interface.
 
 ---
 
