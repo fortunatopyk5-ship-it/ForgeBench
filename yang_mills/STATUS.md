@@ -1,17 +1,23 @@
 # STATUS
 
 Current objective:
-Iteration 10 is restricted to the upstream CMP122-II Eq. (1.91) map that constructs the regular pre-exponentiation activity F(X'). The audited downstream F -> R'_Bal theorem is accepted and not reopened. Boundary B', source marks, K_0 and STEP_0 are not attacked.
+Iteration 10 is restricted to CMP122-II Eq. (1.91) and the source-native upstream coefficient map feeding the already-audited regular R' cluster/log theorem. Downstream F->R'_Bal is accepted. Boundary B', physical source insertion, K_0 and STEP_0 are not attacked.
 
-Current strongest new result:
-Eq. (1.91) itself has been separated from the earlier localization machinery.
+Current strongest result:
+The regular source-native chain
 
-DIRECT PRIMARY TRANSCRIPTION:
-For fixed hard history/domain data Sigma,
+(T', E_ren, R_ren, B_loc, local frozen history data)
+   -> F_reg
+   -> R'_Bal
+
+is uniformly bounded C^1 on a cutoff/volume/RG-depth-independent anchored coefficient neighborhood.
+
+Exact Eq. (1.91):
+For one frozen history/domain sector Sigma,
 
 F(X')
 =
-sum_q
+sum_{q>=0}
 sum'_{ {X_{j_1},...,X_{j_q}} }
 sum'_D
 [
@@ -27,80 +33,161 @@ exp[
  sum_{Y in D}t(Y)V(Y)
 ].
 
-The primed sums contain exactly the frozen localization-domain data whose special connected component is X'.
+For regular X' disjoint from the fixed current large-field domains, the source p.389 says q starts at 1.
 
-Thus Eq. (1.91) directly depends only on two ALREADY-LOCALIZED coefficient families:
-T'_k(X) and V(Y).
-Raw E/R/B coordinates have already been absorbed before this formula.
-
-Factorization:
-raw E/R/B/T/history coefficients
+Functional factorization:
+source-native current coefficients
  --P_Sigma-->
 (T',V)
- --M_1.91-->
-F
+ --M_1.91^reg-->
+F_reg
  --H_R'-->
 R'_Bal.
 
-Verified this iteration:
-- hard determining/history labels are frozen base data, not Banach tangent coordinates;
-- within one fixed Sigma, the index condition "determines exactly X'" is coefficient-independent;
-- the Eq. (1.91) elementary maps are restriction, multilinear products, exponential, bounded t-integration, local T-operator products and normally convergent resummation;
-- exact termwise first derivative formulas are recorded in YM-RPRIME-191-ELEMENTARY-DERIV-1;
-- local normalized T integration is C^1 with
-  D barT[h]F=barT(hF)-barT(h)barT(F);
-- a mixed source-majorant + anchored input topology is required; anchored norm alone is too weak to preserve the pointwise source majorants;
-- after choosing the source small-coupling threshold with strict slack, there is a cutoff/volume/depth-independent open coefficient radius R_src>1;
-- the absolute proof of (1.92)-(1.97) supplies normal convergence on that coefficient ball;
-- therefore
-  M_1.91:(T',V)->F
-  is Banach-holomorphic and uniformly C^1;
-- on the inner unit ball,
-  ||D M_1.91|| <= C_1.91 = rho_F/(R_src-1);
-- exact reduced Jacobian support:
-  D_eta F(X')=0 unless eta subset X';
-  hence reduced collar r_col=0;
-- composition with the accepted downstream theorem gives
-  ||D(H_R' o M_1.91)|| <= C_R' C_1.91
-  for the reduced coordinates (T',V).
+History/domain labels are frozen base data; no derivative of hard characteristic thresholds is taken.
 
-Important limitation:
-The desired RAW theorem
-(T,E,R,B,local history coefficients)->F
-is NOT yet proved.
+SOURCE-NATIVE INPUT CHART:
+CMP119 explicitly states:
+- E_k is already fully renormalized, with vacuum and coupling counterterms included;
+- R_k is already vacuum-renormalized;
+- B_k requires no renormalization.
 
-FIRST FAILED SUBMAP:
-the producer
+Therefore the natural upstream Banach state uses E_ren, R_ren, B_loc, not a pre-renormalization E_raw coefficient.
 
-P_V:
-(K_E,K_R,K_B,K_old,...)
-->
-(V(Y))_Y.
+The lower-level chart transition E_raw->E_ren is a separate problem and is not silently included in this theorem.
 
-CMP122-II pp.376-377 describe this producer as localization + E/R renormalization + resummation + addition/subtraction before establishing (1.68),(1.69). The source proves physical-field analyticity and output bounds, but a bounded difference/Frechet theorem for P_V in a fixed anchored coefficient Banach space has not yet been extracted.
+Reduced Eq. (1.91) theorem:
+YM-RPRIME-191-C1-1 is PROVED.
 
-The local exponential/integration map producing T' from an already-localized exponent insertion is NOT the blocker; it is C^1. However the same unresolved raw-to-local-potential producer feeds the V(X~) term inside T'.
+On a frozen history fiber, use a mixed input norm:
+- weighted source-majorant sup regulator;
+- anchored exponential l1 term.
 
-Schur status for the upstream map:
-- bounded anchored/mixed operator norm: PROVED by full Banach Cauchy;
-- exact support eta subset X': PROVED;
-- stronger quantitative off-diagonal Schur kernel: OPEN, because a marked two-anchor version of the source (1.92)-(1.97) summation is still needed. Exact support alone does not sum the mixed coordinate regulator.
+After shrinking the fixed source coupling threshold with strict slack, there exists R_src>1, independent of volume/cutoff/k, such that the regular map
+
+M_1.91^reg:(T',V)->F_reg
+
+is Banach-holomorphic on the R_src-ball.
+
+On the source unit ball,
+
+||D M_1.91^reg||
+<=
+C_1.91
+=
+rho_F/(R_src-1),
+
+where rho_F<r_*^native is the inflated source-majorant F-radius.
+
+Exact reduced support:
+D_eta F(X')=0 unless eta subset X'.
+
+Source-native V producer:
+YM-V-PRODUCER-BOUND-1 is PROVED.
+
+After the local E/R/B atoms are taken in the CURRENT CMP119 renormalized coordinates, the pp.376-377 V(Y) construction is a signed linear incidence resummation. The direct source proof is an absolute majorant proof and supplies a uniform row bound of the form
+
+sum_lambda |A_Sigma(Y,lambda)| M_lambda
+<=
+C_res M_V(Y).
+
+After harmless normalization,
+
+||P_V||<=1
+
+in the mixed source-majorant/anchored norms.
+
+Terms with localization domain equal to a whole large-field component satisfy the worse (1.69), but CMP122-II immediately after (1.72) says those terms are included into T'_k and omitted from the V exponential. Hence the V-sector entering Eq. (1.91) is the decaying (1.68) class; no boundary B' theorem is used.
+
+Full source-native upstream:
+YM-RPRIME-UPSTREAM-C1-1 is PROVED.
+
+With
+
+P_Sigma(T',E_ren,R_ren,B_loc,K_aux)
+=
+(T',P_V(...))
+
+and normalized ||P_Sigma||<=1,
+
+U_Sigma
+=
+M_1.91^reg o P_Sigma
+
+is uniformly C^1 and
+
+sup ||D U_Sigma||
+<=
+C_U
+<=
+C_1.91.
+
+Raw/source-native pointwise Cauchy:
+for input coordinate lambda in sector s,
+
+||D_lambda U_Sigma(K)_{X'}[h]||
+<=
+(A_F/delta_up)
+w_up(lambda)
+e^{-kappa_F d_k(X')}
+||h||,
+
+with
+
+w_up(lambda)
+=
+max{
+ M_s(lambda)^(-1),
+ C_s^(-1)e^{mu_s d(X_lambda)}
+}.
+
+Exact raw support:
+- T' coordinate eta can affect F(X') only if eta subset X';
+- E_ren/R_ren/B_loc/auxiliary lambda can affect F(X') only if there exists
+  Y in Out_Sigma(lambda)
+  with Y subset X'.
+
+Downstream composition:
+YM-RPRIME-UPSTREAM-COMPOSED-C1-1 is PROVED:
+
+||D(R'_Bal o U_Sigma)||
+<=
+C_R' C_U
+<=
+C_R' C_1.91.
+
+Important remaining limitation:
+A quantitative OFF-DIAGONAL Schur kernel for the upstream producer is NOT proved. The exact frozen incidence support is known, but a marked two-anchor estimate for A_Sigma(Y,lambda) is still needed to sum the mixed coordinate regulator geometrically.
+
+Lower-level chart issue:
+YM-E-RELEVANT-EXTRACT-1 remains OPEN only for a pre-renormalization E_raw chart. CMP119 (3.64) identifies the relevant coefficient via a second-order kernel extraction. This is not required for the current source-native inductive-state theorem, where E_ren is already the state coordinate.
+
+Verified direct-primary source facts this iteration:
+- CMP122-II pp.387-389: exact (1.91) formula, frozen determining condition, regular q>=1 case, and absolute majorant (1.92)-(1.97).
+- CMP122-II pp.376-377: V(Y) is obtained by linear resummations/localizations after renormalized local atoms are supplied; the proof gives (1.68)-(1.69).
+- CMP122-II after (1.72): whole-component V terms are included into T'_k, not the V exponential.
+- CMP122-II (1.71),(1.74),(1.75),(1.89): local T operation, nonzero normalization, normalized operator bound, and the explicit extra -kappa d_k(X) tree factor.
+- CMP119 pp.259-260: E fully renormalized; R vacuum-renormalized; B unrenormalized/already localized.
+- CMP119 p.283: relevant E extraction/counterterm structure (3.64)-(3.67), used only to identify the lower-level chart issue.
 
 Current theorem status:
-YM-RPRIME-191-C1-1:
-PROVED for already-localized (T',V) coordinates under strict source-majorant slack.
+YM-RPRIME-191-C1-1: PROVED.
+YM-V-PRODUCER-BOUND-1: PROVED in source-native renormalized coordinates.
+YM-RPRIME-UPSTREAM-C1-1: PROVED in source-native renormalized coordinates.
+YM-RPRIME-UPSTREAM-COMPOSED-C1-1: PROVED.
+Upstream off-diagonal Schur: OPEN.
+Lower-level E_raw->E_ren chart transition: OPEN / OUTSIDE CURRENT UPSTREAM THEOREM.
 
-YM-RPRIME-UPSTREAM-C1-1:
-PARTIAL / BLOCKED AT YM-RPRIME-UPSTREAM-PRODUCER-1.
-
-Current blocker:
-extract the coefficient-space localization/renormalization/resummation operator producing V(Y), including its exact support kernel and anchored operator norm. Do not redo Eq. (1.91) itself.
-
-Next action:
-In a future run, trace the pp.376-377 V(Y) producer back into CMP119 Sect. 2 and isolate the E/R localization-renormalization maps as explicit bounded linear/analytic coefficient operators. This run stops before that next source extraction.
+Not attacked:
+- boundary B' lane;
+- full outer CMP119 history map;
+- physical source insertion;
+- D^2;
+- K_0;
+- STEP_0.
 
 Iteration-10 verdict:
-STATUS: EQ. (1.91) REDUCED MAP (T',V)->F BOUNDED C1 PROVED; RAW (T,E,R,B,...)->F BLOCKED AT THE V-PRODUCER.
+STATUS: SOURCE-NATIVE CMP122-II (1.91) UPSTREAM MAP BOUNDED C^1 PROVED; COMPOSED REGULAR R' MAP BOUNDED C^1 PROVED. STRONGER UPSTREAM SCHUR REMAINS OPEN.
 
 
 ## Update — Iteration 2 (YM-CROSSOVER-1 only)
