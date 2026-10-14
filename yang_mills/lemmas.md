@@ -2489,7 +2489,7 @@ with a cutoff/volume/depth-independent Cauchy margin.
 ## LEMMA ID: YM-RPRIME-EXACT-UNION-1
 
 Statement:
-For the canonical connected logarithm of the CMP122-II polymer expansion (1.90), grouped by exact union,
+For the canonical connected logarithm of the CMP122-II polymer gas (1.90), localized by exact union,
 
 M_{gamma eta}(F)
 =
@@ -2521,7 +2521,7 @@ r_col=0.
 Regular-lane consequence:
 If gamma belongs to the CMP122-II second/regular group and is disjoint from the source boundary/large-field set, every constituent eta subset gamma is also disjoint from that set. Hence first-group/boundary input activities cannot contribute to a regular output coefficient.
 
-This is the exact support theorem required by the weighted Schur test.
+This is the exact support theorem required by the weighted Schur test for the canonical source-faithful cluster-log chart. It is derived from the canonical union grouping, not claimed as a verbatim printed support equation.
 
 ---
 
