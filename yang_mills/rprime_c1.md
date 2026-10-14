@@ -415,37 +415,75 @@ e^{-theta d_k(gamma)}.                                   (R27)
 
 This is a full-Banach-space Cauchy estimate, not a coordinatewise analyticity assumption.
 
-## 11. Source-geometry Schur sum
+## 11. Bounded C^1 closes before the Schur step
 
-Define the anchor distance
+The bounded C^1 theorem does NOT require a second CMP109 summability reserve.
 
-dist_k(a,b)
+By Section 8, for every rho<r_*,
 
-as the Euclidean distance between the two rescaled unit pi_k cubes a,b.
+H_R':
+B_rho(B_in,k(mu_in))
+->
+B_out,k(theta)
 
-Because nonzero M_{gamma eta} implies
-a=s(gamma,eta) in eta subset gamma
-and b in gamma,
+is holomorphic and
 
-the source shortest-tree metric obeys
+sup_{||F||_in<=rho}
+||H_R'(F)||_theta
+<=q(rho).
 
-d_k(gamma)>=dist_k(a,b).                                  (R28)
+Hence Banach-valued Cauchy directly gives, on the smaller radius-r ball,
 
-Fix nu>0 and mu_out>=0 such that
+boxed:
+sup_{||F||_in<=r}
+||D H_R'(F)||_{B_in,k(mu_in)->B_out,k(theta)}
+<=
+q(rho)/(rho-r).                                           (R30)
+
+This constant is independent of volume, cutoff and RG depth.
+
+Thus source-uniform bounded C^1 of the regular R' coefficient map is already closed once the explicit strict radius in Section 9 has been obtained.
+
+No numerical lower bound on the source localization exponent kappa is needed beyond the explicit input-budget condition
+
+mu_in=(1+beta)kappa-lambda_in>0
+
+for some lambda_in in the already verified CMP109 summability regime.
+
+This condition is kept symbolic; no qualitative "kappa sufficiently large" statement is converted into a fake number.
+
+## 12. Quasi-local Jacobian: additional decay-budget condition
+
+For the stronger off-diagonal Jacobian estimate, use the component Cauchy bound
+
+||M_{gamma eta}(F)||
+<=
+[q(rho)/(rho-r)]
+e^{mu_in d_k(eta)}
+e^{-theta d_k(gamma)}.                                   (R31)
+
+The exact-union support theorem gives
+
+M_{gamma eta}=0 unless eta subset gamma.
+
+Let a=s(gamma,eta) be the fixed least cube of eta and let b be an output anchor in gamma. Then
+
+d_k(gamma)>=dist_k(a,b).                                  (R32)
+
+Choose nu>0 and mu_out>=0 such that
 
 lambda_res
  :=
- theta-mu_out-nu                                          (R29)
+ theta-mu_out-nu                                          (R33)
 
 lies in the CMP109 geometric-summability regime.
 
-Then (R27), (R17), and (R28) give
+Under THIS ADDITIONAL EXPLICIT DECAY-BUDGET CONDITION,
 
 sup_{eta contains a}
 [
  e^{-mu_in d_k(eta)}
- sum_{gamma contains b:
-      s(gamma,eta)=a}
+ sum_{gamma contains b:s(gamma,eta)=a}
  e^{mu_out d_k(gamma)}
  ||M_{gamma eta}(F)||
 ]
@@ -453,39 +491,36 @@ sup_{eta contains a}
 <=
 [q(rho)/(rho-r)]
 C_geo(lambda_res)
-e^{-nu dist_k(a,b)}.                                      (R30)
+e^{-nu dist_k(a,b)}.                                      (R34)
 
 Define
 
 C_lat(nu)
  :=
-sup_b sum_a e^{-nu dist_k(a,b)}.                          (R31)
+sup_b sum_a e^{-nu dist_k(a,b)}<infinity.                 (R35)
 
-The rescaled block lattice is Z^4 up to finite-volume periodic identification, so
-
-C_lat(nu)<infinity
-
-with a bound independent of scale and volume.
-
-Applying YM-HISTORY-JACOBIAN-QUASILOCAL-1,
+Then weighted Schur gives
 
 ||D H_R'(F)||_{B_in,k(mu_in)->B_out,k(mu_out)}
 <=
-C_R',                                                      (R32)
+C_R'^Schur,                                                (R36)
 
-where the explicit symbolic constant is
+where
 
-C_R'
+C_R'^Schur
  :=
 [q(rho)/(rho-r)]
 C_geo(lambda_res)
-C_lat(nu).                                                 (R33)
+C_lat(nu).                                                 (R37)
 
-All factors are defined and cutoff/volume/depth independent.
+All constants are cutoff/volume/depth independent.
 
-## 12. YM-RPRIME-C1-1
+Important honesty point:
+the existence of lambda_res in the CMP109 summability regime is NOT needed for bounded C^1 into B_out(theta). It is needed only for the stronger quasi-local Schur kernel statement. This run does not invent a numerical source threshold ensuring (R33).
 
-Theorem:
+## 13. YM-RPRIME-C1-1
+
+Theorem — bounded C^1 part:
 Fix Balaban source parameters beta,kappa and choose:
 
 1. lambda_in in the CMP109 summability regime with
@@ -499,49 +534,51 @@ Fix Balaban source parameters beta,kappa and choose:
 4. gamma_R'>0 small enough that
    r=C_geo(lambda_in)e^{-p_0(gamma_R')}<r_*;
 
-5. rho=(r+r_*)/2;
+5. rho=(r+r_*)/2.
 
-6. nu>0 and mu_out>=0 such that
-   lambda_res=theta-mu_out-nu
-   lies in the CMP109 summability regime.
-
-Then for every RG scale k with g_k<=gamma_R', the regular second-group R' cluster/log map associated with CMP122-II (1.90)-(1.100),
+Then for every RG scale k with 0<g_k<=gamma_R', the regular second-group cluster/log map associated with CMP122-II (1.90)-(1.100),
 
 H_R',k^reg:
 B_r(B_in,k(mu_in))
- ->
-B_out,k(mu_out),
+->
+B_out,k(theta),
 
-is holomorphic (in fact it is the restriction of a holomorphic map on the r_*-ball), hence C^1, and
+is the restriction of a holomorphic map on the r_*-ball and therefore is C^1, with the uniform bound
 
+boxed:
 sup_{||F||_in<=r}
 ||D H_R',k^reg(F)||
 <=
-C_R'
+C_R'^C1
+:=
+q(rho)/(rho-r).                                           (R38)
 
-with C_R' given by (R33), independent of volume, cutoff, and k.
+The constant is independent of total volume, UV cutoff and RG depth.
 
-Moreover its Jacobian is quasi-local in the weighted Schur sense (R30), and
+The actual Balaban-generated regular activity satisfies the input-ball condition because
 
-D_eta H_R',gamma=0 unless eta subset gamma.
+||F^src||_in
+<=
+C_geo(lambda_in)e^{-p_0(g_k)}
+<=r.
 
-Status:
-PROVED, using:
-- DIRECT PRIMARY CMP119 p_0 definition;
-- DIRECT PRIMARY CMP122-II (1.90)-(1.100);
-- DIRECT PRIMARY CMP109 anchored tree summability;
-- generalized KP/rooted-cluster theorem;
-- the proved tree coercivity and the elementary tree-stitching lemma above.
+Status of bounded C^1 theorem:
+PROVED FOR THE REGULAR R' CLUSTER/LOG COEFFICIENT SECTOR, under the explicit source decay-budget condition in item 1. No unnamed source convergence radius is used.
 
-This theorem is ONLY for the regular R' cluster/log coefficient sector.
+Stronger quasi-local part:
+If, in addition, there exist mu_out,nu with (R33) in the CMP109 summability regime, then the Jacobian satisfies (R34) and the Schur operator bound (R36).
 
-It does NOT prove:
-- the boundary B' lane;
-- the preceding construction map from earlier E/R/B/T data to F;
+Status of quasi-local Jacobian:
+PROVED UNDER THE EXPLICIT ADDITIONAL DECAY-BUDGET CONDITION (R33). A numerical Balaban parameter threshold for this extra reserve is not extracted.
+
+Non-claims:
+This theorem does not cover:
+- the first/boundary B' group;
+- the upstream construction of F from T/E/R/B data;
 - the full compressed history map;
-- a physical source derivative.
+- physical source differentiation.
 
-## 13. Decay-reserve wording
+## 14. Decay-reserve wording
 
 The source exponents before and after the Balaban exponentiation are
 
@@ -565,7 +602,7 @@ which also spends whatever geometric summability/off-diagonal reserves were chos
 
 These two quantities are not identified.
 
-## 14. Source insertion map status
+## 15. Source insertion map status
 
 Introduce a physical source space J_A and an insertion map
 
@@ -581,9 +618,9 @@ is made automatically.
 
 The present theorem is a coefficient-space C^1 result only.
 
-## 15. Final Iteration-8 verdict
+## 16. Final Iteration-8 verdict
 
-The requested source-instantiated bounded C^1 theorem for the REGULAR R' cluster/log sector is closed.
+The requested source-instantiated bounded C^1 theorem for the REGULAR R' cluster/log coefficient sector is closed under an explicit source decay-budget inequality. The stronger quasi-local Schur estimate is conditional on one additional explicit decay reserve.
 
 The next blocker, outside this run's allowed scope, is not R' exponentiation. It is upstream:
 the bounded C^1/source-local map that constructs the pre-exponentiation activity F from the earlier localized T/E/R/B history data (and, separately, the boundary B' lane).
