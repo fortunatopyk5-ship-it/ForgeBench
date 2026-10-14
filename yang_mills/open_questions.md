@@ -159,3 +159,16 @@ and rho=(r+r_*)/2.
 54. Source insertion interface: choose J_A and prove a bounded jmath_A:J_A->B_in before using physical sources as activity tangents.
 
 55. Synthesis: define S_A:D_A^(mu)->F_A and prove any desired boundedness separately. Act_A is only a direct-sum activity vector.
+
+
+## Iteration 9 — R' closure audit
+
+56. YM-RPRIME-NATIVE-COMPAT-1: what exactly does the prime in CMP122-II (1.90) permit? The source proves actual families are component families with pairwise disjoint cube carriers, but the converse admissibility statement has not been extracted. Find an exact iff, or construct a source-faithful support enlargement Supp_* with finite C_inc and c_stitch.
+
+57. YM-RPRIME-NATIVE-COORD-1: recover the cited series (7.13) [I] defining native R'^(k)(X). Determine whether X is literally the exact union of constituent (1.90) polymers. If not, identify the localization map L and prove it bounded between anchored spaces.
+
+58. Until 56-57 close, keep the theorem name YM-RPRIME-CANONICAL-C1-1 and do not restore the claim that native Balaban R' coefficients are C^1 in our input activity coordinates.
+
+59. General native KP correction: once C_inc,c_stitch are known, use
+r_*^corr=(a/C_inc)exp[-16a-c_stitch theta].
+Do not reuse C_inc=1,c_stitch=2 unless literal carrier-overlap compatibility is source-verified.
