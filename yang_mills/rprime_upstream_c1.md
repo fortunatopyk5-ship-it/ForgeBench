@@ -105,7 +105,7 @@ The source estimates |sigma| by 1 in the later (1.92) bound, so a crude source-u
 
 C_T=e^3.                                                  (U3)
 
-Primary (1.89), together with the sentence following it, supplies a small scalar factor for tau_X and an additional tree factor exp[-kappa d_k(X)] for arbitrary large-field-region T-operations.
+Primary (1.89), together with the sentence following it, supplies a small scalar factor for tau_X and an additional positive tree-decay factor for arbitrary large-field-region T-operations. We denote its coefficient by kappa_T below rather than identifying it silently with the downstream kappa.
 
 ### 2.2 V(Y)
 
