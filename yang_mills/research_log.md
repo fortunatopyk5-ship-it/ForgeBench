@@ -319,3 +319,63 @@ STATUS: BLOCKED AT YM-HISTORY-NORM-1.
 
 Exact continuation:
 extract the strict anchored cluster convergence radius and exact support/collar relation for the R' cluster map first; this is now the cleanest candidate for a fully source-instantiated C^1 sector.
+
+
+## 2026-10-14 — Iteration 8: regular R' cluster/log coefficient C^1
+
+Scope:
+Only the regular/second-group CMP122-II R' cluster/log coefficient map. No full outer-history map, no K_0, no STEP_0, no physical source differentiation.
+
+Naming correction:
+The typed local direct-sum object is now Act_A(F), not Rec_A(F). It is only an activity vector in D_A^(mu). A future physical synthesis map S_A:D_A^(mu)->F_A is separate and unproved.
+
+Source tangent correction:
+A physical source J_A is not automatically an activity tangent. Introduced a source space J_A and insertion map jmath_A:J_A->B_in; boundedness remains unknown.
+
+Source object:
+CMP122-II (1.90)-(1.97) gives the pre-exponentiation hard-core connected-component polymer gas and local activity F(X'). In the regular lane X' disjoint from Ycal, the relative metric equals d_k and
+|F(X')|<=e^{-p_0(g_k)}e^{-(1+beta)kappa d_k(X')}.
+
+Input norm:
+||F||_in=sup_B sum_{eta contains B} e^{mu_in d_k(eta)}||F_eta||,
+mu_in=(1+beta)kappa-lambda_in>0.
+Thus
+||F^src||_in<=C_geo(lambda_in)e^{-p_0(g_k)}.
+
+Explicit convergence radius:
+Using |eta|<=16(d(eta)+1), generalized KP weights
+a_KP=a|eta|,
+g_theta=theta d(eta)+2theta,
+and 16a+theta<=mu_in, obtained the explicit sufficient radius
+r_*=a e^{-16a-2theta}.
+This is our theorem, not a guessed Balaban threshold.
+
+Strict source radius:
+Primary CMP119 p_0(g)=A_0(log g^{-2})^{p_*}->infinity. Shrink the fixed source small-coupling threshold gamma_R' so
+r=C_geo(lambda_in)e^{-p_0(gamma_R')}<r_*,
+then rho=(r+r_*)/2 gives a uniform Cauchy margin.
+
+Support:
+The canonical connected logarithm is grouped by exact union gamma=union_i eta_i. Therefore
+D_eta H_R',gamma=0 unless eta subset gamma.
+Selector s(gamma,eta) can be any deterministic cube in eta, so the coefficient-map collar is r_col=0.
+
+Uniform holomorphy:
+The generalized rooted KP estimate plus the tree-stitching lemma gives normal convergence in the output anchored tree norm on every closed rho<r_* input ball, uniformly in finite volume and scale. Banach-valued Weierstrass therefore gives uniform holomorphy.
+
+Bounded C^1:
+Banach Cauchy yields
+sup_{||F||<=r}||D H_R'(F)||_{B_in(mu_in)->B_out(theta)}
+<=q(rho)/(rho-r),
+q(rho)=e^{16a+2theta}rho.
+This closes the requested regular R' coefficient C^1 theorem under the explicit input decay-budget condition mu_in>0.
+
+Quasi-local Jacobian:
+A stronger Schur kernel bound follows if there are mu_out,nu>0 such that
+lambda_res=theta-mu_out-nu
+is in the CMP109 summability regime. No numerical source threshold guaranteeing this extra reserve is invented.
+
+Result:
+REGULAR R' BOUNDED C^1 PROVED.
+QUASI-LOCAL SCHUR JACOBIAN PROVED UNDER AN EXPLICIT ADDITIONAL DECAY-BUDGET CONDITION.
+Broader YM-HISTORY-NORM-1 remains open upstream and in the boundary lane.
