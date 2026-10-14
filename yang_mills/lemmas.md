@@ -2995,3 +2995,102 @@ C_P
 sup||D P_Sigma||<infinity,
 
 which is not yet proved.
+
+
+---
+
+## LEMMA ID: YM-R-LOCAL-RENORM-LINEAR-1
+
+Statement:
+For a local analytic R coefficient f, the CMP119 vacuum renormalization is
+
+P_R f=f-f(1).
+
+Hence in the local H-infinity norm
+
+||P_R f||
+<=2||f||,
+
+so
+
+||P_R||<=2.
+
+Status:
+PROVED / DIRECTLY SOURCE-INSTANTIATED.
+
+Source:
+CMP119 Eq. (2.30) and the accompanying statement that only vacuum-energy renormalization is required for R.
+
+---
+
+## LEMMA ID: YM-B-LOCAL-RENORM-1
+
+Statement:
+The CMP119 B sector requires no relevant/vacuum renormalization operator before its localized resummation. After frozen history/domain labels are fixed, its contribution is assembled from already-localized analytic coefficients by signed/ordinary local sums.
+
+Status:
+KNOWN FROM DIRECT PRIMARY SOURCE.
+
+Source:
+CMP119 text after Eq. (2.33) and localized representation (2.40)-(2.42).
+
+This does not by itself prove the complete anchored incidence sum for the pp.376-377 V-producer.
+
+---
+
+## LEMMA ID: YM-E-RELEVANT-EXTRACT-1
+
+Desired statement:
+Let A_{E,j} be the scale-j native analytic Banach coordinate for a localized E coefficient. Let ell_beta,j be the coupling/relevant coefficient extraction appearing in CMP119 (3.64).
+
+Prove a scale-uniform bound, in a source-faithful normalized/derivative-weighted graded topology,
+
+sup_j
+||ell_beta,j||_{A_{E,j}->C}
+<infinity,
+
+and a compatible uniform bound for the localized action atom in CMP119 (3.65), so that the renormalization projection
+
+P_E f
+=
+f-f(1)-ell_beta,j(f)A_j
+
+is uniformly bounded.
+
+Source facts:
+- CMP119 (2.25) gives the global renormalized E combination;
+- (2.26)-(2.27) give localized E coefficients;
+- (3.64) identifies beta_j as a second-order extraction from the localized quadratic kernel;
+- (3.65) localizes the action counterterm;
+- (3.67) is the resulting renormalized local combination.
+
+Status:
+OPEN / CURRENT RAW-UPSTREAM BLOCKER.
+
+Adversarial issue:
+The native physical analytic radii alpha_0,j,alpha_1,j depend on g_j. A naive unweighted Cauchy estimate for a second derivative can grow like an inverse power of a shrinking radius. Therefore physical-field analyticity alone does not establish the desired scale-uniform coefficient operator norm.
+
+A normalized/derivative-weighted chart or an equivalent separately scaled beta-coordinate theorem is required.
+
+---
+
+## LEMMA ID: YM-V-PRODUCER-LINEAR-AFTER-RENORM-1
+
+Statement:
+Freeze the hard history/domain labels and assume the E local coefficients have already passed through a bounded renormalization projection, while R is vacuum-renormalized and B is already localized.
+
+Then the remaining pp.376-377 construction of V(Y) is a signed linear resummation over:
+- admissible auxiliary localization domains Y'_i;
+- localization domains X;
+- scale index j;
+- term types;
+- exceptional terms;
+- the final add/subtract completion of missing action terms.
+
+Status:
+ALGEBRAIC LINEARITY PROVED FROM THE SOURCE DESCRIPTION; UNIFORM ANCHORED OPERATOR CONSTANT NOT YET PACKAGED AS A SEPARATE LEMMA.
+
+Source evidence:
+CMP122-II p.376 says "we resum", "we sum", and "finally, we sum over different types"; p.377 performs a final resummation and then adds/subtracts missing action terms. No product or exponential of the E/R/B coefficient values is introduced in this producer.
+
+The source absolute summation yields (1.68)-(1.69), strongly suggesting a bounded weighted incidence operator, but a marked input-output version has not yet been written in this notebook.
