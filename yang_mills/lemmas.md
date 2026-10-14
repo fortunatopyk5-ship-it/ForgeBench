@@ -2294,151 +2294,188 @@ Therefore the cluster/log SUBMAP theorem is ready; the full source instantiation
 
 ---
 
-## LEMMA ID: YM-OVERLAP-TREE-STITCH-1
+## LEMMA ID: YM-RPRIME-NATIVE-COMPAT-1
 
 Statement:
-In the d=4 rescaled pi_k-cube geometry, let eta_1,...,eta_n be connected localization polymers whose CANONICAL CUBE-CARRIER overlap graph is connected, and let
+For the Balaban polymer system used in the exponentiation of CMP122-II (1.90), define the cube carrier
 
-gamma=union_i eta_i.
+Car(eta)
+=
+{B in pi_k : B is a pi_k cube belonging to eta},
 
-Then
+and its closed wall-neighborhood
 
-d_k(gamma)
-<=
-sum_i d_k(eta_i)+2(n-1).
+Supp_*(eta)
+=
+N_wall[Car(eta)].
+
+The native incompatibility relation is
+
+eta not~ eta'
+iff
+Car(eta') cap Supp_*(eta) != empty,
+
+equivalently iff eta cap eta' contains either a pi_k cube or a full (d-1)-wall of a pi_k cube.
+
+In d=4,
+
+#Supp_*(eta)<=9|eta|.
+
+Hence one may take
+
+C_inc=9.
+
+Moreover every incompatibility edge admits a tree stitching cost at most
+
+c_stitch=sqrt(7)
+
+in the rescaled unit-cube geometry.
 
 Status:
-PROVED FOR CARRIER-OVERLAP CONNECTIVITY.
+PROVED BY DIRECT PRIMARY SOURCE + ELEMENTARY GEOMETRY.
 
-Proof:
-Choose a shortest tree T_i inside each eta_i. Choose a spanning tree of the overlap graph. If eta_i and eta_j overlap, they share a unit pi_k cube Q. Both T_i and T_j meet Q. Join their meeting points by a line segment inside Q. The segment lies in eta_i union eta_j and has length at most the Euclidean diameter of a four-dimensional unit cube, sqrt(4)=2. Add one such segment for each of the n-1 spanning-tree edges. The resulting connected graph lies in gamma and intersects every cube of every eta_i.
+Source:
+Published CMP116 Eq. (2.11) defines the incompatibility function zeta(Z,Z') to vanish exactly when Z cap Z' contains a cube or a wall of a cube. CMP122-II (1.90) is exponentiated by the same legacy cluster construction; the source-crosswalk is recorded in YM-RPRIME-NATIVE-COORD-1.
 
-Purpose:
-This is the exact geometric bridge from a generalized KP cluster weight to the Balaban output tree weight.
+Proof of C_inc:
+A four-dimensional cube has 8 wall-neighbors. Therefore the closed one-step wall-neighborhood of a carrier of |eta| cubes contains at most 9|eta| cubes.
+
+Proof of c_stitch:
+If eta not~ eta', choose carrier cubes B,B' that either coincide or share a wall. A shortest tree inside each polymer meets the chosen cube. In the worst case B union B' is a rectangular box with side lengths 2,1,1,1 and diameter sqrt(7). Join the two meeting points inside this box.
 
 ---
 
-## LEMMA ID: YM-RPRIME-CANONICAL-TREE-KP-BALL-1
+## LEMMA ID: YM-RPRIME-NATIVE-TREE-STITCH-1
 
 Statement:
-Let P_k be the hard-core connected-polymer family occurring in CMP122-II Eq. (1.90), with incompatibility by overlap of localization supports. Let A be a commutative unital Banach algebra and let F_eta in A.
+Let eta_1,...,eta_n be localization polymers whose native Balaban incompatibility graph is connected and set
 
-Define
+gamma=union_i eta_i.
 
-||F||_{mu_in}
-=
-sup_B
-sum_{eta contains B}
-e^{mu_in d_k(eta)}||F_eta||_A.
+Then in d=4,
 
-Fix a>0 and theta>0 satisfying
-
-16a+theta<=mu_in.
-
-Define
-
-r_*=a exp[-16a-2theta].
-
-Then on every ball ||F||_{mu_in}<r_*:
-
-1. the generalized Kotecky-Preiss criterion holds with
-
-a_KP(eta)=a|eta|,
-g_theta(eta)=theta d_k(eta)+2theta;
-
-2. the canonical connected logarithm
-
-H(F)_gamma
-=
-sum_{n>=1}1/n!
-sum_{eta_1,...,eta_n:
-     incompatibility graph connected,
-     union_i eta_i=gamma}
-phi^T(eta_1,...,eta_n)
-product_i F_eta_i
-
-converges absolutely;
-
-3. H(F) belongs to the output anchored space
-
-||K||_theta
-=
-sup_B sum_{gamma contains B}
-e^{theta d_k(gamma)}||K_gamma||_A;
-
-4. for every rho<r_* and ||F||<=rho,
-
-||H(F)||_theta
+d_k(gamma)
 <=
-q(rho):=e^{16a+2theta}rho<a;
-
-5. H:B_{r_*}(B_in(mu_in))->B_out(theta) is holomorphic, uniformly in finite volume and scale.
+sum_i d_k(eta_i)
++
+sqrt(7)(n-1).
 
 Status:
 PROVED.
 
 Proof:
-By YM-BALABAN-TREE-COERCIVITY-1,
+Choose a spanning tree of the incompatibility graph. Apply the per-edge stitching bound c_stitch=sqrt(7) from YM-RPRIME-NATIVE-COMPAT-1 to its n-1 edges.
+
+---
+
+## LEMMA ID: YM-RPRIME-NATIVE-TREE-KP-BALL-1
+
+Statement:
+Let the input activity family F be indexed by the native Balaban localization polymers with cube-or-wall incompatibility. Define
+
+||F||_{mu_in}
+=
+sup_B
+sum_{eta: B in Car(eta)}
+e^{mu_in d_k(eta)}||F_eta||_A.
+
+Fix a,theta>0 satisfying
+
+16a+theta<=mu_in.
+
+Define
+
+g_theta(eta)
+=
+theta d_k(eta)+sqrt(7)theta,
+
+q_native(rho)
+=
+exp(16a+sqrt(7)theta)rho,
+
+and
+
+r_*^native
+=
+(a/9)exp[-16a-sqrt(7)theta].
+
+Then every ball
+
+||F||_{mu_in}<r_*^native
+
+satisfies the generalized Kotecky-Preiss criterion with
+
+a_KP(eta)=a|eta|,
+g=g_theta.
+
+The exact-union connected logarithm converges absolutely and normally in the anchored output norm
+
+||K||_theta
+=
+sup_B sum_{X containing B}
+e^{theta d_k(X)}||K_X||_A,
+
+uniformly in finite volume and scale. In particular it is Banach-holomorphic.
+
+Status:
+PROVED.
+
+Proof:
+The d=4 coercivity gives
 
 |eta|<=16(d_k(eta)+1).
 
-Hence
+Thus
 
-a|eta|+theta d_k(eta)+2theta
+a|eta|+g_theta(eta)
 <=
-mu_in d_k(eta)+16a+2theta,
+mu_in d_k(eta)+16a+sqrt(7)theta,
 
-and therefore
+so the rooted activity sum is at most q_native(rho).
 
-sup_B sum_{eta contains B}
-||F_eta||e^{a|eta|+g_theta(eta)}
+By YM-RPRIME-NATIVE-COMPAT-1,
+
+sum_{eta not~ eta_0}
+||F_eta|| e^{a|eta|+g_theta(eta)}
 <=
-e^{16a+2theta}||F||_{mu_in}
-=q.
+9|eta_0|q_native(rho).
 
-For a polymer eta_0,
+If rho<r_*^native, then
 
-sum_{eta incompatible with eta_0}
-||F_eta||e^{a|eta|+g_theta(eta)}
-<=
-|eta_0|q
-<
-a|eta_0|,
+9q_native(rho)<a,
 
-which is the generalized KP hypothesis.
+which is the KP hypothesis.
 
-For a connected cluster, YM-OVERLAP-TREE-STITCH-1 gives
+For a connected cluster, YM-RPRIME-NATIVE-TREE-STITCH-1 gives
 
 e^{theta d_k(union_i eta_i)}
 <=
-product_i e^{theta d_k(eta_i)+2theta}
-=
-product_i e^{g_theta(eta_i)}.
+product_i e^{theta d_k(eta_i)+sqrt(7)theta}.
 
-If the cluster union contains an anchor B, mark one constituent polymer containing B. The rooted generalized KP estimate bounds the remaining connected cluster sum by exp[a|eta_root|]. Summing the root therefore gives at most q. This proves the output anchored bound.
-
-The same absolute majorant is uniform on every closed ball rho<r_*. The finite-volume cluster series consists of Banach-algebra-valued holomorphic polynomials, so normal convergence plus the Banach-valued Weierstrass theorem gives holomorphy.
+The rooted generalized KP bound therefore controls the complete anchored output norm and provides a normal-convergence majorant. Banach-valued Weierstrass yields holomorphy.
 
 Remark:
-r_* is a sufficient explicit radius, not an optimal reconstruction of Balaban's unnamed convergence threshold.
+The earlier radius
+a exp[-16a-2theta]
+belongs only to the stricter carrier-overlap-only toy/canonical compatibility. It is superseded for native Balaban compatibility.
 
 ---
 
 ## LEMMA ID: YM-RPRIME-SOURCE-INPUT-1
 
 Statement:
-Fix the CMP122-II exponentiation step and the frozen domains Y_1,...,Y_m. Let
+Fix the CMP122-II exponentiation step and frozen domains Y_1,...,Y_m. Let
 
 Ycal=union_i Y_i.
 
-For a pre-exponentiation activity eta=X' disjoint from Ycal, Eq. (1.97) and the relative-size definition (1.67) imply
+For a regular pre-exponentiation activity eta=X' disjoint from Ycal, CMP122-II (1.97) gives
 
 ||F_eta^src||
 <=
 e^{-p_0(g_k)}
 e^{-(1+beta)kappa d_k(eta)}.
 
-Choose lambda_in in the CMP109 geometric-summability regime and set
+Choose lambda_in with C_geo(lambda_in)<infinity and set
 
 mu_in=(1+beta)kappa-lambda_in>0.
 
@@ -2448,121 +2485,88 @@ Then
 <=
 C_geo(lambda_in)e^{-p_0(g_k)}.
 
-Primary CMP119 defines
+Because primary CMP119 has
 
-p_0(g)=A_0(log g^{-2})^{p_*}
+p_0(g)=A_0(log g^{-2})^{p_*},
 
-with p_*>0 an integer. Therefore for 0<g<=gamma<1,
+p_*>0,
 
-p_0(g)>=p_0(gamma)
+the right-hand side tends to zero as the fixed small-coupling threshold gamma tends to zero.
 
-and
+Consequently, for the corrected native radius r_*^native of YM-RPRIME-NATIVE-TREE-KP-BALL-1 there exists a fixed gamma_R'>0 such that
 
-C_geo(lambda_in)e^{-p_0(gamma)} ->0
-
-as gamma->0.
-
-Consequently, for every fixed positive target radius r_*, there exists gamma_*>0 such that all source couplings g_k<=gamma_* give
-
-||F^src||_{mu_in}
-<=
-r:=C_geo(lambda_in)e^{-p_0(gamma_*)}
+r
+:=
+C_geo(lambda_in)e^{-p_0(gamma_R')}
 <
-r_*.
+r_*^native,
+
+and for all g_k<=gamma_R',
+
+||F^src||_{mu_in}<=r.
 
 Status:
-DIRECT PRIMARY SOURCE + PROVED SUMMATION/SMALL-COUPLING CONSEQUENCE.
-
-Use:
-With r_* from YM-RPRIME-CANONICAL-TREE-KP-BALL-1, set
-
-rho=(r+r_*)/2.
-
-Then
-
-r<rho<r_*
-
-with a cutoff/volume/depth-independent Cauchy margin.
+DIRECT PRIMARY SOURCE + PROVED SUMMATION CONSEQUENCE.
 
 ---
 
-## LEMMA ID: YM-RPRIME-CANONICAL-EXACT-UNION-1
+## LEMMA ID: YM-RPRIME-NATIVE-COORD-1
 
 Statement:
-For the canonical connected logarithm of the CMP122-II polymer gas (1.90), localized by exact union,
+The local coefficients R'^(k)_Bal(X) appearing after CMP122-II (1.98) are the exact-union connected Ursell/log coefficients of the polymer activities F(X') from (1.90):
 
-M_{gamma eta}(F)
+R'^(k)_Bal(X)
 =
-D_eta H(F)_gamma
+sum_{n>=1} 1/n!
+sum_{X'_1,...,X'_n:
+     union_i X'_i=X}
+rho^T(X'_1,...,X'_n)
+product_i F(X'_i),
 
-vanishes unless
+where rho^T is the connected-graph coefficient built from the cube-or-wall compatibility function zeta.
 
-eta subset gamma.
+Equivalently,
+
+R'^(k)_Bal(X)=H_X^can(F)
+
+coordinatewise.
 
 Status:
-PROVED.
+PROVED BY SOURCE CROSSWALK.
 
-Proof:
-Every monomial contributing to H(F)_gamma is indexed by a connected input family with union exactly gamma. A derivative with respect to F_eta is nonzero only when eta is one of those inputs.
+Source crosswalk:
+1. CMP122-II says its first exponentiation operation is the Mayer expansion "the same as in (7.1) [I]".
+2. The bibliography identifies [I] with CMP109 (1987).
+3. The published CMP109 version ends before the localization/cluster-expansion construction and explicitly says that construction is deferred to the next paper.
+4. That next paper, published CMP116 (1988), Sect. 2 begins with the Mayer expansion Eq. (2.1).
+5. CMP116 Eq. (2.11) gives the polymer compatibility function, Eq. (2.12) the connected logarithm, and Eq. (2.13) the localized coefficient with the exact-union condition union_i Z_i=X.
+6. CMP122-II then states that R'^(k)(X) is given by the convergent series "(7.13) [I]" with proper notational changes.
 
-Selector:
-Fix a total ordering of pi_k cubes and, for every nonzero pair, let
+The two matching anchors (legacy 7.1 <-> published 2.1 and legacy 7.13 <-> published 2.13), together with CMP109's explicit deferral of the cluster construction, identify the legacy manuscript numbering with the separately published CMP116 Sect. 2.
 
-s(gamma,eta)
+No extra localization map L occurs after the connected Ursell sum in this route.
 
-be the least cube of eta. Then
+Corollary:
+For the native derivative kernel,
 
-s(gamma,eta) in eta subset gamma.
+D_eta R'^(k)_Bal(X)=0
 
-Thus the polymer-support collar is exactly
+unless
+
+eta subset X.
+
+Thus the derivative-support collar is
 
 r_col=0.
 
-Regular-lane consequence:
-If gamma belongs to the CMP122-II second/regular group and is disjoint from the source boundary/large-field set, every constituent eta subset gamma is also disjoint from that set. Hence first-group/boundary input activities cannot contribute to a regular output coefficient.
-
-This is the exact support theorem required by the weighted Schur test for the canonical source-faithful cluster-log chart. It is derived from the canonical union grouping, not claimed as a verbatim printed support equation.
-
 ---
 
-## LEMMA ID: YM-RPRIME-CANONICAL-UNIFORM-HOLOMORPHY-1
+## LEMMA ID: YM-RPRIME-C1-1
 
 Statement:
-Under the hypotheses of YM-RPRIME-CANONICAL-TREE-KP-BALL-1, let rho<r_*. Then the finite-volume canonical logarithms converge normally, uniformly in volume and scale, as maps
+Fix source parameters beta,kappa and choose lambda_in such that
 
-H:
-B_rho(B_in(mu_in))
-->
-B_out(theta),
-
-and
-
-sup_{||F||<=rho}
-||H(F)||_theta
-<=
-q(rho).
-
-Therefore the uniform/infinite-volume local coefficient map is Banach-holomorphic.
-
-Status:
-PROVED.
-
-Reason:
-The generalized KP rooted majorant is volume independent and bounds the complete absolute output activity norm. It therefore supplies a common normally convergent majorant on every closed ball rho<r_*. Banach-valued Weierstrass applies.
-
-Important:
-This is analyticity with respect to ACTIVITY COEFFICIENTS. It does not use, and does not prove, a normalized complex collar in the physical field/source variables (U,J).
-
----
-
-## LEMMA ID: YM-RPRIME-CANONICAL-C1-1
-
-
-Iteration-9 source audit:
-This lemma is about the explicitly defined CANONICAL carrier-overlap exact-union chart. It is no longer claimed as a theorem about Balaban's native R'^(k)(X) coordinates. The source prime in (1.90) is only partially characterized, and native R' is defined through a cited series (7.13) [I] whose coordinate localization formula has not been recovered.
-
-Statement — bounded C^1:
-Fix source parameters beta,kappa. Choose lambda_in in the CMP109 summability regime such that
+C_geo(lambda_in)<infinity,
 
 mu_in=(1+beta)kappa-lambda_in>0.
 
@@ -2570,11 +2574,12 @@ Choose a,theta>0 with
 
 16a+theta<=mu_in,
 
-and define
+and define the corrected native radius
 
-r_*=a exp[-16a-2theta].
+r_*=
+(a/9)exp[-16a-sqrt(7)theta].
 
-Choose gamma_R'>0 so small that
+Choose gamma_R'>0 sufficiently small that
 
 r=C_geo(lambda_in)e^{-p_0(gamma_R')}<r_*,
 
@@ -2582,153 +2587,80 @@ and set
 
 rho=(r+r_*)/2.
 
-Then for every scale k with 0<g_k<=gamma_R', the regular second-group CMP122-II R' cluster/log coefficient map
+Then for every scale k with 0<g_k<=gamma_R', the native regular/second-group Balaban coefficient map
 
-H_R',k^reg:
+R'^(k)_Bal:
 B_r(B_in,k(mu_in))
 ->
 B_out,k(theta)
 
-is the restriction of a holomorphic map on the r_*-ball and hence is C^1. Moreover
+is the restriction of a Banach-holomorphic map on the r_*-ball and hence is C^1. With
+
+q_native(rho)
+=
+e^{16a+sqrt(7)theta}rho,
+
+one has
 
 sup_{||F||_in<=r}
-||D H_R',k^reg(F)||
+||D R'^(k)_Bal(F)||
 <=
-C_R'^C1,
-
-where
-
 C_R'^C1
-=
-q(rho)/(rho-r),
+:=
+q_native(rho)/(rho-r).
 
-q(rho)=e^{16a+2theta}rho.
-
-The constant is independent of volume, UV cutoff, and RG depth.
-
-Source input:
-The actual Balaban regular pre-exponentiation activity satisfies
-
-||F^src||_in
-<=
-C_geo(lambda_in)e^{-p_0(g_k)}
-<=r.
+The bound is independent of volume, UV cutoff and RG depth.
 
 Status:
-PROVED FOR THE REGULAR R' CLUSTER/LOG COEFFICIENT SECTOR, under the explicit source decay-budget condition mu_in>0.
+PROVED FOR THE NATIVE REGULAR R' CLUSTER/LOG COEFFICIENT MAP.
 
-No unnamed or fake cluster-convergence radius is used: r_* is the explicit sufficient radius from YM-RPRIME-CANONICAL-TREE-KP-BALL-1.
+Dependencies:
+YM-RPRIME-NATIVE-COMPAT-1,
+YM-RPRIME-NATIVE-TREE-STITCH-1,
+YM-RPRIME-NATIVE-TREE-KP-BALL-1,
+YM-RPRIME-SOURCE-INPUT-1,
+YM-RPRIME-NATIVE-COORD-1,
+YM-BANACH-CAUCHY-C1-1.
 
 Stronger quasi-local Jacobian:
-If there also exist mu_out>=0 and nu>0 such that
+If there exist mu_out>=0 and nu>0 such that
 
 lambda_res
 =
 theta-mu_out-nu
 
-lies in the CMP109 summability regime, then
+satisfies
+
+C_geo(lambda_res)<infinity,
+
+then the exact-union support theorem and component Cauchy estimate imply
 
 sup_{eta contains a}
 [
 e^{-mu_in d_k(eta)}
-sum_{gamma contains b:s(gamma,eta)=a}
-e^{mu_out d_k(gamma)}
-||D_eta H_R',gamma(F)||
+sum_{X contains b:s(X,eta)=a}
+e^{mu_out d_k(X)}
+||D_eta R'^(k)_Bal,X(F)||
 ]
 
 <=
-[q(rho)/(rho-r)]
+[q_native(rho)/(rho-r)]
 C_geo(lambda_res)
-e^{-nu dist_k(a,b)},
+e^{-nu dist_k(a,b)}.
 
-and therefore
+Hence
 
-||D H_R',k^reg(F)||_{B_in(mu_in)->B_out(mu_out)}
+||D R'^(k)_Bal(F)||_{B_in(mu_in)->B_out(mu_out)}
 <=
-[q(rho)/(rho-r)]
+[q_native(rho)/(rho-r)]
 C_geo(lambda_res)
 C_lat(nu).
 
-Status of this stronger statement:
-PROVED UNDER THE EXPLICIT ADDITIONAL DECAY-BUDGET CONDITION lambda_res in the CMP109 summability regime.
+Status of stronger statement:
+PROVED UNDER THE EXPLICIT ADDITIONAL DECAY-BUDGET CONDITION
+C_geo(theta-mu_out-nu)<infinity.
 
-No numerical Balaban threshold guaranteeing this extra reserve is claimed.
-
-Dependencies:
-YM-RPRIME-SOURCE-INPUT-1,
-YM-RPRIME-CANONICAL-TREE-KP-BALL-1,
-YM-RPRIME-CANONICAL-EXACT-UNION-1,
-YM-RPRIME-CANONICAL-UNIFORM-HOLOMORPHY-1,
-YM-BANACH-CAUCHY-C1-1,
-and, for the stronger statement, YM-HISTORY-JACOBIAN-QUASILOCAL-1.
+No numerical Balaban kappa threshold is claimed.
 
 Non-claims:
-No boundary B' lane, no upstream T/E/R/B -> F map, no full compressed history map, and no physical source derivative.
-
-
-
----
-
-## LEMMA ID: YM-RPRIME-NATIVE-COMPAT-1
-
-Statement needed:
-Extract from CMP122-II (1.90) an exact native incompatibility relation not~_src and a support map Supp_* such that
-
-eta not~_src eta'
-iff
-Supp_*(eta) cap Supp_*(eta') != empty,
-
-with
-
-#Supp_*(eta)<=C_inc |eta|
-
-for a cutoff/volume/scale-uniform C_inc<infinity, and prove a per-edge tree connection cost c_stitch<infinity.
-
-Direct-primary progress:
-Every actual primed family consists of distinct components of Balaban's special component decomposition, hence the pi_k-cube carriers of its members are pairwise disjoint.
-
-Missing:
-The converse that every pairwise cube-carrier-disjoint family is admissible under the prime, or an alternative exact support enlargement describing any additional incompatibilities.
-
-Status:
-OPEN.
-
-Consequence:
-The native KP radius is only conditional:
-
-r_*^corr
-=
-(a/C_inc) exp[-16a-c_stitch theta].
-
-The canonical carrier-overlap specialization has C_inc=1, c_stitch=2.
-
----
-
-## LEMMA ID: YM-RPRIME-NATIVE-COORD-1
-
-Statement needed:
-Identify Balaban's native localization coordinates after (1.98).
-
-Either prove
-
-R'^(k)_Bal(X)=H_X^can(F)
-
-for the canonical exact-union logarithm of the (1.90) polymer gas, or construct a bounded localization/change-of-coordinate map L with
-
-R'_Bal=L(H^can).
-
-Source fact:
-CMP122-II after (1.98) states that R'^(k)(X) is given by convergent series (7.13) [I], with proper notational changes.
-
-Audit:
-The accessible published CMP109 [I] does not expose/recover this cited formula under that numbering. Equality of the total logarithm does not imply coordinatewise equality.
-
-Status:
-OPEN.
-
-If a bounded linear L:B_theta->B_theta' is found, then
-
-||D R'_Bal||
-<=
-||L|| ||D H^can||.
-
+No upstream Eq. (1.91) derivative theorem, no boundary B' theorem, no full history map, no physical source insertion, no K_0, and no STEP_0.
