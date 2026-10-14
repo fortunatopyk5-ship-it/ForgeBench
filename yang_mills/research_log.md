@@ -436,3 +436,31 @@ the assertion that Balaban's native R'^(k)(X) coefficient map has already been p
 New exact blockers:
 YM-RPRIME-NATIVE-COMPAT-1;
 YM-RPRIME-NATIVE-COORD-1.
+
+
+### Iteration 9 final correction after deeper primary-source crosswalk
+
+The temporary Case-3/UNKNOWN verdict was superseded.
+
+A second primary-source pass found the exact published cluster formulas in CMP116:
+- Eq. (2.11): zeta(Z,Z')=0 exactly for cube-or-wall contact;
+- Eq. (2.12): connected Ursell logarithm;
+- Eq. (2.13): localized coefficient grouped by exact union.
+
+Why this applies to CMP122-II:
+CMP122-II cites its first Mayer operation as "(7.1) [I]" and later native R'^(k)(X) as "(7.13) [I]". Its [I] bibliography entry is CMP109. The published CMP109 ends before this cluster localization and says it is deferred to the next paper. Published CMP116 is that next paper and its Sect. 2 begins with Mayer Eq. (2.1). This supplies a two-anchor legacy-numbering crosswalk:
+7.1 -> 2.1,
+7.13 -> 2.13.
+
+Therefore:
+COORDINATE IDENTIFICATION = EXACT (source-crosswalk verified).
+
+Native compatibility is cube-or-wall, so the previous Iteration-8 constants were corrected:
+C_inc: 1 -> 9,
+c_stitch: 2 -> sqrt(7),
+r_*: a e^{-16a-2theta}
+   -> (a/9)e^{-16a-sqrt(7)theta}.
+
+The native regular R' bounded C1 theorem survives after this stricter audit with the corrected radius.
+
+No upstream Eq. (1.91) analysis was performed.
