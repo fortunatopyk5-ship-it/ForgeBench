@@ -186,3 +186,40 @@ REFERENCE CHECK:
 
 Iteration-9 provenance rule:
 Canonical exact-union grouping is OUR explicit chart for the (1.90) polymer gas. Its derivative-support theorem is rigorous in that chart. Native Balaban coordinate identification remains a separate source obligation.
+
+
+Iteration 9 FINAL correction — resolving the legacy cluster references:
+
+CMP122-II bibliography:
+- [I] = CMP109 (1987), "Renormalization group approach ... I";
+- [II] = CMP116 (1988), "Renormalization group approach ... II. Cluster expansions".
+
+The printed CMP122-II text nevertheless cites legacy formulas "(7.1) [I]" and "(7.13) [I]".
+The published CMP109 version ends before the required cluster-localization construction and explicitly states that the localization and cluster expansion will be constructed in the next paper.
+
+Published CMP116 is exactly that next cluster-expansion paper. Its Sect. 2 supplies the formula-level crosswalk:
+- CMP116 (2.1): first Mayer-expansion step;
+- CMP116 (2.11): polymer expansion and exact incompatibility function zeta;
+- CMP116 (2.12): connected-graph/Ursell logarithm;
+- CMP116 (2.13): local coefficient grouped by exact target union union_i Z_i=X.
+
+CMP122-II p.387 independently says its first R-operation exponentiation step is the Mayer expansion "the same as in (7.1) [I]".
+CMP122-II p.390 says native R'^(k)(X) is given by the convergent series "(7.13) [I]" with proper notational changes.
+
+Together these two anchors resolve the legacy manuscript numbering as:
+legacy (7.1)[I] <-> published CMP116 (2.1),
+legacy (7.13)[I] <-> published CMP116 (2.13).
+
+This source crosswalk is now used to identify native R'^(k)(X) with the exact-union connected coefficient, rather than inferring coordinate equality from equality of total logarithms.
+
+Exact published compatibility from CMP116 (2.11):
+zeta(Z,Z')=0 iff Z cap Z' contains a cube or a wall of a cube; zeta=1 otherwise.
+
+Iteration-9 geometry derived from that source convention in d=4:
+- incompatibility support = closed one-step wall-neighborhood of the cube carrier;
+- C_inc=9;
+- tree-stitch cost c_stitch=sqrt(7);
+- corrected native sufficient KP radius
+  r_*=(a/9)exp[-16a-sqrt(7)theta].
+
+The earlier Iteration-8 radius a exp[-16a-2theta] is retained only as a theorem for literal cube-overlap compatibility and is not used as the native Balaban radius.
