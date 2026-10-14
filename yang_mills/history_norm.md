@@ -288,7 +288,7 @@ The source estimates (L3),(L7) prove finite H_0^loc for important history-genera
 
 A cutoff/RG-depth-uniform H_1^loc for the full Balaban source map is not yet extracted.
 
-## 8. YM-HISTORY-RECON-LOCAL-1 — TYPED CORRECTION
+## 8. YM-LOCAL-ACTIVITY-VECTOR-1 — TYPED ACTIVITY VECTOR
 
 Iteration 6 wrote the formal sum
 
@@ -466,7 +466,7 @@ SOLVED / PROVED:
 - connected-log-density/activity space is the correct local/relative target;
 - CMP109 gives volume-uniform anchored summability of exponential tree weights;
 - CMP122-II provides source-derived local T-history and R-history connected activity bounds;
-- the local reconstruction theorem YM-HISTORY-RECON-LOCAL-1;
+- the local activity-vector theorem YM-LOCAL-ACTIVITY-VECTOR-1;
 - exact remote cancellation at the level of local connected log-activity projection;
 - tree normalization has no missing M.
 
