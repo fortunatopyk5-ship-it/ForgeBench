@@ -223,3 +223,42 @@ Iteration-9 geometry derived from that source convention in d=4:
   r_*=(a/9)exp[-16a-sqrt(7)theta].
 
 The earlier Iteration-8 radius a exp[-16a-2theta] is retained only as a theorem for literal cube-overlap compatibility and is not used as the native Balaban radius.
+
+
+Iteration 10 — direct-primary CMP122-II Eq. (1.91) ledger:
+
+Printed p.387:
+- after the previous T/history bounds, Balaban starts the exponentiated cluster construction for the curly bracket of (1.72);
+- the first step is Mayer expansion;
+- raw terms are indexed by T-domains {X_1,...,X_n} and a subfamily D of local V-domains;
+- their raw localization set is X'_0=(union_{Y in D}Y) union (union_j X_j);
+- the special component rule first takes components outside union_iY_i and joins two when they lie in one localization domain Y from the product.
+
+Printed p.388:
+- the raw expression factorizes in the resulting components X'_p;
+- resumming at fixed components gives (1.90);
+- Eq. (1.91) defines F(X') exactly as the q/X_j/D sum of
+  [product_{Y in D} int_0^1 dt(Y)]
+  [product_h T'_k(X_{j_h})]
+  [product_{Y in D}V(Y)]
+  exp[sum_{Y in D}t(Y)V(Y)];
+- the sentence after (1.91) states that only data determining the connected localization domain X' are summed.
+
+Printed pp.378-379:
+- T'_k(X) is a local integral operation, Eq. (1.71);
+- all expressions in that integral are localized in X;
+- the R-operation (1.72) contains the product of T'_k(X_j) acting on exp(sum_Y V(Y,U_k));
+- V(Y,U_k) depends on the restricted local history/determining data.
+
+Printed p.380:
+- (1.74) gives nonvanishing of T'_k(X,(U,J))1 in the source analytic regime;
+- (1.75) bounds the normalized local operator by exp(3 sup|sigma|).
+
+Printed pp.376-377:
+- V(Y) is produced before (1.68) by repeated localization/resummation of E-, R-, boundary-, and old determining-set terms;
+- the source explicitly says E/R terms include the renormalization described in CMP119 Sect. 2;
+- after adding missing action terms and subtracting them from the residual, the resulting local objects are still denoted V(Y);
+- (1.68),(1.69) are bounds on this already-resummed output.
+
+Iteration-10 interpretation:
+Eq. (1.91) itself is an analytic Mayer/operator resummation in the already-localized coordinates (T',V). The raw E/R/B -> V producer precedes (1.91) and is a separate coefficient-space boundedness obligation.
