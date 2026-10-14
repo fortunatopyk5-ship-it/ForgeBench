@@ -126,3 +126,32 @@ Iteration 7 source/C1 audit:
 - CMP116 support/locality extraction: localized cluster terms are built from restricted fields on a connected component plus source-specific base-cube/collar enlargement. The exact support-enlargement dictionary is still an explicit open obligation; this is precisely the missing r_col input for YM-CLUSTER-JACOBIAN-SCHUR-1.
 - CMP122-II (1.97)-(1.99): the R' exponentiation step visibly changes the tree exponent from (1+beta)kappa for the connected pre-exponentiation activity to (1+beta/2)kappa for the post-exponentiation local log-activity. Iteration 7 records this as the source-visible decay loss beta*kappa/2.
 - CMP122-II (1.99) also records an analytic extension of the localized R' term in the source field/source variables. This is not by itself analyticity of the map with respect to arbitrary anchored input activity coefficients; the latter is obtained only after a strict cluster-expansion convergence-ball theorem is identified.
+
+
+Iteration 8 — direct-primary source ledger for regular R' C^1:
+
+CMP122-II, printed pp.388-390:
+- Eq. (1.90): after decomposition into connected components X'_p and resummation at fixed components, the R-operation factor has a hard-core polymer expansion 1+sum' product_p F(X'_p).
+- Eq. (1.91): F(X') is obtained by resumming the source expressions determining the connected localization domain X'.
+- Eq. (1.97): connected pre-exponentiation activity bound
+  |F(X')| <= c_1 exp[-(1+beta)kappa d_{k,Ycal}(X')],
+  where c_1=exp[-p_0(g_k)] if X' is disjoint from Ycal=union_iY_i, and c_1=alpha_LF^(1/3) in the boundary-intersecting lane.
+- The source text around (1.97) gives explicit sufficient smallness inequalities for alpha_LF^(1/3) and exp[-p_0(g_k)/2] in terms of beta,kappa and states that g_k is chosen sufficiently small for the displayed absorptions.
+- Eq. (1.98): the convergent cluster expansion is exponentiated as exp R'^(k)=exp(sum_X R'^(k)(X)).
+- Eq. (1.99): general post-log local activity decay uses the relative metric and exponent (1+beta/2)kappa.
+- Eq. (1.100): the second/regular group, disjoint from the indicated large-field set, has c_1=exp[-p_0(g_k)] and ordinary d_k(X):
+  |R'^(k)(X)| <= exp[-p_0(g_k)] exp[-kappa d_k(X)].
+- The first group is assigned to boundary B' terms and is not included in YM-RPRIME-C1-1.
+
+CMP122-II Eq. (1.67):
+- d_{k,Z}(Y) is the shortest-tree size measuring components of Y\Z. Therefore for Y disjoint from Z, d_{k,Z}(Y)=d_k(Y). This is used to turn the regular pre-exponentiation (1.97) bound into an ordinary d_k anchored input estimate.
+
+CMP119 introduction:
+- p_0(g) has the source polylogarithmic form A_0(log g^{-2})^{p_*} with positive p_*. Hence p_0(g)->infinity as g->0. This is used only to choose a fixed small-coupling threshold placing the actual source activity strictly inside the explicit KP ball.
+
+Iteration-8 derived theorem discipline:
+- The explicit activity convergence radius
+  r_*=a exp[-16a-2theta]
+  is NOT quoted as Balaban's hidden threshold. It is a new sufficient radius derived from generalized Kotecky-Preiss plus the already-proved d=4 tree coercivity.
+- The regular cluster/log bounded C^1 theorem uses only this explicit ball and the primary source input bound.
+- The stronger quasi-local Schur estimate additionally assumes theta-mu_out-nu remains in the CMP109 geometric-summability regime; no numerical Balaban kappa threshold is inferred from qualitative "sufficiently large" language.
